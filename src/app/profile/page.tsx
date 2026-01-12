@@ -23,8 +23,7 @@ const PageProfileProdi = () => {
           />
         </div>
       </div>
-
-      <div className="h-screen w-full bg-pink-50"></div>
+      
     </>
   )
 }
