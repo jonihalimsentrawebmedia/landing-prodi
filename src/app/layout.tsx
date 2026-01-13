@@ -4,6 +4,7 @@ import './globals.css'
 import React from 'react'
 import Providers from '@/provider'
 import { LandingLayout } from '@/components/layout'
+import { ToastContainer } from 'react-toastify'
 
 const geistSans = Geist({
   variable: '--font-geist-sans',
@@ -29,7 +30,15 @@ export default function RootLayout({
     <html lang="en">
       <body className={`${geistSans.variable} ${geistMono.variable} antialiased`}>
         <Providers>
-          <LandingLayout>{children}</LandingLayout>
+          <LandingLayout>
+            {children}
+            <ToastContainer
+              position="top-right"
+              theme="colored"
+              pauseOnHover={false}
+              closeOnClick={true}
+            />
+          </LandingLayout>
         </Providers>
       </body>
     </html>

@@ -126,6 +126,49 @@
     @apply xl:max-w-7xl mx-auto
 }
 
+
 .embla__slide {
-    transition-timing-function: cubic-bezier(0.5, 0, 0.2, 1);
+    opacity: 0;
+    transition-property: opacity;
+    transition-duration: 5s; /* durasi fade 1 detik */
+    transition-delay: 5s; /* delay 1 detik sebelum fade */
+    transition-timing-function: ease-in;
+}
+
+.embla__slide.is-selected {
+    opacity: 1;
+}
+
+@layer components {
+    .html-class ol {
+        @apply list-decimal pl-5;
+    }
+
+    .html-class ol li {
+        @apply dark:text-white;
+    }
+}
+
+.html-class h1 {
+    @apply text-2xl font-semibold;
+}
+
+.html-class h2 {
+    @apply text-xl font-semibold;
+}
+
+.html-class h3 {
+    @apply text-lg font-semibold;
+}
+
+.html-class h4 {
+    @apply text-base font-semibold;
+}
+
+.html-class h5 {
+    @apply text-sm font-semibold;
+}
+
+.html-class h6 {
+    @apply text-xs font-semibold;
 }

@@ -64,3 +64,19 @@ export interface IProfileResponse {
   SatuanOrganisasi: IUnitOrganization
   domain: string
 }
+
+export type Context =
+  | 'PROFIL'
+  | 'TENTANG'
+  | 'AKREDITASI'
+  | 'DOSEN'
+  | 'KURIKULUM'
+  | 'INFORMASI'
+  | 'FASILITAS'
+  | 'KONTAK'
+
+
+export interface Meta {
+  last_page: number
+  total: number
+}
