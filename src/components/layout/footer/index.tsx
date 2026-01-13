@@ -47,7 +47,7 @@ export const Footer = () => {
             </div>
 
             <div>
-              <p className="text-white font-semibold pl-2 border-l-4 border-yellow-600">Kontak</p>
+              <p className="text-white font-semibold pl-2 border-l-4 border-yellow-600">Lihat Juga</p>
               <ul className={'text-white mt-4 flex flex-col gap-4'}>
                 <li>Profil</li>
                 <li>Akreditasi & Sertifikat</li>

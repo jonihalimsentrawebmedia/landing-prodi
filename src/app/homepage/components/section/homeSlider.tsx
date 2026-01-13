@@ -5,6 +5,7 @@ import { UseGetSliderLanding } from '@/app/homepage/hooks'
 import { Carousel, CarouselContent, CarouselItem } from '@/components/ui/carousel'
 import { useStateContext } from '@/contexts'
 import Autoplay from 'embla-carousel-autoplay'
+import Fade from 'embla-carousel-fade'
 
 export const HomeSlider = () => {
   const { sliderLanding, loading } = UseGetSliderLanding()
@@ -35,6 +36,7 @@ export const HomeSlider = () => {
         <Carousel
           opts={{ loop: true }}
           plugins={[
+            Fade(),
             Autoplay({
               delay: 5000,
               stopOnInteraction: false,
