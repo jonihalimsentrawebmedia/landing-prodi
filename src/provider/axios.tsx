@@ -17,7 +17,7 @@ AxiosClient.interceptors.request.use(
   (config: InternalAxiosRequestConfig): InternalAxiosRequestConfig => {
     const host = window.location.host
     const origin =
-      host === 'localhost:3000' || host === '192.168.20.83:3000' || 'landing-stain.vercel.app'
+      host === 'localhost:3000' || host === '192.168.20.83:3000' || 'landing-prodi.vercel.app'
         ? 'tradis-bi.stain-madina.ac.id'
         : window.location.origin
 
