@@ -1,0 +1,64 @@
+import type { FieldValues, Path, UseFormReturn } from 'react-hook-form'
+import { FormControl, FormField, FormItem, FormLabel, FormMessage } from '@/components/ui/form'
+import { Textarea } from '@/components/ui/textarea'
+import { useMobile } from '@/hooks'
+
+interface Props<T extends FieldValues> {
+  label?: string
+  htmlFor?: string
+  name: Path<T>
+  placeholder?: string
+  form: UseFormReturn<T>
+  className?: string
+  inputClassName?: string
+  isRow?: boolean
+  isDisabled?: boolean
+  isRequired?: boolean
+}
+
+const TextAreaInput = <T extends FieldValues>({
+  label,
+  htmlFor,
+  placeholder,
+  name,
+  form,
+  className,
+  isDisabled,
+  isRequired,
+  inputClassName,
+  isRow = false,
+}: Props<T>) => {
+  const { isMobile } = useMobile()
+  return (
+    <FormField
+      control={form.control}
+      name={name}
+      render={({ field }) => (
+        <FormItem
+          className={`whitespace-nowrap 
+          ${isRow ? `${isMobile ? 'flex flex-col gap-4' : 'grid grid-cols-[12rem_1fr] flex-row items-center gap-5'} ` : 'flex flex-col gap-2'} 
+          ${className}`}
+        >
+          <FormLabel className="whitespace-pre-line text-gray-600" htmlFor={htmlFor}>
+            {label} {isRequired && <span className="text-red-500">*</span>}
+          </FormLabel>
+
+          <FormControl>
+            <Textarea
+              {...field}
+              disabled={isDisabled}
+              value={field.value ?? ''}
+              className={`focus-visible:ring-0 ${inputClassName}`}
+              id={htmlFor}
+              placeholder={placeholder}
+            />
+          </FormControl>
+
+          <FormMessage />
+        </FormItem>
+      )}
+    />
+  )
+}
+
+export default TextAreaInput

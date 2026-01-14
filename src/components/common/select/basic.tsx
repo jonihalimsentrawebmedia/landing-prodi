@@ -9,13 +9,14 @@ import {
 
 interface props {
   data: { label: string; value: string }[]
-  label: string
+  label?: string
   isRow?: boolean
   innerClassname?: string
   //eslint-disable-next-line
   onChange: (e: string) => void
   value: string
   placeholder?: string
+  className?: string
 }
 
 export const BasicSelect = (props: props) => {
@@ -26,13 +27,14 @@ export const BasicSelect = (props: props) => {
     onChange,
     value,
     placeholder,
+    className,
     innerClassname = 'min-w-[250px]',
   } = props
 
   return (
     <>
-      <div className={`${isRow ? 'flex flex-row gap-2' : 'flex flex-col gap-2'}`}>
-        <Label>{label}</Label>
+      <div className={`${isRow ? 'flex flex-row gap-2' : 'flex flex-col gap-2'} ${className}`}>
+        {label && <Label>{label}</Label>}
         <Select value={value} onValueChange={onChange}>
           <SelectTrigger
             className={`rounded border border-gray-500 focus-visible:ring-0 ${innerClassname}`}

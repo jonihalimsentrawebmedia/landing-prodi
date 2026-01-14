@@ -1,18 +1,28 @@
 'use client'
 
-import { BasicSelect } from '@/components/comon/select/basic'
+import { BasicSelect } from '@/components/common/select/basic'
 import { useRouter, useSearchParams } from 'next/navigation'
 
 interface Props {
   name: string
   data: { label: string; value: string }[]
-  label: string
+  label?: string
   isRow?: boolean
   placeholder?: string
+  className?: string
+  innerClassname?: string
 }
 
 export const FilterSelect = (props: Props) => {
-  const { name, placeholder, data, label, isRow } = props
+  const {
+    name,
+    placeholder,
+    data,
+    label,
+    isRow,
+    className,
+    innerClassname = 'min-w-[150px]',
+  } = props
 
   const router = useRouter()
 
@@ -31,8 +41,9 @@ export const FilterSelect = (props: Props) => {
   return (
     <>
       <BasicSelect
-        innerClassname={'min-w-[150px]'}
+        innerClassname={innerClassname}
         data={data}
+        className={className}
         label={label}
         value={value}
         isRow={isRow}

@@ -1,4 +1,4 @@
-import { JumbotronTitle } from '@/components/comon/jumbotronTitle'
+import { JumbotronTitle } from '@/components/common/jumbotronTitle'
 
 const LecturerPage = () => {
   return (

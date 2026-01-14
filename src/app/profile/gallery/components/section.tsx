@@ -1,6 +1,6 @@
 'use client'
 
-import { FilterSelect } from '@/components/comon/filter/select'
+import { FilterSelect } from '@/components/common/filter/select'
 import { useRouter, useSearchParams } from 'next/navigation'
 import { useEffect } from 'react'
 import { UseGetGalleryAlbum, UseGetGalleryVideo } from '@/app/profile/gallery/hooks'

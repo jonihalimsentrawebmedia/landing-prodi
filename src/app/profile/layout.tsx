@@ -1,4 +1,4 @@
-import { JumbotronTitle } from '@/components/comon/jumbotronTitle'
+import { JumbotronTitle } from '@/components/common/jumbotronTitle'
 import { SideMenuProfile } from '@/app/profile/components/sideMenu'
 import { ReactNode } from 'react'
 

@@ -6,7 +6,7 @@ import { ArrowLeft, ChevronLeft, ChevronRight } from 'lucide-react'
 import Image from 'next/image'
 import { IoEyeSharp } from 'react-icons/io5'
 import { useEffect, useState } from 'react'
-import { DialogCustom } from '@/components/comon/Dialog'
+import { DialogCustom } from '@/components/common/Dialog'
 import { Carousel, CarouselApi, CarouselContent, CarouselItem } from '@/components/ui/carousel'
 
 export const SectionPhotoGallery = () => {

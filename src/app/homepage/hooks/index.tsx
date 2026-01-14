@@ -2,6 +2,8 @@ import { useEffect, useState } from 'react'
 import { useQuery } from '@tanstack/react-query'
 import AxiosClient from '@/provider/axios'
 import { IAgenda, IAnnouncement, IImageSlider, INews, IProdiAbout } from '@/app/homepage/data/types'
+import { NewsProps } from '@/app/information/news/data/types'
+import { Meta } from '@/contexts/types'
 
 export const UseGetSliderLanding = () => {
   const [sliderLanding, setSliderLanding] = useState<IImageSlider[]>([])
@@ -23,24 +25,33 @@ export const UseGetSliderLanding = () => {
   return { sliderLanding, loading }
 }
 
-export const UseGetNews = () => {
+export const UseGetNews = (props?: NewsProps) => {
+  const { page, limit, start_index } = props ?? {}
+
   const [news, setNews] = useState<INews[]>([])
+  const [meta, setMeta] = useState<Meta>()
+
+  const paramsSearch = new URLSearchParams()
+  if (page) paramsSearch.append('page', page)
+  if (limit) paramsSearch.append('limit', limit)
+  if (start_index) paramsSearch.append('start-index', start_index)
 
   const { data, isLoading, isFetching } = useQuery({
-    queryKey: ['news'],
+    queryKey: ['news', paramsSearch.toString()],
     refetchOnWindowFocus: false,
-    queryFn: () => AxiosClient.get('/public-prodi/berita').then((res) => res?.data?.data),
+    queryFn: () => AxiosClient.get(`/public-prodi/berita?${paramsSearch}`).then((res) => res?.data),
   })
 
   const loading = isLoading || isFetching
 
   useEffect(() => {
     if (data) {
-      setNews(data)
+      setNews(data?.data)
+      setMeta(data?.meta)
     }
   }, [data])
 
-  return { news, loading }
+  return { news, loading, meta }
 }
 
 export const UseGetAnnouncement = () => {
