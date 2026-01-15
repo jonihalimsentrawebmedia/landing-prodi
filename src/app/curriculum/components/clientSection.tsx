@@ -33,9 +33,7 @@ export const ClientSectionCurriculum = () => {
       Params.set('slug_curriculum', curriculum[0]?.slug)
       router.push(`?${Params.toString()}`)
     }
-
-    //eslint-disable-next-line
-  }, [slug_curriculum, curriculum])
+  }, [slug_curriculum, curriculum, router])
 
   const elements = useMemo(() => {
     if (detail) {

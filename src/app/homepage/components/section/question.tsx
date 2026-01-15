@@ -1,4 +1,5 @@
 import Image from 'next/image'
+import Link from 'next/link'
 
 export const QuestionSection = () => {
   return (
@@ -19,9 +20,9 @@ export const QuestionSection = () => {
               menghubungi kami. Tim marketing dan administrasi Program Studi siap menjadi pemandu
               dan memberikan solusi terbaik untukmu
             </p>
-            <button className={'w-fit px-5 py-1.5 rounded-full text-white border border-white bg-white/32'}>
+            <Link href={'/contact'} className={'w-fit px-5 py-1.5 rounded-full text-white border border-white bg-white/32'}>
               Kunjungi Halaman Kontak & Pendaftaran
-            </button>
+            </Link>
           </div>
         </div>
         <Image

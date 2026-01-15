@@ -2,7 +2,7 @@ import { useEffect, useState } from 'react'
 import { useQuery } from '@tanstack/react-query'
 import AxiosClient from '@/provider/axios'
 import { IAgenda, IAnnouncement, IImageSlider, INews, IProdiAbout } from '@/app/homepage/data/types'
-import { NewsProps } from '@/app/information/news/data/types'
+import { AgendaProps, AnnouncementProps, NewsProps } from '@/app/information/news/data/types'
 import { Meta } from '@/contexts/types'
 
 export const UseGetSliderLanding = () => {
@@ -26,7 +26,7 @@ export const UseGetSliderLanding = () => {
 }
 
 export const UseGetNews = (props?: NewsProps) => {
-  const { page, limit, start_index } = props ?? {}
+  const { page, limit, start_index, search, category, id_category, no_include_id } = props ?? {}
 
   const [news, setNews] = useState<INews[]>([])
   const [meta, setMeta] = useState<Meta>()
@@ -35,6 +35,10 @@ export const UseGetNews = (props?: NewsProps) => {
   if (page) paramsSearch.append('page', page)
   if (limit) paramsSearch.append('limit', limit)
   if (start_index) paramsSearch.append('start-index', start_index)
+  if (search) paramsSearch.append('search', search)
+  if (category) paramsSearch.append('slug-kategori-berita', category)
+  if (id_category) paramsSearch.append('id-kategori-berita', id_category)
+  if (no_include_id) paramsSearch.append('no-include-id', no_include_id)
 
   const { data, isLoading, isFetching } = useQuery({
     queryKey: ['news', paramsSearch.toString()],
@@ -54,8 +58,18 @@ export const UseGetNews = (props?: NewsProps) => {
   return { news, loading, meta }
 }
 
-export const UseGetAnnouncement = () => {
+export const UseGetAnnouncement = (props?: AnnouncementProps) => {
+  const { page, limit, search, id_category, year } = props ?? {}
+
   const [announcement, setAnnouncement] = useState<IAnnouncement[]>([])
+  const [meta, setMeta] = useState<Meta>()
+
+  const paramsSearch = new URLSearchParams()
+  if (page) paramsSearch.append('page', page)
+  if (limit) paramsSearch.append('limit', limit)
+  if (search) paramsSearch.append('search', search)
+  if (id_category) paramsSearch.append('id-kategori-pengumuman', id_category)
+  if (year) paramsSearch.append('tahun', year)
 
   const { data, isLoading, isFetching } = useQuery({
     queryKey: ['announcement'],
@@ -68,19 +82,29 @@ export const UseGetAnnouncement = () => {
   useEffect(() => {
     if (data) {
       setAnnouncement(data?.data)
+      setMeta(data?.meta)
     }
   }, [data])
 
-  return { announcement, loading }
+  return { announcement, loading, meta }
 }
 
-export const UseGetAgenda = () => {
+export const UseGetAgenda = (props?: AgendaProps) => {
+  const { page, limit, search, year } = props ?? {}
+
   const [agenda, setAgenda] = useState<IAgenda[]>([])
 
+  const paramsSearch = new URLSearchParams()
+  if (page) paramsSearch.append('page', page)
+  if (limit) paramsSearch.append('limit', limit)
+  if (search) paramsSearch.append('search', search)
+  if (year) paramsSearch.append('tahun', year)
+
   const { data, isLoading, isFetching } = useQuery({
-    queryKey: ['agenda'],
+    queryKey: ['agenda', paramsSearch.toString()],
     refetchOnWindowFocus: false,
-    queryFn: () => AxiosClient.get('/public-prodi/agenda').then((res) => res?.data?.data),
+    queryFn: () =>
+      AxiosClient.get(`/public-prodi/agenda?${paramsSearch}`).then((res) => res?.data?.data),
   })
 
   const loading = isLoading || isFetching

@@ -63,6 +63,8 @@ export interface IUnitOrganization {
 export interface IProfileResponse {
   SatuanOrganisasi: IUnitOrganization
   domain: string
+  email_universitas: string
+  telepon_universitas: string
 }
 
 export type Context =
@@ -74,7 +76,6 @@ export type Context =
   | 'INFORMASI'
   | 'FASILITAS'
   | 'KONTAK'
-
 
 export interface Meta {
   last_page: number

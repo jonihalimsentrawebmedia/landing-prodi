@@ -22,7 +22,7 @@ export const ContactDetail = () => {
             </div>
             <div className={'flex flex-col gap-1'}>
               <p className="text-xs text-gray-500">Telepon</p>
-              <p className={'font-semibold'}>{profile?.SatuanOrganisasi?.telepon}</p>
+              <p className={'font-semibold'}>{profile?.telepon_universitas}</p>
             </div>
           </div>
           <div className={'p-2.5 bg-white rounded-lg shadow flex gap-2.5 items-center'}>
@@ -31,7 +31,7 @@ export const ContactDetail = () => {
             </div>
             <div className={'flex flex-col gap-1'}>
               <p className="text-xs text-gray-500">Email</p>
-              <p className={'font-semibold'}>{profile?.SatuanOrganisasi?.email}</p>
+              <p className={'font-semibold'}>{profile?.email_universitas}</p>
             </div>
           </div>
         </div>

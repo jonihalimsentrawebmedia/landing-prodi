@@ -26,17 +26,24 @@ export const AgendaAnnouncementSection = () => {
               <p className="text-center underline underline-offset-8 decoration-yellow-500 font-semibold text-3xl text-white">
                 Pengumuman
               </p>
-              <div className={'space-y-4 mt-8'}>
+              <div className={'flex flex-col gap-y-4 mt-8'}>
                 {ShowAnnouncement?.map((row, k) => (
-                  <div key={k} className={'border p-2.5 rounded'}>
-                    <p className="text-white font-semibold line-clamp-2">{row?.judul_pengumuman}</p>
-                    <p className={'text-white text-xs mt-1.5 flex items-center gap-1.5'}>
-                      <FaRegCalendarAlt className={'size-4'} />
-                      {row?.published_at ? format(row?.published_at, 'dd MMMM yyyy') : '-'}
-                    </p>
-                  </div>
+                  <Link key={k} href={`/information/announcements/${row?.slug}`}>
+                    <div className={'border p-2.5 rounded'}>
+                      <p className="text-white font-semibold line-clamp-2">
+                        {row?.judul_pengumuman}
+                      </p>
+                      <p className={'text-white text-xs mt-1.5 flex items-center gap-1.5'}>
+                        <FaRegCalendarAlt className={'size-4'} />
+                        {row?.published_at ? format(row?.published_at, 'dd MMMM yyyy') : '-'}
+                      </p>
+                    </div>
+                  </Link>
                 ))}
-                <Link href={'#'} className={'text-white flex items-center gap-1.5 justify-center'}>
+                <Link
+                  href={'/information/announcements'}
+                  className={'text-white flex items-center gap-1.5 justify-center'}
+                >
                   Lihat Semua <ArrowRight />
                 </Link>
               </div>
@@ -46,7 +53,7 @@ export const AgendaAnnouncementSection = () => {
               <p className="text-center underline underline-offset-8 decoration-yellow-500 font-semibold text-3xl text-white">
                 Agenda
               </p>
-              <div className={'space-y-4 mt-8'}>
+              <div className={'flex flex-col gap-y-4 mt-8'}>
                 {ShowAgenda?.map((row, k) => (
                   <div key={k} className={'flex items-center gap-2'}>
                     <div className={'border p-3 px-4 rounded text-center'}>
@@ -57,10 +64,15 @@ export const AgendaAnnouncementSection = () => {
                         {row?.published_at ? format(row?.published_at, 'MMM') : '-'}
                       </p>
                     </div>
-                    <p className="text-white font-semibold">{row?.judul}</p>
+                    <Link href={`/information/agenda/${row?.slug}`}>
+                      <p className="text-white font-semibold">{row?.judul}</p>
+                    </Link>
                   </div>
                 ))}
-                <Link href={'#'} className={'text-white flex items-center gap-1.5 justify-center'}>
+                <Link
+                  href={'/information/agenda'}
+                  className={'text-white flex items-center gap-1.5 justify-center'}
+                >
                   Lihat Semua <ArrowRight />
                 </Link>
               </div>

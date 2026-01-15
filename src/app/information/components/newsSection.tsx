@@ -53,10 +53,14 @@ export const NewsSection = () => {
               </>
             ) : (
               <>
-                <CardNewsCol item={newNews[0]} />
+                <Link href={`/information/news/${newNews[0]?.slug}`}>
+                  <CardNewsCol item={newNews[0]} />
+                </Link>
                 <div className={'flex flex-col gap-5'}>
                   {newNews2.map((item, index) => (
-                    <CardNewsRow item={item} key={index} />
+                    <Link href={`/information/news/${item?.slug}`} key={index}>
+                      <CardNewsRow item={item} />
+                    </Link>
                   ))}
                 </div>
               </>

@@ -6,36 +6,23 @@ import { format } from 'date-fns'
 import { Button } from '@/components/ui/button'
 import { MdDownload } from 'react-icons/md'
 import { toast } from 'react-toastify'
+import { useDownloadFile } from '@/hooks'
 
 export const AccreditationSection = () => {
   const { accreditation, loading } = UseGetAccreditation()
 
   const DownloadFile = async (url: string) => {
-    console.log(url)
-    toast.info('Fitur sedang dalam pengembangan')
+    // eslint-disable-next-line react-hooks/rules-of-hooks
+    await useDownloadFile(url, '')
+      .then((res) => {
+        if (res.success) {
+          toast.success('Berhasil mengunduh file')
+        }
+      })
+      .catch((err) => {
+        toast.error(err.message)
+      })
   }
-
-  // const DownloadFile = async (url?: string) => {
-  //   if (!url) {
-  //     alert('File tidak tersedia')
-  //     return
-  //   }
-  //
-  //   try {
-  //     const response = await fetch(url)
-  //     const blob = await response.blob()
-  //
-  //     const link = document.createElement('a')
-  //     link.href = window.URL.createObjectURL(blob)
-  //     link.download = 'file'
-  //     document.body.appendChild(link)
-  //     link.click()
-  //     document.body.removeChild(link)
-  //   } catch (error) {
-  //     console.error(error)
-  //     alert('Gagal mengunduh file')
-  //   }
-  // }
 
   return (
     <>

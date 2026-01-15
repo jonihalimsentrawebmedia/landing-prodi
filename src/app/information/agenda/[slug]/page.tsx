@@ -1,15 +1,15 @@
 import { JumbotronTitle } from '@/components/common/jumbotronTitle'
-import { ClientSection } from '@/app/information/news/components/clientSection'
+import { SectionAgenda } from '@/app/information/agenda/[slug]/component/section'
 
-const NewsPage = () => {
+const DetailAgendaPage = () => {
   return (
     <>
       <div className={'w-full max-w-[1920px] mx-auto'}>
         <JumbotronTitle context={'INFORMASI'} title={'Informasi'} />
-        <ClientSection />
+        <SectionAgenda />
       </div>
     </>
   )
 }
 
-export default NewsPage
+export default DetailAgendaPage

@@ -4,6 +4,8 @@ import { UseGetNews } from '@/app/homepage/hooks'
 import Image from 'next/image'
 import { format } from 'date-fns'
 import { NewsCardSkeleton } from '@/app/homepage/components'
+import Link from 'next/link'
+import { ArrowRight } from 'lucide-react'
 
 export const NewNewsSection = () => {
   const { news, loading } = UseGetNews()
@@ -22,11 +24,18 @@ export const NewNewsSection = () => {
     <>
       <div className={'w-full max-w-[1920px] bg-[#EAEAEA] py-8 relative'}>
         <div className="container grid grid-cols-4 gap-5 relative z-30">
-          <p className="text-2xl font-semibold col-span-4">
-            Baca <span className={'bg-[#CDA327] px-0.5 '}>Berita</span> Terbaru
-          </p>
+          <div className="col-span-4 flex items-center justify-between gap-5">
+            <p className="text-2xl font-semibold col-span-4">
+              Baca <span className={'bg-[#CDA327] px-0.5 '}>Berita</span> Terbaru
+            </p>
+            <Link href={'/information/news'} className={'flex items-center gap-1.5'}>
+              Lihat Semua
+              <ArrowRight className={'size-4'} />
+            </Link>
+          </div>
+
           {FourNew?.map((item, k) => (
-            <div key={k} className={'relative border border-b-white'}>
+            <Link href={`/information/news/${item?.slug}`} key={k} className={'relative border border-b-white'}>
               <div
                 className={`absolute w-full h-full bg-linear-to-t
                 from-primary/80 to-primary/50 flex p-2.5
@@ -45,7 +54,7 @@ export const NewNewsSection = () => {
                 height={305}
                 className={'w-full h-[305px] object-cover'}
               />
-            </div>
+            </Link>
           ))}
         </div>
       </div>

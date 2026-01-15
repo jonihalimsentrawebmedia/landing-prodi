@@ -5,7 +5,8 @@ import Image from 'next/image'
 import { MdFax, MdMail } from 'react-icons/md'
 import { FaPhone } from 'react-icons/fa6'
 import { Separator } from '@/components/ui/separator'
-import { FooterSkeleton } from '@/components/layout/footer/skeleton'
+import { ContactFooterSkeleton, FooterSkeleton } from '@/components/layout/footer/skeleton'
+import Link from 'next/link'
 
 export const Footer = () => {
   const [{ profile }] = useStateContext()
@@ -32,35 +33,59 @@ export const Footer = () => {
             </div>
           )}
           <div className={'w-fit gap-x-16 flex items-start'}>
-            <div>
-              <p className="text-white font-semibold pl-2 border-l-4 border-yellow-600">Kontak</p>
-              <ul className={'text-white mt-4 flex flex-col gap-4'}>
-                <li className={'flex items-center gap-2'}>
-                  <MdMail className={'size-6'} />
-                  s1pend-inggris@gmail.com
-                </li>
-                <li className={'flex items-center gap-2'}>
-                  <FaPhone className={'size-6'} />
-                  081212345678
-                </li>
-                <li className={'flex items-center gap-2'}>
-                  <MdFax className={'size-6'} />
-                  061 - 123456
-                </li>
-              </ul>
-            </div>
+            {!profile ? (
+              <ContactFooterSkeleton />
+            ) : (
+              <div>
+                <p className="text-white font-semibold pl-2 border-l-4 border-yellow-600">Kontak</p>
+                <ul className={'text-white mt-4 flex flex-col gap-4'}>
+                  <Link href={`mailto:${profile?.SatuanOrganisasi?.email.toLowerCase() ?? ''}`}>
+                    <li className={'flex items-center gap-2'}>
+                      <MdMail className={'size-6'} />
+                      {profile?.SatuanOrganisasi?.email ?? ''}
+                    </li>
+                  </Link>
+                  <Link
+                    href={`https://wa.me/${profile?.SatuanOrganisasi?.telepon}`}
+                    target={'_blank'}
+                  >
+                    <li className={'flex items-center gap-2'}>
+                      <FaPhone className={'size-6'} />
+                      {profile?.SatuanOrganisasi?.telepon ?? ''}
+                    </li>
+                  </Link>
+                  <li className={'flex items-center gap-2'}>
+                    <MdFax className={'size-6'} />
+                    {profile?.SatuanOrganisasi?.fax ?? ''}
+                  </li>
+                </ul>
+              </div>
+            )}
 
             <div>
               <p className="text-white font-semibold pl-2 border-l-4 border-yellow-600">
                 Lihat Juga
               </p>
               <ul className={'text-white mt-4 flex flex-col gap-4'}>
-                <li>Profil</li>
-                <li>Akreditasi & Sertifikat</li>
-                <li>Dosen</li>
-                <li>Kurikulum</li>
-                <li>Fasilitas</li>
-                <li>Kontak & Pendaftaran</li>
+                <Link href={'/profile'}>
+                  <li>Profil</li>
+                </Link>
+                <Link href={'/accreditation'}>
+                  <li>Akreditasi & Sertifikat</li>
+                </Link>
+
+                <Link href={'/lecturer'}>
+                  <li>Dosen</li>
+                </Link>
+                <Link href={'/curriculum'}>
+                  <li>Kurikulum</li>
+                </Link>
+                <Link href={'/gallery'}>
+                  <li>Galeri</li>
+                </Link>
+                <Link href={'/contact'}>
+                  <li>Kontak & Pendaftaran</li>
+                </Link>
               </ul>
             </div>
 
@@ -69,10 +94,19 @@ export const Footer = () => {
                 Social Media
               </p>
               <ul className={'text-white mt-4 flex flex-col gap-4'}>
-                <li>Facebook</li>
-                <li>Instagram</li>
-                <li>Twitter</li>
-                <li>YouTube</li>
+                <Link href={profile?.SatuanOrganisasi?.facebook ?? ''} target={'_blank'}>
+                  <li>Facebook</li>
+                </Link>
+
+                <Link href={profile?.SatuanOrganisasi?.instagram ?? ''}>
+                  <li>Instagram</li>
+                </Link>
+                <Link href={profile?.SatuanOrganisasi?.twitter ?? ''}>
+                  <li>Twitter</li>
+                </Link>
+                <Link href={profile?.SatuanOrganisasi?.youtube ?? ''}>
+                  <li>YouTube</li>
+                </Link>
               </ul>
             </div>
           </div>

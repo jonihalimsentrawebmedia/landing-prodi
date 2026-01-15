@@ -25,11 +25,14 @@ export const PromotionSection = () => {
         </div>
 
         <div className="container py-8 pb-10">
-          <div className="flex items-center justify-between">
+          <div className="flex items-center justify-between relative z-10">
             <p className="text-2xl font-semibold col-span-4 text-white">
               <span className={'bg-[#CDA327] px-0.5 text-primary'}>Promosi</span> Program Studi
             </p>
-            <Link href={'#'} className={'flex items-center gap-1.5 text-white'}>
+            <Link
+              href={'/information/promotion'}
+              className={'flex items-center gap-1.5 text-white'}
+            >
               Lihat Semua
               <ArrowRight className={'size-4'} />
             </Link>
@@ -41,7 +44,7 @@ export const PromotionSection = () => {
             ) : (
               <>
                 {promotion?.map((item, index) => (
-                  <div key={index}>
+                  <Link href={`/information/promotion/${item?.slug}`} key={index}>
                     <div className="w-full h-[200px] overflow-hidden">
                       <Image
                         src={item?.gambar}
@@ -62,7 +65,7 @@ export const PromotionSection = () => {
                           : '-'}
                       </p>
                     </div>
-                  </div>
+                  </Link>
                 ))}
               </>
             )}
