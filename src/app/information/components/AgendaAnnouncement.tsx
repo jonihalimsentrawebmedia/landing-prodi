@@ -21,8 +21,8 @@ export const AgendaAnnouncementSection = () => {
     <>
       <div className={'w-full max-w-[1920px]'}>
         <div className="h-full w-full bg-primary pb-5">
-          <div className="container pt-4 flex items-start gap-x-8">
-            <div className="w-1/2">
+          <div className="container pt-4 flex flex-col lg:flex-row gap-y-5 lg:gap-y-0 items-start gap-x-8">
+            <div className="lg:w-1/2 w-full">
               <p className="text-center underline underline-offset-8 decoration-yellow-500 font-semibold text-3xl text-white">
                 Pengumuman
               </p>
@@ -49,7 +49,7 @@ export const AgendaAnnouncementSection = () => {
               </div>
             </div>
 
-            <div className="w-1/2">
+            <div className="w-full lg:w-1/2">
               <p className="text-center underline underline-offset-8 decoration-yellow-500 font-semibold text-3xl text-white">
                 Agenda
               </p>

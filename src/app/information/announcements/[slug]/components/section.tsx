@@ -36,8 +36,8 @@ export const DetailSectionAnnouncement = () => {
     <>
       <div className="bg-primary">
         <div className={'container'}>
-          <div className="flex items-start w-full">
-            <div className="w-full h-full max-w-[420px] bg-primary pr-5">
+          <div className="flex flex-col-reverse flex-row items-start w-full gap-5">
+            <div className="w-full h-full max-w-[420px] bg-primary lg:pr-5">
               <div className="p-5 bg-[#F5FAFF] rounded-lg flex flex-col gap-2">
                 <div className={'flex flex-col gap-1'}>
                   <p className={'text-gray-500 flex items-center gap-1.5'}>
@@ -146,7 +146,7 @@ export const DetailSectionAnnouncement = () => {
               />
 
               {fileValue !== '' && (
-                <iframe src={fileValue} width="100%" height="800" className={'my-5'} />
+                <iframe src={fileValue} className={'my-5 w-full h-[500px] lg:h-[800px]'} />
               )}
 
               <div

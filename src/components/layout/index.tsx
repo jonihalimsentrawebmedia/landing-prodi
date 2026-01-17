@@ -12,7 +12,7 @@ export const LandingLayout = (props: Props) => {
   return (
     <>
       <StateProvider>
-        <div className={'relative max-w-[1920px] mx-auto'}>
+        <div className={'relative lg:max-w-[1920px] mx-auto'}>
           <HeaderMenuList />
           {children}
           <Footer />

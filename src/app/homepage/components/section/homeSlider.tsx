@@ -14,7 +14,7 @@ export const HomeSlider = () => {
 
   if (loading)
     return (
-      <div className="w-full h-[900px] bg-gray-300 animate-pulse relative">
+      <div className="w-full h-[450px] lg:h-[900px] bg-gray-300 animate-pulse relative">
         <div className="absolute inset-0 bg-linear-to-t from-primary/80 to-primary/40 flex items-end">
           <div className="container py-8 space-y-3">
             <div className="h-5 w-60 bg-white/40 rounded"></div>
@@ -26,11 +26,13 @@ export const HomeSlider = () => {
 
   return (
     <>
-      <div className="max-w-[1920px] w-full mx-auto relative">
+      <div className="lg:max-w-[1920px] w-full mx-auto relative">
         <div className="w-full h-full absolute z-10 bg-linear-to-t from-primary to-primary/70 flex items-end">
           <div className="container py-8">
             <p className="text-white text-xl">Selamat Datang Di Website Resmi</p>
-            <p className={'text-6xl text-white font-semibold'}>{profile?.SatuanOrganisasi?.nama}</p>
+            <p className={'lg:text-6xl text-white font-semibold'}>
+              {profile?.SatuanOrganisasi?.nama}
+            </p>
           </div>
         </div>
         <Carousel
@@ -51,7 +53,7 @@ export const HomeSlider = () => {
                   loading={'eager'}
                   src={item?.gambar_url || '/img/noimg.png'}
                   alt={'image'}
-                  className={'object-cover w-full h-[900px]'}
+                  className={'object-cover w-full h-[320px] lg:h-[900px]'}
                   width={1920}
                   height={900}
                 />

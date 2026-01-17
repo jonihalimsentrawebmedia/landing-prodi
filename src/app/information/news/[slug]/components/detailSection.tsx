@@ -25,8 +25,8 @@ export const DetailSectionNews = () => {
     <>
       <div className="bg-primary">
         <div className={'container'}>
-          <div className="flex items-start w-full">
-            <div className="w-full h-full max-w-[420px] bg-primary pr-5">
+          <div className="flex flex-col-reverse lg:flex-row gap-5 items-start w-full">
+            <div className="w-full h-full max-w-[420px] bg-primary lg:pr-5">
               <div className="p-5 bg-[#F5FAFF] rounded-lg flex flex-col gap-2">
                 <div className={'flex flex-col gap-1'}>
                   <p className={'text-gray-500 flex items-center gap-1.5'}>

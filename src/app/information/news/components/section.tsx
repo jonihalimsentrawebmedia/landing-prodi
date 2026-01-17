@@ -34,8 +34,8 @@ export const SectionNews = (props: Props) => {
 
   return (
     <>
-      <div className={'w-full py-8 pb-10 bg-[#EAEAEA]'}>
-        <div className="grid grid-cols-2 items-start gap-5 container">
+      <div className={'w-full lg:py-8 py-5 lg:pb-10 bg-[#EAEAEA]'}>
+        <div className="flex flex-col lg:grid grid-cols-2 items-start gap-5 container">
           <Link href={'/information'} className={'flex items-center gap-1.5'}>
             <ArrowLeft className={'size-4'} />
             Kembali

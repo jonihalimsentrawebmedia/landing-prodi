@@ -11,10 +11,11 @@ import { useStateContext } from '@/contexts'
 import { FaRegCalendarAlt } from 'react-icons/fa'
 import { format } from 'date-fns'
 import { id } from 'date-fns/locale/id'
+import { AnnouncementSkeleton } from '@/app/information/announcements/components/skeleton'
 
 export const AnnouncementSection = () => {
   const { year, loading: load1 } = UseGetAnnouncementYear()
-  const { announcement } = UseGetAnnouncement()
+  const { announcement, loading: load2 } = UseGetAnnouncement()
   const [{ profile }] = useStateContext()
 
   return (
@@ -30,7 +31,7 @@ export const AnnouncementSection = () => {
             backgroundRepeat: 'no-repeat',
           }}
         >
-          <div className={'grid lg:grid-cols-4 gap-5 container'}>
+          <div className={'flex flex-col lg:grid lg:grid-cols-4 gap-5 container'}>
             <div className={'col-span-4'}>
               <Link href={'/information'} className={'flex items-center gap-1.5 text-white'}>
                 <ArrowLeft className={'size-4'} />
@@ -63,28 +64,52 @@ export const AnnouncementSection = () => {
               )}
             </div>
 
-            {announcement?.map((item, l) => (
-              <Link href={`/information/announcements/${item?.slug}`} key={l}>
-                <div
-                  className={'bg-[#DFDFDF] p-5 rounded w-full flex flex-col gap-2 cursor-pointer'}
-                >
-                  <Image
-                    src={profile?.SatuanOrganisasi?.logo || '/img/noimg.png'}
-                    alt={'logo'}
-                    width={120}
-                    height={120}
-                    className={'size-[120px] object-cover mx-auto'}
-                  />
-                  <p className={'line-clamp-2'}>{item?.judul_pengumuman}</p>
-                  <p className={'flex items-center gap-1.5 text-sm'}>
-                    <FaRegCalendarAlt />
-                    {item?.published_at
-                      ? format(item?.published_at, 'dd MMM yyyy', { locale: id })
-                      : ''}
-                  </p>
-                </div>
-              </Link>
-            ))}
+            {load2
+              ? Array.from({ length: 6 }).map((_, i) => <AnnouncementSkeleton key={i} />)
+              : announcement?.map((item, l) => (
+                  <Link href={`/information/announcements/${item?.slug}`} key={l}>
+                    <div className="bg-[#DFDFDF] p-5 rounded w-full flex flex-col gap-2 cursor-pointer">
+                      <Image
+                        src={profile?.SatuanOrganisasi?.logo || '/img/noimg.png'}
+                        alt="logo"
+                        width={120}
+                        height={120}
+                        className="size-[120px] object-cover mx-auto"
+                      />
+                      <p className="line-clamp-2">{item?.judul_pengumuman}</p>
+                      <p className="flex items-center gap-1.5 text-sm">
+                        <FaRegCalendarAlt />
+                        {item?.published_at
+                          ? format(item?.published_at, 'dd MMM yyyy', { locale: id })
+                          : ''}
+                      </p>
+                    </div>
+                  </Link>
+                ))}
+
+            {/*{announcement?.map((item, l) => (*/}
+            {/*  <Link href={`/information/announcements/${item?.slug}`} key={l}>*/}
+            {/*    <div*/}
+            {/*      className={'bg-[#DFDFDF] p-5 rounded w-full flex flex-col gap-2 cursor-pointer'}*/}
+            {/*    >*/}
+            {/*      <Image*/}
+            {/*        src={profile?.SatuanOrganisasi?.logo || '/img/noimg.png'}*/}
+            {/*        alt={'logo'}*/}
+            {/*        width={120}*/}
+            {/*        height={120}*/}
+            {/*        className={'size-[120px] object-cover mx-auto'}*/}
+            {/*      />*/}
+            {/*      <p className={'line-clamp-2'}>{item?.judul_pengumuman}</p>*/}
+            {/*      <p className={'flex items-center gap-1.5 text-sm'}>*/}
+            {/*        <FaRegCalendarAlt />*/}
+            {/*        {item?.published_at*/}
+            {/*          ? format(item?.published_at, 'dd MMM yyyy', { locale: id })*/}
+            {/*          : ''}*/}
+            {/*      </p>*/}
+            {/*    </div>*/}
+            {/*  </Link>*/}
+            {/*))}*/}
+            
           </div>
         </div>
       </div>

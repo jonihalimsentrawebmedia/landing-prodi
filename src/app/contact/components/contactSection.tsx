@@ -17,13 +17,13 @@ export const ContactSection = () => {
     <>
       <div className="w-full p-5 bg-[#EAEAEA] mt-8">
         <p className="text-primary text-xl font-semibold">Kirim Pesan</p>
-        <div className="flex gap-5">
+        <div className="flex gap-5 flex-col lg:flex-row">
           <FormContact />
           <ContactDetail />
         </div>
 
         <div className="mt-10 lg:max-w-3xl w-full flex flex-col items-center mx-auto">
-          <p className="text-primary text-3xl font-semibold">Sering Ditanyakan</p>
+          <p className="text-primary lg:text-3xl font-semibold">Sering Ditanyakan</p>
           <Accordion
             type="single"
             value={accordionValue}

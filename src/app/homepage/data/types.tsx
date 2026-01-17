@@ -134,3 +134,11 @@ export interface IProdiAbout {
   nama_user_created: string
   nama_user_updated: string
 }
+
+export interface IServiceProdi {
+  id_prodi_layanan: string
+  nama_layanan: string
+  slug: string
+  tampil: 'Y' | 'N'
+  url_layanan: string
+}

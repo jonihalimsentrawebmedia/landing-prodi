@@ -19,8 +19,7 @@ export const SectionPhotoGallery = () => {
   const [open, setOpen] = useState(false)
   const [currentIndex, setCurrentIndex] = useState(0)
   const [api, setApi] = useState<CarouselApi | null>(null)
-
-  // ketika modal terbuka, scroll ke gambar yang dipilih
+  
   useEffect(() => {
     if (open && api) {
       api.scrollTo(currentIndex)
@@ -30,7 +29,7 @@ export const SectionPhotoGallery = () => {
   return (
     <>
       <div className={'flex flex-col gap-5'}>
-        <div className={'text-xl font-semibold flex items-center gap-2'}>
+        <div className={'text-sm lg:text-xl font-semibold flex items-center gap-2'}>
           <button
             onClick={() => router.back()}
             className={'rounded-full border border-primary p-1.5'}
@@ -40,7 +39,7 @@ export const SectionPhotoGallery = () => {
           {slug}
         </div>
 
-        <div className="grid grid-cols-3 gap-5">
+        <div className="grid lg:grid-cols-3 gap-5">
           {galleryPhoto?.map((row, k) => (
             <div
               className={'relative group cursor-pointer'}
@@ -75,17 +74,17 @@ export const SectionPhotoGallery = () => {
         <DialogCustom
           open={open}
           setOpen={setOpen}
-          className={'lg:min-w-3xl bg-transparent border-none'}
+          className={'lg:min-w-3xl max-w-full bg-transparent border-none'}
         >
           <div className="relative">
-            <Carousel setApi={setApi}>
+            <Carousel setApi={setApi} className={'-ml-1'}>
               <CarouselContent>
                 {galleryPhoto?.map((row, k) => (
                   <CarouselItem key={k}>
                     <Image
                       src={row?.link_foto}
                       alt={row?.judul}
-                      className={'object-contain h-[500px] w-auto mx-auto'}
+                      className={'object-cover lg:object-contain lg:h-[500px] w-auto mx-auto'}
                       width={1080}
                       height={1080}
                     />

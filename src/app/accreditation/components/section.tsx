@@ -57,7 +57,7 @@ export const AccreditationSection = () => {
           ) : (
             <>
               {accreditation?.map((item, k) => (
-                <div key={k} className={'grid grid-cols-[340px_1fr] gap-5'}>
+                <div key={k} className={'flex flex-col lg:grid grid-cols-[340px_1fr] gap-5'}>
                   <Image
                     src={item?.gambar}
                     alt={'gambar'}

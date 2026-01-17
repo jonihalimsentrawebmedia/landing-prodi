@@ -55,7 +55,7 @@ export const GalleryProfileSection = () => {
         )}
 
         {loading && (
-          <div className="grid grid-cols-3 gap-5">
+          <div className="grid lg:grid-cols-3 gap-5">
             {Array.from({ length: 6 }).map((_, i) => (
               <div key={i} className="space-y-2">
                 <div className="w-full h-[210px] bg-gray-200 rounded animate-pulse" />
@@ -66,7 +66,7 @@ export const GalleryProfileSection = () => {
         )}
 
         {type === 'photo' ? (
-          <div className="grid grid-cols-3 gap-5">
+          <div className="grid lg:grid-cols-3 gap-5">
             {galleryAlbum?.map((row, k) => (
               <Link
                 href={`/profile/gallery/${row?.slug}`}
@@ -95,7 +95,7 @@ export const GalleryProfileSection = () => {
             ))}
           </div>
         ) : (
-          <div className="grid grid-cols-3 gap-5">
+          <div className="grid lg:grid-cols-3 gap-5">
             {galleryVideo?.map((row, k) => (
               <Link
                 href={row?.link_video}

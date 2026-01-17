@@ -1,7 +1,14 @@
 import { useEffect, useState } from 'react'
 import { useQuery } from '@tanstack/react-query'
 import AxiosClient from '@/provider/axios'
-import { IAgenda, IAnnouncement, IImageSlider, INews, IProdiAbout } from '@/app/homepage/data/types'
+import {
+  IAgenda,
+  IAnnouncement,
+  IImageSlider,
+  INews,
+  IProdiAbout,
+  IServiceProdi,
+} from '@/app/homepage/data/types'
 import { AgendaProps, AnnouncementProps, NewsProps } from '@/app/information/news/data/types'
 import { Meta } from '@/contexts/types'
 
@@ -136,4 +143,24 @@ export const UseGetAboutProdi = () => {
   }, [data])
 
   return { aboutProdi, loading }
+}
+
+export const UseGetServiceProdi = () => {
+  const [services, setServices] = useState<IServiceProdi[]>([])
+
+  const { data, isLoading, isFetching } = useQuery({
+    queryKey: ['services'],
+    refetchOnWindowFocus: false,
+    queryFn: () => AxiosClient.get('/public-prodi/prodi-layanan').then((res) => res?.data?.data),
+  })
+
+  const loading = isLoading || isFetching
+
+  useEffect(() => {
+    if (data) {
+      setServices(data)
+    }
+  }, [data])
+
+  return { services, loading }
 }

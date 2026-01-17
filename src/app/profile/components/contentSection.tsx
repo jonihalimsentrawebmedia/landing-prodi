@@ -44,7 +44,7 @@ export const ContentSection = () => {
         <p className="mt-1.5 text-white">No. 1239/SK/BAN-PT/Ak.KP/S/IV/2023</p>
       </div>
 
-      <div className="w-3/4 mt-5">
+      <div className="w-full lg:w-3/4 mt-5">
         <div className="relative">
           <Carousel setApi={setApi}>
             <CarouselContent>
@@ -53,7 +53,7 @@ export const ContentSection = () => {
                   <Image
                     src={row}
                     alt={'string'}
-                    className={'w-full h-[350px] object-cover'}
+                    className={'w-full h-[250px] lg:h-[350px] object-cover'}
                     width={500}
                     height={500}
                   />

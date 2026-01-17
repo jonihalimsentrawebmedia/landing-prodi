@@ -10,7 +10,7 @@ type Props = {
 }
 
 export const CardNewsCol = (props: Props) => {
-  const { item, className = 'w-full h-[415px]', titleClassName } = props
+  const { item, className = 'w-full lg:h-[415px]', titleClassName } = props
   return (
     <div className={'flex flex-col justify-center gap-2 bg-white'}>
       <div className={className}>
@@ -24,14 +24,14 @@ export const CardNewsCol = (props: Props) => {
           />
         )}
       </div>
-      <div className={'p-1 px-2.5'}>
-        <p className={`text-2xl line-clamp-2 font-semibold ${titleClassName}`}>{item?.judul}</p>
-        <p className={'flex items-center gap-1 mt-1.5 text-gray-500'}>
+      <div className={'p-2.5 lg:p-1 px-2.5'}>
+        <p className={`text-sm lg:text-2xl line-clamp-2 font-semibold ${titleClassName}`}>{item?.judul}</p>
+        <p className={'text-xs lg:text-base flex items-center gap-1 mt-1.5 text-gray-500'}>
           <MdCalendarMonth />
           {item?.published_at ? format(item?.published_at, 'dd MMM yyyy') : '-'}
         </p>
         <div
-          className={'line-clamp-2 mt-1.5'}
+          className={'line-clamp-2 mt-1.5 text-xs lg:text-base'}
           dangerouslySetInnerHTML={{ __html: item?.isi_berita ?? '' }}
         />
       </div>

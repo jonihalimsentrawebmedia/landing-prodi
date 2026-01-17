@@ -60,9 +60,9 @@ export const MoreNews = (props: Props) => {
             backgroundRepeat: 'no-repeat',
           }}
         >
-          <div className={'grid lg:grid-cols-4 gap-5 container'}>
+          <div className={'flex flex-col lg:grid lg:grid-cols-4 gap-5 container'}>
             <div className={'col-span-4'}>
-              <p className="mb-5  underline underline-offset-8 text-2xl font-semibold text-white">
+              <p className="lg:mb-5 mb-2.5 underline underline-offset-8 lg:text-2xl font-semibold text-white">
                 Berita Program Studi
               </p>
               <SearchInput
@@ -73,7 +73,7 @@ export const MoreNews = (props: Props) => {
               {load1 ? (
                 <SkeletonCategoryNews />
               ) : (
-                <ul className={'flex flex-nowrap gap-5 overflow-x-auto mt-5'}>
+                <ul className={'flex whitespace-nowrap flex-nowrap gap-5 overflow-x-auto mt-5 pb-2'}>
                   <li
                     onClick={() => HandleSelectCategory('')}
                     className={'bg-white text-primary p-1.5 px-4 cursor-pointer rounded'}
@@ -98,17 +98,17 @@ export const MoreNews = (props: Props) => {
             {load2 ? (
               Array.from({ length: 8 }).map((_, i) => <CardNewsColSkeleton key={i} />)
             ) : (
-              <>
+              <div className={'col-span-4 flex flex-nowrap w-full gap-x-5 overflow-x-auto lg:overflow-hidden lg:grid grid-cols-4 gap-5'}>
                 {news?.map((item, l) => (
                   <Link href={`/information/news/${item?.slug}`} key={l}>
                     <CardNewsCol
                       titleClassName={'text-base'}
-                      className={'w-full h-[300px]'}
+                      className={'w-full h-[180px] lg:min-w-full min-w-[290px] lg:h-[300px]'}
                       item={item}
                     />
                   </Link>
                 ))}
-              </>
+              </div>
             )}
 
             <div className="col-span-4">

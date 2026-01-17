@@ -15,14 +15,14 @@ export const RegistrationSection = () => {
   return (
     <>
       <Tabs
-        className="w-full grid grid-cols-[335_1fr] mt-8"
+        className="w-full flex flex-col lg:flex-row lg:grid grid-cols-[335_1fr] mt-8"
         value={tabValue}
         onValueChange={setTabValue}
       >
         <TabsList
-          className={'flex flex-col rounded-none w-full text-start h-fit bg-primary gap-2 relative'}
+          className={'flex flex-row lg:flex-col rounded-none w-full text-start h-fit bg-primary gap-2 relative'}
         >
-          <div className="absolute w-[2px] h-full left-1 top-2.5 bg-linear-to-b from-white to-primary" />
+          <div className="absolute w-[2px] h-full left-1 top-2.5 bg-linear-to-b from-white to-primary hidden" />
           {registration.map((item, k) => (
             <TabsTrigger
               value={item?.id_jalur_pendaftaran}

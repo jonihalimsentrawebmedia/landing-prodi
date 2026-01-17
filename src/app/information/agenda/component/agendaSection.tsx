@@ -20,7 +20,7 @@ export const AgendaSection = () => {
     <>
       <div className="bg-primary">
         <div
-          className={`w-full py-10`}
+          className={`w-full py-5 lg:py-10`}
           style={{
             backgroundImage: "url('/img/background.png')",
             backgroundAttachment: 'fixed',
@@ -29,13 +29,13 @@ export const AgendaSection = () => {
             backgroundRepeat: 'no-repeat',
           }}
         >
-          <div className={'grid lg:grid-cols-4 gap-5 container'}>
+          <div className={'lg:grid lg:grid-cols-4 gap-y-5 lg:gap-5 container flex flex-col'}>
             <div className={'col-span-4'}>
               <Link href={'/information'} className={'flex items-center gap-1.5 text-white'}>
                 <ArrowLeft className={'size-4'} />
                 Kembali
               </Link>
-              <p className="mb-5 underline underline-offset-8 text-2xl font-semibold text-white">
+              <p className="mb-5 mt-2 lg:mt-0 underline underline-offset-8 lg:text-2xl font-semibold text-white">
                 Agenda Program Studi
               </p>
               <SearchInput
@@ -46,7 +46,7 @@ export const AgendaSection = () => {
               {load1 ? (
                 <SkeletonCategoryNews />
               ) : (
-                <ul className={'flex flex-nowrap gap-5 overflow-x-auto mt-5'}>
+                <ul className={'flex flex-nowrap gap-5 overflow-x-auto mt-3 lg:my-5'}>
                   <li className={'bg-white text-primary p-1.5 px-4 cursor-pointer rounded'}>
                     Semua
                   </li>

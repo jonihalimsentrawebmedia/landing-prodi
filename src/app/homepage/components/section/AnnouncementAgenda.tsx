@@ -26,10 +26,10 @@ export const AnnouncementAgenda = () => {
 
   return (
     <>
-      <div className={'w-full max-w-[1920px] relative z-10 -mt-36'}>
+      <div className={'w-full max-w-[1920px] h-full relative z-10 -mt-36'}>
         <div className="absolute h-full w-full bg-linear-to-t from-primary to-primary/70 z-10">
-          <div className="container pt-44 flex items-start gap-x-8">
-            <div className="w-1/2">
+          <div className="container h-full pt-44 flex-col lg:flex-row flex gap-y-5 lg:gap-y-0 items-start gap-x-8">
+            <div className="lg:w-1/2 w-full">
               <p className="text-center underline underline-offset-8 decoration-yellow-500 font-semibold text-3xl text-white">
                 Pengumuman
               </p>
@@ -56,7 +56,7 @@ export const AnnouncementAgenda = () => {
               </div>
             </div>
 
-            <div className="w-1/2">
+            <div className="w-full lg:w-1/2">
               <p className="text-center underline underline-offset-8 decoration-yellow-500 font-semibold text-3xl text-white">
                 Agenda
               </p>
@@ -96,7 +96,7 @@ export const AnnouncementAgenda = () => {
                 <Image
                   src={row?.gambar_url}
                   alt={'img'}
-                  className={'w-full h-[680px] object-cover'}
+                  className={'w-full h-[1050px] lg:h-[680px] object-cover'}
                   width={1920}
                   height={680}
                 />

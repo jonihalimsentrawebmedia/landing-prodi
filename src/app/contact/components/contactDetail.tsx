@@ -13,9 +13,9 @@ export const ContactDetail = () => {
 
   return (
     <>
-      <div className={'w-full border-l border-gray-400 pl-6'}>
+      <div className={'w-full lg:border-l border-gray-400 lg:pl-5'}>
         <p className="text-primary text-xl font-semibold">Kontak Universitas</p>
-        <div className="grid grid-cols-2 gap-5 mt-2.5">
+        <div className="flex flex-col lg:grid grid-cols-2 gap-5 mt-2.5">
           <div className={'p-2.5 bg-white rounded-lg shadow flex gap-2.5 items-center'}>
             <div className="rounded-full p-2.5 bg-[#F5FAFF] w-fit">
               <IconPhone />
@@ -37,7 +37,7 @@ export const ContactDetail = () => {
         </div>
 
         <p className="text-primary text-xl font-semibold mt-5">Kontak Program Studi</p>
-        <div className="grid grid-cols-2 gap-5 mt-2.5">
+        <div className="flex flex-col lg:grid grid-cols-2 gap-5 mt-2.5">
           <div className={'p-2.5 bg-white rounded-lg shadow flex gap-2.5 items-center'}>
             <div className="rounded-full p-2.5 bg-[#F5FAFF] w-fit">
               <IconPhone />
@@ -59,7 +59,7 @@ export const ContactDetail = () => {
         </div>
 
         <div className={'mt-5'}>
-          <p className="text-primary text-xl font-semibold">Sosial Media</p>
+          <p className="text-primary lg:text-xl font-semibold">Sosial Media</p>
           <div className={'p-4 bg-white rounded-lg shadow flex gap-5 items-center mt-2.5'}>
             <IconInstagram />
             <IconFacebook />

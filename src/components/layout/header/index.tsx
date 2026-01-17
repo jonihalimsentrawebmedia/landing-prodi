@@ -39,7 +39,7 @@ export const HeaderMenuList = () => {
   return (
     <>
       <div
-        className={`max-w-[1920px] mx-auto py-4 fixed z-50 top-0 w-full
+        className={`lg:max-w-[1920px] mx-auto py-4 fixed z-50 top-0 w-full
         transition-colors duration-500 ease-in-out
         ${scrolled ? 'bg-primary/75 backdrop-blur' : 'bg-transparent'}
         `}
@@ -53,17 +53,19 @@ export const HeaderMenuList = () => {
               height={100}
               loading={'eager'}
               priority={true}
-              className={'object-cover w-14 h-14 rounded-full'}
+              className={'object-cover lg:w-14 lg:h-14 size-10 rounded-full'}
             />
             <div>
-              <p className="text-2xl font-semibold text-white">{detail?.singkatan_universitas}</p>
-              <p className={'text-white'}>
+              <p className="lg:text-2xl font-semibold text-white text-sm">
+                {detail?.singkatan_universitas}
+              </p>
+              <p className={'text-white text-xs'}>
                 {detail?.kode_jenjang}-{detail?.nama}
               </p>
             </div>
           </div>
 
-          <ul className={'flex items-center gap-x-5'}>
+          <ul className={'items-center gap-x-5 hidden lg:flex'}>
             {NavMenuList?.map((item) => (
               <Link href={item?.link} key={item.id}>
                 <li className={'text-white'}>{item?.name}</li>

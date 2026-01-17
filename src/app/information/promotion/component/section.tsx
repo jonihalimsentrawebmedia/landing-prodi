@@ -35,7 +35,7 @@ export const SectionPromotion = () => {
             backgroundRepeat: 'no-repeat',
           }}
         >
-          <div className={'grid lg:grid-cols-4 gap-5 container'}>
+          <div className={'lg:grid lg:grid-cols-4 gap-5 container flex flex-col'}>
             <div className={'col-span-4'}>
               <Link href={'/information'} className={'flex items-center gap-1.5 text-white'}>
                 <ArrowLeft className={'size-4'} />

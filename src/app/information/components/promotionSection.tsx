@@ -26,7 +26,7 @@ export const PromotionSection = () => {
 
         <div className="container py-8 pb-10">
           <div className="flex items-center justify-between relative z-10">
-            <p className="text-2xl font-semibold col-span-4 text-white">
+            <p className="lg:text-2xl font-semibold col-span-4 text-white">
               <span className={'bg-[#CDA327] px-0.5 text-primary'}>Promosi</span> Program Studi
             </p>
             <Link

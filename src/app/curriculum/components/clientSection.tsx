@@ -67,27 +67,29 @@ export const ClientSectionCurriculum = () => {
       <div className="bg-primary">
         <div className="container">
           <Tabs
-            className="w-full grid grid-cols-[335_1fr]"
+            className="w-full flex flex-col lg:grid grid-cols-[335_1fr]"
             value={tabValue}
             onValueChange={setTabValue}
           >
             <TabsList
               className={
-                'flex flex-col rounded-none w-full text-start h-fit bg-primary gap-2 relative'
+                'flex overflow-x-auto justify-start whitespace-nowrap flex-row lg:flex-col rounded-none w-full text-start h-fit bg-primary gap-2 relative'
               }
             >
-              <div className="w-full flex justify-start">
-                <FilterSelect
-                  className={'bg-white max-w-[180px]'}
-                  innerClassname={'w-full min-w-[180px]'}
-                  name={'slug_curriculum'}
-                  data={curriculum?.map((row) => ({
-                    label: row?.nama_kurikulum,
-                    value: row?.slug,
-                  }))}
-                />
+              <div className="w-full lg:flex justify-start">
+                {slug_curriculum && (
+                  <FilterSelect
+                    className={'bg-white max-w-[180px]'}
+                    innerClassname={'w-full min-w-[180px]'}
+                    name={'slug_curriculum'}
+                    data={curriculum?.map((row) => ({
+                      label: row?.nama_kurikulum,
+                      value: row?.slug,
+                    }))}
+                  />
+                )}
               </div>
-              <div className="absolute w-[2px] h-full left-1 top-2.5 bg-linear-to-b from-white to-primary" />
+              <div className="absolute w-[2px] h-full left-1 top-2.5 bg-linear-to-b from-white to-primary hidden lg:block" />
               {elements?.map((item, k) => (
                 <TabsTrigger
                   value={item?.value}

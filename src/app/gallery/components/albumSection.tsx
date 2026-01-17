@@ -5,7 +5,6 @@ import { ArrowLeft, ChevronLeft, ChevronRight } from 'lucide-react'
 import { Carousel, CarouselApi, CarouselContent, CarouselItem } from '@/components/ui/carousel'
 import { DialogCustom } from '@/components/common/Dialog'
 import { useEffect, useState } from 'react'
-import { FaYoutube } from 'react-icons/fa'
 import { IoEyeSharp } from 'react-icons/io5'
 
 export const AlbumSection = () => {
@@ -38,57 +37,62 @@ export const AlbumSection = () => {
   return (
     <>
       {!slug ? (
-        <div className={'grid lg:grid-cols-3 gap-5 container mt-8 bg-[#EAEAEA] p-5'}>
-          {galleryAlbum?.map((item, k) => (
-            <div key={k} className={'cursor-pointer'} onClick={() => PassingSlug(item?.slug)}>
-              <div className={'relative'}>
-                <Image
-                  src={item?.thumbnail}
-                  alt={'image'}
-                  className={'w-full h-[240px] object-cover rounded'}
-                  width={500}
-                  height={240}
-                />
-              </div>
-              <p className={'p-2 py-1 font-semibold'}>{item?.judul}</p>
-            </div>
-          ))}
-        </div>
-      ) : (
-        <>
-          <div className={'grid lg:grid-cols-3 gap-5 container mt-8 bg-[#EAEAEA] p-5'}>
-            <div className={'text-xl font-semibold flex items-center gap-2 col-span-3'}>
-              <button
-                onClick={() => PassingSlug('')}
-                className={'rounded-full border border-primary bg-white p-1.5'}
-              >
-                <ArrowLeft className={'size-4 text-primary'} />
-              </button>
-              {slug}
-            </div>
-            {galleryPhoto?.map((item, k) => (
-              <div
-                key={k}
-                className={'cursor-pointer'}
-                onClick={() => {
-                  setCurrentIndex(k)
-                  setOpen(!open)
-                }}
-              >
-                <div className={'relative group'}>
-                  <div className="absolute w-full h-full rounded flex items-center justify-center bg-[#333333]/60">
-                    <IoEyeSharp className={'text-white size-5 hidden group-hover:block'} />
-                  </div>
+        <div className={'lg:container mt-8'}>
+          <div className="grid lg:grid-cols-3 gap-5 bg-[#EAEAEA] p-5">
+            {galleryAlbum?.map((item, k) => (
+              <div key={k} className={'cursor-pointer'} onClick={() => PassingSlug(item?.slug)}>
+                <div className={'relative'}>
                   <Image
-                    src={item?.link_foto}
+                    src={item?.thumbnail}
                     alt={'image'}
                     className={'w-full h-[240px] object-cover rounded'}
                     width={500}
                     height={240}
                   />
                 </div>
+                <p className={'p-2 py-1 font-semibold'}>{item?.judul}</p>
               </div>
             ))}
+          </div>
+        </div>
+      ) : (
+        <>
+          <div className="lg:container mt-8">
+            <div className={'lg:grid lg:grid-cols-3 gap-5 bg-[#EAEAEA] p-5 lg:p-5 flex flex-col'}>
+              <div className={'text-xs lg:text-xl font-semibold flex items-center gap-2 col-span-3'}>
+                <button
+                  onClick={() => PassingSlug('')}
+                  className={'rounded-full border border-primary bg-white p-1.5'}
+                >
+                  <ArrowLeft className={'size-4 text-primary'} />
+                </button>
+                {slug}
+              </div>
+              
+              {galleryPhoto?.map((item, k) => (
+                <div
+                  key={k}
+                  className={'cursor-pointer'}
+                  onClick={() => {
+                    setCurrentIndex(k)
+                    setOpen(!open)
+                  }}
+                >
+                  <div className={'relative group'}>
+                    <div className="absolute w-full h-full rounded flex items-center justify-center bg-[#333333]/60">
+                      <IoEyeSharp className={'text-white size-5 hidden group-hover:block'} />
+                    </div>
+                    <Image
+                      src={item?.link_foto}
+                      alt={'image'}
+                      className={'w-full h-[200px] lg:h-[240px] object-cover rounded'}
+                      width={500}
+                      height={240}
+                    />
+                  </div>
+                </div>
+              ))}
+            </div>
           </div>
 
           <DialogCustom

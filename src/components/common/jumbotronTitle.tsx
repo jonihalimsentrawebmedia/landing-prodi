@@ -21,18 +21,12 @@ export const JumbotronTitle = (props: Props) => {
   if (loading) {
     return (
       <div className="relative h-[460px] animate-pulse">
-        {/* Overlay */}
         <div className="absolute z-10 w-full h-full bg-gray-300/40">
           <div className="flex flex-col items-start justify-center container h-full">
-            {/* Title kecil */}
             <div className="h-10 w-1/3 bg-gray-300 rounded-md" />
-
-            {/* Title besar */}
             <div className="h-[120px] w-2/3 bg-gray-300 rounded-md mt-4" />
           </div>
         </div>
-
-        {/* Background image placeholder */}
         <div className="w-full h-full bg-gray-200" />
       </div>
     )
@@ -43,8 +37,8 @@ export const JumbotronTitle = (props: Props) => {
       <div className="relative">
         <div className="absolute z-10 w-full h-full bg-linear-to-t from-primary to-primary/70">
           <div className="flex flex-col items-start justify-center container h-full">
-            <p className="font-semibold text-white text-4xl relative z-10">{title}</p>
-            <p className="text-[117px] font-semibold bg-linear-to-t from-primary relative to-white/60 -mt-14 bg-clip-text text-transparent">
+            <p className="font-semibold text-white lg:text-4xl relative z-10">{title}</p>
+            <p className="text-6xl lg:text-[117px] font-semibold bg-linear-to-t from-primary relative to-white/60 -mt-14 bg-clip-text text-transparent">
               {title}
             </p>
           </div>
@@ -62,7 +56,7 @@ export const JumbotronTitle = (props: Props) => {
                   alt={'image'}
                   width={1920}
                   height={460}
-                  className={'w-full h-[460px] object-cover object-center'}
+                  className={'w-full h-[300px] lg:h-[460px] object-cover object-center'}
                 />
               </CarouselItem>
             ))}
