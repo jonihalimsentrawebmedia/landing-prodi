@@ -8,6 +8,7 @@ import { useEffect, useState } from 'react'
 import { useStateContext } from '@/contexts'
 import Link from 'next/link'
 import { HeaderMenuSkeleton } from '@/components/layout/header/skeleton'
+import { SheetMenu } from '@/components/common/sheetMenu'
 
 export const HeaderMenuList = () => {
   const { profile, loading } = UseGetProfile()
@@ -72,6 +73,7 @@ export const HeaderMenuList = () => {
               </Link>
             ))}
           </ul>
+          <SheetMenu />
         </div>
       </div>
     </>
