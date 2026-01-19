@@ -22,10 +22,14 @@ export const SheetMenu = () => {
   return (
     <>
       <Sheet open={open} onOpenChange={setOpen}>
-        <SheetTrigger className={'text-white'}>
+        <SheetTrigger className={'text-white block lg:hidden'}>
           <IoMdMenu />
         </SheetTrigger>
-        <SheetContent className={'w-full bg-primary text-white [&>button>svg]:text-white [&>button>svg]:stroke-white'}>
+        <SheetContent
+          className={
+            'w-full bg-primary text-white [&>button>svg]:text-white [&>button>svg]:stroke-white'
+          }
+        >
           <SheetHeader>
             <SheetTitle>
               <div className="flex items-center gap-2">
