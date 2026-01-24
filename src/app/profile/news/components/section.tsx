@@ -1,9 +1,6 @@
 'use client'
 
 import { UseGetNews } from '@/app/homepage/hooks'
-import Image from 'next/image'
-import { MdCalendarMonth } from 'react-icons/md'
-import { format } from 'date-fns'
 import Link from 'next/link'
 import { Button } from '@/components/ui/button'
 import { ArrowLeft, ArrowRight } from 'lucide-react'

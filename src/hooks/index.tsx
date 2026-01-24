@@ -69,11 +69,6 @@ export const useDownloadFile = async (url: string, filename?: string) => {
       }
     )
 
-    console.log('Response headers:', response.headers)
-    console.log('Response type:', response.headers['content-type'])
-    console.log('Blob size:', response.data.size)
-    console.log('Blob type:', response.data.type)
-
     // Dapatkan tipe konten dari response
     const contentType = response.headers['content-type'] || response.data.type
 
@@ -104,8 +99,6 @@ export const useDownloadFile = async (url: string, filename?: string) => {
     // Coba dapatkan nama file dari Content-Disposition header
     const contentDisposition = response.headers['content-disposition']
     if (contentDisposition) {
-      console.log('Content-Disposition:', contentDisposition)
-
       // Handle UTF-8 encoded filenames (filename*=UTF-8'')
       const utf8FilenameRegex = /filename\*=UTF-8''([\w%\-.]+)(?:; ?|$)/i
       const asciiFilenameRegex = /filename=(["']?)(.*?[^\\])\1(?:; ?|$)/i
