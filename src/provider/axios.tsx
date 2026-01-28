@@ -12,7 +12,7 @@ export interface ApiErrorResponse {
 }
 
 const AxiosClient = axios.create({
-  baseURL: process.env.NEXT_PUBLIC_API_URL,
+  baseURL: process.env.API_URL,
 })
 
 AxiosClient.interceptors.request.use(
