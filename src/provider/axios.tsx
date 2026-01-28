@@ -24,7 +24,10 @@ AxiosClient.interceptors.request.use(
       host === '192.168.20.83:3000' ||
       host === 'landing-prodi.vercel.app'
         ? 'tradis-bi.stain-madina.ac.id'
-        : window.location.origin
+        : host
+
+    console.log(host)
+    console.log(origin)
 
     const headers = new AxiosHeaders({
       ...config.headers,
