@@ -11,6 +11,7 @@ export interface ApiErrorResponse {
   error: ApiError
 }
 
+// axios
 const AxiosClient = axios.create({
   baseURL: process.env.API_URL,
 })
