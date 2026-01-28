@@ -1,3 +1,5 @@
+'use client'
+
 import axios, { AxiosError, AxiosHeaders, InternalAxiosRequestConfig, AxiosResponse } from 'axios'
 
 export interface ApiError {
