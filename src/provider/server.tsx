@@ -6,7 +6,7 @@ export const FetchResAPI = async (endpoint: string) => {
       headers: {
         'content-type': 'application/json',
         Accept: 'application/json',
-        'x-domain-origin': 'https://prodi.stain-madina.ac.id',
+        'x-domain-origin': 'prodi.stain-madina.ac.id',
       },
       next: { revalidate: 30 },
     })
