@@ -26,9 +26,6 @@ AxiosClient.interceptors.request.use(
         ? 'tradis-bi.stain-madina.ac.id'
         : host
 
-    console.log(host)
-    console.log(origin)
-
     const headers = new AxiosHeaders({
       ...config.headers,
       Accept: 'application/json',

@@ -73,7 +73,7 @@ export const ClientSectionCurriculum = () => {
           >
             <TabsList
               className={
-                'flex overflow-x-auto justify-start whitespace-nowrap flex-row lg:flex-col rounded-none w-full text-start h-fit bg-primary gap-2 relative'
+                'flex overflow-x-auto lg:overflow-x-visible justify-start whitespace-nowrap flex-row lg:flex-col rounded-none w-full text-start h-fit bg-primary gap-2 relative'
               }
             >
               <div className="w-full lg:flex justify-start">
