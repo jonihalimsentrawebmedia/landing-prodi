@@ -25,8 +25,13 @@ export async function generateMetadata(): Promise<Metadata> {
 
   return {
     metadataBase: new URL('https://landing-stain.vercel.app'),
-    title: satuan?.nama,
+    title: `${satuan?.singkatan_universitas} || ${satuan?.nama}`,
     description: `Sekolah TInggi Agama Islam Negeri MADINA Program Studi ${satuan?.nama}`,
+    icons: {
+      icon: satuan?.logo,
+      shortcut: satuan?.logo,
+      apple: satuan?.logo,
+    },
     openGraph: {
       type: 'website',
       title: satuan?.nama,
