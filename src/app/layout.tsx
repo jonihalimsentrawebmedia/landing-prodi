@@ -20,7 +20,6 @@ const geistMono = Geist_Mono({
 
 export const dynamic = 'force-static'
 
-
 export async function generateMetadata(): Promise<Metadata> {
   const data = await FetchResAPI('/public-prodi/profil')
   const profile: IProfileResponse = data?.data
@@ -55,7 +54,14 @@ export async function generateMetadata(): Promise<Metadata> {
       card: 'summary_large_image',
       title: satuan?.nama,
       description: satuan?.nama,
-      images: [data?.data?.logo],
+      images: [
+        {
+          url: data?.data?.logo,
+          alt: satuan?.nama,
+          width: 1200,
+          height: 630,
+        },
+      ],
     },
   }
 }
