@@ -54,7 +54,7 @@ export const HeaderMenuList = () => {
               height={100}
               loading={'eager'}
               priority={true}
-              className={'object-cover lg:w-14 lg:h-14 size-10 rounded-full'}
+              className={'object-contain lg:w-14 lg:h-14 size-10 rounded'}
             />
             <div>
               <p className="lg:text-2xl font-semibold text-white text-sm">

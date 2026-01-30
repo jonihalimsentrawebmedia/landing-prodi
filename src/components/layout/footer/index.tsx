@@ -23,7 +23,7 @@ export const Footer = () => {
                 alt={'logo'}
                 width={100}
                 height={100}
-                className={'size-14 rounded-full object-contain'}
+                className={'size-14 rounded object-contain'}
               />
               <p className="lg:text-2xl font-semibold text-white">
                 {profile?.SatuanOrganisasi?.kode_jenjang} - {profile?.SatuanOrganisasi?.nama}
