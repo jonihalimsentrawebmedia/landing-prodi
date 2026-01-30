@@ -18,13 +18,16 @@ const geistMono = Geist_Mono({
   subsets: ['latin'],
 })
 
+export const dynamic = 'force-static'
+
+
 export async function generateMetadata(): Promise<Metadata> {
   const data = await FetchResAPI('/public-prodi/profil')
   const profile: IProfileResponse = data?.data
   const satuan = profile?.SatuanOrganisasi
 
   return {
-    metadataBase: new URL('https://landing-stain.vercel.app'),
+    metadataBase: new URL('https://landing-prodi.vercel.app'),
     title: `${satuan?.singkatan_universitas} || ${satuan?.nama}`,
     description: `Sekolah TInggi Agama Islam Negeri MADINA Program Studi ${satuan?.nama}`,
     icons: {
@@ -34,7 +37,7 @@ export async function generateMetadata(): Promise<Metadata> {
     },
     openGraph: {
       type: 'website',
-      title: satuan?.nama,
+      title: `${satuan?.singkatan_universitas} || ${satuan?.nama}`,
       description: `Sekolah TInggi Agama Islam Negeri MADINA Program Studi ${satuan?.nama}`,
       url: profile?.domain,
       siteName: satuan?.nama,
