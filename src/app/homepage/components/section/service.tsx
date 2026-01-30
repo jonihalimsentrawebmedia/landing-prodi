@@ -40,7 +40,7 @@ const SectionServices = () => {
                     key={k}
                     className={`rounded-full w-full
                   flex gap-2 border items-center
-                  text-primary bg-blue-100 border-blue-400
+                  text-primary bg-primary/20 border-primary
                   whitespace-nowrap  px-4 py-2 font-semibold
                   `}
                   >

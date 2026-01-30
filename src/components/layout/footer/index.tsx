@@ -12,18 +12,18 @@ export const Footer = () => {
   const [{ profile }] = useStateContext()
   return (
     <>
-      <div className="bg-primary lg:p-8 py-10">
+      <div className="bg-footer lg:p-8 py-10 lg:py-12">
         <div className="container flex flex-col lg:flex-row items-start gap-5 justify-between">
           {!profile ? (
             <FooterSkeleton />
           ) : (
-            <div className="flex flex-col gap-1.5 lg:max-w-[400px]">
+            <div className="flex flex-col gap-1.5 lg:max-w-[400px] rounded-full">
               <Image
                 src={profile?.SatuanOrganisasi?.logo ?? '/img/noimg.png'}
                 alt={'logo'}
                 width={100}
                 height={100}
-                className={'size-14'}
+                className={'size-14 rounded-full object-contain'}
               />
               <p className="lg:text-2xl font-semibold text-white">
                 {profile?.SatuanOrganisasi?.kode_jenjang} - {profile?.SatuanOrganisasi?.nama}
@@ -91,7 +91,7 @@ export const Footer = () => {
                   </Link>
                 </ul>
               </div>
-              
+
               <div className={'text-xs lg:text-base'}>
                 <p className="text-white font-semibold pl-2 border-l-4 border-yellow-600">
                   Social Media
