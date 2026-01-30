@@ -42,7 +42,7 @@ export async function generateMetadata(): Promise<Metadata> {
       siteName: satuan?.nama,
       images: [
         {
-          url: data?.data?.logo,
+          url: satuan?.logo,
           alt: satuan?.nama,
           width: 1200,
           height: 630,
@@ -56,7 +56,7 @@ export async function generateMetadata(): Promise<Metadata> {
       description: satuan?.nama,
       images: [
         {
-          url: data?.data?.logo,
+          url: satuan?.logo,
           alt: satuan?.nama,
           width: 1200,
           height: 630,
