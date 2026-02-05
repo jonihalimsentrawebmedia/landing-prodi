@@ -1,0 +1,54 @@
+name: Deploy Next.js (no pm2 config)
+
+on:
+  push:
+    branches:
+      - master
+
+jobs:
+  deploy:
+    runs-on: ubuntu-latest
+
+    steps:
+      - name: Checkout repo
+        uses: actions/checkout@v4
+
+      - name: Setup SSH
+        uses: webfactory/ssh-agent@v0.9.0
+        with:
+          ssh-private-key: ${{ secrets.VPS_SSH_KEY }}
+
+      - name: Sync source code
+        run: |
+          rsync -avz --delete \
+            --exclude=node_modules \
+            --exclude=.git \
+            --exclude=.idea \
+            --exclude=.next \
+            --exclude=.env* \
+            -e "ssh -p 22 -o StrictHostKeyChecking=no" \
+            ./ \
+            ${{ secrets.VPS_USER }}@${{ secrets.VPS_HOST }}:/home/syamil/prodi.stain-madina.ac.id
+
+      - name: Build & Restart PM2
+        run: |
+          ssh -p 22 \
+            ${{ secrets.VPS_USER }}@${{ secrets.VPS_HOST }} << 'EOF'
+            set -e
+
+            export NVM_DIR="$HOME/.nvm"
+            [ -s "$NVM_DIR/nvm.sh" ] && . "$NVM_DIR/nvm.sh"
+
+            # load pnpm global bin
+            export PNPM_HOME="$HOME/.local/share/pnpm"
+            export PATH="$PNPM_HOME:$PATH"
+
+            echo "Node:" $(node -v)
+            echo "PNPM:" $(pnpm -v)
+            echo "PM2:" $(pm2 -v)
+
+            cd /home/syamil/prodi.stain-madina.ac.id
+            pnpm install
+            pnpm run build
+            pm2 restart prodi.stain-madina.ac.id
+          EOF
