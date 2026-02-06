@@ -6,9 +6,12 @@ export const FetchResAPI = async (endpoint: string) => {
   const headersList = await headers()
   const host = headersList.get('host')
   const origin =
-    host === 'localhost:3000' || host === 'landing-prodi-v2.vercel.app'
+    host === 'localhost:3000' || host === 'https://landing-prodi.vercel.app'
       ? 'tradis-bi.stain-madina.ac.id'
       : host
+
+  console.log(origin)
+
   try {
     const promise = await fetch(`${API_URL}${endpoint}`, {
       headers: {
