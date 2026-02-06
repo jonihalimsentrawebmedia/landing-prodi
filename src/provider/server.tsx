@@ -5,12 +5,13 @@ const API_URL = process.env.API_URL || process.env.NEXT_PUBLIC_API_URL
 export const FetchResAPI = async (endpoint: string) => {
   const headersList = await headers()
   const host = headersList.get('x-forwarded-host') ?? headersList.get('host') ?? ''
+
   const origin =
-    host === 'localhost:3000' || host === 'https://landing-prodi.vercel.app'
+    host.includes('vercel.app') || host.includes('localhost')
       ? 'tradis-bi.stain-madina.ac.id'
       : host
 
-  console.log(origin + ' origin')
+  console.log(origin)
 
   try {
     const promise = await fetch(`${API_URL}${endpoint}`, {
@@ -19,7 +20,9 @@ export const FetchResAPI = async (endpoint: string) => {
         Accept: 'application/json',
         'x-domain-origin': `${origin}`,
       },
-      next: { revalidate: 30 },
+      cache: 'no-store',
+      next: { revalidate: 0 },
+      // next: { revalidate: 30 },
     })
 
     if (promise.status === 200) {
