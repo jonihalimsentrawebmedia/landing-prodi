@@ -1,25 +1,31 @@
 'use client'
 
-import {
-  UseGetCurriculum,
-  UseGetCurriculumDetail,
-  UseGetCurriculumSubject,
-} from '@/app/curriculum/hooks'
+import { UseGetCurriculumDetail, UseGetCurriculumSubject } from '@/app/curriculum/hooks'
 import { Fragment, useEffect, useMemo, useState } from 'react'
 import { useRouter, useSearchParams } from 'next/navigation'
-import { IElement } from '@/app/curriculum/data/types'
+import { ICurriculum, IElement } from '@/app/curriculum/data/types'
 import { Tabs, TabsContent, TabsList, TabsTrigger } from '@/components/ui/tabs'
-import { FilterSelect } from '@/components/common/filter/select'
 import { NumberToOrdinalID } from '@/helper'
+import dynamic from 'next/dynamic'
 
-export const ClientSectionCurriculum = () => {
+const FilterSelect = dynamic(
+  () => import('@/components/common/filter/select').then((mod) => mod.FilterSelect),
+  { ssr: false }
+)
+
+interface Props {
+  curriculum: ICurriculum[]
+}
+
+export const ClientSectionCurriculum = (props: Props) => {
+  const { curriculum } = props
+
   const router = useRouter()
   const searchParams = useSearchParams()
   const slug_curriculum = searchParams.get('slug_curriculum')
 
   const [tabValue, setTabValue] = useState('1')
 
-  const { curriculum } = UseGetCurriculum({ isGetAll: true })
   const { detail } = UseGetCurriculumDetail(slug_curriculum ?? '')
   const { subject } = UseGetCurriculumSubject({
     slug: slug_curriculum ?? '',
@@ -27,13 +33,16 @@ export const ClientSectionCurriculum = () => {
     type: tabValue === 'other' ? 'PILIHAN' : 'WAJIB',
   })
 
+  console.log(slug_curriculum)
+
   useEffect(() => {
-    if (!slug_curriculum && curriculum) {
-      const Params = new URLSearchParams()
-      Params.set('slug_curriculum', curriculum[0]?.slug)
-      router.push(`?${Params.toString()}`)
+    if (!slug_curriculum) {
+      const ParamsSearch = new URLSearchParams()
+      ParamsSearch.append('slug_curriculum', curriculum[0]?.slug ?? '')
+      router.push(`?${ParamsSearch.toString()}`)
     }
-  }, [slug_curriculum, curriculum, router])
+    //eslint-disable-next-line
+  }, [curriculum, slug_curriculum])
 
   const elements = useMemo(() => {
     if (detail) {

@@ -1,13 +1,19 @@
-import { JumbotronTitle } from '@/components/common/jumbotronTitle'
+import { LecturerTheme1 } from '@/components/thema-v1/lecturer'
+import { LecturerTheme2 } from '@/components/thema-v2/lecturer'
 
 const LecturerPage = () => {
-  return (
-    <>
-      <div className={'w-full max-w-[1920px] mx-auto'}>
-        <JumbotronTitle context={'DOSEN'} title={'Dosen'} />
-      </div>
-    </>
-  )
+  const theme: string = '2'
+  switch (theme) {
+    default: {
+      return <LecturerTheme1 />
+    }
+    case '1': {
+      return <LecturerTheme1 />
+    }
+    case '2': {
+      return <LecturerTheme2 />
+    }
+  }
 }
 
 export default LecturerPage

@@ -3,10 +3,10 @@ import { Geist, Geist_Mono } from 'next/font/google'
 import './globals.css'
 import React from 'react'
 import Providers from '@/provider'
-import { LandingLayout } from '@/components/layout'
 import { ToastContainer } from 'react-toastify'
 import { FetchResAPI } from '@/provider/server'
 import { IProfileResponse } from '@/contexts/types'
+import StateProvider from '@/contexts'
 
 const geistSans = Geist({
   variable: '--font-geist-sans',
@@ -17,8 +17,6 @@ const geistMono = Geist_Mono({
   variable: '--font-geist-mono',
   subsets: ['latin'],
 })
-
-export const dynamic = 'force-static'
 
 export async function generateMetadata(): Promise<Metadata> {
   const data = await FetchResAPI('/public-prodi/profil')
@@ -75,15 +73,13 @@ export default function RootLayout({
     <html lang="en">
       <body className={`${geistSans.variable} ${geistMono.variable} antialiased`}>
         <Providers>
-          <LandingLayout>
-            {children}
-            <ToastContainer
-              position="top-right"
-              theme="colored"
-              pauseOnHover={false}
-              closeOnClick={true}
-            />
-          </LandingLayout>
+          <StateProvider>{children}</StateProvider>
+          <ToastContainer
+            position="top-right"
+            theme="colored"
+            pauseOnHover={false}
+            closeOnClick={true}
+          />
         </Providers>
       </body>
     </html>

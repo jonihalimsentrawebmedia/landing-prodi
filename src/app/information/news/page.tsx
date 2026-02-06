@@ -1,15 +1,20 @@
-import { JumbotronTitle } from '@/components/common/jumbotronTitle'
-import { ClientSection } from '@/app/information/news/components/clientSection'
+import { InformationNewsTheme1 } from '@/components/thema-v1/information/news'
+import { InformationNewsTheme2 } from '@/components/thema-v2/information/news'
 
 const NewsPage = () => {
-  return (
-    <>
-      <div className={'w-full max-w-[1920px] mx-auto'}>
-        <JumbotronTitle context={'INFORMASI'} title={'Informasi'} />
-        <ClientSection />
-      </div>
-    </>
-  )
+  const theme: string = '2'
+
+  switch (theme) {
+    default: {
+      return <InformationNewsTheme1 />
+    }
+    case '1': {
+      return <InformationNewsTheme1 />
+    }
+    case '2': {
+      return <InformationNewsTheme2 />
+    }
+  }
 }
 
 export default NewsPage

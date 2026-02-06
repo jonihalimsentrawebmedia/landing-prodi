@@ -54,7 +54,7 @@
     --popover-foreground: oklch(0.141 0.005 285.823);
     --primary: oklch(0.153 0.037 243.08);
     ---footer: oklch(0.153 0.037 243.08);
-    --primary-foreground: oklch(0.153 0.037 243.08 / 0.5);
+    --primary-foreground: oklch(0.855 0.046 251.436 / 0.5);
     --secondary: oklch(0.376 0.123 254.677);
     --secondary-foreground: oklch(0.21 0.006 285.885);
     --muted: oklch(0.967 0.001 286.375);
@@ -87,7 +87,7 @@
     --card-foreground: oklch(0.985 0 0);
     --popover: oklch(0.21 0.006 285.885);
     --popover-foreground: oklch(0.985 0 0);
-    --primary: oklch(0.648 0.2 131.684);
+    --primary: oklch(0 0 0);
     --footer: oklch(0.107 0 89.876);
     --primary-foreground: oklch(0.986 0.031 120.757);
     --secondary: oklch(0.274 0.006 286.033);
@@ -174,4 +174,19 @@
 
 .html-class h6 {
     @apply text-xs font-semibold;
+}
+
+.hero-text {
+    animation: heroFade 1.6s ease forwards;
+}
+
+@keyframes heroFade {
+    0% {
+        opacity: 0;
+        transform: translateY(30px);
+    }
+    100% {
+        opacity: 1;
+        transform: translateY(0);
+    }
 }

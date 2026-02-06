@@ -1,15 +1,20 @@
-import { JumbotronTitle } from '@/components/common/jumbotronTitle'
-import { SectionPromotion } from '@/app/information/promotion/[slug]/component/section'
+import { InformationPromotionSlugTheme1 } from '@/components/thema-v1/information/promotion/slug'
+import { InformationPromotionSlugTheme2 } from '@/components/thema-v2/information/promotion/slug'
 
 const DetailPromotionPage = () => {
-  return (
-    <>
-      <div className={'w-full max-w-[1920px] mx-auto'}>
-        <JumbotronTitle context={'INFORMASI'} title={'Informasi'} />
-        <SectionPromotion />
-      </div>
-    </>
-  )
+  const theme: string = '2'
+
+  switch (theme) {
+    default: {
+      return <InformationPromotionSlugTheme1 />
+    }
+    case '1': {
+      return <InformationPromotionSlugTheme1 />
+    }
+    case '2': {
+      return <InformationPromotionSlugTheme2 />
+    }
+  }
 }
 
 export default DetailPromotionPage

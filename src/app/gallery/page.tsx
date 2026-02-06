@@ -1,18 +1,19 @@
-import { JumbotronTitle } from '@/components/common/jumbotronTitle'
-import { TabsGallery } from '@/app/gallery/components/Tabs'
+import { GalleryTheme1 } from '@/components/thema-v1/gallery'
+import { GalleryTheme2 } from '@/components/thema-v2/gallery'
 
 const GalleryPage = () => {
-  return (
-    <>
-      <div className={'w-full max-w-[1920px] mx-auto'}>
-        <JumbotronTitle context={'KONTAK'} title={'Galeri'} />
-
-        <div className="bg-primary w-full">
-          <TabsGallery />
-        </div>
-      </div>
-    </>
-  )
+  const theme: string = '2'
+  switch (theme) {
+    default: {
+      return <GalleryTheme1 />
+    }
+    case '1': {
+      return <GalleryTheme1 />
+    }
+    case '2': {
+      return <GalleryTheme2 />
+    }
+  }
 }
 
 export default GalleryPage

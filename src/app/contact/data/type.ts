@@ -29,3 +29,14 @@ export interface IRegistration {
   nama_user_created: string
   nama_user_updated: string
 }
+
+export interface IFAQCategory {
+  id_kategori_faq: string
+  id_satuan_organisasi: string
+  slug: string
+  nama_kategori_faq: string
+  created_at: string // ISO datetime
+  created_user: string
+  updated_at: string
+  updated_user: string
+}

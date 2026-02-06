@@ -14,6 +14,7 @@ export type AnnouncementProps = {
   search?: string
   year?: string
   id_category?: string
+  no_include_id?: string
 }
 
 export type AgendaProps = {
@@ -21,4 +22,5 @@ export type AgendaProps = {
   limit: string
   search?: string
   year?: string
+  no_includes_id?: string
 }

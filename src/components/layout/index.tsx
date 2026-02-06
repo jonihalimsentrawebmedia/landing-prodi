@@ -1,7 +1,6 @@
 'use client'
 
 import { ReactNode, useEffect } from 'react'
-import StateProvider from '@/contexts'
 import { HeaderMenuList } from '@/components/layout/header'
 import { Footer } from '@/components/layout/footer'
 import { useThemeColor } from '@/hooks/useTheme'
@@ -37,13 +36,11 @@ export const LandingLayout = (props: Props) => {
 
   return (
     <>
-      <StateProvider>
-        <div className={'relative lg:max-w-[1920px] mx-auto'}>
-          <HeaderMenuList />
-          {children}
-          <Footer />
-        </div>
-      </StateProvider>
+      <div className={'relative lg:max-w-[1920px] mx-auto'}>
+        <HeaderMenuList />
+        {children}
+        <Footer />
+      </div>
     </>
   )
 }

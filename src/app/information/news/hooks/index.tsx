@@ -3,7 +3,7 @@ import { useQuery } from '@tanstack/react-query'
 import AxiosClient from '@/provider/axios'
 import { INews } from '@/app/homepage/data/types'
 
-interface NewsCategory {
+export interface NewsCategory {
   id_kategori: string
   nama_kategori: string
   slug: string

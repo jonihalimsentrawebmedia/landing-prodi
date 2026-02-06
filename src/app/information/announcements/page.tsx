@@ -1,18 +1,20 @@
-import { JumbotronTitle } from '@/components/common/jumbotronTitle'
-import { AnnouncementSection } from '@/app/information/announcements/components/setion'
-import { Suspense } from 'react'
+import { InformationAnnouncementTheme1 } from '@/components/thema-v1/information/announcement'
+import { InformationAnnouncementTheme2 } from '@/components/thema-v2/information/announcement'
 
 const InfoAnnouncementsPage = () => {
-  return (
-    <>
-      <div className={'w-full max-w-[1920px] mx-auto'}>
-        <JumbotronTitle context={'INFORMASI'} title={'Informasi'} />
-        <Suspense>
-          <AnnouncementSection />
-        </Suspense>
-      </div>
-    </>
-  )
+  const theme: string = '2'
+
+  switch (theme) {
+    default: {
+      return <InformationAnnouncementTheme1 />
+    }
+    case '1': {
+      return <InformationAnnouncementTheme1 />
+    }
+    case '2': {
+      return <InformationAnnouncementTheme2 />
+    }
+  }
 }
 
 export default InfoAnnouncementsPage

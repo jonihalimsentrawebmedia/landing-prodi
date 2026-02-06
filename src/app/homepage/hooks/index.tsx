@@ -33,7 +33,7 @@ export const UseGetSliderLanding = () => {
 }
 
 export const UseGetNews = (props?: NewsProps) => {
-  const { page, limit, start_index, search, category, id_category, no_include_id } = props ?? {}
+  const { page, limit, search, category, id_category, no_include_id } = props ?? {}
 
   const [news, setNews] = useState<INews[]>([])
   const [meta, setMeta] = useState<Meta>()
@@ -41,7 +41,6 @@ export const UseGetNews = (props?: NewsProps) => {
   const paramsSearch = new URLSearchParams()
   if (page) paramsSearch.append('page', page)
   if (limit) paramsSearch.append('limit', limit)
-  if (start_index) paramsSearch.append('start-index', start_index)
   if (search) paramsSearch.append('search', search)
   if (category) paramsSearch.append('slug-kategori-berita', category)
   if (id_category) paramsSearch.append('id-kategori-berita', id_category)
@@ -66,7 +65,7 @@ export const UseGetNews = (props?: NewsProps) => {
 }
 
 export const UseGetAnnouncement = (props?: AnnouncementProps) => {
-  const { page, limit, search, id_category, year } = props ?? {}
+  const { page, limit, search, id_category, year, no_include_id } = props ?? {}
 
   const [announcement, setAnnouncement] = useState<IAnnouncement[]>([])
   const [meta, setMeta] = useState<Meta>()
@@ -77,6 +76,7 @@ export const UseGetAnnouncement = (props?: AnnouncementProps) => {
   if (search) paramsSearch.append('search', search)
   if (id_category) paramsSearch.append('id-kategori-pengumuman', id_category)
   if (year) paramsSearch.append('tahun', year)
+  if (no_include_id) paramsSearch.append('no-include-id', no_include_id)
 
   const { data, isLoading, isFetching } = useQuery({
     queryKey: ['announcement'],
