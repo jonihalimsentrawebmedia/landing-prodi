@@ -1,17 +1,19 @@
 import { AccreditationTheme1 } from '@/components/thema-v1/accreditation'
 import { AccreditationTheme2 } from '@/components/thema-v2/accreditation'
+import { FetchResAPI } from '@/provider/server'
 
-const AccreditationPage = () => {
-  const theme: string = '2'
+const AccreditationPage = async () => {
+  const themes = await FetchResAPI('/public-prodi/public')
+  const theme: string = themes?.data.thema
 
   switch (theme) {
     default: {
       return <AccreditationTheme1 />
     }
-    case '1': {
+    case 'THEMA_PRODI_SATU': {
       return <AccreditationTheme1 />
     }
-    case '2': {
+    case 'THEMA_PRODI_DUA': {
       return <AccreditationTheme2 />
     }
   }

@@ -1,17 +1,19 @@
 import { InformationAnnouncementSlugTheme1 } from '@/components/thema-v1/information/announcement/slug'
 import { InformationAnnouncementSlugTheme2 } from '@/components/thema-v2/information/announcement/slug'
+import { FetchResAPI } from '@/provider/server'
 
-const DetailAnnouncementPage = () => {
-  const theme: string = '2'
+const DetailAnnouncementPage = async () => {
+  const themes = await FetchResAPI('/public-prodi/public')
+  const theme: string = themes?.data.thema
 
   switch (theme) {
     default: {
       return <InformationAnnouncementSlugTheme1 />
     }
-    case '1': {
+    case 'THEMA_PRODI_SATU': {
       return <InformationAnnouncementSlugTheme1 />
     }
-    case '2': {
+    case 'THEMA_PRODI_DUA': {
       return <InformationAnnouncementSlugTheme2 />
     }
   }
