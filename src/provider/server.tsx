@@ -4,13 +4,13 @@ const API_URL = process.env.API_URL || process.env.NEXT_PUBLIC_API_URL
 
 export const FetchResAPI = async (endpoint: string) => {
   const headersList = await headers()
-  const host = headersList.get('host')
+  const host = headersList.get('x-forwarded-host') ?? headersList.get('host') ?? ''
   const origin =
     host === 'localhost:3000' || host === 'https://landing-prodi.vercel.app'
       ? 'tradis-bi.stain-madina.ac.id'
       : host
 
-  console.log(origin)
+  console.log(origin + ' origin')
 
   try {
     const promise = await fetch(`${API_URL}${endpoint}`, {
