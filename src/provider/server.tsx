@@ -10,8 +10,7 @@ export const FetchResAPI = async (endpoint: string) => {
     host.includes('vercel.app') || host.includes('localhost')
       ? 'tradis-bi.stain-madina.ac.id'
       : host
-
-  console.log(origin)
+  
 
   try {
     const promise = await fetch(`${API_URL}${endpoint}`, {

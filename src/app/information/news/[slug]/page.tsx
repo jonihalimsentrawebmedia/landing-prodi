@@ -1,6 +1,7 @@
 import { InformationNewsSlugTheme1 } from '@/components/thema-v1/information/news/slug'
 import { InformationNewsSlugTheme2 } from '@/components/thema-v2/information/news/slug'
 import { FetchResAPI } from '@/provider/server'
+import { InformationNewsSlugTheme3 } from '@/components/thema-v3/information/news/slug'
 
 const DetailNewsPage = async () => {
   const themes = await FetchResAPI('/public-prodi/public')
@@ -15,6 +16,9 @@ const DetailNewsPage = async () => {
     }
     case 'THEMA_PRODI_DUA': {
       return <InformationNewsSlugTheme2 />
+    }
+    case 'THEMA_PRODI_TIGA': {
+      return <InformationNewsSlugTheme3 />
     }
   }
 }

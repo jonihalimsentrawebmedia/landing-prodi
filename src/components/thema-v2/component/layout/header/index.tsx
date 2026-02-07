@@ -3,7 +3,6 @@
 import Image from 'next/image'
 import { Suspense, useEffect } from 'react'
 import { SectionMenu } from './sectionMenu'
-// import { SheetMenu } from './SheetMenu'
 import { useStateContext } from '@/contexts'
 import { useThemeColor } from '@/hooks/useTheme'
 import { useQuery } from '@tanstack/react-query'

@@ -1,6 +1,7 @@
 import { FetchResAPI } from '@/provider/server'
 import { CurriculumTheme1 } from '@/components/thema-v1/curriculum'
 import { CurriculumTHeme2 } from '@/components/thema-v2/curriculum'
+import { CurriculumTheme3 } from '@/components/thema-v3/curriculum'
 
 const CurriculumPage = async () => {
   const data = await FetchResAPI('/public-prodi/kurikulum?page=0&limit=0')
@@ -17,6 +18,9 @@ const CurriculumPage = async () => {
     }
     case 'THEMA_PRODI_DUA': {
       return <CurriculumTHeme2 data={data?.data} />
+    }
+    case 'THEMA_PRODI_TIGA': {
+      return <CurriculumTheme3 data={data?.data} />
     }
   }
 }

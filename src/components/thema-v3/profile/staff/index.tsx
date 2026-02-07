@@ -1,0 +1,10 @@
+import { SectionStaffProfile } from '@/components/thema-v2/profile/staff/components/section'
+import ProfileLayoutTheme3 from '@/components/thema-v3/profile/layout'
+
+export const ProfileStaffTheme3 = () => {
+  return (
+    <ProfileLayoutTheme3>
+      <SectionStaffProfile />
+    </ProfileLayoutTheme3>
+  )
+}

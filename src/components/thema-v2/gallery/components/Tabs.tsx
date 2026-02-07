@@ -2,8 +2,8 @@
 
 import { Tabs, TabsContent, TabsList, TabsTrigger } from '@/components/ui/tabs'
 import { Suspense, useEffect, useState } from 'react'
-import { VideoSection } from '@/app/gallery/components/videoSection'
-import { AlbumSection } from '@/app/gallery/components/albumSection'
+import { VideoSection } from './videoSection'
+import { AlbumSection } from './albumSection'
 import { useRouter } from 'next/navigation'
 import { AlbumListSkeleton, VideoSectionSkeleton } from './skeleton'
 

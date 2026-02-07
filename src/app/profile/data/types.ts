@@ -13,7 +13,7 @@ export interface IAboutProfile {
 
 
 export const Menus = [
-  { id: 1, name: 'Tentang', link: '/profile' },
+  { id: 1, name: 'Tentang Prodi', link: '/profile' },
   { id: 2, name: 'Unit Pengelola', link: '/profile/unit' },
   { id: 3, name: 'Visi, Misi, dan Tujuan', link: '/profile/vision' },
   { id: 4, name: 'Struktur Organisasi', link: '/profile/structure-organization' },

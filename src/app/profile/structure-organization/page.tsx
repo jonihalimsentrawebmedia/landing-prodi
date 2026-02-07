@@ -1,6 +1,7 @@
 import OrganizationProfileTheme1 from '@/components/thema-v1/profile/structure-organization'
 import OrganizationProfileTheme2 from '@/components/thema-v2/profile/structure-organization'
 import { FetchResAPI } from '@/provider/server'
+import { StructureOrganizationTheme3 } from '@/components/thema-v3/profile/structure'
 
 const StructureOrganizationPage = async () => {
   const themes = await FetchResAPI('/public-prodi/public')
@@ -15,6 +16,9 @@ const StructureOrganizationPage = async () => {
     }
     case 'THEMA_PRODI_DUA': {
       return <OrganizationProfileTheme2 />
+    }
+    case 'THEMA_PRODI_TIGA': {
+      return <StructureOrganizationTheme3 />
     }
   }
 }

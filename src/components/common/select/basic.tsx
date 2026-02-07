@@ -37,7 +37,7 @@ export const BasicSelect = (props: props) => {
         {label && <Label>{label}</Label>}
         <Select value={value} onValueChange={onChange}>
           <SelectTrigger
-            className={`rounded border border-gray-500 focus-visible:ring-0 ${innerClassname}`}
+            className={`rounded border border-gray-500 focus-visible:ring-0 text-white ${innerClassname}`}
           >
             <SelectValue placeholder={placeholder} />
           </SelectTrigger>

@@ -1,13 +1,23 @@
 import { UseGetGalleryVideo } from '@/app/profile/gallery/hooks'
 import Image from 'next/image'
 import { FaYoutube } from 'react-icons/fa'
+import { SearchInput } from '@/components/common/filter/search'
+import { useSearchParams } from 'next/navigation'
 
 export const VideoSection = () => {
-  const { galleryVideo } = UseGetGalleryVideo()
+  const searchParams = useSearchParams()
+  const search = searchParams.get('search')
+
+  const { galleryVideo } = UseGetGalleryVideo({
+    search: search ?? '',
+  })
   return (
     <>
-      <div className={'container bg-[#EAEAEA] mt-8'}>
-        <div className="lg:p-5 py-5 grid lg:grid-cols-3 gap-5">
+      <div className={'container lg:mt-8'}>
+        <div className="lg:p-5 py-5 grid lg:grid-cols-3 gap-5 bg-gray-100">
+          <div className="col-span-3">
+            <SearchInput className={'w-full'} placeholder={'Cari Video'} />
+          </div>
           {galleryVideo?.map((item, k) => (
             <div key={k}>
               <div className={'relative'}>
@@ -22,7 +32,7 @@ export const VideoSection = () => {
                   height={240}
                 />
               </div>
-              <p className={'p-2 py-1 font-semibold'}>{item?.judul}</p>
+              <p className={'p-2 py-1 font-semibold dark:text-primary'}>{item?.judul}</p>
             </div>
           ))}
         </div>

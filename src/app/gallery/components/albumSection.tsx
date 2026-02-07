@@ -6,13 +6,17 @@ import { Carousel, CarouselApi, CarouselContent, CarouselItem } from '@/componen
 import { DialogCustom } from '@/components/common/Dialog'
 import { useEffect, useState } from 'react'
 import { IoEyeSharp } from 'react-icons/io5'
+import { SearchInput } from '@/components/common/filter/search'
 
 export const AlbumSection = () => {
   const router = useRouter()
   const searchParams = useSearchParams()
   const slug = searchParams.get('slug')
+  const search = searchParams.get('search')
 
-  const { galleryAlbum } = UseGetGalleryAlbum()
+  const { galleryAlbum } = UseGetGalleryAlbum({
+    search: search ?? '',
+  })
   const { galleryPhoto } = UseGetGalleryPhoto({
     slug: slug ?? '',
   })
@@ -37,8 +41,11 @@ export const AlbumSection = () => {
   return (
     <>
       {!slug ? (
-        <div className={'lg:container mt-8'}>
-          <div className="grid lg:grid-cols-3 gap-5 bg-[#EAEAEA] p-5">
+        <div className={'lg:container lg:mt-8'}>
+          <div className="grid lg:grid-cols-3 gap-5 p-5 bg-gray-100">
+            <div className="col-span-3">
+              <SearchInput className={'w-full'} placeholder={'Cari Video'} />
+            </div>
             {galleryAlbum?.map((item, k) => (
               <div key={k} className={'cursor-pointer'} onClick={() => PassingSlug(item?.slug)}>
                 <div className={'relative'}>
@@ -50,7 +57,7 @@ export const AlbumSection = () => {
                     height={240}
                   />
                 </div>
-                <p className={'p-2 py-1 font-semibold'}>{item?.judul}</p>
+                <p className={'p-2 py-1 font-semibold dark:text-primary'}>{item?.judul}</p>
               </div>
             ))}
           </div>
@@ -59,7 +66,9 @@ export const AlbumSection = () => {
         <>
           <div className="lg:container mt-8">
             <div className={'lg:grid lg:grid-cols-3 gap-5 bg-[#EAEAEA] p-5 lg:p-5 flex flex-col'}>
-              <div className={'text-xs lg:text-xl font-semibold flex items-center gap-2 col-span-3'}>
+              <div
+                className={'text-xs lg:text-xl font-semibold flex items-center gap-2 col-span-3'}
+              >
                 <button
                   onClick={() => PassingSlug('')}
                   className={'rounded-full border border-primary bg-white p-1.5'}
@@ -68,7 +77,7 @@ export const AlbumSection = () => {
                 </button>
                 {slug}
               </div>
-              
+
               {galleryPhoto?.map((item, k) => (
                 <div
                   key={k}
@@ -112,7 +121,7 @@ export const AlbumSection = () => {
                         width={1080}
                         height={1080}
                       />
-                      <p className="text-white">{row?.judul}</p>
+                      <p className="text-white dark:text-white">{row?.judul}</p>
                     </CarouselItem>
                   ))}
                 </CarouselContent>
