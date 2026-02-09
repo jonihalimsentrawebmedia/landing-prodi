@@ -13,7 +13,7 @@ const ProfileLayoutTheme1 = ({ children }: { children: ReactNode }) => {
         <div className=" relative z-10 h-full">
           <div className="w-full h-full absolute z-10 hidden lg:flex">
             <div className="w-[30%] bg-primary" />
-            <div className="w-[70%] bg-[#EAEAEA]" />
+            <div className="w-[70%] bg-[#EAEAEA] dark:bg-gray-900" />
           </div>
           <div className="w-full lg:max-w-7xl mx-auto flex flex-col lg:flex-row items-stretch h-full relative z-10">
             <div className="bg-primary lg:max-w-[335px] w-full">

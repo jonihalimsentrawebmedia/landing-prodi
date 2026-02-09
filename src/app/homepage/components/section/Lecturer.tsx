@@ -50,7 +50,7 @@ import { ArrowRight } from 'lucide-react'
 
 export const LecturerProdiSection = () => {
   return (
-    <section className="w-full max-w-[1920px] mx-auto bg-[#EAEAEA] py-5 lg:py-12">
+    <section className="w-full max-w-[1920px] mx-auto bg-[#EAEAEA] dark:bg-gray-900 py-5 lg:py-12">
       {/* Title */}
       <div className="flex justify-center px-4">
         <p
@@ -97,7 +97,7 @@ export const LecturerProdiSection = () => {
 
                 {/* Content */}
                 <div className="p-4">
-                  <p className="font-bold text-sm sm:text-base line-clamp-2">Ir. Choco Wiedodo</p>
+                  <p className="font-bold text-sm sm:text-base line-clamp-2 dark:text-primary">Ir. Choco Wiedodo</p>
                 </div>
               </div>
             </CarouselItem>

@@ -35,9 +35,12 @@ export const PromotionInformation = () => {
 
             <div className="grid lg:grid-cols-2 gap-5 mt-8">
               {promotion?.map((row, k) => (
-                <div
+                <Link
+                  href={`/information/promotion/${row?.slug}`}
                   key={k}
-                  className={'p-4 bg-white dark:bg-primary dark:border rounded flex flex-col lg:flex-row items-center gap-2.5'}
+                  className={
+                    'p-4 bg-white dark:bg-primary dark:border rounded flex flex-col lg:flex-row items-center gap-2.5'
+                  }
                 >
                   <div className={'min-w-[233px] w-full h-[175px] bg-gray-100 relative shadow'}>
                     <Image
@@ -59,14 +62,14 @@ export const PromotionInformation = () => {
                       dangerouslySetInnerHTML={{ __html: row?.isi_promosi }}
                     />
                   </div>
-                </div>
+                </Link>
               ))}
             </div>
 
             <div className="flex items-center justify-end mt-5">
               <Link
                 href={'/information/promotion'}
-                className={'flex items-center gap-1 font-semibold text-primary'}
+                className={'flex items-center gap-1 font-semibold text-primary dark:text-white'}
               >
                 Lihat Promosi Lainnya
                 <ArrowRight className={'size-4'} />

@@ -81,7 +81,7 @@ export const SectionPromotionSlug = () => {
       </div>
 
       {promotion.length > 0 && (
-        <div className="w-full mx-auto max-w-[1920px] bg-gray-100 py-5">
+        <div className="w-full mx-auto max-w-[1920px] bg-gray-100 py-5 dark:bg-primary/40">
           <div className="container flex flex-col lg:grid grid-cols-3 gap-5 pb-5">
             <TitleUnderline text={'Lihat Promosi Lainya'} className={'text-start col-span-3'} />
             {promotion?.map((row, k) => (
@@ -95,7 +95,7 @@ export const SectionPromotionSlug = () => {
                     className={'object-cover w-full h-[250px]'}
                   />
                   <div className="w-full bg-white p-2.5 flex flex-col gap-1.5">
-                    <p>{row?.judul}</p>
+                    <p className={'dark:text-primary font-semibold'}>{row?.judul}</p>
                     <p className="text-sm text-primary flex items-center gap-1.5">
                       <FaRegCalendarAlt />
                       {row?.published_at

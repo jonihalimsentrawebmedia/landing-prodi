@@ -22,7 +22,7 @@ export const ContactDetail = () => {
             </div>
             <div className={'flex flex-col gap-1'}>
               <p className="text-xs text-gray-500">Telepon</p>
-              <p className={'font-semibold'}>{profile?.telepon_universitas}</p>
+              <p className={'font-semibold dark:text-primary'}>{profile?.telepon_universitas}</p>
             </div>
           </div>
           <div className={'p-2.5 bg-white rounded-lg shadow flex gap-2.5 items-center'}>
@@ -31,7 +31,7 @@ export const ContactDetail = () => {
             </div>
             <div className={'flex flex-col gap-1'}>
               <p className="text-xs text-gray-500">Email</p>
-              <p className={'font-semibold'}>{profile?.email_universitas}</p>
+              <p className={'font-semibold dark:text-primary'}>{profile?.email_universitas}</p>
             </div>
           </div>
         </div>
@@ -44,7 +44,7 @@ export const ContactDetail = () => {
             </div>
             <div className={'flex flex-col gap-1'}>
               <p className="text-xs text-gray-500">Telepon</p>
-              <p className={'font-semibold'}>{profile?.SatuanOrganisasi?.telepon}</p>
+              <p className={'font-semibold dark:text-primary'}>{profile?.SatuanOrganisasi?.telepon}</p>
             </div>
           </div>
           <div className={'p-2.5 bg-white rounded-lg shadow flex gap-2.5 items-center'}>
@@ -53,14 +53,14 @@ export const ContactDetail = () => {
             </div>
             <div className={'flex flex-col gap-1'}>
               <p className="text-xs text-gray-500">Email</p>
-              <p className={'font-semibold'}>{profile?.SatuanOrganisasi?.email}</p>
+              <p className={'font-semibold dark:text-primary'}>{profile?.SatuanOrganisasi?.email}</p>
             </div>
           </div>
         </div>
 
         <div className={'mt-5'}>
           <p className="text-primary lg:text-xl font-semibold">Sosial Media</p>
-          <div className={'p-4 bg-white rounded-lg shadow flex gap-5 items-center mt-2.5'}>
+          <div className={'p-4 bg-white rounded-lg w-fit shadow flex gap-5 items-center mt-2.5'}>
             <IconInstagram />
             <IconFacebook />
             <IconX />

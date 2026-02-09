@@ -36,7 +36,7 @@ export const RegistrationSection = () => {
           ))}
         </TabsList>
         {registration.map((item, k) => (
-          <TabsContent className={'bg-[#EAEAEA] p-5'} value={item?.id_jalur_pendaftaran} key={k}>
+          <TabsContent className={'bg-[#EAEAEA] dark:bg-gray-900 p-5'} value={item?.id_jalur_pendaftaran} key={k}>
             <div
               className={'html-class'}
               dangerouslySetInnerHTML={{ __html: item?.deskripsi ?? '' }}

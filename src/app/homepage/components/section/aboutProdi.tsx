@@ -30,7 +30,7 @@ export const AboutProdiSection = () => {
         </div>
 
         <div className="w-full lg:w-1/2  bg-primary p-4 lg:p-8 lg:h-[400px] flex items-center">
-          <div className="bg-[#EAEAEA] p-2 py-4 lg:p-6 flex flex-col lg:justify-center gap-5 h-full">
+          <div className="bg-[#EAEAEA] dark:bg-gray-800 p-2 py-4 lg:p-6 flex flex-col lg:justify-center gap-5 h-full">
             <p className="text-2xl font-semibold">
               Profil <span className={'px-1 bg-[#CDA327]'}>Program Studi</span>
             </p>

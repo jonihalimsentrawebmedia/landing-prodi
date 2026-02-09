@@ -9,6 +9,7 @@ import { useStateContext } from '@/contexts'
 import Link from 'next/link'
 import { HeaderMenuSkeleton } from '@/components/layout/header/skeleton'
 import { SheetMenu } from '@/components/common/sheetMenu'
+import { ButtonDarkMode } from '@/components/thema-v2/component/layout/header/darkMode'
 
 export const HeaderMenuList = () => {
   const { profile, loading } = UseGetProfile()
@@ -72,6 +73,9 @@ export const HeaderMenuList = () => {
                 <li className={'text-white'}>{item?.name}</li>
               </Link>
             ))}
+            <li>
+              <ButtonDarkMode />
+            </li>
           </ul>
           <SheetMenu />
         </div>

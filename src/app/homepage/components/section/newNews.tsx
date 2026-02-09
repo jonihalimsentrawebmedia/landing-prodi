@@ -25,8 +25,8 @@ export const NewNewsSection = () => {
       <div className={'w-full max-w-[1920px] bg-[#EAEAEA] py-8 relative'}>
         <div className="container relative z-30">
           <div className="flex items-center justify-between gap-5">
-            <p className="text-2xl font-semibold col-span-4">
-              Baca <span className={'bg-[#CDA327] px-0.5 '}>Berita</span> Terbaru
+            <p className="text-2xl font-semibold col-span-4 dark:text-primary">
+              Baca <span className={'bg-[#CDA327] px-0.5'}>Berita</span> Terbaru
             </p>
             <Link href={'/information/news'} className={'flex items-center gap-1.5'}>
               Lihat Semua

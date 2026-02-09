@@ -13,7 +13,7 @@ export const SectionNewsProfile = () => {
   return (
     <>
       <div className={'flex flex-col gap-5'}>
-        <p className="text-3xl font-semibold text-primary">Barita</p>
+        <p className="text-3xl font-semibold text-primary">Berita</p>
         {loading ? (
           <SkeletonGallery />
         ) : (

@@ -10,17 +10,19 @@ type Props = {
 export const CardNewsRow = (props: Props) => {
   const { item } = props
   return (
-    <div className={'flex flex-col lg:flex-row items-center gap-2 lg:gap-5 bg-white'}>
-      <div className="w-full lg:min-w-[214px] h-[180px]">
+    <div
+      className={'flex flex-col lg:flex-row items-center gap-2 lg:gap-5 bg-white dark:bg-primary'}
+    >
+      <div className="w-full  lg:max-w-[214px] lg:min-w-[214px] lg:w-[214px] h-[180px]">
         <Image
           src={item?.gambar}
           alt={item.judul}
-          className={'w-full lg:w-[214px] h-[180px] object-cover'}
+          className={'w-full lg:max-w-[214px] lg:min-w-[214px] lg:w-[214px] h-[180px] object-cover'}
           width={214}
           height={180}
         />
       </div>
-      <div className={'pl-0 p-2'}>
+      <div className={'pl-0 p-2 flex flex-col gap-1.5'}>
         <p className="text-sm lg:text-2xl line-clamp-2 font-semibold">{item?.judul}</p>
         <p className={'flex items-center gap-1 text-gray-500 text-xs'}>
           <MdCalendarMonth />
