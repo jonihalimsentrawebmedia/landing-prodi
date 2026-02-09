@@ -8,6 +8,7 @@ import Image from 'next/image'
 import { format } from 'date-fns'
 import { Button } from '@/components/ui/button'
 import { MdDownload } from 'react-icons/md'
+import { AccreditationSkeleton } from '@/components/thema-v3/accreditation/component/skeleton'
 
 export const AccreditationSectionTheme3 = () => {
   const { accreditation, loading } = UseGetAccreditation()
@@ -24,6 +25,8 @@ export const AccreditationSectionTheme3 = () => {
         toast.error(err?.message || 'Gagal Mengunduh File')
       })
   }
+
+  if (loading) return <AccreditationSkeleton />
 
   return (
     <>

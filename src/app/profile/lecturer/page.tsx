@@ -2,6 +2,7 @@ import { ProfileLecturerTheme1 } from '@/components/thema-v1/profile/lecturer'
 import { LecturerProfileTheme2 } from '@/components/thema-v2/profile/lecturer'
 import { FetchResAPI } from '@/provider/server'
 import { ProfileLecturerThem3 } from '@/components/thema-v3/profile/lecturer'
+import { ProfileLecturerTheme4 } from '@/components/theme-v4/profile/lecturer'
 
 const LecturerProfilePage = async () => {
   const themes = await FetchResAPI('/public-prodi/public')
@@ -19,6 +20,9 @@ const LecturerProfilePage = async () => {
     }
     case 'THEMA_PRODI_TIGA': {
       return <ProfileLecturerThem3 />
+    }
+    case 'THEMA_PRODI_EMPAT': {
+      return <ProfileLecturerTheme4 />
     }
   }
 }

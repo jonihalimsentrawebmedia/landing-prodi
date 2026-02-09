@@ -57,22 +57,6 @@ const ProfileLayoutTheme3 = ({ children }: { children: ReactNode }) => {
                   </TabsTrigger>
                 )
               })}
-              {/*{Menus?.map((row, k) => (*/}
-              {/*  <TabsTrigger*/}
-              {/*    key={k}*/}
-              {/*    value={row?.link}*/}
-              {/*    className={clsx(*/}
-              {/*      'shadow-none drop-shadow-none rounded-none',*/}
-              {/*      'data-[state=active]:shadow-none data-[state=active]:!bg-primary',*/}
-              {/*      'data-[state=active]:text-white data-[state=active]:rounded-t p-4'*/}
-              {/*    )}*/}
-              {/*  >*/}
-              {/*    <Link href={row?.link} key={k} className={'flex items-center gap-2'}>*/}
-              {/*      {pathname === row?.link && <IconInterSect />}*/}
-              {/*      {row?.name}*/}
-              {/*    </Link>*/}
-              {/*  </TabsTrigger>*/}
-              {/*))}*/}
             </TabsList>
 
             {Menus?.map((row, k) => (

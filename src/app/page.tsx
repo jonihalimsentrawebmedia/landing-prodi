@@ -2,6 +2,7 @@ import PageThemaOneHome from '@/components/thema-v1/home'
 import { PageTheme2Home } from '@/components/thema-v2/home'
 import { FetchResAPI } from '@/provider/server'
 import { HomePageTheme3 } from '@/components/thema-v3/Home'
+import HomeTheme4 from '@/components/theme-v4/home'
 
 export default async function Home() {
   const themes = await FetchResAPI('/public-prodi/public')
@@ -19,6 +20,9 @@ export default async function Home() {
     }
     case 'THEMA_PRODI_TIGA': {
       return <HomePageTheme3 />
+    }
+    case 'THEMA_PRODI_EMPAT': {
+      return <HomeTheme4 />
     }
   }
 }
