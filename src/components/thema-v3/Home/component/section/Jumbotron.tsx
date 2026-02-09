@@ -19,29 +19,29 @@ export const SliderHomeTheme3 = () => {
 
   return (
     <>
-      <div className={'w-full h-[600px] max-w-[1920px] mx-auto relative'}>
+      <div className={'w-full lg:h-[600px] lg:max-w-[1920px] mx-auto relative'}>
         <div
           className={`bg-linear-to-t from-primary to-transparent w-full h-full absolute z-10 flex items-end justify-center`}
         >
           <div className="container py-8">
             <div className="mb-4 border-l-4 border-l-yellow-500 pl-4">
-              <p className="text-white">Selamat Datang di Website Resmi</p>
-              <p className="text-4xl text-white font-semibold">
+              <p className="text-xs lg:text-base text-white">Selamat Datang di Website Resmi</p>
+              <p className="text-lg lg:text-4xl text-white font-semibold">
                 {detail?.kode_jenjang}- {detail?.nama}
               </p>
             </div>
             <div className="mt-4 flex items-center gap-4">
               <Link href={detail?.facebook ?? ''} target={'_blank'}>
-                <FaFacebook className={'size-9 text-white'} />
+                <FaFacebook className={'size-5 lg:size-9 text-white'} />
               </Link>
               <Link href={detail?.instagram ?? ''} target={'_blank'}>
-                <FaInstagram className={'size-9 text-white'} />
+                <FaInstagram className={'size-5 lg:size-9 text-white'} />
               </Link>
               <Link href={detail?.twitter ?? ''} target={'_blank'}>
-                <FaTwitter className={'size-9 text-white'} />
+                <FaTwitter className={'size-5 lg:size-9 text-white'} />
               </Link>
               <Link href={detail?.youtube ?? ''} target={'_blank'}>
-                <FaYoutube className={'size-9 text-white'} />
+                <FaYoutube className={'size-5 lg:size-9 text-white'} />
               </Link>
             </div>
           </div>
@@ -61,7 +61,7 @@ export const SliderHomeTheme3 = () => {
                     alt={'gambar'}
                     width={1920}
                     height={600}
-                    className={'w-full h-[600px] object-cover'}
+                    className={'w-full h-[400px] lg:h-[600px] object-cover'}
                   />
                 </CarouselItem>
               ))}

@@ -1,6 +1,6 @@
 'use client'
 
-import { UseGetProfile } from '@/hooks'
+import { UseGetProfile, useMobile } from '@/hooks'
 import { useStateContext } from '@/contexts'
 import { useEffect } from 'react'
 import { useThemeColor } from '@/hooks/useTheme'
@@ -13,6 +13,7 @@ import { HeaderSkeleton, ListMenuSkeleton } from './skeleton'
 export const HeaderLayoutTheme3 = () => {
   const { profile: profiles, loading } = UseGetProfile()
 
+  const { isMobile } = useMobile()
   const [{ profile }, Dispatch] = useStateContext()
   const detail = profile?.SatuanOrganisasi
 
@@ -46,10 +47,14 @@ export const HeaderLayoutTheme3 = () => {
     )
 
   return (
-    <div className={'fixed z-50 w-full'}>
+    <div className={'!fixed z-[51] w-full'}>
       <div className={'bg-[#03421F] w-full max-w-[1920px] mx-auto'}>
-        <div className="container flex items-center justify-between">
-          <p className={'text-primary font-semibold w-fit bg-primary-foreground p-1.5'}>
+        <div className={`${isMobile ? '' : 'container'} flex items-center justify-between`}>
+          <p
+            className={
+              'text-primary text-sm lg:text-base font-semibold w-fit bg-primary-foreground p-1.5'
+            }
+          >
             {detail?.kode_jenjang}-{detail?.nama}
           </p>
           <DarkModeTheme3 />

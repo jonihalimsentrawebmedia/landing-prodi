@@ -8,6 +8,7 @@ import Image from 'next/image'
 import { FaRegCalendarAlt } from 'react-icons/fa'
 import { format } from 'date-fns'
 import { id } from 'date-fns/locale/id'
+import { Carousel, CarouselContent, CarouselItem } from '@/components/ui/carousel'
 
 export const PromotionInformation = () => {
   const { promotion } = UseGetPromotion({
@@ -16,7 +17,7 @@ export const PromotionInformation = () => {
   })
   return (
     <>
-      <div className="dark:bg-primary w-full max-w-[1920px] mx-auto">
+      <div className="dark:bg-primary/30 w-full max-w-[1920px] mx-auto">
         <div
           style={{
             backgroundImage: "url('/img/grenbg.png')",
@@ -34,7 +35,40 @@ export const PromotionInformation = () => {
               line_position={'bottom'}
             />
 
-            <div className="grid grid-cols-4 gap-5  mt-10">
+            <Carousel className={'block lg:hidden mt-4 w-full'}>
+              <CarouselContent>
+                {promotion.map((item, index) => (
+                  <CarouselItem key={index}>
+                    <Link href={`/information/promotion/${item?.slug}`}>
+                      <div className="w-full h-[200px] overflow-hidden">
+                        <Image
+                          src={item?.gambar}
+                          alt={item?.judul}
+                          className={
+                            'w-full h-[200px] object-cover hover:scale-110 transition-all duration-300'
+                          }
+                          width={500}
+                          height={200}
+                        />
+                      </div>
+                      <div className="bg-white p-2">
+                        <p className="font-semibold line-clamp-2 dark:text-primary">
+                          {item?.judul}
+                        </p>
+                        <p className={'flex items-center gap-1 text-primary text-sm mt-1.5'}>
+                          <FaRegCalendarAlt />
+                          {item?.published_at
+                            ? format(item?.published_at, 'dd MMM yyyy', { locale: id })
+                            : '-'}
+                        </p>
+                      </div>
+                    </Link>
+                  </CarouselItem>
+                ))}
+              </CarouselContent>
+            </Carousel>
+
+            <div className="hidden lg:grid grid-cols-4 gap-5  mt-10">
               {promotion?.map((item, index) => (
                 <Link href={`/information/promotion/${item?.slug}`} key={index}>
                   <div className="w-full h-[200px] overflow-hidden">
@@ -49,7 +83,7 @@ export const PromotionInformation = () => {
                     />
                   </div>
                   <div className="bg-white p-2">
-                    <p className="font-semibold line-clamp-2">{item?.judul}</p>
+                    <p className="font-semibold line-clamp-2 dark:text-primary">{item?.judul}</p>
                     <p className={'flex items-center gap-1 text-primary text-sm mt-1.5'}>
                       <FaRegCalendarAlt />
                       {item?.published_at

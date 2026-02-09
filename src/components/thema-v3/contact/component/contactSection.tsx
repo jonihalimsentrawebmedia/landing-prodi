@@ -35,7 +35,7 @@ export const ContactSectionTheme3 = () => {
 
   return (
     <>
-      <div className="w-full lg:p-5 bg-white mt-8 dark:bg-primary lg:dark:bg-primary-foreground/20">
+      <div className="w-full lg:p-5 bg-white mt-5 dark:bg-primary lg:dark:bg-transparent">
         <p className="text-primary text-xl font-semibold">Kirim Pesan</p>
         <div className="flex gap-5 flex-col lg:flex-row">
           <FormContact />

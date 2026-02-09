@@ -16,7 +16,7 @@ export const ListLecturerTheme3 = () => {
       <div className={'container py-5'}>
         <SearchInput className={'w-full'} placeholder={'Cari Dosen'} />
 
-        <div className="mt-5 grid grid-cols-3 gap-5">
+        <div className="mt-5 grid lg:grid-cols-3 gap-5">
           {Array.from({ length: 10 }).map((_, k) => (
             <div className="border" key={k}>
               <div className="flex items-center gap-2 border-b p-2">

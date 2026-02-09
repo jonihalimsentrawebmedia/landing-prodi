@@ -90,13 +90,14 @@ export const TabsCurriculumSectionTheme3 = (props: Props) => {
           onValueChange={setTabValue}
         >
           <TabsList
-            className={'rounded-none bg-white rounded-t dark:bg-transparent w-full border-b-2 p-0'}
+            className={'rounded-none bg-white rounded-t dark:bg-transparent w-full border-b-2 p-0 flex items-center justify-start overflow-auto'}
           >
             {elements?.map((row, k) => (
               <TabsTrigger
                 key={row?.id}
                 value={row?.value}
                 className={clsx(
+                  '',
                   'text-xs rounded-none rounded-t',
                   'data-[state=active]:bg-primary data-[state=active]:text-white'
                 )}
@@ -107,7 +108,7 @@ export const TabsCurriculumSectionTheme3 = (props: Props) => {
           </TabsList>
           {elements?.map((row, k) => (
             <TabsContent value={row?.value} key={k}>
-              <div className={'flex justify-start gap-5 w-full'}>
+              <div className={'flex flex-col lg:flex-row justify-start gap-5 w-full'}>
                 <div className={'grid grid-cols-[1fr_100px] w-full border rounded-t'}>
                   <div className="col-span-2 bg-primary text-white rounded-t font-bold text-center p-1.5 border-b border-gray-400">
                     Semester {tabValue !== 'other' && `${(Number(tabValue) - 1) * 2 + 1}`} / Ganjil

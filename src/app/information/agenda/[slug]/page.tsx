@@ -1,6 +1,7 @@
 import { InformationAgendaSlugTheme1 } from '@/components/thema-v1/information/agenda/slug'
 import { InformationAgendaSlugTheme2 } from '@/components/thema-v2/information/agenda/slug'
 import { FetchResAPI } from '@/provider/server'
+import { InformationAgendaSlugTheme3 } from '@/components/thema-v3/information/agenda/slug'
 
 const DetailAgendaPage = async () => {
   const themes = await FetchResAPI('/public-prodi/public')
@@ -15,6 +16,9 @@ const DetailAgendaPage = async () => {
     }
     case 'THEMA_PRODI_DUA': {
       return <InformationAgendaSlugTheme2 />
+    }
+    case 'THEMA_PRODI_TIGA': {
+      return <InformationAgendaSlugTheme3 />
     }
   }
 }

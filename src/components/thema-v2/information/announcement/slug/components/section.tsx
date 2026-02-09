@@ -104,6 +104,7 @@ export const DetailSectionAnnouncement = () => {
 
           <div className="w-full lg:w-1/2">
             <BasicSelect
+              innerClassname={'text-primary'}
               data={
                 detail?.dokumens?.map((row, k) => ({
                   label: 'dokumen ' + (k + 1),

@@ -79,9 +79,10 @@ export const UseGetAnnouncement = (props?: AnnouncementProps) => {
   if (no_include_id) paramsSearch.append('no-include-id', no_include_id)
 
   const { data, isLoading, isFetching } = useQuery({
-    queryKey: ['announcement'],
+    queryKey: ['announcement', paramsSearch.toString()],
     refetchOnWindowFocus: false,
-    queryFn: () => AxiosClient.get('/public-prodi/pengumuman').then((res) => res?.data),
+    queryFn: () =>
+      AxiosClient.get(`/public-prodi/pengumuman?${paramsSearch}`).then((res) => res?.data),
   })
 
   const loading = isLoading || isFetching
@@ -97,7 +98,7 @@ export const UseGetAnnouncement = (props?: AnnouncementProps) => {
 }
 
 export const UseGetAgenda = (props?: AgendaProps) => {
-  const { page, limit, search, year } = props ?? {}
+  const { page, limit, search, year, no_includes_id } = props ?? {}
 
   const [agenda, setAgenda] = useState<IAgenda[]>([])
 
@@ -106,6 +107,7 @@ export const UseGetAgenda = (props?: AgendaProps) => {
   if (limit) paramsSearch.append('limit', limit)
   if (search) paramsSearch.append('search', search)
   if (year) paramsSearch.append('tahun', year)
+  if (no_includes_id) paramsSearch.append('no-include-id', no_includes_id)
 
   const { data, isLoading, isFetching } = useQuery({
     queryKey: ['agenda', paramsSearch.toString()],

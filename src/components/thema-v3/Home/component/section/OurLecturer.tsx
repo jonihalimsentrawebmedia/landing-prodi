@@ -15,7 +15,7 @@ import { ArrowRight } from 'lucide-react'
 import Link from 'next/link'
 
 export const OurLecturer = () => {
-  const { sliderLanding, loading } = UseGetSliderLanding()
+  const { sliderLanding } = UseGetSliderLanding()
 
   const slider = sliderLanding?.filter((row) => row?.is_bawah)
 
@@ -50,7 +50,7 @@ export const OurLecturer = () => {
           <Carousel className={'mt-8'}>
             <CarouselContent>
               {Array.from({ length: 10 }, (_, k) => (
-                <CarouselItem key={k} className={'basis-1/5'}>
+                <CarouselItem key={k} className={'lg:basis-1/5'}>
                   <div className="border border-white overflow-hidden rounded-lg">
                     <Image
                       src={'/img/dump2.jpg'}
@@ -60,14 +60,14 @@ export const OurLecturer = () => {
                       className={'w-full h-[280px] object-cover'}
                     />
                     <div className="bg-white p-2.5">
-                      <p className={'font-semibold'}>Dr. Ir. Ahmad Ramadhan, M.Sc.</p>
+                      <p className={'font-semibold dark:text-primary'}>Dr. Ir. Ahmad Ramadhan, M.Sc.</p>
                     </div>
                   </div>
                 </CarouselItem>
               ))}
             </CarouselContent>
-            <CarouselNext />
-            <CarouselPrevious />
+            <CarouselNext className={'z-10 right-0 !bg-primary'} />
+            <CarouselPrevious className={'z-10 left-0 !bg-primary'} />
           </Carousel>
 
           <Link href={'#'} className={'flex justify-center'}>

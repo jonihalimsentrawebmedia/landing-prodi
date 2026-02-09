@@ -35,35 +35,41 @@ export const TabsContactRegisterTheme3 = () => {
 
   return (
     <>
-      {isClient && (
-        <Tabs
-          value={value}
-          onValueChange={setValue}
-          className={'w-full container bg-white dark:bg-primary py-5 border-none'}
-        >
-          <TabsList className={'w-full rounded-none bg-white p-0 border-b-2'}>
+      <div className={'dark:bg-primary/20'}>
+        {isClient && (
+          <Tabs
+            value={value}
+            onValueChange={setValue}
+            className={'w-full container bg-white dark:bg-transparent py-5 border-none'}
+          >
+            <TabsList
+              className={
+                'w-full rounded-none bg-white p-0 border-b-2 border-t-0 border-x-0 rounded-t'
+              }
+            >
+              {TabsData.map((tab, k) => (
+                <TabsTrigger
+                  key={k}
+                  value={tab?.value}
+                  className={clsx(
+                    'rounded-none !shadow-none',
+                    'data-[state=active]:bg-primary rounded-t data-[state=active]:text-white',
+                    'bg-primary-foreground dark:bg-white dark:data-[state=active]:bg-primary'
+                  )}
+                >
+                  {value === tab?.value && <IconInterSect />}
+                  {tab?.label}
+                </TabsTrigger>
+              ))}
+            </TabsList>
             {TabsData.map((tab, k) => (
-              <TabsTrigger
-                key={k}
-                value={tab?.value}
-                className={clsx(
-                  'rounded-none !shadow-none',
-                  'data-[state=active]:bg-primary rounded-t data-[state=active]:text-white',
-                  'bg-primary-foreground'
-                )}
-              >
-                {value === tab?.value && <IconInterSect />}
-                {tab?.label}
-              </TabsTrigger>
+              <TabsContent className={'p-0'} key={k} value={tab?.value}>
+                {tab?.element}
+              </TabsContent>
             ))}
-          </TabsList>
-          {TabsData.map((tab, k) => (
-            <TabsContent className={'p-0'} key={k} value={tab?.value}>
-              {tab?.element}
-            </TabsContent>
-          ))}
-        </Tabs>
-      )}
+          </Tabs>
+        )}
+      </div>
     </>
   )
 }

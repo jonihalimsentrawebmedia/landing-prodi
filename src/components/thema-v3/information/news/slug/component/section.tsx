@@ -37,7 +37,7 @@ export const NewsDetailSection = () => {
         <div className="flex items-start gap-x-5">
           <div className="w-full">
             <div className="w-full py-5 bg-primary-foreground p-2.5 mb-4">
-              <p className={'text-2xl font-semibold'}>{newsDetail?.judul}</p>
+              <p className={'text-2xl font-semibold dark:text-primary'}>{newsDetail?.judul}</p>
               <div className="grid grid-cols-2 w-fit gap-2.5 text-primary mt-2">
                 <p className={'flex items-center gap-1.5'}>
                   <FaRegCalendarAlt /> Diupload
@@ -61,7 +61,9 @@ export const NewsDetailSection = () => {
               height={555}
             />
 
-            <ShareContent title={newsDetail?.judul ?? ''} text={'Bagikan Berita'} />
+            <div className="my-4">
+              <ShareContent title={newsDetail?.judul ?? ''} text={'Bagikan Berita'} />
+            </div>
 
             <div
               className="html-class flex flex-col gap-5"

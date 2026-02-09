@@ -14,7 +14,12 @@ import { clsx } from 'clsx'
 import Link from 'next/link'
 import { usePathname } from 'next/navigation'
 
-export const SheetMenu = () => {
+interface Props {
+  className?: string
+}
+
+export const SheetMenu = (props: Props) => {
+  const { className } = props
   const [open, setOpen] = useState(false)
 
   const pathname = usePathname()
@@ -40,7 +45,7 @@ export const SheetMenu = () => {
           />
           {/*</button>*/}
         </SheetTrigger>
-        <SheetContent className={'top-14 w-full'}>
+        <SheetContent className={clsx(className, 'top-14 w-full z-50')} showCloseButton={false}>
           <SheetHeader>
             <SheetTitle />
             <SheetDescription />

@@ -11,7 +11,7 @@ export const LayoutTheme3 = (props: Props) => {
   return (
     <>
       <HeaderLayoutTheme3 />
-      <div className="lg:pt-[92px]">{children}</div>
+      <div className="pt-[88px] lg:pt-[92px]">{children}</div>
       <FooterLayoutTheme3 />
     </>
   )

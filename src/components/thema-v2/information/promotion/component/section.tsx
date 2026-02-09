@@ -53,7 +53,7 @@ export const SectionPromotion = () => {
                   className={'object-cover w-full h-[250px]'}
                 />
                 <div className="w-full bg-white p-2.5 flex flex-col gap-1.5">
-                  <p>{item?.judul}</p>
+                  <p className={'dark:text-primary font-semibold'}>{item?.judul}</p>
                   <p className="text-sm text-primary flex items-center gap-1.5">
                     <FaRegCalendarAlt />
                     {item?.published_at

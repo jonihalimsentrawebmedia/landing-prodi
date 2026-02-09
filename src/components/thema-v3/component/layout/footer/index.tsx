@@ -15,7 +15,7 @@ export const FooterLayoutTheme3 = () => {
     <>
       <div className="bg-primary py-5 w-full mx-auto max-w-[1920px]">
         <div className="container">
-          <div className="flex items-center gap-2">
+          <div className="flex flex-col lg:items-center gap-2">
             <Image
               src={data?.logo ?? '/img/noimg.png'}
               alt={'logo'}
@@ -23,13 +23,14 @@ export const FooterLayoutTheme3 = () => {
               height={150}
               className={'size-[60px] min-w-[60px] rounded-full'}
             />
-            <h2 className="text-4xl text-white font-semibold">{data?.nama}</h2>
+            <h2 className="text-sm lg:text-4xl text-white font-semibold">{data?.nama}</h2>
           </div>
 
-          <div className="mt-5 flex items-start justify-between">
+          <div className="mt-5 flex flex-col lg:flex-row gap-y-5 items-start justify-between">
+            
             <div>
               <h3 className={'lg:text-xl text-white border-l-4 border-yellow-500 pl-2'}>Kontak</h3>
-              <ul className={'text-sm lg:text-base text-white mt-4 flex flex-col gap-2'}>
+              <ul className={'text-xs lg:text-base text-white mt-4 flex flex-col gap-2'}>
                 <Link
                   target="_blank"
                   href={`mailto:${data?.email}`}
@@ -62,8 +63,8 @@ export const FooterLayoutTheme3 = () => {
             </div>
 
             <div>
-              <h3 className={'lg:text-xl text-white border-l-4 border-yellow-500 pl-2'}>Alamat</h3>
-              <ul className={'flex flex-col gap-4 text-white mt-4'}>
+              <h3 className={'lg:text-xl text-white border-l-4 border-yellow-500 pl-2'}>Lihat Juga</h3>
+              <ul className={'flex flex-col gap-4 text-white mt-4 text-xs lg:text-base'}>
                 <Link href={'/profile'}>
                   <li>Tentang Prodi</li>
                 </Link>
@@ -89,7 +90,7 @@ export const FooterLayoutTheme3 = () => {
               <h3 className={'lg:text-xl text-white border-l-4 border-yellow-500 pl-2'}>
                 Social Media
               </h3>
-              <ul className={'flex flex-col gap-4 text-white mt-4'}>
+              <ul className={'flex flex-col gap-4 text-white mt-4 text-xs lg:text-base'}>
                 <Link target={'_blank'} href={data?.facebook ?? '#'}>
                   <li>Facebook</li>
                 </Link>
@@ -104,6 +105,7 @@ export const FooterLayoutTheme3 = () => {
                 </Link>
               </ul>
             </div>
+            
           </div>
         </div>
       </div>

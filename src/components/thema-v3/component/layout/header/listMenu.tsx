@@ -6,17 +6,22 @@ import { MenuHeader } from '@/components/thema-v2/component/layout/header/menus'
 import Link from 'next/link'
 import { clsx } from 'clsx'
 import { usePathname } from 'next/navigation'
+import { useMobile } from '@/hooks'
+import { SheetMenu } from '@/components/thema-v2/component/layout/header/SheetMenu'
 
 export const ListMenuTheme3 = () => {
   const [{ profile }] = useStateContext()
   const data = profile?.SatuanOrganisasi
+  const { isMobile } = useMobile()
 
   const pathname = usePathname()
 
   return (
     <>
       <div className={'bg-primary py-2 w-full max-w-[1920px] mx-auto'}>
-        <div className="container flex items-center justify-between">
+        <div
+          className={clsx(!isMobile ? 'container' : 'px-2', 'flex items-center justify-between')}
+        >
           <div className={'flex items-center gap-2'}>
             <Image
               src={data?.logo ?? '/img/noimg.png'}
@@ -25,7 +30,7 @@ export const ListMenuTheme3 = () => {
               height={150}
               className={'object-cover rounded-full w-10 h-10'}
             />
-            <h1 className={'text-white text-xl font-semibold'}>{data?.nama}</h1>
+            <h1 className={'text-white text-sm lg:text-xl font-semibold'}>{data?.nama}</h1>
           </div>
 
           <ul className={'lg:flex items-center gap-x-5 text-sm font-semibold text-white hidden'}>
@@ -46,6 +51,7 @@ export const ListMenuTheme3 = () => {
               </Link>
             ))}
           </ul>
+          <SheetMenu className={'!top-22'} />
         </div>
       </div>
     </>

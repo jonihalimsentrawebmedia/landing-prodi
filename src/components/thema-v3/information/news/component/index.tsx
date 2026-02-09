@@ -133,14 +133,14 @@ export const NewsSectionDataTheme3 = () => {
 
             <RadioGroup
               value={category ?? ''}
-              className={'flex flex-col gap-2 py-2 pl-2'}
+              className={'flex flex-col gap-4 py-2 pl-2'}
               onValueChange={(e) => {
                 HandleFilterCategory(e)
               }}
             >
               <div className="flex items-center gap-3">
                 <RadioGroupItem value={''} id={'all'} className={'border-primary size-4'} />
-                <Label htmlFor={'all'}>Semua</Label>
+                <Label className={'dark:text-primary'} htmlFor={'all'}>Semua</Label>
               </div>
               {newsCategory?.map((row, k) => (
                 <div className="flex items-center gap-3" key={k}>
@@ -149,7 +149,7 @@ export const NewsSectionDataTheme3 = () => {
                     id={row?.id_kategori}
                     className={'border-primary size-4'}
                   />
-                  <Label htmlFor={row?.id_kategori}>{row?.nama_kategori}</Label>
+                  <Label htmlFor={row?.id_kategori} className={'dark:text-primary'}>{row?.nama_kategori}</Label>
                 </div>
               ))}
             </RadioGroup>
