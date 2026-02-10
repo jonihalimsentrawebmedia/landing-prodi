@@ -10,6 +10,7 @@ import {
   PaginationEllipsis,
 } from '@/components/ui/pagination'
 import { Meta } from '@/contexts/types'
+import { clsx } from 'clsx'
 
 interface PaginationProps {
   meta: Meta
@@ -52,13 +53,16 @@ export function PaginationCustom({ meta, page, onPageChange }: PaginationProps) 
         <PaginationItem>
           <PaginationPrevious
             onClick={() => onPageChange(Math.max(1, page - 1))}
-            className={`${page === 1 ? 'pointer-events-none opacity-50' : 'cursor-pointer'} bg-white`}
+            className={`${page === 1 ? 'pointer-events-none opacity-50' : 'cursor-pointer'} bg-white dark:bg-gray-900 dark:text-white`}
           />
         </PaginationItem>
 
         {/* Pages */}
         {getPages().map((item, index) => (
-          <PaginationItem key={index} className={`cursor-pointer rounded-lg ${page !== item ? 'text-white' : ''}`}>
+          <PaginationItem
+            key={index}
+            className={`cursor-pointer dark:bg-gray-900 rounded-md ${page !== item ? 'text-white' : ''}`}
+          >
             {item === 'ellipsis' ? (
               <PaginationEllipsis />
             ) : (
@@ -73,11 +77,12 @@ export function PaginationCustom({ meta, page, onPageChange }: PaginationProps) 
         <PaginationItem>
           <PaginationNext
             onClick={() => onPageChange(Math.min(last_page, page + 1))}
-            className={
+            className={clsx(
               page === last_page
                 ? 'pointer-events-none opacity-50 bg-white'
-                : 'cursor-pointer bg-white'
-            }
+                : 'cursor-pointer bg-white',
+              'dark:bg-gray-900 dark:text-white'
+            )}
           />
         </PaginationItem>
       </PaginationContent>

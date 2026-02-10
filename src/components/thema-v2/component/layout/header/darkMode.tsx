@@ -2,8 +2,14 @@
 
 import { useEffect, useState } from 'react'
 import { FaMoon, FaSun } from 'react-icons/fa'
+import { clsx } from 'clsx'
 
-export const ButtonDarkMode = () => {
+interface Props {
+  className?: string
+}
+
+export const ButtonDarkMode = (props: Props) => {
+  const { className } = props
   const [mounted, setMounted] = useState(false)
   const [darkMode, setDarkMode] = useState(false)
 
@@ -33,9 +39,9 @@ export const ButtonDarkMode = () => {
     <button
       onClick={toggleDarkMode}
       aria-label="Toggle dark mode"
-      className="p-2 rounded-full text-yellow-400 dark:text-white transition"
+      className={'p-1.5 rounded-full text-yellow-400 dark:text-white transition'}
     >
-      {darkMode ? <FaMoon /> : <FaSun />}
+      {darkMode ? <FaMoon className={clsx(className)} /> : <FaSun className={clsx(className)} />}
     </button>
   )
 }

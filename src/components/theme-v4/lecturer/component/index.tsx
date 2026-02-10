@@ -21,16 +21,20 @@ export const ListLecturerTheme4 = () => {
               <Image
                 src={'/img/lectemp.jpg'}
                 alt={'dosen'}
-                className={'w-[150px] h-[200px] object-cover'}
+                className={'lg:w-[150px] w-[100px] h-[155px] lg:h-[200px] object-cover'}
                 width={150}
                 height={200}
               />
               <div className={'flex flex-col gap-1.5'}>
-                <p className="text-xl font-semibold">Dr. Ir. Ahmad Ramadhan, M.Sc.</p>
-                <p className={'text-sm'}>
+                <p className="lg:text-xl text-sm font-semibold">Dr. Ir. Ahmad Ramadhan, M.Sc.</p>
+                <p className={'text-xs lg:text-sm'}>
                   {dump?.slice(0, 3).join(', ')} +{dump?.length - 3}
                 </p>
-                <button className={'text-primary font-semibold underline underline-offset-8 text-start text-sm'}>
+                <button
+                  className={
+                    'text-primary font-semibold underline underline-offset-8 text-start text-xs lg:text-sm'
+                  }
+                >
                   Lihat Kontak & Jadwal
                 </button>
               </div>

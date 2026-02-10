@@ -4,7 +4,7 @@ import Link from 'next/link'
 export const QuestionSection = () => {
   return (
     <>
-      <div className={'w-full max-w-[1920px] mx-auto lg:py-8 py-5 bg-[#EAEAEA] lg:h-[342px] relative'}>
+      <div className={'w-full max-w-[1920px] mx-auto lg:py-8 py-5 bg-[#EAEAEA] dark:bg-gray-900 lg:h-[342px] relative'}>
         <div
           className={`bg-linear-to-t from-primary to-primary/60
           w-full h-full flex items-center absolute z-10

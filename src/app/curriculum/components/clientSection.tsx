@@ -89,7 +89,7 @@ export const ClientSectionCurriculum = (props: Props) => {
                 {slug_curriculum && (
                   <FilterSelect
                     className={'bg-white max-w-[180px]'}
-                    innerClassname={'w-full min-w-[180px]'}
+                    innerClassname={'w-full min-w-[180px] text-primary'}
                     name={'slug_curriculum'}
                     data={curriculum?.map((row) => ({
                       label: row?.nama_kurikulum,
@@ -112,7 +112,7 @@ export const ClientSectionCurriculum = (props: Props) => {
               ))}
             </TabsList>
             {elements?.map((item, k) => (
-              <TabsContent className={'bg-[#EAEAEA] p-5'} value={item?.value} key={k}>
+              <TabsContent className={'bg-[#EAEAEA] dark:bg-gray-900 p-5'} value={item?.value} key={k}>
                 <div>
                   <p className="text-2xl font-semibold">
                     {tabValue !== 'other'
@@ -121,7 +121,7 @@ export const ClientSectionCurriculum = (props: Props) => {
                   </p>
 
                   <div className={'grid grid-cols-[1fr_200px] mt-2 border border-gray-400'}>
-                    <div className="col-span-2 bg-blue-100 font-bold text-center p-1.5 border-b border-gray-400">
+                    <div className="col-span-2 bg-blue-100 dark:bg-primary font-bold text-center p-1.5 border-b border-gray-400">
                       Semester {tabValue !== 'other' && `${(Number(tabValue) - 1) * 2 + 1}`} /
                       Ganjil
                     </div>
@@ -131,18 +131,18 @@ export const ClientSectionCurriculum = (props: Props) => {
                         <p className={'p-1.5 text-end font-semibold'}>{row?.sks} SKS</p>
                       </Fragment>
                     ))}
-                    <p className={'font-semibold p-1.5 bg-blue-100 border-t border-gray-400'}>
+                    <p className={'font-semibold p-1.5 bg-blue-100 dark:bg-primary border-t border-gray-400'}>
                       Total
                     </p>
                     <p
-                      className={`font-semibold p-1.5 bg-blue-100 border-t text-end border-gray-400`}
+                      className={`font-semibold p-1.5 bg-blue-100 dark:bg-primary border-t text-end border-gray-400`}
                     >
                       {TotalSKS(subject?.ganjil)}
                     </p>
                   </div>
 
                   <div className={'grid grid-cols-[1fr_200px] mt-5 border border-gray-400'}>
-                    <div className="col-span-2 bg-blue-100 font-bold text-center p-1.5 border-b border-gray-400">
+                    <div className="col-span-2 bg-blue-100 dark:bg-primary font-bold text-center p-1.5 border-b border-gray-400">
                       Semester {tabValue !== 'other' && `${(Number(tabValue) - 1) * 2 + 2}`} / Genap
                     </div>
                     {subject?.genap?.map((row, k) => (
@@ -151,11 +151,11 @@ export const ClientSectionCurriculum = (props: Props) => {
                         <p className={'p-1.5 text-end font-semibold'}>{row?.sks} SKS</p>
                       </Fragment>
                     ))}
-                    <p className={'font-semibold p-1.5 bg-blue-100 border-t border-gray-400'}>
+                    <p className={'font-semibold p-1.5 bg-blue-100 dark:bg-primary border-t border-gray-400'}>
                       Total
                     </p>
                     <p
-                      className={`font-semibold p-1.5 bg-blue-100 border-t text-end border-gray-400`}
+                      className={`font-semibold p-1.5 bg-blue-100 dark:bg-primary border-t text-end border-gray-400`}
                     >
                       {TotalSKS(subject?.genap)}
                     </p>

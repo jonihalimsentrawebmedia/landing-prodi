@@ -70,7 +70,7 @@ export const PromotionInformation = () => {
 
             <div className="hidden lg:grid grid-cols-4 gap-5  mt-10">
               {promotion?.map((item, index) => (
-                <Link href={`/information/promotion/${item?.slug}`} key={index}>
+                <Link href={`/information/promotion/${item?.slug}`} key={index} className={'border rounded overflow-hidden'}>
                   <div className="w-full h-[200px] overflow-hidden">
                     <Image
                       src={item?.gambar}

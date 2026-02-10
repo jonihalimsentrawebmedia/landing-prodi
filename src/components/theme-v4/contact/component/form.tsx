@@ -54,7 +54,7 @@ export const FormContactTheme4 = () => {
   return (
     <>
       <Form {...form}>
-        <form className={'grid grid-cols-2 gap-4 w-full'} onSubmit={form.handleSubmit(HandleSubmit)}>
+        <form className={'flex flex-col gap-2 lg:grid grid-cols-2 lg:gap-4 w-full'} onSubmit={form.handleSubmit(HandleSubmit)}>
           <TextInput
             isDisabled={loading}
             name={'nama'}

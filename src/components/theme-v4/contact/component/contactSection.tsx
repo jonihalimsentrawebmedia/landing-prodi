@@ -35,7 +35,7 @@ export const ContactSectionTheme4 = () => {
 
   return (
     <>
-      <div className="w-full lg:p-5 bg-white dark:bg-primary lg:dark:bg-transparent">
+      <div className="w-full lg:p-5 bg-white dark:bg-transparent lg:dark:bg-transparent">
         <p className="text-primary text-xl font-semibold">Kirim Pesan</p>
         <div className="flex gap-5 flex-col">
           <FormContactTheme4 />
@@ -49,13 +49,15 @@ export const ContactSectionTheme4 = () => {
           )}
         >
           <p className="text-primary lg:text-3xl font-semibold">Sering Ditanyakan</p>
-          <ChipCategory data={faqCategory} />
+          <div className="mt-2 lg:mt-0 w-full">
+            <ChipCategory data={faqCategory} />
+          </div>
           <Accordion
             type="single"
             value={accordionValue}
             onValueChange={setAccordionValue}
             collapsible
-            className={'w-full mt-5 grid grid-cols-2 border-b-0 gap-2.5'}
+            className={'w-full mt-5 flex flex-col lg:grid grid-cols-2 border-b-0 gap-2.5'}
           >
             {faq.map((item, i) => (
               <AccordionItem value={item?.id_faq} key={i} className={'min-w-full border-b-0'}>

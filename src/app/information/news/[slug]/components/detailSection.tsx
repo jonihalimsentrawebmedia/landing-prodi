@@ -5,12 +5,11 @@ import { useParams } from 'next/navigation'
 import { FaBookmark, FaRegCalendarAlt, FaUser } from 'react-icons/fa'
 import { format } from 'date-fns'
 import { id } from 'date-fns/locale/id'
-import { Button } from '@/components/ui/button'
-import { IoMdLink } from 'react-icons/io'
 import { ArrowLeft } from 'lucide-react'
 import { UseGetNews } from '@/app/homepage/hooks'
 import Image from 'next/image'
 import Link from 'next/link'
+import { ShareContent } from '@/components/thema-v2/component/common/shareContent'
 
 export const DetailSectionNews = () => {
   const { slug } = useParams()
@@ -23,14 +22,14 @@ export const DetailSectionNews = () => {
 
   return (
     <>
-      <div className="bg-primary">
+      <div className="bg-primary dark:bg-gray-900">
         <div className={'container'}>
-          <div className="flex flex-col-reverse lg:flex-row gap-5 items-start w-full">
-            <div className="w-full h-full max-w-[420px] bg-primary lg:pr-5">
-              <div className="p-5 bg-[#F5FAFF] rounded-lg flex flex-col gap-2">
+          <div className="flex flex-col-reverse lg:flex-row gap-5 items-start w-full py-5">
+            <div className="w-full h-full max-w-[420px] bg-primary dark:bg-gray-900">
+              <div className="p-5 bg-[#F5FAFF] dark:bg-primary rounded-lg flex flex-col gap-2">
                 <div className={'flex flex-col gap-1'}>
-                  <p className={'text-gray-500 flex items-center gap-1.5'}>
-                    <FaRegCalendarAlt className={'text-primary'} />
+                  <p className={'text-gray-500 flex items-center gap-1.5 dark:text-white'}>
+                    <FaRegCalendarAlt className={'text-primary dark:text-white'} />
                     Diupload
                   </p>
                   <p className={'font-semibold'}>
@@ -40,8 +39,8 @@ export const DetailSectionNews = () => {
                   </p>
                 </div>
                 <div className={'flex flex-col gap-1'}>
-                  <p className={'text-gray-500 flex items-center gap-1.5'}>
-                    <FaUser className={'text-primary'} />
+                  <p className={'text-gray-500 flex items-center gap-1.5 dark:text-white'}>
+                    <FaUser className={'text-primary dark:text-white'} />
                     Penulis
                   </p>
                   <p className={'font-semibold'}>
@@ -49,8 +48,8 @@ export const DetailSectionNews = () => {
                   </p>
                 </div>
                 <div className={'flex flex-col gap-1'}>
-                  <p className={'text-gray-500 flex items-center gap-1.5'}>
-                    <FaBookmark className={'text-primary'} />
+                  <p className={'text-gray-500 flex items-center gap-1.5 dark:text-white'}>
+                    <FaBookmark className={'text-primary dark:text-white'} />
                     Kategori
                   </p>
                   <p className={'font-semibold'}>
@@ -58,15 +57,9 @@ export const DetailSectionNews = () => {
                   </p>
                 </div>
               </div>
-              <div className="p-5 bg-[#F5FAFF] rounded-lg flex flex-col gap-2 mt-5">
-                <p className="text-primary">Bagikan Berita</p>
-                <Button
-                  className={'w-fit flex items-center gap-1.5 rounded-full border-primary'}
-                  variant={'outline'}
-                >
-                  <IoMdLink />
-                  Salin Link
-                </Button>
+              
+              <div className="p-5 bg-[#F5FAFF] dark:bg-primary rounded-lg flex flex-col gap-2 mt-5">
+                <ShareContent title={newsDetail?.judul ?? ''} text={'Bagikan Berita'} />
               </div>
 
               <div className="mt-5">
@@ -100,7 +93,7 @@ export const DetailSectionNews = () => {
               </div>
             </div>
 
-            <div className="w-full bg-white p-5">
+            <div className="w-full bg-white dark:bg-transparent">
               <Link href={'/information/news'}>
                 <button className={'flex items-center gap-1.5'}>
                   <ArrowLeft />
@@ -110,7 +103,7 @@ export const DetailSectionNews = () => {
 
               <p className="mt-5 text-2xl font-semibold">{newsDetail?.judul}</p>
               <div
-                className="html-class mt-5"
+                className="html-class mt-5 flex flex-col gap-2 text-justify"
                 dangerouslySetInnerHTML={{ __html: newsDetail?.isi_berita ?? '' }}
               />
             </div>

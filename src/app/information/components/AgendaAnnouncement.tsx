@@ -20,7 +20,7 @@ export const AgendaAnnouncementSection = () => {
   return (
     <>
       <div className={'w-full max-w-[1920px]'}>
-        <div className="h-full w-full bg-primary pb-5">
+        <div className="h-full w-full bg-primary dark:bg-primary/70 pb-5">
           <div className="container pt-4 flex flex-col lg:flex-row gap-y-5 lg:gap-y-0 items-start gap-x-8">
             <div className="lg:w-1/2 w-full">
               <p className="text-center underline underline-offset-8 decoration-yellow-500 font-semibold text-3xl text-white">
@@ -29,7 +29,7 @@ export const AgendaAnnouncementSection = () => {
               <div className={'flex flex-col gap-y-4 mt-8'}>
                 {ShowAnnouncement?.map((row, k) => (
                   <Link key={k} href={`/information/announcements/${row?.slug}`}>
-                    <div className={'border p-2.5 rounded'}>
+                    <div className={'border p-2.5 rounded dark:bg-gray-900'}>
                       <p className="text-white font-semibold line-clamp-2">
                         {row?.judul_pengumuman}
                       </p>
@@ -56,7 +56,7 @@ export const AgendaAnnouncementSection = () => {
               <div className={'flex flex-col gap-y-4 mt-8'}>
                 {ShowAgenda?.map((row, k) => (
                   <div key={k} className={'flex items-center gap-2'}>
-                    <div className={'border p-3 px-4 rounded text-center'}>
+                    <div className={'border p-3 px-4 rounded text-center dark:bg-gray-900'}>
                       <p className={'text-white text-2xl font-semibold'}>
                         {row?.published_at ? format(row?.published_at, 'dd') : '-'}
                       </p>

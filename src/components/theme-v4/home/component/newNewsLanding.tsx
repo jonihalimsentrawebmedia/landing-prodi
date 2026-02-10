@@ -33,7 +33,7 @@ export const NewNewsLanding = () => {
           'w-full mx-auto max-w-[1920px] relative lg:h-[552px] flex items-center justify-center'
         }
       >
-        <div className="absolute z-10 w-full h-full bg-linear-to-t from-primary to-[#33333300]"></div>
+        <div className="absolute top-0 z-10 w-full h-[552px] lg:h-full bg-linear-to-t from-primary to-[#33333300]"></div>
         <Carousel
           className={'absolute w-full h-full'}
           opts={{ loop: true, align: 'center' }}
@@ -60,9 +60,9 @@ export const NewNewsLanding = () => {
             Terbaru
           </p>
 
-          <div className="mt-5 grid grid-cols-4 gap-5">
+          <div className="mt-5 flex flex-nowrap overflow-x-auto lg:grid grid-cols-4 gap-5">
             {news?.map((row, k) => (
-              <div className={'w-full rounded overflow-hidden'} key={k}>
+              <div className={'w-full rounded overflow-hidden min-w-[288px] mb-2 lg:mb-0 lg:w-full'} key={k}>
                 <Image
                   src={row?.gambar}
                   alt={'gamabr'}

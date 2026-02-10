@@ -15,7 +15,7 @@ export const FooterLayoutTheme4 = () => {
     <>
       <div className="bg-primary py-5 w-full mx-auto max-w-[1920px]">
         <div className="container">
-          <div className="flex flex-col lg:items-center gap-2">
+          <div className="flex lg:flex-row flex-col lg:items-center gap-2">
             <Image
               src={data?.logo ?? '/img/noimg.png'}
               alt={'logo'}

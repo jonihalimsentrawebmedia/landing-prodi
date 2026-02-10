@@ -35,7 +35,7 @@ export const JumbotronTitle = (props: Props) => {
   return (
     <>
       <div className="relative">
-        <div className="absolute z-10 w-full h-full bg-linear-to-t from-primary to-primary/70">
+        <div className="absolute z-10 w-full h-full bg-linear-to-t dark:from-gray-900 dark:to-primary/70 from-primary to-primary/70">
           <div className="flex flex-col items-start justify-center container h-full">
             <p className="font-semibold text-white lg:text-4xl relative z-10">{title}</p>
             <p className="text-6xl lg:text-[117px] font-semibold bg-linear-to-t from-primary relative to-white/60 -mt-14 bg-clip-text text-transparent">

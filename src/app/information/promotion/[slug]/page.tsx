@@ -2,6 +2,7 @@ import { InformationPromotionSlugTheme1 } from '@/components/thema-v1/informatio
 import { InformationPromotionSlugTheme2 } from '@/components/thema-v2/information/promotion/slug'
 import { FetchResAPI } from '@/provider/server'
 import { InformationPromotionSlugTheme3 } from '@/components/thema-v3/information/promotion/slug'
+import { InformationPromotionSlugTheme4 } from '@/components/theme-v4/information/promotion/slug'
 
 const DetailPromotionPage = async () => {
   const themes = await FetchResAPI('/public-prodi/public')
@@ -19,6 +20,9 @@ const DetailPromotionPage = async () => {
     }
     case 'THEMA_PRODI_TIGA': {
       return <InformationPromotionSlugTheme3 />
+    }
+    case 'THEMA_PRODI_EMPAT': {
+      return <InformationPromotionSlugTheme4 />
     }
   }
 }

@@ -13,8 +13,8 @@ export const ContactDetailTheme4 = () => {
 
   return (
     <>
-      <div className="flex items-start gap-x-5">
-        <div className={'border-gray-400 w-1/2'}>
+      <div className="flex flex-col lg:flex-row items-start gap-x-5">
+        <div className={'border-gray-400 w-full lg:w-1/2'}>
           <p className="text-primary text-xl font-semibold">Kontak Universitas</p>
           <div className="flex flex-col lg:grid grid-cols-2 gap-5 mt-2.5">
             <div className={'p-2.5 bg-white rounded-lg shadow flex gap-2.5 items-center'}>
@@ -73,7 +73,7 @@ export const ContactDetailTheme4 = () => {
             </div>
           </div>
         </div>
-        <div className={'w-1/2'}>
+        <div className={'w-full lg:w-1/2 mt-4 lg:mt-0'}>
           <iframe
             src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d997.3498747879524!2d99.54704966959711!3d0.8301932409118385!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x302bbf993a619639%3A0x340e6f2a0b3a8ee9!2sSTAIN%20Madina!5e0!3m2!1sen!2sid!4v1761900831568!5m2!1sen!2sid"
             style={{ border: '0' }}

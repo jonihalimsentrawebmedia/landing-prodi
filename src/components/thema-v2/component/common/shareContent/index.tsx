@@ -65,7 +65,7 @@ export const ShareContent = (props: Props) => {
   return (
     <>
       <p className={'text-primary dark:text-white'}>{text}</p>
-      <div className="mt-1 flex items-center gap-2">
+      <div className="mt-1 flex flex-wrap items-center gap-2">
         <button
           onClick={handleCopy}
           className={`text-sm text-primary border-primary border p-1 px-2 rounded-full flex items-center gap-1.5

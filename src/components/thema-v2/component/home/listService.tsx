@@ -4,10 +4,13 @@ import { ArrowLeft, ArrowRight } from 'lucide-react'
 import Link from 'next/link'
 import { useStateContext } from '@/contexts'
 import { UseGetServiceProdi } from '@/app/homepage/hooks'
+import { useMobile } from '@/hooks'
+import { clsx } from 'clsx'
 
 const ListService = () => {
   const [{ profile }] = useStateContext()
   const { loading, services } = UseGetServiceProdi()
+  const { isMobile } = useMobile()
 
   return (
     <>
@@ -23,7 +26,12 @@ const ListService = () => {
           </div>
         </>
       ) : (
-        <div className="flex flex-col lg:flex-row gap-2 lg:gap-4 w-full relative py-4 container">
+        <div
+          className={clsx(
+            'flex flex-col lg:flex-row gap-2 lg:gap-4 w-full relative py-4',
+            isMobile ? 'px-2' : 'container'
+          )}
+        >
           <div className="rounded-full w-fit bg-primary whitespace-nowrap text-white px-3 py-1 lg:px-5 lg:py-1.5 text-xs lg:text-sm flex items-center">
             {profile?.domain}
           </div>

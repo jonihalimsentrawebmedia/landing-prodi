@@ -42,9 +42,9 @@ export const AlbumSection = () => {
     <>
       {!slug ? (
         <div className={'lg:container lg:mt-8'}>
-          <div className="grid lg:grid-cols-3 gap-5 p-5 bg-gray-100">
+          <div className="grid lg:grid-cols-3 gap-5 p-5 bg-gray-100 dark:bg-transparent">
             <div className="col-span-3">
-              <SearchInput className={'w-full'} placeholder={'Cari Video'} />
+              <SearchInput className={'w-full rounded'} placeholder={'Cari Video'} />
             </div>
             {galleryAlbum?.map((item, k) => (
               <div key={k} className={'cursor-pointer'} onClick={() => PassingSlug(item?.slug)}>
@@ -65,7 +65,7 @@ export const AlbumSection = () => {
       ) : (
         <>
           <div className="lg:container mt-8">
-            <div className={'lg:grid lg:grid-cols-3 gap-5 bg-[#EAEAEA] p-5 lg:p-5 flex flex-col'}>
+            <div className={'lg:grid lg:grid-cols-3 gap-5 bg-[#EAEAEA] dark:bg-transparent p-5 lg:p-5 flex flex-col'}>
               <div
                 className={'text-xs lg:text-xl font-semibold flex items-center gap-2 col-span-3'}
               >

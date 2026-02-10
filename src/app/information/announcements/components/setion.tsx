@@ -12,15 +12,36 @@ import { FaRegCalendarAlt } from 'react-icons/fa'
 import { format } from 'date-fns'
 import { id } from 'date-fns/locale/id'
 import { AnnouncementSkeleton } from '@/app/information/announcements/components/skeleton'
+import { useRouter, useSearchParams } from 'next/navigation'
+import { clsx } from 'clsx'
 
 export const AnnouncementSection = () => {
+  const searchParams = useSearchParams()
+  const search = searchParams.get('search')
+  const tahun = searchParams.get('tahun') || ''
+
   const { year, loading: load1 } = UseGetAnnouncementYear()
-  const { announcement, loading: load2 } = UseGetAnnouncement()
+  const { announcement, loading: load2 } = UseGetAnnouncement({
+    page: '1',
+    limit: '10',
+    search: search || '',
+    year: tahun || '',
+  })
   const [{ profile }] = useStateContext()
+  const router = useRouter()
+
+  const HandleSelectYear = (slug: string) => {
+    const ParamsSearch = new URLSearchParams(searchParams)
+    ParamsSearch.set('tahun', slug)
+    if (slug === '') {
+      ParamsSearch.delete('tahun')
+    }
+    router.push(`?${ParamsSearch.toString()}`, { scroll: false })
+  }
 
   return (
     <>
-      <div className="bg-primary">
+      <div className="bg-primary dark:bg-primary/40">
         <div
           className={`w-full py-10`}
           style={{
@@ -49,12 +70,24 @@ export const AnnouncementSection = () => {
                 <SkeletonCategoryNews />
               ) : (
                 <ul className={'flex flex-nowrap gap-5 overflow-x-auto mt-5'}>
-                  <li className={'bg-white text-primary p-1.5 px-4 cursor-pointer rounded'}>
+                  <li
+                    onClick={() => HandleSelectYear('')}
+                    className={clsx(
+                      'bg-white text-primary p-1.5 px-4 cursor-pointer rounded',
+                      !tahun && '!bg-primary text-white border border-white'
+                    )}
+                  >
                     Semua
                   </li>
                   {year?.map((item, k) => (
                     <li
-                      className={'bg-white text-primary p-1.5 px-4 cursor-pointer rounded'}
+                      onClick={() => {
+                        HandleSelectYear(item.toString())
+                      }}
+                      className={clsx(
+                        'bg-white text-primary p-1.5 px-4 cursor-pointer rounded',
+                        tahun === item.toString() && '!bg-primary text-white border border-white'
+                      )}
                       key={k}
                     >
                       {item}
@@ -68,13 +101,13 @@ export const AnnouncementSection = () => {
               ? Array.from({ length: 6 }).map((_, i) => <AnnouncementSkeleton key={i} />)
               : announcement?.map((item, l) => (
                   <Link href={`/information/announcements/${item?.slug}`} key={l}>
-                    <div className="bg-[#DFDFDF] p-5 rounded w-full flex flex-col gap-2 cursor-pointer">
+                    <div className="bg-[#DFDFDF] dark:bg-primary p-5 rounded w-full flex flex-col gap-2 cursor-pointer">
                       <Image
                         src={profile?.SatuanOrganisasi?.logo || '/img/noimg.png'}
                         alt="logo"
                         width={120}
                         height={120}
-                        className="size-[120px] object-cover mx-auto"
+                        className="size-[120px] rounded-full object-cover mx-auto"
                       />
                       <p className="line-clamp-2">{item?.judul_pengumuman}</p>
                       <p className="flex items-center gap-1.5 text-sm">
@@ -86,30 +119,6 @@ export const AnnouncementSection = () => {
                     </div>
                   </Link>
                 ))}
-
-            {/*{announcement?.map((item, l) => (*/}
-            {/*  <Link href={`/information/announcements/${item?.slug}`} key={l}>*/}
-            {/*    <div*/}
-            {/*      className={'bg-[#DFDFDF] p-5 rounded w-full flex flex-col gap-2 cursor-pointer'}*/}
-            {/*    >*/}
-            {/*      <Image*/}
-            {/*        src={profile?.SatuanOrganisasi?.logo || '/img/noimg.png'}*/}
-            {/*        alt={'logo'}*/}
-            {/*        width={120}*/}
-            {/*        height={120}*/}
-            {/*        className={'size-[120px] object-cover mx-auto'}*/}
-            {/*      />*/}
-            {/*      <p className={'line-clamp-2'}>{item?.judul_pengumuman}</p>*/}
-            {/*      <p className={'flex items-center gap-1.5 text-sm'}>*/}
-            {/*        <FaRegCalendarAlt />*/}
-            {/*        {item?.published_at*/}
-            {/*          ? format(item?.published_at, 'dd MMM yyyy', { locale: id })*/}
-            {/*          : ''}*/}
-            {/*      </p>*/}
-            {/*    </div>*/}
-            {/*  </Link>*/}
-            {/*))}*/}
-            
           </div>
         </div>
       </div>

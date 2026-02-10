@@ -10,7 +10,7 @@ export const AboutProdiSection = () => {
   const { aboutProdi } = UseGetAboutProdi()
   return (
     <>
-      <div className="flex flex-col lg:flex-row items-stretch lg:py-8 w-full max-w-[1920px] mx-auto bg-[#EAEAEA]">
+      <div className="flex flex-col lg:flex-row items-stretch lg:py-8 w-full max-w-[1920px] mx-auto bg-[#EAEAEA] dark:bg-primary/40">
         <div className="w-full lg:w-1/2">
           <Carousel>
             <CarouselContent>

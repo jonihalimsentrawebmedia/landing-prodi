@@ -56,9 +56,9 @@ export const PromotionSection = () => {
                         height={200}
                       />
                     </div>
-                    <div className="bg-white p-2">
+                    <div className="bg-white p-2 dark:bg-gray-900">
                       <p className="font-semibold line-clamp-2">{item?.judul}</p>
-                      <p className={'flex items-center gap-1 text-gray-800 text-sm mt-1.5'}>
+                      <p className={'flex items-center gap-1 text-gray-800 text-sm mt-1.5 dark:text-white'}>
                         <FaRegCalendarAlt />
                         {item?.published_at
                           ? format(item?.published_at, 'dd MMM yyyy', { locale: id })

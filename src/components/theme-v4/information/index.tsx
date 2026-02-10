@@ -7,7 +7,7 @@ import { NewNewsFourTheme4 } from '@/components/theme-v4/information/component/n
 export const InformationTheme4 = () => {
   return (
     <LayoutBaseTheme4>
-      <JumbotronTitleTheme4 context={'PROFIL'} title={'Informasi'} />
+      <JumbotronTitleTheme4 context={'INFORMASI'} title={'Informasi'} />
       <NewNewsFourTheme4 />
       <AgendaAnnouncement />
       <PromotionInformation />

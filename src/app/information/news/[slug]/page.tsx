@@ -2,6 +2,7 @@ import { InformationNewsSlugTheme1 } from '@/components/thema-v1/information/new
 import { InformationNewsSlugTheme2 } from '@/components/thema-v2/information/news/slug'
 import { FetchResAPI } from '@/provider/server'
 import { InformationNewsSlugTheme3 } from '@/components/thema-v3/information/news/slug'
+import { InformationNewsSlugTheme4 } from '@/components/theme-v4/information/news/slug/component'
 
 const DetailNewsPage = async () => {
   const themes = await FetchResAPI('/public-prodi/public')
@@ -19,6 +20,9 @@ const DetailNewsPage = async () => {
     }
     case 'THEMA_PRODI_TIGA': {
       return <InformationNewsSlugTheme3 />
+    }
+    case 'THEMA_PRODI_EMPAT': {
+      return <InformationNewsSlugTheme4 />
     }
   }
 }

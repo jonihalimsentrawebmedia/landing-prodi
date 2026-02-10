@@ -12,7 +12,7 @@ type Props = {
 export const CardNewsCol = (props: Props) => {
   const { item, className = 'w-full lg:h-[415px]', titleClassName } = props
   return (
-    <div className={'flex flex-col justify-center gap-2 bg-white'}>
+    <div className={'flex flex-col justify-center gap-2 bg-white dark:bg-gray-900'}>
       <div className={className}>
         {item?.gambar && (
           <Image
@@ -24,7 +24,7 @@ export const CardNewsCol = (props: Props) => {
           />
         )}
       </div>
-      <div className={'p-2.5 lg:p-1 px-2.5'}>
+      <div className={'p-2.5 lg:p-2.5 px-2.5'}>
         <p className={`text-sm lg:text-2xl line-clamp-2 font-semibold ${titleClassName}`}>{item?.judul}</p>
         <p className={'text-xs lg:text-base flex items-center gap-1 mt-1.5 text-gray-500'}>
           <MdCalendarMonth />

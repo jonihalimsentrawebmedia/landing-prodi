@@ -11,7 +11,7 @@ export const CardNewsRow = (props: Props) => {
   const { item } = props
   return (
     <div
-      className={'flex flex-col lg:flex-row items-center gap-2 lg:gap-5 bg-white dark:bg-primary'}
+      className={'flex flex-col lg:flex-row items-center gap-2 lg:gap-5 bg-white dark:bg-gray-900'}
     >
       <div className="w-full  lg:max-w-[214px] lg:min-w-[214px] lg:w-[214px] h-[180px]">
         <Image

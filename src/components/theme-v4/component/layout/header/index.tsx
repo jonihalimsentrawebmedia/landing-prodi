@@ -6,15 +6,17 @@ import { useQuery } from '@tanstack/react-query'
 import AxiosClient from '@/provider/axios'
 import { useEffect } from 'react'
 import { useThemeColor } from '@/hooks/useTheme'
-import { UseGetProfile } from '@/hooks'
+import { UseGetProfile, useMobile } from '@/hooks'
 import Link from 'next/link'
 import { NavMenuList } from '@/components/layout/header/menuList'
 import { usePathname } from 'next/navigation'
 import { clsx } from 'clsx'
 import { ButtonDarkMode } from '@/components/thema-v2/component/layout/header/darkMode'
+import { SheetMenu } from '@/components/thema-v2/component/layout/header/SheetMenu'
 
 export const HeaderLayoutTheme4 = () => {
   const { profile: profiles } = UseGetProfile()
+  const { isMobile } = useMobile()
 
   const pathname = usePathname()
   const [{ profile }, Dispatch] = useStateContext()
@@ -50,18 +52,23 @@ export const HeaderLayoutTheme4 = () => {
     <>
       <div className="fixed w-full z-[60]">
         <div className={'w-full mx-auto max-w-[1920px] bg-white drop-shadow py-2 relative'}>
-          <div className="absolute h-full w-2/3 rounded-bl-3xl bg-primary top-0 right-0 z-[1]" />
-          <div className="container relative z-[2] flex items-center justify-between gap-x-5">
+          <div className="absolute h-full w-full lg:w-2/3 lg:rounded-bl-3xl bg-primary top-0 right-0 z-[1]" />
+          <div
+            className={clsx(
+              isMobile ? 'px-2' : 'container',
+              'relative z-[2] flex items-center justify-between gap-x-5"'
+            )}
+          >
             <div className="flex items-center gap-2">
               <Image
                 src={organization?.logo ?? '/img/noimg.png'}
                 alt={'logo'}
                 width={40}
                 height={40}
-                className={'size-10 w-10'}
+                className={'size-10 w-10 rounded-full'}
               />
               <div>
-                <p className={'text-2xl font-semibold text-primary'}>
+                <p className={'text-sm lg:text-2xl font-semibold lg:text-primary'}>
                   {organization?.singkatan_universitas}
                 </p>
                 <p className={'text-xs capitalize'}>
@@ -69,7 +76,14 @@ export const HeaderLayoutTheme4 = () => {
                 </p>
               </div>
             </div>
-            <ul className={'flex items-center gap-x-5 mt-2 lg:mt-0 text-sm text-white'}>
+            <div className="flex items-center gap-1.5">
+              <div className="p-0 lg:hidden bg-cyan-900 rounded flex items-center justify-center">
+                <ButtonDarkMode className={'size-3'} />
+              </div>
+              <SheetMenu />
+            </div>
+
+            <ul className={'lg:flex items-center gap-x-5 mt-2 lg:mt-0 text-sm text-white hidden'}>
               {NavMenuList?.map((item, k) => (
                 <Link href={item?.link} key={item.id}>
                   <li

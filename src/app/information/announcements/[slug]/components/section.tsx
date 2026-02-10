@@ -4,8 +4,6 @@ import { useParams } from 'next/navigation'
 import { FaRegCalendarAlt, FaUser } from 'react-icons/fa'
 import { format } from 'date-fns'
 import { id } from 'date-fns/locale/id'
-import { Button } from '@/components/ui/button'
-import { IoMdLink } from 'react-icons/io'
 import { ArrowLeft } from 'lucide-react'
 import { UseGetAnnouncement } from '@/app/homepage/hooks'
 import Link from 'next/link'
@@ -15,6 +13,7 @@ import { useDownloadFile } from '@/hooks'
 import { toast } from 'react-toastify'
 import { BasicSelect } from '@/components/common/select/basic'
 import { useEffect, useState } from 'react'
+import { ShareContent } from '@/components/thema-v2/component/common/shareContent'
 
 export const DetailSectionAnnouncement = () => {
   const { slug } = useParams()
@@ -34,14 +33,14 @@ export const DetailSectionAnnouncement = () => {
 
   return (
     <>
-      <div className="bg-primary">
+      <div className="bg-primary dark:bg-primary/40">
         <div className={'container'}>
-          <div className="flex flex-col-reverse lg:flex-row items-start w-full gap-5">
-            <div className="w-full h-full max-w-[420px] bg-primary lg:pr-5">
-              <div className="p-5 bg-[#F5FAFF] rounded-lg flex flex-col gap-2">
+          <div className="flex flex-col-reverse lg:flex-row items-start w-full gap-5 py-5">
+            <div className="w-full h-full max-w-[420px] bg-primary dark:bg-transparent">
+              <div className="p-5 bg-[#F5FAFF] dark:bg-primary rounded-lg flex flex-col gap-2">
                 <div className={'flex flex-col gap-1'}>
-                  <p className={'text-gray-500 flex items-center gap-1.5'}>
-                    <FaRegCalendarAlt className={'text-primary'} />
+                  <p className={'text-gray-500 flex items-center gap-1.5 dark:text-white'}>
+                    <FaRegCalendarAlt className={'text-primary dark:text-white'} />
                     Diupload
                   </p>
                   <p className={'font-semibold'}>
@@ -51,8 +50,8 @@ export const DetailSectionAnnouncement = () => {
                   </p>
                 </div>
                 <div className={'flex flex-col gap-1'}>
-                  <p className={'text-gray-500 flex items-center gap-1.5'}>
-                    <FaUser className={'text-primary'} />
+                  <p className={'text-gray-500 flex items-center gap-1.5 dark:text-white'}>
+                    <FaUser className={'text-primary dark:text-white'} />
                     Penulis
                   </p>
                   <p className={'font-semibold'}>
@@ -60,19 +59,15 @@ export const DetailSectionAnnouncement = () => {
                   </p>
                 </div>
               </div>
-              <div className="p-5 bg-[#F5FAFF] rounded-lg flex flex-col gap-2 mt-5">
-                <p className="text-primary">Bagikan Berita</p>
-                <Button
-                  className={'w-fit flex items-center gap-1.5 rounded-full border-primary'}
-                  variant={'outline'}
-                >
-                  <IoMdLink />
-                  Salin Link
-                </Button>
+              <div className="p-5 bg-[#F5FAFF] dark:bg-primary rounded-lg flex flex-col gap-2 mt-5">
+                <ShareContent
+                  title={announcementDetail?.judul_pengumuman ?? ''}
+                  text={'Bagikan Pengumuman'}
+                />
               </div>
 
-              <div className="p-5 bg-[#F5FAFF] rounded-lg flex flex-col gap-2 mt-5">
-                <p className="text-primary">Unduh Dokumen</p>
+              <div className="p-5 bg-[#F5FAFF] dark:bg-primary rounded-lg flex flex-col gap-2 mt-5">
+                <p className="text-primary dark:text-white">Unduh Dokumen</p>
                 {announcementDetail?.dokumens?.map((item, k) => (
                   <button
                     onClick={async () => {
@@ -89,10 +84,10 @@ export const DetailSectionAnnouncement = () => {
                     }}
                     key={k}
                     className={
-                      'flex items-center gap-1.5 border p-1.5 rounded-full border-primary px-4 w-fit'
+                      'flex items-center gap-1.5 border p-1.5 rounded-full border-primary px-4 w-fit dark:border-white dark:text-white'
                     }
                   >
-                    <MdDownload className={'text-primary'} />
+                    <MdDownload className={'text-primary dark:text-white'} />
                     Unduh Dokumen
                   </button>
                 ))}
@@ -122,17 +117,16 @@ export const DetailSectionAnnouncement = () => {
               </div>
             </div>
 
-            <div className="w-full bg-white p-5">
+            <div className="w-full bg-white dark:bg-transparent">
               <Link href={'/information/announcements'}>
                 <button className={'flex items-center gap-1.5'}>
                   <ArrowLeft />
                   Kembali
                 </button>
               </Link>
-
               <p className="mt-5 text-2xl font-semibold">{announcementDetail?.judul_pengumuman}</p>
-
               <BasicSelect
+                innerClassname={'text-primary'}
                 data={
                   announcementDetail?.dokumens?.map((row, k) => ({
                     label: 'dokumen ' + (k + 1),

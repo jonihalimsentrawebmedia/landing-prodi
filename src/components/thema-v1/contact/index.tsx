@@ -8,7 +8,7 @@ export const ContactTheme1 = () => {
       <div className={'w-full max-w-[1920px] mx-auto'}>
         <JumbotronTitle context={'KONTAK'} title={'Kontak & Pendaftaran'} />
 
-        <div className="bg-primary w-full">
+        <div className="bg-primary dark:bg-gray-900 w-full">
           <TabsContactRegistration />
         </div>
       </div>

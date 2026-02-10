@@ -8,6 +8,7 @@ import Fade from 'embla-carousel-fade'
 import { Card, CardContent } from '@/components/ui/card'
 import { useStateContext } from '@/contexts'
 import { FaFacebook, FaInstagram, FaTwitter, FaYoutube } from 'react-icons/fa'
+import { clsx } from 'clsx'
 
 export const SliderLandingTheme4 = () => {
   const { sliderLanding } = UseGetSliderLanding()
@@ -17,9 +18,9 @@ export const SliderLandingTheme4 = () => {
   return (
     <>
       <div className={'w-full mx-auto max-w-[1920px] lg:min-h-[600px] relative'}>
-        <div className="p-5 w-full relative">
+        <div className="lg:p-5 w-full relative">
           <div
-            className={`bg-[#33333380] absolute z-10 w-[calc(100%-40px)] h-[600px] rounded-lg`}
+            className={`bg-[#33333380] absolute z-10 w-full lg:w-[calc(100%-40px)] h-full lg:h-[600px] rounded-lg`}
           />
           <Carousel
             opts={{ loop: true, align: 'center' }}
@@ -35,7 +36,7 @@ export const SliderLandingTheme4 = () => {
                       alt={'image'}
                       width={1920}
                       height={600}
-                      className={'w-full h-[600px] rounded-lg object-cover'}
+                      className={'w-full h-[300px] lg:h-[600px] lg:rounded-lg object-cover'}
                     />
                   </CarouselItem>
                 ))}
@@ -44,14 +45,15 @@ export const SliderLandingTheme4 = () => {
         </div>
 
         <Card
-          className={
-            'max-w-[960px] w-full p-2 absolute z-10 -bottom-16 transform left-1/2 -translate-x-1/2'
-          }
+          className={clsx(
+            'lg:max-w-[960px] w-full p-2 absolute z-10 lg:-bottom-16 transform left-1/2 -translate-x-1/2',
+            'w-[calc(100%-30px)] -bottom-20'
+          )}
         >
           <CardContent className={'p-2'}>
             <div className="flex flex-col justify-center items-center gap-1.5">
-              <p className="text-center">Selamat Datang di Website Resmi</p>
-              <p className="text-primary text-4xl font-semibold">
+              <p className="text-center text-xs lg:text-base">Selamat Datang di Website Resmi</p>
+              <p className="text-primary lg:text-4xl font-semibold text-2xl text-center">
                 {detail?.kode_jenjang}-{detail?.nama}
               </p>
               <div className={'w-full bg-[#CDA327] h-[2px] my-1.5'} />

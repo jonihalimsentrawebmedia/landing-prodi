@@ -11,7 +11,7 @@ const LayoutBaseTheme4 = (props: Props) => {
   return (
     <>
       <HeaderLayoutTheme4 />
-      <div className="lg:pt-16">{children}</div>
+      <div className="pt-12 lg:pt-16">{children}</div>
       <FooterLayoutTheme4 />
     </>
   )

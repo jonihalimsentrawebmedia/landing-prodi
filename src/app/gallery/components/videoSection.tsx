@@ -14,9 +14,9 @@ export const VideoSection = () => {
   return (
     <>
       <div className={'container lg:mt-8'}>
-        <div className="lg:p-5 py-5 grid lg:grid-cols-3 gap-5 bg-gray-100">
+        <div className="lg:p-5 py-5 grid lg:grid-cols-3 gap-5 bg-gray-100 dark:bg-transparent">
           <div className="col-span-3">
-            <SearchInput className={'w-full'} placeholder={'Cari Video'} />
+            <SearchInput className={'w-full rounded'} placeholder={'Cari Video'} />
           </div>
           {galleryVideo?.map((item, k) => (
             <div key={k}>
@@ -32,7 +32,7 @@ export const VideoSection = () => {
                   height={240}
                 />
               </div>
-              <p className={'p-2 py-1 font-semibold dark:text-primary'}>{item?.judul}</p>
+              <p className={'p-2 py-1 font-semibold dark:text-white'}>{item?.judul}</p>
             </div>
           ))}
         </div>

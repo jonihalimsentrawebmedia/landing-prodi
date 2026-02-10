@@ -29,7 +29,7 @@ export const ChipCategory = (props: Props) => {
 
   return (
     <>
-      <div className="w-full gap-2 flex flex-nowrap overflow-x-auto">
+      <div className="w-full gap-2 flex justify-start flex-nowrap overflow-x-auto">
         {data?.map((item, index) => (
           <button
             onClick={() => {

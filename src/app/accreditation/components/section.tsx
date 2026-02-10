@@ -26,7 +26,7 @@ export const AccreditationSection = () => {
 
   return (
     <>
-      <div className={'w-full h-full bg-[#EAEAEA] py-10'}>
+      <div className={'w-full h-full bg-[#EAEAEA] dark:bg-gray-900 py-10'}>
         <div className="container space-y-5">
           {loading ? (
             <>

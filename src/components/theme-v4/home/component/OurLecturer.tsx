@@ -34,7 +34,7 @@ export const OurLecturer = () => {
           <Carousel className={'mt-8'}>
             <CarouselContent>
               {Array.from({ length: 10 }, (_, k) => k + 1).map((row, k) => (
-                <CarouselItem key={k} className={'basis-1/5'}>
+                <CarouselItem key={k} className={'basis-5/6 lg:basis-1/5'}>
                   <div className={'bg-white p-1 w-fit rounded-lg relative'}>
                     <Image
                       src={'/img/dumpLecture.jpg'}
@@ -45,7 +45,7 @@ export const OurLecturer = () => {
                     />
                     <div
                       className={
-                        'absolute w-[calc(100%-8px)] rounded-b-lg p-2.5 z-10 bg-white/90 bottom-0'
+                        'absolute w-[calc(100%-8px)] rounded-b-lg p-2.5 z-10 bg-white/90 bottom-0 dark:text-primary'
                       }
                     >
                       Dr. Ir. Ahmad Ramadhan, M.Sc.
@@ -54,14 +54,14 @@ export const OurLecturer = () => {
                 </CarouselItem>
               ))}
             </CarouselContent>
-            <CarouselPrevious />
-            <CarouselNext />
+            <CarouselPrevious className={'left-0 lg:-left-10'} />
+            <CarouselNext className={'right-0 lg:-right-10'} />
           </Carousel>
 
           <Link href={'/lecturer'} className={'flex items-center justify-center mt-5'}>
             <Button
               variant={'outline'}
-              className={'rounded-full border-primary text-primary px-5 hover:text-primary'}
+              className={'rounded-full border-primary text-primary px-5 hover:text-primary dark:text-white'}
             >
               Lihat Semua Dosen
             </Button>

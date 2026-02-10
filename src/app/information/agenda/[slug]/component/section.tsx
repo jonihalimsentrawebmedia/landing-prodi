@@ -1,8 +1,6 @@
 'use client'
 
 import { FaRegCalendarAlt, FaUser } from 'react-icons/fa'
-import { Button } from '@/components/ui/button'
-import { IoMdLink } from 'react-icons/io'
 import { UseGetAgendaDetail } from '@/app/information/agenda/hooks'
 import { useParams } from 'next/navigation'
 import { format } from 'date-fns'
@@ -12,6 +10,7 @@ import Link from 'next/link'
 import { ArrowLeft } from 'lucide-react'
 import Image from 'next/image'
 import { UseGetAgenda } from '@/app/homepage/hooks'
+import { ShareContent } from '@/components/thema-v2/component/common/shareContent'
 
 export const SectionAgenda = () => {
   const { slug } = useParams()
@@ -23,22 +22,22 @@ export const SectionAgenda = () => {
 
   return (
     <>
-      <div className="bg-primary">
+      <div className="bg-primary dark:bg-gray-900">
         <div className={'container'}>
-          <div className="flex items-start w-full flex-col-reverse flex-row gap-5">
-            <div className="w-full h-full max-w-[420px] bg-primary lg:pr-5">
-              <div className="p-5 bg-[#F5FAFF] rounded-lg flex flex-col gap-2">
+          <div className="flex items-start w-full flex-col-reverse lg:flex-row gap-5 py-5">
+            <div className="w-full h-full max-w-[420px] bg-primary dark:bg-gray-900 lg:pr-5">
+              <div className="p-5 bg-[#F5FAFF] dark:bg-primary rounded-lg flex flex-col gap-2">
                 <div className={'flex flex-col gap-1'}>
-                  <p className={'text-gray-500 flex items-center gap-1.5'}>
-                    <FaUser className={'text-primary'} />
+                  <p className={'text-gray-500 flex items-center gap-1.5 dark:text-white'}>
+                    <FaUser className={'text-primary dark:text-white'} />
                     Penulis
                   </p>
                   <p className={'font-semibold'}>{agendaDetail?.penulis}</p>
                 </div>
 
                 <div className={'flex flex-col gap-1'}>
-                  <p className={'text-gray-500 flex items-center gap-1.5'}>
-                    <FaRegCalendarAlt className={'text-primary'} />
+                  <p className={'text-gray-500 flex items-center gap-1.5 dark:text-white'}>
+                    <FaRegCalendarAlt className={'text-primary dark:text-white'} />
                     Tanggal
                   </p>
                   <p className={'font-semibold'}>
@@ -53,23 +52,16 @@ export const SectionAgenda = () => {
                 </div>
 
                 <div className={'flex flex-col gap-1'}>
-                  <p className={'text-gray-500 flex items-center gap-1.5'}>
+                  <p className={'text-gray-500 flex items-center gap-1.5 dark:text-white'}>
                     <FaLocationDot className={'text-primary'} />
                     Lokasi
                   </p>
-                  <p className={'font-semibold'}>{agendaDetail?.lokasi_kegiatan}</p>
+                  <p className={'font-semibold dark:text-white'}>{agendaDetail?.lokasi_kegiatan}</p>
                 </div>
               </div>
 
-              <div className="p-5 bg-[#F5FAFF] rounded-lg flex flex-col gap-2 mt-5">
-                <p className="text-primary">Bagikan Berita</p>
-                <Button
-                  className={'w-fit flex items-center gap-1.5 rounded-full border-primary'}
-                  variant={'outline'}
-                >
-                  <IoMdLink />
-                  Salin Link
-                </Button>
+              <div className="p-5 bg-[#F5FAFF] rounded-lg flex flex-col gap-2 mt-5 dark:bg-primary">
+                <ShareContent title={agendaDetail?.judul ?? ''} text={'Bagikan Agenda'} />
               </div>
 
               <div className="mt-5">
@@ -109,7 +101,7 @@ export const SectionAgenda = () => {
               </div>
             </div>
 
-            <div className="w-full bg-white p-5">
+            <div className="w-full bg-white dark:bg-transparent">
               <Link href={'/information/agenda'}>
                 <button className={'flex items-center gap-1.5'}>
                   <ArrowLeft />

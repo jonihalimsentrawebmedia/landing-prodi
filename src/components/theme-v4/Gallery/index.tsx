@@ -8,7 +8,7 @@ export const GalleryTheme4 = () => {
       <div className={'w-full max-w-[1920px] mx-auto'}>
         <JumbotronTitleTheme4 context={'KONTAK'} title={'Galeri'} />
 
-        <div className="w-full dark:bg-primary">
+        <div className="w-full dark:bg-primary/50">
           <TabsGalleryTheme4 />
         </div>
       </div>

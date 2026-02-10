@@ -12,7 +12,7 @@ export const TitleContent = (props: Props) => {
     <h2
       className={clsx(
         className,
-        'flex items-center gap-1 text-primary font-semibold text-2xl',
+        'flex items-center gap-1 text-primary font-semibold lg:text-2xl',
         line_position === 'bottom' && 'underline underline-offset-8 decoration-4'
       )}
     >
