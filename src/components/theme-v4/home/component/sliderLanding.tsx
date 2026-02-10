@@ -1,107 +1,44 @@
-// 'use client'
-//
-// import { UseGetSliderLanding } from '@/app/homepage/hooks'
-// import { Carousel, CarouselContent, CarouselItem } from '@/components/ui/carousel'
-// import Image from 'next/image'
-// import Autoplay from 'embla-carousel-autoplay'
-// import Fade from 'embla-carousel-fade'
-// import { Card, CardContent } from '@/components/ui/card'
-// import { useStateContext } from '@/contexts'
-// import { FaFacebook, FaInstagram, FaTwitter, FaYoutube } from 'react-icons/fa'
-// import { clsx } from 'clsx'
-// import { SliderLandingSkeleton } from '@/components/theme-v4/home/component/skeleton'
-//
-// export const SliderLandingTheme4 = () => {
-//   const { sliderLanding, loading } = UseGetSliderLanding()
-//   const [{ profile }] = useStateContext()
-//   const detail = profile?.SatuanOrganisasi
-//
-//   if (loading) return <SliderLandingSkeleton />
-//
-//   return (
-//     <>
-//       <div className={'w-full mx-auto max-w-[1920px] lg:min-h-[600px] relative'}>
-//         <div className="lg:p-5 w-full relative">
-//           <div
-//             className={`bg-[#33333380] absolute z-10 w-full lg:w-[calc(100%-40px)] h-full lg:h-[600px] rounded-lg`}
-//           />
-//           <Carousel
-//             opts={{ loop: true, align: 'center' }}
-//             plugins={[Autoplay({ delay: 5000 }), Fade()]}
-//           >
-//             <CarouselContent>
-//               {sliderLanding
-//                 ?.filter((row) => row?.is_atas)
-//                 .map((row, k) => (
-//                   <CarouselItem key={k}>
-//                     <Image
-//                       src={row?.gambar_url}
-//                       alt={'image'}
-//                       width={1920}
-//                       height={600}
-//                       className={'w-full h-[300px] lg:h-[600px] lg:rounded-lg object-cover'}
-//                     />
-//                   </CarouselItem>
-//                 ))}
-//             </CarouselContent>
-//           </Carousel>
-//         </div>
-//
-//         <Card
-//           className={clsx(
-//             'lg:max-w-[960px] w-full p-2 absolute z-10 lg:-bottom-16 transform left-1/2 -translate-x-1/2',
-//             'w-[calc(100%-30px)] -bottom-20'
-//           )}
-//         >
-//           <CardContent className={'p-2'}>
-//             <div className="flex flex-col justify-center items-center gap-1.5">
-//               <p className="text-center text-xs lg:text-base">Selamat Datang di Website Resmi</p>
-//               <p className="text-primary lg:text-4xl font-semibold text-2xl text-center">
-//                 {detail?.kode_jenjang}-{detail?.nama}
-//               </p>
-//               <div className={'w-full bg-[#CDA327] h-[2px] my-1.5'} />
-//               <ul className={'w-fit flex items-center gap-5'}>
-//                 <FaFacebook className={'size-8 text-primary'} />
-//                 <FaInstagram className={'size-8 text-primary'} />
-//                 <FaTwitter className={'size-8 text-primary'} />
-//                 <FaYoutube className={'size-8 text-primary'} />
-//               </ul>
-//             </div>
-//           </CardContent>
-//         </Card>
-//       </div>
-//     </>
-//   )
-// }
-
 'use client'
 
+import { useState, useEffect } from 'react'
 import { UseGetSliderLanding } from '@/app/homepage/hooks'
-import { Carousel, CarouselContent, CarouselItem } from '@/components/ui/carousel'
 import Image from 'next/image'
-import Autoplay from 'embla-carousel-autoplay'
-import Fade from 'embla-carousel-fade'
 import { Card, CardContent } from '@/components/ui/card'
 import { useStateContext } from '@/contexts'
 import { FaFacebook, FaInstagram, FaTwitter, FaYoutube } from 'react-icons/fa'
 import { clsx } from 'clsx'
 import { SliderLandingSkeleton } from '@/components/theme-v4/home/component/skeleton'
-import { motion, Variants } from 'framer-motion'
+import { motion, AnimatePresence, Variants } from 'framer-motion'
 
 export const SliderLandingTheme4 = () => {
   const { sliderLanding, loading } = UseGetSliderLanding()
   const [{ profile }] = useStateContext()
   const detail = profile?.SatuanOrganisasi
 
-  if (loading) return <SliderLandingSkeleton />
+  const [current, setCurrent] = useState(0)
+  const items = sliderLanding?.filter((row) => row?.is_atas) || []
+  const length = items.length
 
-  // Variants untuk card
+  // Autoplay
+  useEffect(() => {
+    const interval = setInterval(() => {
+      setCurrent((prev) => (prev + 1) % length)
+    }, 5000)
+    return () => clearInterval(interval)
+  }, [length])
+
+  // Variants
+  const slideVariants: Variants = {
+    initial: { opacity: 0, scale: 0.95 },
+    animate: { opacity: 1, scale: 1 },
+    exit: { opacity: 0, scale: 0.95 },
+  }
+
   const cardVariants: Variants = {
     hidden: { y: 50, opacity: 0 },
     visible: { y: 0, opacity: 1, transition: { type: 'spring', stiffness: 80, damping: 15 } },
   }
 
-  // Variants untuk social icons
   const iconVariants: Variants = {
     hidden: { scale: 0, opacity: 0 },
     visible: (i: number) => ({
@@ -111,37 +48,53 @@ export const SliderLandingTheme4 = () => {
     }),
   }
 
+  if (loading) return <SliderLandingSkeleton />
+
   return (
     <div className="w-full mx-auto max-w-[1920px] lg:min-h-[600px] relative">
       {/* Carousel */}
       <div className="lg:p-5 w-full relative">
-        <div className="bg-[#33333380] absolute z-10 w-full lg:w-[calc(100%-40px)] h-full lg:h-[600px] rounded-lg" />
-        <Carousel
-          opts={{ loop: true, align: 'center' }}
-          plugins={[Autoplay({ delay: 5000 }), Fade()]}
-        >
-          <CarouselContent>
-            {sliderLanding
-              ?.filter((row) => row?.is_atas)
-              .map((row, k) => (
-                <CarouselItem key={k}>
-                  <motion.div
-                    initial={{ opacity: 0, scale: 0.95 }}
-                    animate={{ opacity: 1, scale: 1 }}
-                    transition={{ duration: 0.8 }}
-                  >
-                    <Image
-                      src={row?.gambar_url}
-                      alt="image"
-                      width={1920}
-                      height={600}
-                      className="w-full h-[300px] lg:h-[600px] lg:rounded-lg object-cover"
-                    />
-                  </motion.div>
-                </CarouselItem>
-              ))}
-          </CarouselContent>
-        </Carousel>
+        {/* Overlay */}
+        <div className="bg-[#33333380] absolute z-10 w-full lg:w-[calc(100%-40px)] h-full lg:h-[600px] lg:rounded-lg" />
+
+        <div className="relative w-full h-[300px] lg:h-[600px] overflow-hidden lg:rounded-lg">
+          <AnimatePresence mode="wait">
+            {items.map((row, index) =>
+              index === current ? (
+                <motion.div
+                  key={index}
+                  variants={slideVariants}
+                  initial="initial"
+                  animate="animate"
+                  exit="exit"
+                  transition={{ duration: 0.8, ease: 'easeInOut' }}
+                  className="absolute top-0 left-0 w-full h-full"
+                >
+                  <Image
+                    src={row.gambar_url}
+                    alt={`Slide ${index}`}
+                    width={1920}
+                    height={600}
+                    className="w-full h-full lg:rounded-lg object-cover"
+                  />
+                </motion.div>
+              ) : null
+            )}
+          </AnimatePresence>
+
+          {/* Dots */}
+          <div className="absolute bottom-4 left-1/2 -translate-x-1/2 flex gap-2">
+            {items.map((_, i) => (
+              <span
+                key={i}
+                className={`w-3 h-3 rounded-full transition-all cursor-pointer ${
+                  i === current ? 'bg-white' : 'bg-white/50'
+                }`}
+                onClick={() => setCurrent(i)}
+              />
+            ))}
+          </div>
+        </div>
       </div>
 
       {/* Info Card */}
