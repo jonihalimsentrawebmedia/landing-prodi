@@ -110,7 +110,7 @@ export const FooterLayoutTheme4 = () => {
         </div>
       </div>
       <div className="w-full mx-auto max-w-[1920px] text-white bg-[#112A2A] text-sm py-2 text-center font-semibold">
-        Prodi S1 - Pendidikan Bahasa Inggris © 2025
+        Prodi {data?.kode_jenjang} - {data?.nama} © {new Date().getFullYear()}
       </div>
     </>
   )

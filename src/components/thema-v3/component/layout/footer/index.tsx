@@ -15,19 +15,18 @@ export const FooterLayoutTheme3 = () => {
     <>
       <div className="bg-primary py-5 w-full mx-auto max-w-[1920px]">
         <div className="container">
-          <div className="flex flex-col lg:items-center gap-2">
+          <div className="flex items-center lg:flex-row lg:items-center gap-2">
             <Image
               src={data?.logo ?? '/img/noimg.png'}
               alt={'logo'}
               width={150}
               height={150}
-              className={'size-[60px] min-w-[60px] rounded-full'}
+              className={'lg:size-[60px] w-[30px] size-[30px] lg:min-w-[60px] rounded-full'}
             />
             <h2 className="text-sm lg:text-4xl text-white font-semibold">{data?.nama}</h2>
           </div>
 
           <div className="mt-5 flex flex-col lg:flex-row gap-y-5 items-start justify-between">
-            
             <div>
               <h3 className={'lg:text-xl text-white border-l-4 border-yellow-500 pl-2'}>Kontak</h3>
               <ul className={'text-xs lg:text-base text-white mt-4 flex flex-col gap-2'}>
@@ -63,7 +62,9 @@ export const FooterLayoutTheme3 = () => {
             </div>
 
             <div>
-              <h3 className={'lg:text-xl text-white border-l-4 border-yellow-500 pl-2'}>Lihat Juga</h3>
+              <h3 className={'lg:text-xl text-white border-l-4 border-yellow-500 pl-2'}>
+                Lihat Juga
+              </h3>
               <ul className={'flex flex-col gap-4 text-white mt-4 text-xs lg:text-base'}>
                 <Link href={'/profile'}>
                   <li>Tentang Prodi</li>
@@ -105,12 +106,11 @@ export const FooterLayoutTheme3 = () => {
                 </Link>
               </ul>
             </div>
-            
           </div>
         </div>
       </div>
       <div className="w-full mx-auto max-w-[1920px] text-primary bg-white text-sm py-2 text-center font-semibold">
-        Prodi S1 - Pendidikan Bahasa Inggris © 2025
+        Prodi {data?.kode_jenjang} - {data?.nama} © {new Date().getFullYear()}
       </div>
     </>
   )

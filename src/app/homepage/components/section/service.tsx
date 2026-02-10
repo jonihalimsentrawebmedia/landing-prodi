@@ -4,55 +4,79 @@ import { ArrowLeft, ArrowRight } from 'lucide-react'
 import { useStateContext } from '@/contexts'
 import Link from 'next/link'
 import { UseGetServiceProdi } from '@/app/homepage/hooks'
+import { motion, Variants } from 'framer-motion'
 
 const SectionServices = () => {
   const [{ profile }] = useStateContext()
   const { loading, services } = UseGetServiceProdi()
 
-  return (
-    <>
-      {loading ? (
-        <>
-          <div className="flex gap-4 py-4 container animate-pulse">
-            <div className="h-8 w-40 rounded-full bg-gray-300" />
-            <div className="flex gap-3 overflow-hidden">
-              {[1, 2, 3].map((i) => (
-                <div key={i} className="h-8 w-60 rounded-full bg-gray-200" />
-              ))}
-            </div>
-          </div>
-        </>
-      ) : (
-        <div className="flex gap-4 w-full relative py-4 container">
-          <div className="rounded-full bg-primary whitespace-nowrap text-white px-5 py-1.5 text-xs lg:text-sm flex items-center">
-            {profile?.domain}
-          </div>
-          <div className="w-[2px] h-8 lg:h-11 bg-[#C8C8C8]" />
-          <div className="flex gap-4 items-center w-full overflow-hidden">
-            <ArrowLeft className="text-primary hidden lg:block" />
-            <div className="lg:flex w-fit gap-4 flex overflow-x-auto text-xs">
-              {services
-                .filter((row) => row.tampil === 'Y')
-                ?.map((row, k) => (
-                  <Link
-                    href={row?.url_layanan || '#'}
-                    target="_blank"
-                    key={k}
-                    className={`rounded-full w-full
-                  flex gap-2 border items-center
-                  text-primary bg-primary/20 border-primary
-                  whitespace-nowrap  px-4 py-2 font-semibold
-                  `}
-                  >
-                    {row?.nama_layanan}
-                  </Link>
-                ))}
-            </div>
-            <ArrowRight className="text-primary hidden lg:block" />
-          </div>
-        </div>
-      )}
-    </>
+  const filtered = services?.filter((row) => row.tampil === 'Y') || []
+
+  const container = {
+    hidden: {},
+    show: {
+      transition: {
+        staggerChildren: 0.12,
+      },
+    },
+  }
+
+  const item: Variants = {
+    hidden: { opacity: 0, y: 15, scale: 0.95 },
+    show: {
+      opacity: 1,
+      y: 0,
+      scale: 1,
+      transition: {
+        duration: 0.35,
+        ease: [0.25, 0.1, 0.25, 1],
+      },
+    },
+  }
+
+  return loading ? (
+    <div className="flex gap-4 py-4 container animate-pulse">
+      <div className="h-8 w-40 rounded-full bg-gray-300" />
+      <div className="flex gap-3 overflow-hidden">
+        {[1, 2, 3].map((i) => (
+          <div key={i} className="h-8 w-60 rounded-full bg-gray-200" />
+        ))}
+      </div>
+    </div>
+  ) : (
+    <div className="flex gap-4 w-full relative py-4 container">
+      <div className="rounded-full bg-primary whitespace-nowrap text-white px-5 py-1.5 text-xs lg:text-sm flex items-center">
+        {profile?.domain}
+      </div>
+
+      <div className="w-[2px] h-8 lg:h-11 bg-[#C8C8C8]" />
+
+      <div className="flex gap-4 items-center w-full overflow-hidden">
+        <ArrowLeft className="text-primary hidden lg:block" />
+
+        {/* 🔥 CONTAINER YG NGATUR STAGGER */}
+        <motion.div
+          className="lg:flex w-fit gap-4 flex overflow-x-auto text-xs"
+          variants={container}
+          initial="hidden"
+          animate="show"
+        >
+          {filtered.map((row, k) => (
+            <motion.div key={k} variants={item}>
+              <Link
+                href={row?.url_layanan || '#'}
+                target="_blank"
+                className="rounded-full flex gap-2 border items-center text-primary bg-primary/20 border-primary whitespace-nowrap px-4 py-2 font-semibold"
+              >
+                {row?.nama_layanan}
+              </Link>
+            </motion.div>
+          ))}
+        </motion.div>
+
+        <ArrowRight className="text-primary hidden lg:block" />
+      </div>
+    </div>
   )
 }
 

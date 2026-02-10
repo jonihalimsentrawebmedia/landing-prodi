@@ -6,6 +6,7 @@ import { Carousel, CarouselContent, CarouselItem } from '@/components/ui/carouse
 import { useStateContext } from '@/contexts'
 import Autoplay from 'embla-carousel-autoplay'
 import Fade from 'embla-carousel-fade'
+import { motion } from 'framer-motion'
 
 export const HomeSlider = () => {
   const { sliderLanding, loading } = UseGetSliderLanding()
@@ -29,10 +30,23 @@ export const HomeSlider = () => {
       <div className="lg:max-w-[1920px] w-full mx-auto relative">
         <div className="w-full h-full absolute z-10 bg-linear-to-t from-primary to-primary/70 flex items-end">
           <div className="container py-8">
-            <p className="text-white text-xl">Selamat Datang Di Website Resmi</p>
-            <p className={'lg:text-6xl text-white font-semibold'}>
+            <motion.p
+              initial={{ opacity: 0, y: 30 }}
+              animate={{ opacity: 1, y: 0 }}
+              transition={{ duration: 0.6 }}
+              className="text-white text-xl"
+            >
+              Selamat Datang Di Website Resmi
+            </motion.p>
+            {/*<p className="text-white text-xl">Selamat Datang Di Website Resmi</p>*/}
+            <motion.p
+              initial={{ opacity: 0, y: 40 }}
+              animate={{ opacity: 1, y: 0 }}
+              transition={{ duration: 0.8, delay: 0.2 }}
+              className="lg:text-6xl text-white font-semibold"
+            >
               {profile?.SatuanOrganisasi?.nama}
-            </p>
+            </motion.p>
           </div>
         </div>
         <Carousel

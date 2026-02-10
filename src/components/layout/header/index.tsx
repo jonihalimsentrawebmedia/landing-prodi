@@ -10,12 +10,15 @@ import Link from 'next/link'
 import { HeaderMenuSkeleton } from '@/components/layout/header/skeleton'
 import { SheetMenu } from '@/components/common/sheetMenu'
 import { ButtonDarkMode } from '@/components/thema-v2/component/layout/header/darkMode'
+import { usePathname } from 'next/navigation'
+import { clsx } from 'clsx'
 
 export const HeaderMenuList = () => {
   const { profile, loading } = UseGetProfile()
   const detail = profile?.SatuanOrganisasi
   const [{}, Dispatch] = useStateContext()
 
+  const pathname = usePathname()
   const [scrolled, setScrolled] = useState(false)
 
   useEffect(() => {
@@ -68,8 +71,19 @@ export const HeaderMenuList = () => {
           </div>
 
           <ul className={'items-center gap-x-5 hidden lg:flex'}>
-            {NavMenuList?.map((item) => (
-              <Link href={item?.link} key={item.id}>
+            {NavMenuList?.map((item, k) => (
+              <Link
+                href={item?.link}
+                key={item.id}
+                className={clsx(
+                  k === 0 &&
+                    pathname === item?.link &&
+                    'underline underline-offset-8 decoration-yellow-600 decoration-[3px]',
+                  k !== 0 &&
+                    pathname.startsWith(item?.link) &&
+                    'underline underline-offset-8 decoration-yellow-600 decoration-[3px]'
+                )}
+              >
                 <li className={'text-white'}>{item?.name}</li>
               </Link>
             ))}

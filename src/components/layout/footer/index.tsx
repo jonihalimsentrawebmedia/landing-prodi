@@ -118,8 +118,9 @@ export const Footer = () => {
 
         <div className="container">
           <Separator className={'my-2.5'} />
-          <p className="text-white text-center text-xs">
-            Copyright © 2025, S1 - Pendidikan Bahasa Inggris STAIN MADINA
+          <p className="text-white text-center text-sm">
+            Copyright © {new Date().getFullYear()}, {profile?.SatuanOrganisasi?.kode_jenjang} -
+            {profile?.SatuanOrganisasi?.nama}
           </p>
         </div>
       </div>

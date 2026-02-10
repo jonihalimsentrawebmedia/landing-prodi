@@ -6,7 +6,7 @@ import HomeTheme4 from '@/components/theme-v4/home'
 
 export default async function Home() {
   const themes = await FetchResAPI('/public-prodi/public')
-  const theme: string = themes?.data.thema
+  const theme: string = themes?.data?.thema
 
   switch (theme) {
     default: {

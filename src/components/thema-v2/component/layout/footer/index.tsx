@@ -91,6 +91,13 @@ export const FooterLayout = () => {
           </div>
         </div>
       </div>
+      <div className={'w-full mx-auto max-w-[1920px] bg-[#081D59] text-white py-2'}>
+        <div className="container">
+          <p className={'text-center text-sm'}>
+            {detail?.kode_jenjang}-{detail?.nama} © {new Date().getFullYear()}
+          </p>
+        </div>
+      </div>
     </>
   )
 }

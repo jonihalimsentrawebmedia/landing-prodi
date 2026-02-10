@@ -22,7 +22,7 @@ export const ListMenuTheme3 = () => {
         <div
           className={clsx(!isMobile ? 'container' : 'px-2', 'flex items-center justify-between')}
         >
-          <div className={'flex items-center gap-2'}>
+          <div className={'flex items-center gap-2 hero-text'}>
             <Image
               src={data?.logo ?? '/img/noimg.png'}
               alt={data?.nama ?? 'logo'}

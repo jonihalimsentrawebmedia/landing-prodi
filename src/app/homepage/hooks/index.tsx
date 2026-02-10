@@ -148,21 +148,14 @@ export const UseGetAboutProdi = () => {
 }
 
 export const UseGetServiceProdi = () => {
-  const [services, setServices] = useState<IServiceProdi[]>([])
-
-  const { data, isLoading, isFetching } = useQuery({
+  const { data = [], isLoading } = useQuery<IServiceProdi[]>({
     queryKey: ['services'],
     refetchOnWindowFocus: false,
-    queryFn: () => AxiosClient.get('/public-prodi/prodi-layanan').then((res) => res?.data?.data),
+    queryFn: () => AxiosClient.get('/public-prodi/prodi-layanan').then((res) => res.data.data),
   })
 
-  const loading = isLoading || isFetching
-
-  useEffect(() => {
-    if (data) {
-      setServices(data)
-    }
-  }, [data])
-
-  return { services, loading }
+  return {
+    services: data,
+    loading: isLoading,
+  }
 }

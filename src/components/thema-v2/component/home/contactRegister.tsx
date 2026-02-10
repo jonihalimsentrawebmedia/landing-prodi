@@ -4,36 +4,65 @@ import Image from 'next/image'
 import { Button } from '@/components/ui/button'
 import Link from 'next/link'
 import { useMobile } from '@/hooks'
+import { motion } from 'framer-motion'
 
 export const ContactRegister = () => {
   const { isMobile } = useMobile()
+
   return (
     <>
-      <div className={'w-full max-w-[1920px] mx-auto h-full max-h-[290px] relative'}>
+      <motion.div
+        className={'w-full max-w-[1920px] mx-auto h-full max-h-[290px] relative'}
+        initial={{ opacity: 0, y: 60 }}
+        whileInView={{ opacity: 1, y: 0 }}
+        viewport={{ once: true, amount: 0.3 }}
+        transition={{ duration: 0.8, ease: 'easeOut' }}
+      >
         <div
           className={`absolute w-full h-full bg-linear-to-t from-[#33333399] to-[#33333399]/60 z-10`}
         >
           <div className="container flex flex-col gap-2 items-center justify-center h-full">
-            <h3 className={'lg:text-2xl text-white text-center'}>
+            <motion.h3
+              className={'lg:text-2xl text-white text-center'}
+              initial={{ opacity: 0, y: 20 }}
+              whileInView={{ opacity: 1, y: 0 }}
+              viewport={{ once: true }}
+              transition={{ delay: 0.2, duration: 0.6 }}
+            >
               Masih Ada Pertanyaan? Tim Kami Siap Membantumu! ☎️
-            </h3>
-            <p className="text-white text-center text-xs">
+            </motion.h3>
+
+            <motion.p
+              className="text-white text-center text-xs"
+              initial={{ opacity: 0, y: 20 }}
+              whileInView={{ opacity: 1, y: 0 }}
+              viewport={{ once: true }}
+              transition={{ delay: 0.4, duration: 0.6 }}
+            >
               Proses pendaftaran dan pemilihan jalur yang tepat adalah langkah awal yang krusial.
               Jika kamu masih memiliki pertanyaan spesifik yang belum terjawab, jangan ragu untuk
               menghubungi kami. Tim marketing dan administrasi Program Studi siap menjadi pemandu
               dan memberikan solusi terbaik untukmu
-            </p>
-            <Link href={'/contact'}>
-              <Button
-                size={isMobile ? 'sm' : 'default'}
-                variant={'outline'}
-                className={
-                  'bg-white/30 border-white text-white rounded-full w-fit hover:text-white hover:bg-white/40'
-                }
-              >
-                Kunjungi Halaman Kontak & Pendaftaran
-              </Button>
-            </Link>
+            </motion.p>
+
+            <motion.div
+              initial={{ opacity: 0, scale: 0.9 }}
+              whileInView={{ opacity: 1, scale: 1 }}
+              viewport={{ once: true }}
+              transition={{ delay: 0.6, duration: 0.5 }}
+            >
+              <Link href={'/contact'}>
+                <Button
+                  size={isMobile ? 'sm' : 'default'}
+                  variant={'outline'}
+                  className={
+                    'bg-white/30 border-white text-white rounded-full w-fit hover:text-white hover:bg-white/40'
+                  }
+                >
+                  Kunjungi Halaman Kontak & Pendaftaran
+                </Button>
+              </Link>
+            </motion.div>
           </div>
         </div>
 
@@ -47,7 +76,7 @@ export const ContactRegister = () => {
             priority
           />
         </div>
-      </div>
+      </motion.div>
     </>
   )
 }

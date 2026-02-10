@@ -40,7 +40,7 @@ export const HeaderLayoutTheme3 = () => {
 
   if (loading)
     return (
-      <div className={'w-full max-w-[1920px] mx-auto'}>
+      <div className={'w-full max-w-[1920px] mx-auto fixed'}>
         <HeaderSkeleton />
         <ListMenuSkeleton />
       </div>
@@ -52,7 +52,7 @@ export const HeaderLayoutTheme3 = () => {
         <div className={`${isMobile ? '' : 'container'} flex items-center justify-between`}>
           <p
             className={
-              'text-primary text-sm lg:text-base font-semibold w-fit bg-primary-foreground p-1.5'
+              'text-primary text-sm font-semibold w-fit bg-primary-foreground p-1.5 hero-text'
             }
           >
             {detail?.kode_jenjang}-{detail?.nama}

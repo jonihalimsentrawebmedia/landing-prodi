@@ -69,3 +69,26 @@ export function NumberToOrdinalID(num: number, capitalize: boolean = false): str
 
   return result
 }
+
+import { useEffect, useState } from 'react'
+
+export const useTypingText = (text: string, speed = 40, start = false) => {
+  const [displayed, setDisplayed] = useState('')
+  
+  useEffect(() => {
+    if (!start || !text) return
+    
+    setDisplayed('')
+    let i = 0
+    
+    const interval = setInterval(() => {
+      setDisplayed(text.slice(0, i + 1))
+      i++
+      if (i === text.length) clearInterval(interval)
+    }, speed)
+    
+    return () => clearInterval(interval)
+  }, [text, speed, start])
+  
+  return displayed
+}
