@@ -49,6 +49,7 @@ export const GalleryProfileSection = () => {
           <FilterSelect
             label={'Jenis'}
             data={selectData}
+            innerClassname={'text-primary'}
             placeholder={'Pilih Jenis'}
             name={'type'}
           />

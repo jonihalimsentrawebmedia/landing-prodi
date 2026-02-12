@@ -47,7 +47,7 @@ export const SearchInput = ({ className, placeholder = 'Cari ...' }: Props) => {
           placeholder={placeholder}
         />
         <Search
-          className={'absolute z-[-1] size-4 right-2 top-1/2 -translate-y-1/2 text-primary'}
+          className={'absolute z-[-2] size-4 right-2 top-1/2 -translate-y-1/2 text-primary'}
         />
       </div>
     </>
