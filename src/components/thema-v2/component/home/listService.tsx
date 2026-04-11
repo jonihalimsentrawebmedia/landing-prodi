@@ -19,8 +19,8 @@ const ListService = () => {
         <div
           className={clsx(
             filtered.length > 6
-              ? 'grid grid-cols-6 gap-6'
-              : 'flex items-stretch justify-center gap-4',
+              ? 'grid lg:grid-cols-6 gap-6'
+              : 'flex items-stretch lg:justify-center gap-4 overflow-x-auto lg:overflow-visible',
             'container py-10'
           )}
         >
@@ -30,7 +30,7 @@ const ListService = () => {
               href={row?.url_layanan || '#'}
               target="_blank"
               className={
-                'col-span-1 w-full bg-gray-100 shadow p-4 rounded flex flex-col gap-2 hover:bg-primary hover:text-white items-center justify-center py-10 border'
+                'col-span-1 lg:w-full bg-gray-100 min-w-[300px] shadow p-4 rounded flex flex-col gap-2 hover:bg-primary hover:text-white items-center justify-center py-10 border'
               }
             >
               <FaClipboard className={'size-10'} />
@@ -52,7 +52,7 @@ const ListServiceSkeleton = () => {
     <div className="w-full bg-gray-100">
       <div
         className={clsx(
-          isGrid ? 'grid grid-cols-6 gap-6' : 'flex items-stretch justify-center gap-4',
+          isGrid ? 'grid lg:grid-cols-6 gap-2  lg:gap-6' : 'flex flex-col lg:flex-row items-stretch justify-center gap-4',
           'container py-10'
         )}
       >

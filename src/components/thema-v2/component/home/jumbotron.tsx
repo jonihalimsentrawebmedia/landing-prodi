@@ -120,10 +120,10 @@ export const Jumbotron = () => {
                 <div className="w-full h-[480px] lg:h-[640px] relative">
                   <div className="absolute inset-0 bg-gradient-to-r from-white via-white/80 via-60% to-transparent z-10">
                     <div className="container flex flex-col gap-2.5 justify-center h-full">
-                      <p className="text-5xl font-bold text-gray-800">
+                      <p className="text-xl lg:text-5xl font-bold text-gray-800">
                         {profile?.SatuanOrganisasi?.nama} ({profile?.SatuanOrganisasi.kode_jenjang})
                       </p>
-                      <p className={'text-lg font-semibold'}>
+                      <p className={'text-sm lg:text-lg font-semibold'}>
                         {profile?.SatuanOrganisasi.nama_parent_satuan_organisasi}
                       </p>
                       <p className={'mt-4'}>Mempersiapkan Lulusan Unggul Di Bidang</p>

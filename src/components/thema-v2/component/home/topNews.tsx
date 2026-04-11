@@ -33,12 +33,49 @@ export const TopNewsLanding = () => {
             <CarouselContent>
               {news?.map((row, i) => (
                 <CarouselItem key={i} className="basis-5/6">
-                  <CardNewsItem
-                    gambar={row?.gambar}
-                    judul={row?.judul}
-                    isi_berita={row?.isi_berita}
-                    published_at={row?.published_at ?? ''}
-                  />
+                  <div key={i} className="col-span-1 shadow border">
+                    <Image
+                      src={row?.gambar}
+                      alt={'gambar'}
+                      className={'w-full h-[240px] object-cover'}
+                      height={240}
+                      width={330}
+                    />
+                    <div className={'min-h-[240px] relative'}>
+                      <div className="p-4 space-y-2.5">
+                        <div className="flex items-center gap-2 flex-wrap">
+                          <p
+                            className={
+                              'border p-1.5 px-3 rounded-full w-fit bg-primary/10 text-primary text-sm font-semibold flex items-center gap-1.5 whitespace-nowrap'
+                            }
+                          >
+                            <FaCalendarAlt />
+                            {row?.tanggal_berita ? format(row?.tanggal_berita, 'dd-MM-yyyy') : '-'}
+                          </p>
+                          <p
+                            className={
+                              'border p-1.5 px-3 rounded-full w-fit bg-pink-200 text-primary text-sm font-semibold'
+                            }
+                          >
+                            {row?.nama_kategori_berita}
+                          </p>
+                        </div>
+
+                        <p className="text-lg font-semibold line-clamp-2">{row?.judul ?? ''}</p>
+                        <div
+                          dangerouslySetInnerHTML={{ __html: row?.isi_berita }}
+                          className="line-clamp-3 text-sm"
+                        />
+                        <button className={'text-sm absolute bottom-4'}>Baca Lebih Lanjut</button>
+                      </div>
+                    </div>
+                  </div>
+                  {/*<CardNewsItem*/}
+                  {/*  gambar={row?.gambar}*/}
+                  {/*  judul={row?.judul}*/}
+                  {/*  isi_berita={row?.isi_berita}*/}
+                  {/*  published_at={row?.published_at ?? ''}*/}
+                  {/*/>*/}
                 </CarouselItem>
               ))}
             </CarouselContent>
