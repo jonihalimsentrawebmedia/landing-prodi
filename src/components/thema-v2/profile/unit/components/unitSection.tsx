@@ -39,20 +39,20 @@ export const UnitSection = () => {
           ))}
         </div>
 
-        <div className="flex items-center justify-between">
-          <Link href={'/profile'}>
-            <Button variant={'outline'} className={'rounded-full border border-primary'}>
-              <ArrowLeft className={'size-4'} />
-              Tentang
-            </Button>
-          </Link>
-          <Link href={'/profile/vision'}>
-            <Button variant={'outline'} className={'rounded-full border border-primary'}>
-              Visi, Misi, dan Tujuan
-              <ArrowRight className={'size-4'} />
-            </Button>
-          </Link>
-        </div>
+        {/*<div className="flex items-center justify-between">*/}
+        {/*  <Link href={'/profile'}>*/}
+        {/*    <Button variant={'outline'} className={'rounded-full border border-primary'}>*/}
+        {/*      <ArrowLeft className={'size-4'} />*/}
+        {/*      Tentang*/}
+        {/*    </Button>*/}
+        {/*  </Link>*/}
+        {/*  <Link href={'/profile/vision'}>*/}
+        {/*    <Button variant={'outline'} className={'rounded-full border border-primary'}>*/}
+        {/*      Visi, Misi, dan Tujuan*/}
+        {/*      <ArrowRight className={'size-4'} />*/}
+        {/*    </Button>*/}
+        {/*  </Link>*/}
+        {/*</div>*/}
       </div>
     </>
   )

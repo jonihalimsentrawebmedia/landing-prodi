@@ -10,18 +10,17 @@ export const SideMenu = () => {
   const pathname = usePathname()
   return (
     <>
-      <ul className={'flex flex-col bg-primary-foreground w-full lg:max-w-[280px]'}>
+      <ul className={'flex flex-col w-full lg:max-w-[280px] gap-2'}>
         {Menus?.map((menu, i) => (
           <Link href={menu.link} key={menu.id}>
             <li
               className={clsx(
-                i === 0 && pathname === menu?.link && 'border-l-yellow-500 bg-primary text-white',
-                i !== 0 &&
-                  pathname.includes(menu?.link) &&
-                  'border-l-yellow-500 bg-primary text-white',
-                'p-3 border-l-4 border-primary flex items-center text-primary'
+                i === 0 && pathname === menu?.link && ' bg-primary! text-white',
+                i !== 0 && pathname.includes(menu?.link) && ' bg-primary! text-white',
+                'p-3 border-primary flex items-center text-primary bg-primary-foreground gap-2.5'
               )}
             >
+              {menu?.icon}
               {menu.name}
               {((i === 0 && pathname === menu.link) ||
                 (i !== 0 && pathname.startsWith(menu.link))) && (

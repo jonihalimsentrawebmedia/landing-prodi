@@ -1,5 +1,5 @@
 import type { Metadata } from 'next'
-import { Geist, Geist_Mono } from 'next/font/google'
+import { Poppins } from 'next/font/google'
 import './globals.css'
 import React from 'react'
 import Providers from '@/provider'
@@ -8,18 +8,13 @@ import { FetchResAPI } from '@/provider/server'
 import { IProfileResponse } from '@/contexts/types'
 import StateProvider from '@/contexts'
 
-const geistSans = Geist({
-  variable: '--font-geist-sans',
-  subsets: ['latin'],
-  preload: true,
+const poppins = Poppins({
+  subsets: ['latin'], // or ['latin-ext'] etc.
+  weight: ['100', '200', '300', '400', '500', '600', '700', '800', '900'],
+  style: ['normal', 'italic'],
+  display: 'swap', // Prevents layout shift
+  variable: '--font-poppins', // Recommended for global use
 })
-
-const geistMono = Geist_Mono({
-  variable: '--font-geist-mono',
-  subsets: ['latin'],
-  preload: true,
-})
-
 export async function generateMetadata(): Promise<Metadata> {
   const data = await FetchResAPI('/public-prodi/profil')
   const profile: IProfileResponse = data?.data
@@ -73,7 +68,7 @@ export default function RootLayout({
 }>) {
   return (
     <html lang="en">
-      <body className={`${geistSans.variable} ${geistMono.variable} antialiased`}>
+      <body className={`${poppins.variable} antialiased`}>
         <Providers>
           <StateProvider>{children}</StateProvider>
           <ToastContainer

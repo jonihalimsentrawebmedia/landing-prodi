@@ -7,6 +7,7 @@ import { ProfileAboutTheme4 } from '@/components/theme-v4/profile'
 const PageProfileProdi = async () => {
   const themes = await FetchResAPI('/public-prodi/public')
   const theme: string = themes?.data.thema
+  console.log(theme)
 
   switch (theme) {
     default: {

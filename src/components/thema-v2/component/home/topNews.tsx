@@ -1,21 +1,25 @@
 'use client'
 
 import Image from 'next/image'
-import { clsx } from 'clsx'
-import { format } from 'date-fns'
 import { TopNewsSkeleton } from './skeleton'
 import Link from 'next/link'
 import { ArrowRight } from 'lucide-react'
-import { Carousel, CarouselContent, CarouselItem } from '@/components/ui/carousel'
+import {
+  Carousel,
+  CarouselContent,
+  CarouselItem,
+  CarouselNext,
+  CarouselPrevious,
+} from '@/components/ui/carousel'
 import { UseGetNews } from '@/app/homepage/hooks'
 import { CardNewsItem } from '@/components/thema-v2/component/common/cardNews'
 import { TitleUnderline } from '@/components/thema-v2/component/common/titleUnderLine'
-import { LazyMotion, domAnimation, m } from 'framer-motion'
-
-const MotionLink = m(Link)
+import { domAnimation, LazyMotion } from 'framer-motion'
+import { format } from 'date-fns'
+import { FaCalendarAlt } from 'react-icons/fa'
 
 export const TopNewsLanding = () => {
-  const { news, loading } = UseGetNews({ page: '1', limit: '6' })
+  const { news, loading } = UseGetNews({ page: '1', limit: '12' })
 
   if (loading) return <TopNewsSkeleton />
 
@@ -40,54 +44,62 @@ export const TopNewsLanding = () => {
             </CarouselContent>
           </Carousel>
 
-          {/* GRID ASLI — TIDAK BERUBAH */}
-          <div className="hidden md:grid md:grid-cols-3 lg:grid-cols-4 gap-4">
-            {news?.map((row, index) => (
-              <MotionLink
-                key={index}
-                href={`/information/news/${row?.slug}`}
-                initial={{ opacity: 0, y: 40 }}
-                whileInView={{ opacity: 1, y: 0 }}
-                viewport={{ once: true, amount: 0.2 }}
-                transition={{ duration: 0.55, delay: index * 0.08, ease: [0.22, 1, 0.36, 1] }}
-                className={clsx(
-                  index % 3 === 1 ? 'lg:col-span-2' : 'col-span-1',
-                  'bg-white shadow rounded-md overflow-hidden group hover:bg-primary-foreground',
-                  'dark:bg-primary/60 dark:border border-white/40'
-                )}
-              >
-                <div
-                  className={clsx(
-                    'w-full h-[240px] relative overflow-hidden',
-                    index < 3 ? 'block' : 'lg:hidden'
-                  )}
-                >
-                  <Image
-                    src={row?.gambar}
-                    alt={row?.judul}
-                    width={330}
-                    height={240}
-                    className="w-full h-[240px] object-cover group-hover:scale-110 transition-all duration-500"
-                  />
-                </div>
+          <Carousel
+            className="hidden md:block"
+            opts={{
+              slidesToScroll: 3,
+              align: 'start',
+            }}
+          >
+            <CarouselContent>
+              {news?.map((row, i) => (
+                <CarouselItem key={i} className="basis-1/4">
+                  <div key={i} className="col-span-1 shadow border">
+                    <Image
+                      src={row?.gambar}
+                      alt={'gambar'}
+                      className={'w-full h-[240px] object-cover'}
+                      height={240}
+                      width={330}
+                    />
+                    <div className={'min-h-[240px] relative'}>
+                      <div className="p-4 space-y-2.5">
+                        <div className="flex items-center gap-2 flex-wrap">
+                          <p
+                            className={
+                              'border p-1.5 px-3 rounded-full w-fit bg-primary/10 text-primary text-sm font-semibold flex items-center gap-1.5 whitespace-nowrap'
+                            }
+                          >
+                            <FaCalendarAlt />
+                            {row?.tanggal_berita ? format(row?.tanggal_berita, 'dd-MM-yyyy') : '-'}
+                          </p>
+                          <p
+                            className={
+                              'border p-1.5 px-3 rounded-full w-fit bg-pink-200 text-primary text-sm font-semibold'
+                            }
+                          >
+                            {row?.nama_kategori_berita}
+                          </p>
+                        </div>
 
-                <div className="p-2 flex flex-col gap-1.5 transition-all duration-500 group-hover:-translate-y-1">
-                  <p className="font-semibold line-clamp-2 group-hover:text-primary dark:group-hover:text-white">
-                    {row?.judul}
-                  </p>
+                        <p className="text-lg font-semibold line-clamp-2">{row?.judul ?? ''}</p>
+                        <div
+                          dangerouslySetInnerHTML={{ __html: row?.isi_berita }}
+                          className="line-clamp-3 text-sm"
+                        />
+                        <button className={'text-sm absolute bottom-4'}>Baca Lebih Lanjut</button>
+                      </div>
+                    </div>
+                  </div>
+                </CarouselItem>
+              ))}
+            </CarouselContent>
 
-                  <p className="text-gray-500 text-xs font-semibold">
-                    {row?.published_at ? format(row?.published_at, 'dd MMM yyyy') : '-'}
-                  </p>
-
-                  <div
-                    dangerouslySetInnerHTML={{ __html: row?.isi_berita }}
-                    className="line-clamp-3 text-sm"
-                  />
-                </div>
-              </MotionLink>
-            ))}
-          </div>
+            <div className="relative items-center mx-auto justify-center py-5">
+              <CarouselNext className={'bottom-0 left-[52%]'} />
+              <CarouselPrevious className={'bottom-0 left-[46%]'} />
+            </div>
+          </Carousel>
 
           <div className="flex items-center justify-end">
             <Link

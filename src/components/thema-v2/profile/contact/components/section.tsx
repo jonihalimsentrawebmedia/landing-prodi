@@ -34,7 +34,9 @@ export const SectionContactUsProfile = () => {
                 {contactUse?.email}
               </p>
             </div>
-            <iframe src={contactUse?.link_google_map} className={'w-full h-[400px] rounded'} />
+            {contactUse?.link_google_map && (
+              <iframe src={contactUse?.link_google_map} className={'w-full h-[400px] rounded'} />
+            )}
             <div className="flex items-center mt-5 justify-start">
               <Link href={'/profile/gallery'}>
                 <Button variant={'outline'} className={'rounded-full border border-primary'}>

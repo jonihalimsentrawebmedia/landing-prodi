@@ -45,20 +45,20 @@ export const SectionStaffProfile = () => {
           )}
         </div>
 
-        <div className="flex items-center justify-between">
-          <Link href={'/profile/structure-organization'}>
-            <Button variant={'outline'} className={'rounded-full border border-primary'}>
-              <ArrowLeft className={'size-4'} />
-              Struktur Organisasi
-            </Button>
-          </Link>
-          <Link href={'/profile/lecturer'}>
-            <Button variant={'outline'} className={'rounded-full border border-primary'}>
-              Dosen
-              <ArrowRight className={'size-4'} />
-            </Button>
-          </Link>
-        </div>
+        {/*<div className="flex items-center justify-between">*/}
+        {/*  <Link href={'/profile/structure-organization'}>*/}
+        {/*    <Button variant={'outline'} className={'rounded-full border border-primary'}>*/}
+        {/*      <ArrowLeft className={'size-4'} />*/}
+        {/*      Struktur Organisasi*/}
+        {/*    </Button>*/}
+        {/*  </Link>*/}
+        {/*  <Link href={'/profile/lecturer'}>*/}
+        {/*    <Button variant={'outline'} className={'rounded-full border border-primary'}>*/}
+        {/*      Dosen*/}
+        {/*      <ArrowRight className={'size-4'} />*/}
+        {/*    </Button>*/}
+        {/*  </Link>*/}
+        {/*</div>*/}
       </div>
     </>
   )

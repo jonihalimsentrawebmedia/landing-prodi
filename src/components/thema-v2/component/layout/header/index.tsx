@@ -1,20 +1,19 @@
 'use client'
 
 import Image from 'next/image'
-import { Suspense, useEffect } from 'react'
-import { SectionMenu } from './sectionMenu'
-import { useStateContext } from '@/contexts'
+import { useEffect } from 'react'
 import { useThemeColor } from '@/hooks/useTheme'
 import { useQuery } from '@tanstack/react-query'
 import AxiosClient from '@/provider/axios'
-import dynamic from 'next/dynamic'
-
-const SheetMenu = dynamic(() => import('./SheetMenu').then((mod) => mod.SheetMenu), {
-  ssr: false,
-})
+import { UseGetProfile } from '@/hooks'
+import { useStateContext } from '@/contexts'
+import HeaderSkeleton from '@/components/thema-v2/component/layout/header/skeleton'
+import { MenuHeader } from '@/components/thema-v2/component/layout/header/menus'
+import Link from 'next/link'
 
 export const HeaderLayout = () => {
-  const [{ profile }] = useStateContext()
+  const [{}, Dispatch] = useStateContext()
+  const { profile, loading } = UseGetProfile()
   const detail = profile?.SatuanOrganisasi
 
   const { setTheme } = useThemeColor()
@@ -33,33 +32,39 @@ export const HeaderLayout = () => {
         footer: data?.warna_background_footer,
       })
     }
+    if (profile) {
+      Dispatch({ type: 'SET_PROFILE', payload: profile })
+    }
+    // eslint-disable-next-line react-hooks/exhaustive-deps
+  }, [data, profile])
 
-    //eslint-disable-next-line react-hooks/exhaustive-deps
-  }, [data])
+  if (loading) return <HeaderSkeleton />
 
   return (
-    <header className={'w-full bg-primary lg:p-2 mx-auto fixed z-[999]'}>
-      <div className="flex items-center justify-between container py-2 lg:py-0">
-        <div className="flex items-center gap-1.5">
+    <header className={'w-full left-0 z-[999] bg-white max-w-[1920px]'}>
+      <div className="w-full max-w-[1440px] mx-auto py-5 flex items-center justify-between">
+        <div className={'flex items-center gap-x-4'}>
           <Image
             src={detail?.logo ?? '/img/noimg.png'}
-            alt="Logo"
-            width={150}
-            height={150}
-            className={'object-contain size-10 lg:size-16 rounded-full'}
+            alt={'logo'}
+            width={100}
+            height={100}
+            className={'size-[100px] w-[75px] h-[75px]'}
           />
-          <div>
-            <h1 className="text-white text-sm lg:text-2xl">{detail?.singkatan_universitas}</h1>
-            <p className="text-white text-xs lg:text-base">
-              {detail?.kode_jenjang}-{detail?.nama}
-            </p>
+          <div className={'flex flex-col gap-y-1.5'}>
+            <h1 className="text-3xl font-semibold text-primary">
+              {detail?.nama} ({detail?.kode_jenjang})
+            </h1>
+            <p>{detail?.nama_parent_satuan_organisasi}</p>
           </div>
         </div>
-
-        <Suspense>
-          <SectionMenu />
-          <SheetMenu />
-        </Suspense>
+        <ul className={'flex items-center gap-x-5 text-base'}>
+          {MenuHeader?.map((row, i) => (
+            <Link href={row?.link} key={i} className={'font-semibold text-primary'}>
+              <li>{row?.name}</li>
+            </Link>
+          ))}
+        </ul>
       </div>
     </header>
   )

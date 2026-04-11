@@ -20,7 +20,7 @@ export const MenuHeader = [
     link: '/curriculum',
   },
   {
-    name: 'Informasi',
+    name: 'Berita',
     link: '/information',
   },
   {
@@ -28,7 +28,7 @@ export const MenuHeader = [
     link: '/gallery',
   },
   {
-    name: 'Kontak & Pendaftaran',
+    name: 'Kontak',
     link: '/contact',
   },
 ]

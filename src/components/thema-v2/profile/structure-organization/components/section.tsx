@@ -25,20 +25,20 @@ export const SectionStructureOrganization = () => {
           'Gambar tidak tersedia'
         )}
 
-        <div className="flex items-center justify-between">
-          <Link href={'/profile/vision'}>
-            <Button variant={'outline'} className={'rounded-full border border-primary'}>
-              <ArrowLeft className={'size-4'} />
-              Visi, Misi, dan Tujuan
-            </Button>
-          </Link>
-          <Link href={'/profile/staff'}>
-            <Button variant={'outline'} className={'rounded-full border border-primary'}>
-              Staff
-              <ArrowRight className={'size-4'} />
-            </Button>
-          </Link>
-        </div>
+        {/*<div className="flex items-center justify-between">*/}
+        {/*  <Link href={'/profile/vision'}>*/}
+        {/*    <Button variant={'outline'} className={'rounded-full border border-primary'}>*/}
+        {/*      <ArrowLeft className={'size-4'} />*/}
+        {/*      Visi, Misi, dan Tujuan*/}
+        {/*    </Button>*/}
+        {/*  </Link>*/}
+        {/*  <Link href={'/profile/staff'}>*/}
+        {/*    <Button variant={'outline'} className={'rounded-full border border-primary'}>*/}
+        {/*      Staff*/}
+        {/*      <ArrowRight className={'size-4'} />*/}
+        {/*    </Button>*/}
+        {/*  </Link>*/}
+        {/*</div>*/}
       </div>
     </>
   )

@@ -42,6 +42,7 @@ export interface INews {
   proses_at: string | null
   published_at: string | null
   unpublished_at: string | null
+  tanggal_berita:string
 
   diajukan_user: string | null
   ditolak_user: string | null

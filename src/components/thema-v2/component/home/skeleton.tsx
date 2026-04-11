@@ -1,4 +1,6 @@
 import { clsx } from 'clsx'
+import { Skeleton } from '@/components/ui/skeleton'
+import { Carousel, CarouselContent, CarouselItem } from '@/components/ui/carousel'
 
 export const JumbotronSkeleton = () => {
   return (
@@ -39,13 +41,83 @@ export const NewsCardSkeleton = ({ wide = false }: { wide?: boolean }) => {
 
 export const TopNewsSkeleton = () => {
   return (
-    <div className="container flex flex-col gap-5 py-5">
-      <div className="h-6 w-40 bg-gray-200 rounded mx-auto animate-pulse" />
+    <div className="w-full bg-gray-100 dark:bg-primary max-w-[1920px] mx-auto pb-5">
+      <div className="container flex flex-col gap-5 py-5">
+        {/* Title */}
+        <div className="flex flex-col items-center gap-2">
+          <Skeleton className="h-6 w-[250px]" />
+          <Skeleton className="h-1 w-[120px]" />
+        </div>
 
-      <div className="grid grid-cols-4 gap-4">
-        {Array.from({ length: 6 }).map((_, index) => (
-          <NewsCardSkeleton key={index} wide={index % 3 === 1} />
-        ))}
+        {/* MOBILE Carousel */}
+        <Carousel className="block md:hidden">
+          <CarouselContent>
+            {Array.from({ length: 3 }).map((_, i) => (
+              <CarouselItem key={i} className="basis-5/6">
+                <div className="shadow border bg-white dark:bg-primary rounded overflow-hidden">
+                  {/* Image */}
+                  <Skeleton className="w-full h-[200px]" />
+
+                  {/* Content */}
+                  <div className="p-4 flex flex-col gap-3">
+                    {/* Badge */}
+                    <div className="flex gap-2">
+                      <Skeleton className="h-6 w-[110px] rounded-full" />
+                      <Skeleton className="h-6 w-[90px] rounded-full" />
+                    </div>
+
+                    {/* Title */}
+                    <Skeleton className="h-5 w-[90%]" />
+
+                    {/* Description */}
+                    <div className="flex flex-col gap-2">
+                      <Skeleton className="h-4 w-full" />
+                      <Skeleton className="h-4 w-[95%]" />
+                      <Skeleton className="h-4 w-[80%]" />
+                    </div>
+                  </div>
+                </div>
+              </CarouselItem>
+            ))}
+          </CarouselContent>
+        </Carousel>
+
+        {/* DESKTOP Carousel */}
+        <Carousel className="hidden md:block" opts={{ slidesToScroll: 3, align: 'start' }}>
+          <CarouselContent>
+            {Array.from({ length: 4 }).map((_, i) => (
+              <CarouselItem key={i} className="basis-1/4">
+                <div className="col-span-1 shadow border bg-white dark:bg-primary">
+                  {/* Image */}
+                  <Skeleton className="w-full h-[240px]" />
+
+                  <div className="p-4 flex flex-col gap-3">
+                    {/* Badge */}
+                    <div className="flex items-center gap-2 flex-wrap">
+                      <Skeleton className="h-6 w-[120px] rounded-full" />
+                      <Skeleton className="h-6 w-[100px] rounded-full" />
+                    </div>
+
+                    {/* Title */}
+                    <Skeleton className="h-5 w-[90%]" />
+
+                    {/* Content */}
+                    <div className="flex flex-col gap-2">
+                      <Skeleton className="h-4 w-full" />
+                      <Skeleton className="h-4 w-[95%]" />
+                      <Skeleton className="h-4 w-[80%]" />
+                    </div>
+                  </div>
+                </div>
+              </CarouselItem>
+            ))}
+          </CarouselContent>
+        </Carousel>
+
+        {/* Footer Link */}
+        <div className="flex items-center justify-end">
+          <Skeleton className="h-5 w-[200px]" />
+        </div>
       </div>
     </div>
   )
