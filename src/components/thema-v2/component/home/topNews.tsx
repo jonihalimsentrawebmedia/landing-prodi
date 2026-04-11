@@ -95,10 +95,12 @@ export const TopNewsLanding = () => {
               ))}
             </CarouselContent>
 
-            <div className="relative items-center mx-auto justify-center py-5">
-              <CarouselNext className={'bottom-0 left-[52%]'} />
-              <CarouselPrevious className={'bottom-0 left-[46%]'} />
-            </div>
+            {news?.length > 4 && (
+              <div className="relative items-center mx-auto justify-center py-5">
+                <CarouselNext className={'bottom-0 left-[52%]'} />
+                <CarouselPrevious className={'bottom-0 left-[46%]'} />
+              </div>
+            )}
           </Carousel>
 
           <div className="flex items-center justify-end">

@@ -52,7 +52,7 @@ export const HeaderLayout = () => {
             className={'size-[100px] w-[75px] h-[75px]'}
           />
           <div className={'flex flex-col gap-y-1.5'}>
-            <h1 className="text-3xl font-semibold text-primary">
+            <h1 className="text-2xl max-w-[450px] font-semibold text-primary">
               {detail?.nama} ({detail?.kode_jenjang})
             </h1>
             <p>{detail?.nama_parent_satuan_organisasi}</p>
