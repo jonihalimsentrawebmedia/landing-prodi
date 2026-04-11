@@ -64,8 +64,8 @@ export const AboutProfileTheme2 = () => {
           />
         </div>
         <div className={'my-5 relative container-sm'}>
-          <div className="flex items-stretch gap-4">
-            <div className="w-1/3 border p-4 rounded bg-primary flex flex-col gap-1.5">
+          <div className="flex flex-col lg:flex-row items-stretch gap-4">
+            <div className="w-full lg:w-1/3 border p-4 rounded bg-primary flex flex-col gap-1.5">
               <p className="text-4xl flex items-center gap-3 font-semibold text-white">
                 <IoTelescope className={'size-10'} />
                 Visi
@@ -76,7 +76,7 @@ export const AboutProfileTheme2 = () => {
               />
             </div>
 
-            <div className="w-2/3 border p-4 rounded  flex flex-col gap-1.5 bg-footer">
+            <div className="w-full lg:w-2/3 border p-4 rounded  flex flex-col gap-1.5 bg-footer">
               <p className="text-4xl flex items-center gap-3 font-semibold text-white">
                 <GiOnTarget className={'size-10'} />
                 Misi
@@ -102,7 +102,11 @@ export const AboutProfileTheme2 = () => {
 
         <div className="container-sm pb-5">
           <Tabs className={'w-full h-full'} value={tabsValue} onValueChange={setTabsValue}>
-            <TabsList className={'w-full h-full rounded bg-white'}>
+            <TabsList
+              className={
+                'w-full h-full flex justify-start rounded bg-white overflow-x-scroll lg:overflow-visible'
+              }
+            >
               {TabsMenu?.map((row, k) => (
                 <TabsTrigger
                   key={k}
