@@ -137,7 +137,7 @@ export const AgendaAnnouncement = () => {
                   viewport={{ once: true }}
                   transition={{ delay: index * 0.08 }}
                 >
-                  <Link href={`/information/announcement/${row?.slug}`}>
+                  <Link href={`/information/announcements/${row?.slug}`}>
                     <div className="py-1 flex items-center gap-1.5 text-white">
                       <div className="flex flex-col gap-1.5">
                         <p className="text-sm lg:text-base font-semibold line-clamp-3 lg:line-clamp-none">
