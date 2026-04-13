@@ -43,14 +43,14 @@ export const HeaderLayout = () => {
 
   return (
     <header className={'w-full left-0 z-[999] bg-white max-w-[1920px]'}>
-      <div className="w-full max-w-[1440px] mx-auto py-2.5 lg:py-5 flex items-center justify-between">
+      <div className="w-full max-w-[1440px] mx-auto py-2.5 lg:py-5 flex items-center justify-between px-2 lg:px-0">
         <div className={'flex items-center gap-x-4'}>
           <Image
             src={detail?.logo ?? '/img/noimg.png'}
             alt={'logo'}
             width={100}
             height={100}
-            className={'size-[100px] w-[75px] h-[75px]'}
+            className={'size-[75px] w-[75px] h-[75px]'}
           />
           <div className={'flex flex-col gap-y-1.5'}>
             <h1 className="lg:text-2xl max-w-[450px] font-semibold text-primary whitespace-pre-line">
