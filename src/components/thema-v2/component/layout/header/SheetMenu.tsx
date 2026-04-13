@@ -29,23 +29,23 @@ export const SheetMenu = (props: Props) => {
       <Sheet open={open} onOpenChange={setOpen}>
         <SheetTrigger className={'relative w-8 h-8 flex items-center justify-center'}>
           <span
-            className={`absolute h-[1.5px] w-6 bg-white transition-all duration-300 ${
+            className={`absolute h-[1.5px] w-6 bg-primary transition-all duration-300 ${
               open ? 'rotate-45' : '-translate-y-2'
             }`}
           />
           <span
-            className={`absolute h-[1.5px] w-6 bg-white transition-all duration-300 ${
+            className={`absolute h-[1.5px] w-6 bg-primary transition-all duration-300 ${
               open ? 'opacity-0' : 'opacity-100'
             }`}
           />
           <span
-            className={`absolute h-[1.5px] w-6 bg-white transition-all duration-300 ${
+            className={`absolute h-[1.5px] w-6 bg-primary transition-all duration-300 ${
               open ? '-rotate-45' : 'translate-y-2'
             }`}
           />
           {/*</button>*/}
         </SheetTrigger>
-        <SheetContent className={clsx(className, 'top-14 w-full z-50')} showCloseButton={false}>
+        <SheetContent className={clsx(className, 'top-32 w-full z-50')} showCloseButton={false}>
           <SheetHeader>
             <SheetTitle />
             <SheetDescription />

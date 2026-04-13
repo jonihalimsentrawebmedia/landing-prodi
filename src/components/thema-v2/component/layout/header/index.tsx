@@ -10,6 +10,7 @@ import { useStateContext } from '@/contexts'
 import HeaderSkeleton from '@/components/thema-v2/component/layout/header/skeleton'
 import { MenuHeader } from '@/components/thema-v2/component/layout/header/menus'
 import Link from 'next/link'
+import { SheetMenu } from '@/components/thema-v2/component/layout/header/SheetMenu'
 
 export const HeaderLayout = () => {
   const [{}, Dispatch] = useStateContext()
@@ -58,6 +59,7 @@ export const HeaderLayout = () => {
             <p className={'text-[10px]'}>{detail?.nama_parent_satuan_organisasi}</p>
           </div>
         </div>
+        <SheetMenu/>
         <ul className={'lg:flex items-center gap-x-5 text-base hidden'}>
           {MenuHeader?.map((row, i) => (
             <Link href={row?.link} key={i} className={'font-semibold text-primary'}>

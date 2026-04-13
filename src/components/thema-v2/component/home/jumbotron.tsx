@@ -119,15 +119,15 @@ export const Jumbotron = () => {
               <CarouselItem key={index}>
                 <div className="w-full h-[480px] lg:h-[640px] relative">
                   <div className="absolute inset-0 bg-gradient-to-r from-white via-white/80 via-60% to-transparent z-10">
-                    <div className="container flex flex-col gap-2.5 justify-center h-full">
+                    <div className="container flex flex-col gap-2.5 justify-end pb-2 lg:justify-center h-full">
                       <p className="text-xl lg:text-5xl font-bold text-gray-800">
                         {profile?.SatuanOrganisasi?.nama} ({profile?.SatuanOrganisasi.kode_jenjang})
                       </p>
                       <p className={'text-sm lg:text-lg font-semibold'}>
                         {profile?.SatuanOrganisasi.nama_parent_satuan_organisasi}
                       </p>
-                      <p className={'mt-4'}>Mempersiapkan Lulusan Unggul Di Bidang</p>
-                      <p>{profile?.SatuanOrganisasi?.nama}</p>
+                      <p className={'lg:mt-4 text-sm lg:text-base'}>Mempersiapkan Lulusan Unggul Di Bidang</p>
+                      <p className={'text-sm lg:text-base'}>{profile?.SatuanOrganisasi?.nama}</p>
                     </div>
                   </div>
                   <Image

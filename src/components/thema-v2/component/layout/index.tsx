@@ -13,7 +13,7 @@ const LayoutThemaV2 = ({ children }: Props) => {
   return (
     <>
       <div className="max-w-[1920px] relative mx-auto">
-        <div className="fixed top-0 z-50 w-full">
+        <div className="fixed top-0 z-[55] w-full">
           <RunningTextNews />
           <HeaderLayout />
         </div>
