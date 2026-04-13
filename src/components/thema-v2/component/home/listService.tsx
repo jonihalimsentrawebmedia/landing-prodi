@@ -2,10 +2,10 @@
 
 import { UseGetServiceProdi } from '@/app/homepage/hooks'
 import { domAnimation, LazyMotion } from 'framer-motion'
-import { FaClipboard } from 'react-icons/fa6'
 import Link from 'next/link'
 import { clsx } from 'clsx'
 import { Skeleton } from '@/components/ui/skeleton'
+import Image from 'next/image'
 
 const ListService = () => {
   const { loading, services } = UseGetServiceProdi()
@@ -33,7 +33,13 @@ const ListService = () => {
                 'col-span-1 lg:w-full bg-gray-100 min-w-[300px] shadow p-4 rounded flex flex-col gap-2 hover:bg-primary hover:text-white items-center justify-center py-10 border'
               }
             >
-              <FaClipboard className={'size-10'} />
+              <Image
+                alt={'gambar'}
+                src={row?.gambar_url ?? '/img/noimg.png'}
+                className={'object-contain w-[80px] size-[80px]'}
+                width={50}
+                height={50}
+              />
               <p>{row?.nama_layanan}</p>
             </Link>
           ))}
@@ -52,7 +58,9 @@ const ListServiceSkeleton = () => {
     <div className="w-full bg-gray-100">
       <div
         className={clsx(
-          isGrid ? 'grid lg:grid-cols-6 gap-2  lg:gap-6' : 'flex flex-col lg:flex-row items-stretch justify-center gap-4',
+          isGrid
+            ? 'grid lg:grid-cols-6 gap-2  lg:gap-6'
+            : 'flex flex-col lg:flex-row items-stretch justify-center gap-4',
           'container py-10'
         )}
       >
