@@ -7,7 +7,7 @@ import { useEffect, useState } from 'react'
 import { useStateContext } from '@/contexts'
 
 export const AboutProfile = () => {
-  const { aboutProdi, loading } = UseGetAboutProdi()
+  const { aboutProdi } = UseGetAboutProdi()
   const [{ profile }] = useStateContext()
   const detail = profile?.SatuanOrganisasi
   const [api, setApi] = useState<CarouselApi>()
@@ -41,7 +41,7 @@ export const AboutProfile = () => {
             {aboutProdi?.gambar?.map((row, k) => (
               <CarouselItem key={k}>
                 <Image
-                  src={row}
+                  src={row?.url}
                   alt={'string'}
                   className={'w-full h-[250px] lg:h-[600px] object-cover'}
                   width={500}

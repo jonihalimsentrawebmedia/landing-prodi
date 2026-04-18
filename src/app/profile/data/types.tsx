@@ -4,7 +4,7 @@ export interface IAboutProfile {
   id_satuan_organisasi: string
   id_unit: string
   isi_konten: string
-  gambar: string[]
+  gambar: { url: string }[]
   created_at: string
   created_user: string
   updated_at: string

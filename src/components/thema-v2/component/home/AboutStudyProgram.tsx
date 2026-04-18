@@ -39,7 +39,7 @@ export const AboutStudyProgram = () => {
                 {aboutProdi?.gambar?.map((item, index) => (
                   <CarouselItem key={index}>
                     <Image
-                      src={item}
+                      src={item.url ?? '/img/noimg.png'}
                       width={442}
                       height={265}
                       alt={'gambar'}

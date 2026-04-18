@@ -51,7 +51,7 @@ export const AboutSection = () => {
               {aboutProdi?.gambar?.map((row, k) => (
                 <CarouselItem key={k}>
                   <Image
-                    src={row}
+                    src={row?.url}
                     alt={'string'}
                     className={'w-full h-[250px] lg:h-[350px] object-cover'}
                     width={500}

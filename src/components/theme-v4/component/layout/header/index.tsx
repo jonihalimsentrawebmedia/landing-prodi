@@ -29,8 +29,7 @@ export const HeaderLayoutTheme4 = () => {
   const { data } = useQuery({
     queryKey: ['theme'],
     refetchOnWindowFocus: false,
-    queryFn: () =>
-      AxiosClient.get('/public-prodi/pengaturan-warna-halaman').then((res) => res.data?.data),
+    queryFn: () => AxiosClient.get('/public-prodi/public').then((res) => res.data?.data),
   })
 
   useEffect(() => {

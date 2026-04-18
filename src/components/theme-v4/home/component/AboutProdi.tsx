@@ -44,7 +44,7 @@ export const AboutProdi = () => {
             {aboutProdi?.gambar?.map((row, k) => (
               <CarouselItem key={k}>
                 <Image
-                  src={row}
+                  src={row?.url}
                   alt={'gambar'}
                   className={'w-full h-[300px] lg:h-[480px] object-cover'}
                   width={720}
@@ -54,15 +54,13 @@ export const AboutProdi = () => {
             ))}
           </CarouselContent>
         </Carousel>
-        
+
         <div className={'lg:hidden flex px-2 flex-col gap-2.5'}>
           <p className="lg:text-3xl font-semibold">
-              <span className={'underline underline-offset-[12px] decoration-primary'}>
-                Tentang
-              </span>{' '}
+            <span className={'underline underline-offset-[12px] decoration-primary'}>Tentang</span>{' '}
             Program Studi
           </p>
-          
+
           <div
             className={'html-class text-xs flex flex-col gap-2.5 lg:mt-7 text-justify line-clamp-6'}
             dangerouslySetInnerHTML={{ __html: aboutProdi?.isi_konten ?? '' }}
@@ -76,7 +74,6 @@ export const AboutProdi = () => {
             Selengkapnya Tentang Prodi <ArrowRight className={'size-4'} />
           </Link>
         </div>
-        
       </div>
     </>
   )

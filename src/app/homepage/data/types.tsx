@@ -127,7 +127,10 @@ export interface IProdiAbout {
   id_satuan_organisasi: string
   id_unit: string
   isi_konten: string
-  gambar: string[]
+  gambar: {
+    url: string
+    is_thumbnail: string
+  }[]
   created_at: string
   created_user: string
   updated_at: string

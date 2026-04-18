@@ -40,7 +40,7 @@ export const AboutStudyProgramTheme3 = () => {
                 {aboutProdi?.gambar?.map((item, index) => (
                   <CarouselItem key={index}>
                     <Image
-                      src={item}
+                      src={item?.url}
                       width={442}
                       height={265}
                       alt={'gambar'}

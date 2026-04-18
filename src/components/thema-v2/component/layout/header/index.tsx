@@ -22,8 +22,7 @@ export const HeaderLayout = () => {
   const { data } = useQuery({
     queryKey: ['theme'],
     refetchOnWindowFocus: false,
-    queryFn: () =>
-      AxiosClient.get('/public-prodi/pengaturan-warna-halaman').then((res) => res.data?.data),
+    queryFn: () => AxiosClient.get('/public-prodi/public').then((res) => res.data?.data),
   })
 
   useEffect(() => {
@@ -59,7 +58,7 @@ export const HeaderLayout = () => {
             <p className={'text-[10px]'}>{detail?.nama_parent_satuan_organisasi}</p>
           </div>
         </div>
-        <SheetMenu/>
+        <SheetMenu />
         <ul className={'lg:flex items-center gap-x-5 text-base hidden'}>
           {MenuHeader?.map((row, i) => (
             <Link href={row?.link} key={i} className={'font-semibold text-primary'}>
