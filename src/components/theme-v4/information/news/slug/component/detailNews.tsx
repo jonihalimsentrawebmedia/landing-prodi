@@ -25,7 +25,7 @@ export const DetailNewsSectionTheme4 = () => {
       <div className="py-10">
         <div className={'container'}>
           <div className="flex flex-col lg:flex-row gap-5 items-start w-full">
-            <div className="w-full">
+            <div className="w-full space-y-4">
               <Link href={'/information/news'}>
                 <button className={'flex items-center gap-1.5'}>
                   <ArrowLeft />
@@ -35,7 +35,7 @@ export const DetailNewsSectionTheme4 = () => {
 
               <p className="mt-5 lg:text-2xl font-semibold">{newsDetail?.judul}</p>
               <div
-                className="html-class mt-5 text-justify"
+                className="html-class mt-5 text-justify space-y-4"
                 dangerouslySetInnerHTML={{ __html: newsDetail?.isi_berita ?? '' }}
               />
             </div>

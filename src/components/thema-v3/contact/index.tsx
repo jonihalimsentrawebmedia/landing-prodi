@@ -4,13 +4,13 @@ import { TabsContactRegisterTheme3 } from '@/components/thema-v3/contact/compone
 
 export const ContactTheme3 = () => {
   return (
-    <LayoutTheme3>
+    <>
       <div className={'w-full max-w-[1920px] mx-auto'}>
         <JumbotronTitle context={'KONTAK'} title={'Kontak & Pendaftaran'} />
         <div>
           <TabsContactRegisterTheme3 />
         </div>
       </div>
-    </LayoutTheme3>
+    </>
   )
 }

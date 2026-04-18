@@ -11,11 +11,11 @@ interface Props {
 export const CurriculumTheme3 = (props: Props) => {
   const { data: listCurriculum } = props
   return (
-    <LayoutTheme3>
+    <>
       <JumbotronTitleTheme3 context={'KURIKULUM'} title={'Kurikulum'} />
       <Suspense>
         <TabsCurriculumSectionTheme3 curiculum={listCurriculum} />
       </Suspense>
-    </LayoutTheme3>
+    </>
   )
 }

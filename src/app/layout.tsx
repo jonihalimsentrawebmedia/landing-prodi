@@ -7,6 +7,7 @@ import { ToastContainer } from 'react-toastify'
 import { FetchResAPI } from '@/provider/server'
 import { IProfileResponse } from '@/contexts/types'
 import StateProvider from '@/contexts'
+import LayoutBase from '@/components/layout/BaseLayout'
 
 const poppins = Poppins({
   subsets: ['latin'], // or ['latin-ext'] etc.
@@ -70,7 +71,9 @@ export default function RootLayout({
     <html lang="en">
       <body className={`${poppins.variable} antialiased`}>
         <Providers>
-          <StateProvider>{children}</StateProvider>
+          <StateProvider>
+            <LayoutBase>{children}</LayoutBase>
+          </StateProvider>
           <ToastContainer
             position="top-right"
             theme="colored"

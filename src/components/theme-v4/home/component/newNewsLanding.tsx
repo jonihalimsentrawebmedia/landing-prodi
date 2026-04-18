@@ -98,7 +98,7 @@ export const NewNewsLanding = () => {
                 <p className="font-semibold line-clamp-2">{row?.judul}</p>
                 <p className="flex items-center gap-1.5 text-sm text-gray-500">
                   <FaCalendarAlt className="text-primary" />
-                  {row?.published_at ? formatDate(row?.published_at, 'dd MMM yyyy') : ''}
+                  {row?.tanggal_berita ? formatDate(row?.tanggal_berita, 'dd MMM yyyy') : ''}
                 </p>
               </div>
             </motion.div>

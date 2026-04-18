@@ -41,7 +41,7 @@ export const HeaderLayout = () => {
   if (loading) return <HeaderSkeleton />
 
   return (
-    <header className={'w-full left-0 z-[999] bg-white max-w-[1920px]'}>
+    <header className={'w-full left-0 z-[999] bg-white max-w-[1920px] shadow'}>
       <div className="w-full max-w-[1440px] mx-auto py-2.5 lg:py-5 flex items-center justify-between px-2 lg:px-0">
         <div className={'flex items-center gap-x-4'}>
           <Image

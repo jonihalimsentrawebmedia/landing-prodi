@@ -13,12 +13,15 @@ export const UseGetNewsCategory = () => {
   const [newsCategory, setNewsCategory] = useState<NewsCategory[]>([])
 
   const ParamsSearch = new URLSearchParams({ page: '1', limit: '9999' })
+  ParamsSearch.append('is_have_berita', 'true')
 
   const { data, isFetching, isLoading } = useQuery({
     queryKey: ['news-category', ParamsSearch.toString()],
     refetchOnWindowFocus: false,
     queryFn: () =>
-      AxiosClient.get(`/public/ref/kategori-berita?${ParamsSearch}`).then((res) => res?.data?.data),
+      AxiosClient.get(`/public-prodi/ref/kategori-berita?${ParamsSearch}`).then(
+        (res) => res?.data?.data
+      ),
   })
 
   const loading = isLoading || isFetching
@@ -38,7 +41,7 @@ export const UseGetNewsDetail = (slug: string) => {
   const { data, isLoading, isFetching } = useQuery({
     queryKey: ['news-detail', slug],
     refetchOnWindowFocus: false,
-    queryFn: () => AxiosClient.get(`/public/berita/${slug}`).then((res) => res?.data?.data),
+    queryFn: () => AxiosClient.get(`/public-prodi/berita/${slug}`).then((res) => res?.data?.data),
   })
 
   const loading = isLoading || isFetching

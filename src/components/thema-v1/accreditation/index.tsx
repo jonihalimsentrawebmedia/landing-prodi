@@ -1,16 +1,13 @@
-import { LandingLayout } from '@/components/layout'
 import { JumbotronTitle } from '@/components/common/jumbotronTitle'
 import { AccreditationSection } from '@/app/accreditation/components/section'
 
 export const AccreditationTheme1 = () => {
   return (
     <>
-      <LandingLayout>
-        <div className={'w-full max-w-[1920px] mx-auto'}>
-          <JumbotronTitle context={'AKREDITASI'} title={'Akreditasi'} />
-          <AccreditationSection />
-        </div>
-      </LandingLayout>
+      <div className={'w-full max-w-[1920px] mx-auto'}>
+        <JumbotronTitle context={'AKREDITASI'} title={'Akreditasi'} />
+        <AccreditationSection />
+      </div>
     </>
   )
 }

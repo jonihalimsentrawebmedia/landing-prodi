@@ -5,13 +5,11 @@ import { AnnouncementSection } from '@/components/thema-v2/information/announcem
 
 export const InformationAnnouncementTheme2 = () => {
   return (
-    <LayoutThemaV2>
       <div className={'w-full max-w-[1920px] mx-auto'}>
         <JumbotronTitle context={'INFORMASI'} title={'Informasi'} />
         <Suspense>
           <AnnouncementSection />
         </Suspense>
       </div>
-    </LayoutThemaV2>
   )
 }

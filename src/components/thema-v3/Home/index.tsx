@@ -1,4 +1,3 @@
-import { LayoutTheme3 } from '../component/layout/index'
 import { SliderHomeTheme3 } from './component/section/Jumbotron'
 import ListService from '@/components/thema-v2/component/home/listService'
 import { NewsLanding } from './component/section/newsLanding'
@@ -10,15 +9,13 @@ import { ContactRegisterTheme3 } from './component/section/ContactRegister'
 export const HomePageTheme3 = () => {
   return (
     <>
-      <LayoutTheme3>
-        <SliderHomeTheme3 />
-        <ListService />
-        <NewsLanding />
-        <AgendaAnnouncement />
-        <AboutStudyProgramTheme3 />
-        <OurLecturer />
-        <ContactRegisterTheme3 />
-      </LayoutTheme3>
+      <SliderHomeTheme3 />
+      <ListService />
+      <NewsLanding />
+      <AgendaAnnouncement />
+      <AboutStudyProgramTheme3 />
+      <OurLecturer />
+      <ContactRegisterTheme3 />
     </>
   )
 }
