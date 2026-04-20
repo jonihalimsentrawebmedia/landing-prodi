@@ -26,7 +26,7 @@ const DetailNewsPageV5 = () => {
   return (
     <>
       <div className="bg-footer">
-        <div className="container py-2.5">
+        <div className="container-sm py-2.5">
           <BreadcrumbBasic
             data={[
               { name: 'Beranda', link: '/' },
@@ -38,7 +38,7 @@ const DetailNewsPageV5 = () => {
         </div>
       </div>
 
-      <div className="container py-5 space-y-4">
+      <div className="container-sm py-5 space-y-4">
         <div className="flex flex-col lg:flex-row items-start gap-5">
           <div className="w-full lg:w-3/4 space-y-4">
             <p className="lg:text-2xl font-semibold">{newsDetail?.judul}</p>

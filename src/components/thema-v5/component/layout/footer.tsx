@@ -86,7 +86,7 @@ const FooterLayoutV5 = () => {
       <div className="bg-[#444444] text-white text-center p-4 text-xs lg:text-base fixed lg:relative z-50 bottom-0 w-full">
         {profile?.SatuanOrganisasi?.kode_jenjang}-{profile?.SatuanOrganisasi?.nama} ©{' '}
         {new Date().getFullYear()}, All Rights Reserved.
-        <NavigationFooter profile={profile} />
+        {/*<NavigationFooter profile={profile} />*/}
       </div>
     </>
   )

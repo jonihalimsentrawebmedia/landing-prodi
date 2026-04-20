@@ -41,19 +41,19 @@ export const SheetMenu = (props: props) => {
               <button className="relative w-6 h-6 flex items-center justify-center">
                 <span
                   className={clsx(
-                    'absolute h-[1.5px] w-6 bg-white transition-all duration-300 ease-in-out',
+                    'absolute h-[1.5px] w-6 bg-footer transition-all duration-300 ease-in-out',
                     open ? 'rotate-45' : '-translate-y-2'
                   )}
                 />
                 <span
                   className={clsx(
-                    'absolute h-[1.5px] w-6 bg-white transition-all duration-300 ease-in-out',
+                    'absolute h-[1.5px] w-6 bg-footer transition-all duration-300 ease-in-out',
                     open ? 'opacity-0' : ''
                   )}
                 />
                 <span
                   className={clsx(
-                    'absolute h-[1.5px] w-6 bg-white transition-all duration-300 ease-in-out',
+                    'absolute h-[1.5px] w-6 bg-footer transition-all duration-300 ease-in-out',
                     open ? '-rotate-45' : 'translate-y-2'
                   )}
                 />
@@ -67,7 +67,7 @@ export const SheetMenu = (props: props) => {
               <SheetTitle>
                 <div className={'flex items-center gap-1.5'}>
                   <Image
-                    src={'/img/noimg.png'}
+                    src={profile?.SatuanOrganisasi?.logo ?? '/img/noimg.png'}
                     alt={'logo'}
                     width={52}
                     height={52}
@@ -102,7 +102,9 @@ export const SheetMenu = (props: props) => {
               {NavMenuList.map((menu, i) => {
                 return (
                   <Link className={''} href={menu?.link} onClick={() => setOpen(!open)} key={i}>
-                    <li className={'py-2'} key={i}>{menu?.name}</li>
+                    <li className={'py-2'} key={i}>
+                      {menu?.name}
+                    </li>
                   </Link>
                 )
               })}

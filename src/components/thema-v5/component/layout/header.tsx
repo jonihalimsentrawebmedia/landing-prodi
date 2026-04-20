@@ -10,6 +10,7 @@ import Image from 'next/image'
 import { NavMenuList } from '@/components/layout/header/menuList'
 import Link from 'next/link'
 import DarkModeToggle from '@/components/thema-v5/component/common/darkmode'
+import { SheetMenu } from '@/components/thema-v5/component/layout/sheetMenu'
 
 const HeaderLayoutTheme5 = () => {
   const { profile: profiles, loading } = UseGetProfile()
@@ -47,15 +48,10 @@ const HeaderLayoutTheme5 = () => {
   return (
     <>
       <header className="sticky top-0 z-50 bg-[#FFFCF5]/90 backdrop-blur-md border-b-2 border-[#CDA327]">
-        <div className="container-sm mx-auto lg:px-8 lg:py-6 flex items-center justify-between p-2">
-          <Link href={'/'} className="flex items-center gap-3">
-            <div className="w-16 h-16 bg-white rounded-full flex items-center justify-center relative">
-              <Image
-                src={organization?.logo ?? '/img/noimg.png'}
-                fill
-                alt="Logo"
-                className="lg:w-12 lg:h-12 rounded-full size-8 w-8 h-8"
-              />
+        <div className="container-sm mx-auto lg:px-8 lg:py-2.5 flex items-center justify-between p-2">
+          <Link href={'/'} className="flex items-center gap-2">
+            <div className="w-14 h-14 bg-white rounded-full flex items-center justify-center relative">
+              <Image src={organization?.logo ?? '/img/noimg.png'} fill alt="Logo" />
             </div>
             <div className={'space-y-1.5'}>
               <h1 className="text-[#278374] text-sm lg:text-2xl font-semibold leading-none">
@@ -70,12 +66,19 @@ const HeaderLayoutTheme5 = () => {
           <div className="flex items-center gap-3">
             <nav className="hidden md:flex items-center gap-4 text-[#278374]">
               {NavMenuList?.map((row, k) => (
-                <Link href={row?.link} key={k} className="hover:text-[#CDA327] transition text-xs">
+                <Link
+                  href={row?.link}
+                  key={k}
+                  className="hover:text-[#CDA327] transition text-sm font-bold"
+                >
                   {row?.name}
                 </Link>
               ))}
             </nav>
-            <DarkModeToggle />
+            <div className="hidden lg:block">
+              <DarkModeToggle />
+            </div>
+            <SheetMenu profile={profile} />
           </div>
         </div>
       </header>

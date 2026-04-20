@@ -7,6 +7,7 @@ import Image from 'next/image'
 import React from 'react'
 import { clsx } from 'clsx'
 import { Button } from '@/components/ui/button'
+import Link from 'next/link'
 
 export const JumbotronSlider5 = () => {
   const { sliderLanding, loading } = UseGetSliderLanding()
@@ -34,15 +35,19 @@ export const JumbotronSlider5 = () => {
               {detail?.kode_jenjang}-{detail?.nama}
             </h1>
             <div className="flex justify-center gap-2 lg:gap-4">
-              <Button className="bg-[#278374] hover:bg-[#1f5f52] text-white lg:px-8 lg:py-6 lg:text-lg lg:rounded-xl">
-                Profile
-              </Button>
-              <Button
-                variant="outline"
-                className="border-[#278374] text-[#278374] lg:px-8 lg:py-6 lg:text-lg lg:rounded-xl"
-              >
-                Kontak & Pendaftaran
-              </Button>
+              <Link href={'/profile'}>
+                <Button className="bg-[#278374] hover:bg-[#1f5f52] text-white lg:px-8 lg:py-6 lg:text-lg lg:rounded-xl">
+                  Profile
+                </Button>
+              </Link>
+              <Link href={'/contact'}>
+                <Button
+                  variant="outline"
+                  className="border-[#278374] text-[#278374] lg:px-8 lg:py-6 lg:text-lg lg:rounded-xl"
+                >
+                  Kontak & Pendaftaran
+                </Button>
+              </Link>
             </div>
           </div>
         </div>
