@@ -36,7 +36,7 @@ export const NavMenuList = [
   },
   {
     id: 8,
-    name: 'Kontak & Pendafataran',
+    name: 'Kontak',
     link: '/contact',
   },
 ]

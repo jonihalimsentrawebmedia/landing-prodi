@@ -5,6 +5,7 @@ import Image from 'next/image'
 import { format } from 'date-fns'
 import { Button } from '@/components/ui/button'
 import { ChevronRight } from 'lucide-react'
+import Link from 'next/link'
 
 const NewsListSectionV5 = () => {
   const { news, loading: load1 } = UseGetNews({ page: '1', limit: '3' })
@@ -18,7 +19,7 @@ const NewsListSectionV5 = () => {
         </p>
         <div className="flex flex-col lg:grid grid-cols-3 gap-4">
           {news?.map((row, index) => (
-            <div key={index} className={'space-y-2'}>
+            <Link href={`/information/news/${row?.slug}`} key={index} className={'space-y-2'}>
               <Image
                 src={row?.gambar}
                 alt={row?.judul}
@@ -37,15 +38,17 @@ const NewsListSectionV5 = () => {
                   __html: row?.isi_berita,
                 }}
               />
-            </div>
+            </Link>
           ))}
         </div>
 
         <div className="flex justify-center">
-          <Button className={'bg-footer text-white mx-auto'}>
-            Lihat Berita
-            <ChevronRight className={'size-4'} />
-          </Button>
+          <Link href={'/information/news'}>
+            <Button className={'bg-footer text-white mx-auto'}>
+              Lihat Berita
+              <ChevronRight className={'size-4'} />
+            </Button>
+          </Link>
         </div>
       </div>
     </>
