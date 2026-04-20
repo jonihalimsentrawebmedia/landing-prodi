@@ -70,7 +70,7 @@ const HeaderLayoutTheme5 = () => {
           <div className="flex items-center gap-3">
             <nav className="hidden md:flex items-center gap-4 text-[#278374]">
               {NavMenuList?.map((row, k) => (
-                <Link href={row?.link} key={k} className="hover:text-[#CDA327] transition">
+                <Link href={row?.link} key={k} className="hover:text-[#CDA327] transition text-xs">
                   {row?.name}
                 </Link>
               ))}
