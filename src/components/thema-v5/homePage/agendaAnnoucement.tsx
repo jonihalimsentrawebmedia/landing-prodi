@@ -31,7 +31,7 @@ const AgendaAnnouncementV5 = () => {
           <div className="bg-white p-4 border rounded-lg space-y-4 border-footer">
             <div className="flex flex-col gap-2 lg:flex-row items-start lg:items-center justify-between">
               <h2 className="lg:text-2xl font-semibold text-footer underline-offset-8 decoration-yellow-500 underline">
-                Pengumuman Prgoram Studi
+                Pengumuman Program Studi
               </h2>
               <Button className={'bg-footer text-white hover:bg-footer'}>
                 Lihat Pengumuman
@@ -56,7 +56,7 @@ const AgendaAnnouncementV5 = () => {
           <div className="bg-white p-4 border rounded-lg space-y-4 border-footer">
             <div className="flex flex-col gap-2 lg:flex-row items-start lg:items-center justify-between">
               <h2 className="lg:text-2xl font-semibold text-footer underline-offset-8 decoration-yellow-500 underline">
-                Agenda Prgoram Studi
+                Agenda Program Studi
               </h2>
               <Button className={'bg-footer text-white hover:bg-footer'}>
                 Lihat Agenda
