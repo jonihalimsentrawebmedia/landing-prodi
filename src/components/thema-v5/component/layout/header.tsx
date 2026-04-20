@@ -54,7 +54,7 @@ const HeaderLayoutTheme5 = () => {
               <Image src={organization?.logo ?? '/img/noimg.png'} fill alt="Logo" />
             </div>
             <div className={'space-y-1.5'}>
-              <h1 className="text-[#278374] text-sm lg:text-2xl font-semibold leading-none">
+              <h1 className="text-[#278374] text-sm lg:text-xl font-semibold leading-none">
                 {organization?.nama}
               </h1>
               <p className="text-[#CDA327] text-xs lg:text-lg font-medium">
@@ -78,7 +78,9 @@ const HeaderLayoutTheme5 = () => {
             <div className="hidden lg:block">
               <DarkModeToggle />
             </div>
-            <SheetMenu profile={profile} />
+            <div className="block lg:hidden">
+              <SheetMenu profile={profile} />
+            </div>
           </div>
         </div>
       </header>

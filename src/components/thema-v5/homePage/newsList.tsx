@@ -6,12 +6,15 @@ import { format } from 'date-fns'
 import { Button } from '@/components/ui/button'
 import { ChevronRight } from 'lucide-react'
 import Link from 'next/link'
+import { useMobile } from '@/hooks'
 
 const NewsListSectionV5 = () => {
-  const { news, loading: load1 } = UseGetNews({ page: '1', limit: '3' })
+  const { isMobile } = useMobile()
+  const { news, loading: load1 } = UseGetNews({ page: '1', limit: isMobile ? '5' : '3' })
 
   const FirstNews = news?.[0]
   const SecondNews = news?.slice(1, 3)
+  const MoresNews = news?.slice(3, 5)
 
   if (load1) return <></>
   return (
@@ -48,6 +51,27 @@ const NewsListSectionV5 = () => {
               <p className={'text-footer line-clamp-2 font-semibold'}>{row?.judul}</p>
             </div>
           ))}
+          {MoresNews?.length > 0 && (
+            <div className={'flex gap-4 flex-nowrap items-start overflow-x-scroll'}>
+              {MoresNews?.map((row, index) => (
+                <div key={index} className={'flex flex-col gap-2'}>
+                  <Image
+                    src={row?.gambar ?? '/img/noimg.png'}
+                    alt={'gamabr'}
+                    className={'w-full min-w-[280px] h-[250px] rounded-md object-cover'}
+                    width={500}
+                    height={310}
+                  />
+                  <div className="p-2 bg-white">
+                    <p className="font-semibold line-clamp-2">{row?.judul}</p>
+                    <p className="text-gray-400 text-sm">
+                      {row?.tanggal_berita ? format(row?.tanggal_berita, 'dd-MM-yyyy') : ''}
+                    </p>
+                  </div>
+                </div>
+              ))}
+            </div>
+          )}
         </div>
 
         <div className="flex-col lg:grid grid-cols-3 gap-4 hidden">

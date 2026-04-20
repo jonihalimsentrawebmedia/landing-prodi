@@ -165,29 +165,54 @@ body {
   }
 }
 
+
+.html-class ul {
+  list-style: disc !important;
+  padding-left: 20px !important;
+  @apply dark:text-white
+}
+
+.html-class ol {
+  list-style: decimal !important;
+  padding-left: 20px !important;
+  @apply dark:text-white
+}
+
+@layer components {
+  .html-class ol {
+    @apply list-decimal pl-5;
+  }
+
+  .html-class ol li {
+    @apply dark:text-white;
+  }
+}
+
 .html-class h1 {
-  @apply text-4xl font-semibold;
+  @apply text-2xl;
 }
 
 .html-class h2 {
-  @apply text-3xl font-semibold;
+  @apply text-xl;
 }
 
 .html-class h3 {
-  @apply text-2xl font-semibold;
+  @apply text-lg;
 }
 
 .html-class h4 {
-  @apply text-xl font-semibold;
+  @apply text-base;
 }
 
 .html-class h5 {
-  @apply text-lg font-semibold;
+  @apply text-sm;
 }
 
 .html-class h6 {
-  @apply text-base font-semibold;
+  @apply text-xs;
 }
+
+
 
 .hero-text {
   animation: heroFade 1.6s ease forwards;

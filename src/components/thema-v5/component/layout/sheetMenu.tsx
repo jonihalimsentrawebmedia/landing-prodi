@@ -58,7 +58,6 @@ export const SheetMenu = (props: props) => {
                   )}
                 />
               </button>
-              <p className={'text-xs text-white'}>Menu</p>
             </div>
           </SheetTrigger>
 

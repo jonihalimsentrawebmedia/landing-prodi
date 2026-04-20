@@ -12,13 +12,18 @@ const AboutSectionProfileV5 = () => {
     <>
       <div className="container-sm">
         <div className="flex flex-col gap-4 lg:flex-row items-start py-8 gap-x-5 bg-[radial-gradient(50%_50%_at_50%_50%,rgba(39,131,116,0.32)_0%,rgba(39,131,116,0)_100%)]">
-          <Carousel className={'lg:w-[480px] lg:min-w-[480px]'} plugins={[Autoplay({ delay: 5000 })]}>
+          <Carousel
+            className={'lg:w-[480px] lg:min-w-[480px]'}
+            plugins={[Autoplay({ delay: 5000 })]}
+          >
             <CarouselContent>
               {aboutProdi?.gambar?.map((row, k) => (
                 <CarouselItem key={k}>
                   <Image
                     src={row?.url}
-                    className={'object-cover w-full lg:w-[480px] h-[250px] lg:h-[360px] rounded lg:rounded-xl'}
+                    className={
+                      'object-cover w-full lg:w-[480px] h-[250px] lg:h-[360px] rounded lg:rounded-xl'
+                    }
                     alt={'image'}
                     width={480}
                     height={360}
