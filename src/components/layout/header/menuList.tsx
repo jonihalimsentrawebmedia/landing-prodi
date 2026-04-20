@@ -1,9 +1,9 @@
 export const NavMenuList = [
-  {
-    id: 1,
-    name: 'Beranda',
-    link: '/',
-  },
+  // {
+  //   id: 1,
+  //   name: 'Beranda',
+  //   link: '/',
+  // },
   {
     id: 2,
     name: 'Profil',
@@ -26,7 +26,7 @@ export const NavMenuList = [
   },
   {
     id: 6,
-    name: 'Berita',
+    name: 'Informasi',
     link: '/information',
   },
   {
@@ -36,7 +36,7 @@ export const NavMenuList = [
   },
   {
     id: 8,
-    name: 'Kontak',
+    name: 'Kontak & Pendafataran',
     link: '/contact',
   },
 ]

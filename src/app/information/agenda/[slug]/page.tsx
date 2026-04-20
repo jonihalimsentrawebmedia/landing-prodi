@@ -3,6 +3,7 @@ import { InformationAgendaSlugTheme2 } from '@/components/thema-v2/information/a
 import { FetchResAPI } from '@/provider/server'
 import { InformationAgendaSlugTheme3 } from '@/components/thema-v3/information/agenda/slug'
 import { InformationAgendaSlugTheme4 } from '@/components/theme-v4/information/agenda/slug'
+import DetailAgendaPgeV5 from '@/components/thema-v5/information/Agenda/detail'
 
 const DetailAgendaPage = async () => {
   const themes = await FetchResAPI('/public-prodi/public')
@@ -23,6 +24,9 @@ const DetailAgendaPage = async () => {
     }
     case 'THEMA_PRODI_EMPAT': {
       return <InformationAgendaSlugTheme4 />
+    }
+    case 'THEMA_PRODI_LIMA': {
+      return <DetailAgendaPgeV5 />
     }
   }
 }

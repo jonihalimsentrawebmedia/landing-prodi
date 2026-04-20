@@ -136,7 +136,7 @@
 }
 
 .container-sm {
-  @apply lg:max-w-7xl mx-auto px-4 lg:px-0
+  @apply lg:max-w-7xl w-full mx-auto px-4 lg:px-0
 }
 
 .embla__slide {
@@ -226,3 +226,4 @@ body {
 .animate-marquee {
   animation: marquee 20s linear infinite;
 }
+

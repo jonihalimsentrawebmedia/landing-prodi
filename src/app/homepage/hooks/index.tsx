@@ -10,7 +10,8 @@ import {
   IServiceProdi,
 } from '@/app/homepage/data/types'
 import { AgendaProps, AnnouncementProps, NewsProps } from '@/app/information/news/data/types'
-import { Meta } from '@/contexts/types'
+import { BasicProps, Meta } from '@/contexts/types'
+import { ILecturer } from '@/app/profile/contact-us/data/types'
 
 export const UseGetSliderLanding = () => {
   const [sliderLanding, setSliderLanding] = useState<IImageSlider[]>([])
@@ -158,4 +159,32 @@ export const UseGetServiceProdi = () => {
     services: data,
     loading: isLoading,
   }
+}
+
+export const UseGetLecturer = (props?: BasicProps) => {
+  const { page, limit, search } = props ?? {}
+
+  const [lecturer, setLecturer] = useState<ILecturer[]>([])
+  const [meta, setMeta] = useState<Meta>()
+  const paramsSearch = new URLSearchParams()
+  if (page) paramsSearch.append('page', page ?? '1')
+  if (limit) paramsSearch.append('limit', limit ?? '10')
+  if (search) paramsSearch.append('search', search ?? '')
+
+  const { data, isLoading, isFetching } = useQuery({
+    queryKey: ['lecturer', paramsSearch.toString()],
+    refetchOnWindowFocus: false,
+    queryFn: () => AxiosClient.get(`/public-prodi/dosen?${paramsSearch}`).then((res) => res?.data),
+  })
+
+  const loading = isLoading || isFetching
+
+  useEffect(() => {
+    if (data) {
+      setLecturer(data?.data)
+      setMeta(data?.meta)
+    }
+  }, [data])
+
+  return { lecturer, loading, meta }
 }

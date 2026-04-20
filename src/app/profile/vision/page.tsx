@@ -3,6 +3,7 @@ import VisionTheme2Page from '@/components/thema-v2/profile/vision'
 import { FetchResAPI } from '@/provider/server'
 import { ProfileVisionTheme3 } from '@/components/thema-v3/profile/vission'
 import ProfileVisionTheme4 from '@/components/theme-v4/profile/vision'
+import VisionMissionGoalsV5 from '@/components/thema-v5/profile/vision'
 
 const VisionProfilePage = async () => {
   const themes = await FetchResAPI('/public-prodi/public')
@@ -24,6 +25,9 @@ const VisionProfilePage = async () => {
     }
     case 'THEMA_PRODI_EMPAT': {
       return <ProfileVisionTheme4 />
+    }
+    case 'THEMA_PRODI_LIMA': {
+      return <VisionMissionGoalsV5 />
     }
   }
 }

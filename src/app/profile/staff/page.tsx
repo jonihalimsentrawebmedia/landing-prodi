@@ -3,6 +3,7 @@ import { StaffProfileTheme2 } from '@/components/thema-v2/profile/staff'
 import { FetchResAPI } from '@/provider/server'
 import { ProfileStaffTheme3 } from '@/components/thema-v3/profile/staff'
 import { ProfileStaffTheme4 } from '@/components/theme-v4/profile/staff'
+import StaffProdiListV5 from '@/components/thema-v5/profile/staff'
 
 const StaffProfilePage = async () => {
   const themes = await FetchResAPI('/public-prodi/public')
@@ -23,6 +24,9 @@ const StaffProfilePage = async () => {
     }
     case 'THEMA_PRODI_EMPAT': {
       return <ProfileStaffTheme4 />
+    }
+    case 'THEMA_PRODI_LIMA': {
+      return <StaffProdiListV5 />
     }
   }
 }

@@ -76,8 +76,15 @@ export type Context =
   | 'INFORMASI'
   | 'FASILITAS'
   | 'KONTAK'
+  | 'GALERI'
 
 export interface Meta {
   last_page: number
   total: number
+}
+
+export interface BasicProps {
+  page?: string
+  limit?: string
+  search?: string
 }

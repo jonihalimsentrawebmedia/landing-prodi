@@ -3,6 +3,7 @@ import { NewsProfileTheme2 } from '@/components/thema-v2/profile/news'
 import { FetchResAPI } from '@/provider/server'
 import { ProfileNewsTheme3 } from '@/components/thema-v3/profile/news'
 import { ProfileNewsTheme4 } from '@/components/theme-v4/profile/news'
+import NewsProfileSectionV5 from '@/components/thema-v5/profile/news'
 
 const NewsProfilePage = async () => {
   const themes = await FetchResAPI('/public-prodi/public')
@@ -23,6 +24,9 @@ const NewsProfilePage = async () => {
     }
     case 'THEMA_PRODI_EMPAT': {
       return <ProfileNewsTheme4 />
+    }
+    case 'THEMA_PRODI_LIMA': {
+      return <NewsProfileSectionV5 />
     }
   }
 }

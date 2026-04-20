@@ -1,9 +1,6 @@
 'use client'
 
 import Image from 'next/image'
-import Link from 'next/link'
-import { Button } from '@/components/ui/button'
-import { ArrowLeft, ArrowRight } from 'lucide-react'
 import { SkeletonUnitProfile } from '../components/skeleton'
 import { Card, CardContent } from '@/components/ui/card'
 import { UseGetProfileUnit } from '@/app/profile/unit/hooks'

@@ -3,6 +3,7 @@ import { PageTheme2Home } from '@/components/thema-v2/home'
 import { FetchResAPI } from '@/provider/server'
 import { HomePageTheme3 } from '@/components/thema-v3/Home'
 import HomeTheme4 from '@/components/theme-v4/home'
+import HomeTheme5 from '@/components/thema-v5/homePage'
 
 export default async function Home() {
   const themes = await FetchResAPI('/public-prodi/public')
@@ -23,6 +24,9 @@ export default async function Home() {
     }
     case 'THEMA_PRODI_EMPAT': {
       return <HomeTheme4 />
+    }
+    case 'THEMA_PRODI_LIMA': {
+      return <HomeTheme5 />
     }
   }
 }

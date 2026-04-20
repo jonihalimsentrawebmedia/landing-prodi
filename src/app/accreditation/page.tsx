@@ -3,6 +3,7 @@ import { AccreditationTheme2 } from '@/components/thema-v2/accreditation'
 import { FetchResAPI } from '@/provider/server'
 import { AccreditationTheme3 } from '@/components/thema-v3/accreditation'
 import { AccreditationTheme4 } from '@/components/theme-v4/accreditation'
+import AccreditationPageV5 from '@/components/thema-v5/Accrreditation'
 
 const AccreditationPage = async () => {
   const themes = await FetchResAPI('/public-prodi/public')
@@ -23,6 +24,9 @@ const AccreditationPage = async () => {
     }
     case 'THEMA_PRODI_EMPAT': {
       return <AccreditationTheme4 />
+    }
+    case 'THEMA_PRODI_LIMA': {
+      return <AccreditationPageV5 />
     }
   }
 }

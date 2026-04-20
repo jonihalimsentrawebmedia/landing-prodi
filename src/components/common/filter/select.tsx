@@ -28,9 +28,10 @@ export const FilterSelect = (props: Props) => {
 
   const searchParams = useSearchParams()
   const value = searchParams.get(name) ?? ''
+  console.log(value, 'value')
 
   const HandleChange = (e: string) => {
-    const Params = new URLSearchParams()
+    const Params = new URLSearchParams(searchParams.toString())
     Params.set(name, e)
     if (e === '') {
       Params.delete(name)

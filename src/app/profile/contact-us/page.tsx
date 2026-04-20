@@ -3,6 +3,7 @@ import { ContactProfileTheme2 } from '@/components/thema-v2/profile/contact'
 import { FetchResAPI } from '@/provider/server'
 import { ProfileContactTheme3 } from '@/components/thema-v3/profile/contact'
 import { ProfileContactTheme4 } from '@/components/theme-v4/profile/contact'
+import ContactUsProfileV5 from '@/components/thema-v5/profile/contact-us'
 
 const ProfileContactUsPage = async () => {
   const themes = await FetchResAPI('/public-prodi/public')
@@ -23,6 +24,9 @@ const ProfileContactUsPage = async () => {
     }
     case 'THEMA_PRODI_EMPAT': {
       return <ProfileContactTheme4 />
+    }
+    case 'THEMA_PRODI_LIMA': {
+      return <ContactUsProfileV5 />
     }
   }
 }
