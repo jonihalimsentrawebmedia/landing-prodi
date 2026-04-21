@@ -85,7 +85,7 @@ const FooterLayoutV5 = () => {
                     key={k}
                     className={'hover:text-yellow-500'}
                   >
-                    <li className={'flex items-center gap-1.5 text-xs whitespace-nowrap'}>
+                    <li className={'flex items-center gap-1.5 text-xs whitespace-pre-line'}>
                       <GoDotFill className={'size-4 text-yellow-500'} />
                       {row?.nama} ({row?.kode_jenjang})
                     </li>
