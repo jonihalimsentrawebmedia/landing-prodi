@@ -48,7 +48,8 @@ const ContactRegisteredV5 = () => {
                     className={cn(
                       'border border-footer rounded!',
                       'data-[state=active]:bg-footer',
-                      'data-[state=active]:text-primary'
+                      'data-[state=active]:text-primary',
+                      'dark:data-[state=active]:bg-footer dark:data-[state=active]:text-primary'
                     )}
                   >
                     {row?.name}

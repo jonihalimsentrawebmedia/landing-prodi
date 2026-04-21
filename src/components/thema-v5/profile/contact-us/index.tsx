@@ -54,7 +54,7 @@ const ContactUsProfileV5 = () => {
                       <IoMailSharp className={'size-5'} />
                     </div>
                     <div>
-                      <p className="text-sm text-footer">Alamat</p>
+                      <p className="text-sm text-footer">Email</p>
                       <p className={'text-sm'}>{contactUse?.email}</p>
                     </div>
                   </li>

@@ -51,10 +51,10 @@ const StaffProdiListV5 = () => {
                           </div>
                         </div>
                         <TitleLine text={'Kontak'} />
-                        <p className="flex items-center gap-1.5 text-black">
+                        <p className="flex items-center gap-1.5 text-black dark:text-white">
                           <MdPhone /> {row?.no_hp ?? 'Belum Terddaftar'}
                         </p>
-                        <p className="flex items-center gap-1.5 text-black">
+                        <p className="flex items-center gap-1.5 text-black dark:text-white">
                           <MdEmail /> {row?.email ?? 'Belum Terddaftar'}
                         </p>
                       </CardContent>

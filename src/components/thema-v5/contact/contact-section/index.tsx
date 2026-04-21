@@ -70,7 +70,7 @@ const ContactSectionV5 = () => {
                 <IoMailSharp className={'size-5'} />
               </div>
               <div>
-                <p className="text-sm text-footer">Alamat</p>
+                <p className="text-sm text-footer">Email</p>
                 <p className={'text-sm'}>{contactUse?.email}</p>
               </div>
             </li>
@@ -98,13 +98,13 @@ const ContactSectionV5 = () => {
       </div>
 
       <Tabs
-        className={'bg-primary w-full mt-5 flex flex-col lg:flex-row items-start'}
+        className={'bg-primary dark:bg-gray-800 w-full mt-5 flex flex-col lg:flex-row items-start'}
         value={category}
         onValueChange={setCategory}
       >
         <TabsList
           className={
-            'w-full flex flex-row lg:flex-col h-full max-w-[200px] text-start bg-white gap-2'
+            'w-full flex flex-row lg:flex-col h-full max-w-[200px] text-start gap-2'
           }
         >
           {faqCategory?.map((item, k) => (
@@ -113,7 +113,8 @@ const ContactSectionV5 = () => {
               value={item?.slug}
               className={clsx(
                 'text-start w-full border border-footer rounded!',
-                'data-[state=active]:bg-footer data-[state=active]:text-primary'
+                'data-[state=active]:bg-footer data-[state=active]:text-primary',
+                'dark:data-[state=active]:bg-footer'
               )}
             >
               <p className="text-start w-full">{item?.nama_kategori_faq}</p>

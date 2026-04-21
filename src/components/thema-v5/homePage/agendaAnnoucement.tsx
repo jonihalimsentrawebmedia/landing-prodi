@@ -29,7 +29,7 @@ const AgendaAnnouncementV5 = () => {
 
         <div className="container-sm py-10 space-y-5 relative z-10">
           {announcement?.length > 0 && (
-            <div className="bg-white p-4 border rounded-lg space-y-4 border-footer">
+            <div className="bg-white dark:bg-gray-800 p-4 border rounded-lg space-y-4 border-footer">
               <div className="flex flex-col gap-2 lg:flex-row items-start lg:items-center justify-between">
                 <h2 className="lg:text-2xl font-semibold text-footer underline-offset-8 decoration-yellow-500 underline">
                   Pengumuman Program Studi
@@ -56,7 +56,7 @@ const AgendaAnnouncementV5 = () => {
           )}
 
           {agenda?.length > 0 && (
-            <div className="bg-white p-4 border rounded-lg space-y-4 border-footer">
+            <div className="bg-white dark:bg-gray-800 p-4 border rounded-lg space-y-4 border-footer">
               <div className="flex flex-col gap-2 lg:flex-row items-start lg:items-center justify-between">
                 <h2 className="lg:text-2xl font-semibold text-footer underline-offset-8 decoration-yellow-500 underline">
                   Agenda Program Studi

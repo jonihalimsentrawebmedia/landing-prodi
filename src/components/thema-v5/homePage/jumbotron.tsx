@@ -24,7 +24,7 @@ export const JumbotronSlider5 = () => {
         <div
           className={clsx(
             'flex items-center justify-center',
-            'absolute z-10 inset-0 bg-gradient-to-b from-white/50 to-white'
+            'absolute z-10 inset-0 bg-gradient-to-b from-white/50 to-white dark:from-black/50 dark:to-black/90'
           )}
         >
           <div className="container-sm relative z-10 flex items-center justify-center h-full flex-col gap-1.5 lg:gap-4">

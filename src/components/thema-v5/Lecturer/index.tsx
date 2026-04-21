@@ -35,7 +35,7 @@ const LecturerListPageV5 = () => {
                 <div
                   key={k}
                   className={cn(
-                    'bg-white rounded flex flex-col gap-2 p-4',
+                    'bg-white dark:bg-gray-700 rounded flex flex-col gap-2 p-4',
                     'items-center justify-center w-full min-w-[250px]',
                     'shadow border'
                   )}

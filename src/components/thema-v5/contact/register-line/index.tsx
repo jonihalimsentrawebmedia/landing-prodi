@@ -19,18 +19,23 @@ const RegisterLineSectionV5 = () => {
   return (
     <>
       <Tabs
-        className={'bg-primary flex-col justify-start lg:flex-row w-full mt-5 flex items-start'}
+        className={
+          'bg-primary dark:bg-gray-800 flex-col justify-start lg:flex-row w-full mt-5 flex items-start'
+        }
         value={category}
         onValueChange={setCategory}
       >
-        <TabsList className={'w-full flex flex-row lg:flex-col h-full max-w-[200px] text-start bg-white gap-2'}>
+        <TabsList
+          className={'w-full flex flex-row lg:flex-col h-full max-w-[200px] text-start  gap-2'}
+        >
           {registration?.map((item, k) => (
             <TabsTrigger
               key={k}
               value={item?.slug}
               className={clsx(
                 'text-start w-full border border-footer rounded!',
-                'data-[state=active]:bg-footer data-[state=active]:text-primary'
+                'data-[state=active]:bg-footer data-[state=active]:text-primary',
+                'dark:data-[state=active]:bg-footer'
               )}
             >
               <p className="text-start w-full">{item?.nama_jalur_pendaftaran}</p>
