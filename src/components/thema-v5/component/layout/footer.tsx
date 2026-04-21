@@ -79,7 +79,12 @@ const FooterLayoutV5 = () => {
               <p className="text-yellow-500 lg:text-2xl lg:whitespace-nowrap">Program Studi</p>
               <ul className={'mt-4 space-y-4 text-white'}>
                 {prodi?.map((row, k) => (
-                  <Link href={'https://' + row?.domain} key={k} className={'hover:text-yellow-500'}>
+                  <Link
+                    target={'_blank'}
+                    href={'https://' + row?.domain}
+                    key={k}
+                    className={'hover:text-yellow-500'}
+                  >
                     <li className={'text-base'}>{row?.nama}</li>
                   </Link>
                 ))}
