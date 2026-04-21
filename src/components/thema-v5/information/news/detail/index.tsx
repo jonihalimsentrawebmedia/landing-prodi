@@ -17,7 +17,7 @@ const DetailNewsPageV5 = () => {
   const { news } = UseGetNews({
     no_include_id: newsDetail?.id_berita,
     page: '1',
-    limit: '4',
+    limit: '10',
   })
 
   const temp = [newsDetail?.gambar]

@@ -87,7 +87,7 @@ const FooterLayoutV5 = () => {
                   >
                     <li className={'text-base flex items-center gap-1.5'}>
                       <GoDotFill className={'size-4 text-yellow-500'} />
-                      {row?.nama}
+                      {row?.nama}   ({row?.kode_jenjang})
                     </li>
                   </Link>
                 ))}
