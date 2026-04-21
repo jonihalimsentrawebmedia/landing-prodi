@@ -49,7 +49,7 @@ const HeaderLayoutTheme5 = () => {
     <>
       <header className="sticky top-0 z-50 bg-[#FFFCF5]/90 backdrop-blur-md border-b-2 border-[#CDA327]">
         <div className="w-full bg-footer p-4"></div>
-        <div className="container-sm mx-auto lg:px-8 lg:py-2.5 flex items-center justify-between p-2">
+        <div className="container-sm mx-auto lg:px-8 lg:py-4 flex items-center justify-between p-2">
           <Link href={'/'} className="flex items-center gap-2">
             <div className="rounded-full flex items-center justify-center relative">
               <Image
