@@ -40,18 +40,20 @@ const DetailNewsPageV5 = () => {
 
       <div className="container-sm py-5 space-y-4">
         <div className="flex flex-col lg:flex-row items-start gap-5">
-          <div className="w-full lg:w-3/4 space-y-4">
+          <div className="w-full lg:w-2/3 space-y-4">
             <p className="lg:text-2xl font-semibold">{newsDetail?.judul}</p>
-            <p className="flex items-center gap-1.5">
-              <QuilWrite /> {newsDetail?.penulis ?? 'TIM HUMAS'}
-            </p>
-            <p className="flex items-center gap-1.5">
-              <MdDateRange className={'size-6 text-footer'} />
-              {newsDetail?.tanggal_berita ? format(newsDetail.tanggal_berita, 'dd-MM-yyyy') : ''}
-            </p>
-            <p className="flex items-center gap-1.5">
-              <Folder /> {newsDetail?.nama_kategori_berita ?? 'TIM HUMAS'}
-            </p>
+            <div className="flex items-center gap-2.5">
+              <p className="flex items-center gap-1.5">
+                <QuilWrite /> {newsDetail?.penulis ?? 'TIM HUMAS'}
+              </p>
+              <p className="flex items-center gap-1.5">
+                <MdDateRange className={'size-6 text-footer'} />
+                {newsDetail?.tanggal_berita ? format(newsDetail.tanggal_berita, 'dd-MM-yyyy') : ''}
+              </p>
+              <p className="flex items-center gap-1.5">
+                <Folder /> {newsDetail?.nama_kategori_berita ?? 'TIM HUMAS'}
+              </p>
+            </div>
 
             <Carousel>
               <CarouselContent>
@@ -75,7 +77,7 @@ const DetailNewsPageV5 = () => {
             />
           </div>
 
-          <div className="lg:w-1/4 space-y-4 w-full">
+          <div className="lg:w-1/3 space-y-4 w-full">
             <p className="text-2xl font-normal text-white bg-footer px-3 py-1.5 w-fit">Baca Juga</p>
 
             {news?.map((row, k) => (

@@ -6,11 +6,13 @@ import { format } from 'date-fns'
 import { Button } from '@/components/ui/button'
 import { ChevronRight } from 'lucide-react'
 import Link from 'next/link'
-import { useMobile } from '@/hooks'
+import { FaRegCalendarAlt } from 'react-icons/fa'
+import { FaCircleChevronRight } from 'react-icons/fa6'
+import { Carousel, CarouselContent, CarouselItem } from '@/components/ui/carousel'
+import Autoplay from 'embla-carousel-autoplay'
 
 const NewsListSectionV5 = () => {
-  const { isMobile } = useMobile()
-  const { news, loading: load1 } = UseGetNews({ page: '1', limit: isMobile ? '5' : '3' })
+  const { news, loading: load1 } = UseGetNews({ page: '1', limit: '5' })
 
   const FirstNews = news?.[0]
   const SecondNews = news?.slice(1, 3)
@@ -74,29 +76,48 @@ const NewsListSectionV5 = () => {
           )}
         </div>
 
-        <div className="flex-col lg:grid grid-cols-3 gap-4 hidden">
-          {news?.map((row, index) => (
-            <Link href={`/information/news/${row?.slug}`} key={index} className={'space-y-2'}>
-              <Image
-                src={row?.gambar}
-                alt={row?.judul}
-                className={'w-full h-[310px] object-cover rounded-xl'}
-                width={500}
-                height={310}
-              />
-              <p className="text-sm font-semibold text-footer">{row?.nama_kategori_berita}</p>
-              <p className="text-2xl line-clamp-2">{row?.judul}</p>
-              <p className="text-sm text-footer">
-                {row?.tanggal_berita ? format(row?.tanggal_berita, 'dd-MM- yyyy') : ''}
-              </p>
-              <div
-                className={'flex flex-col gap-2 html-class line-clamp-3! text-gray-500!'}
-                dangerouslySetInnerHTML={{
-                  __html: row?.isi_berita,
-                }}
-              />
-            </Link>
-          ))}
+        <div className="lg:block hidden">
+          <Carousel
+            opts={{
+              loop: true,
+              align: 'start',
+            }}
+            plugins={[Autoplay({ delay: 3000 })]}
+          >
+            <CarouselContent className={'flex items-stretch'}>
+              {news?.map((row, index) => (
+                <CarouselItem key={index} className={'basis-1/3'}>
+                  <Link href={`/information/news/${row?.slug}`}>
+                    <div className={'shadow rounded-lg border h-full'}>
+                      <Image
+                        src={row?.gambar}
+                        alt={row?.judul}
+                        className={'w-full h-[310px] object-cover rounded-t-lg'}
+                        width={500}
+                        height={310}
+                      />
+                      <div className={'p-4 space-y-2.5 relative'}>
+                        <div className="flex items-center gap-x-2">
+                          <p className="text-sm py-1.5 px-3 rounded-full font-semibold bg-footer/10 text-footer flex items-center gap-1">
+                            <FaRegCalendarAlt />
+                            {row?.tanggal_berita ? format(row?.tanggal_berita, 'dd-MM- yyyy') : ''}
+                          </p>
+                          <p className="text-sm py-1.5 px-3 rounded-full font-semibold bg-footer/10 text-footer flex items-center gap-1">
+                            {row?.nama_kategori_berita}
+                          </p>
+                        </div>
+                        <p className="font-semibold line-clamp-2">{row?.judul}</p>
+                        <button className={'text-footer flex items-center gap-1 text-sm'}>
+                          <FaCircleChevronRight className={'size-4'} />
+                          Baca Lebih Lanjut
+                        </button>
+                      </div>
+                    </div>
+                  </Link>
+                </CarouselItem>
+              ))}
+            </CarouselContent>
+          </Carousel>
         </div>
 
         <div className="flex justify-center">

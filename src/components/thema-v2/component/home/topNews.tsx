@@ -12,14 +12,15 @@ import {
   CarouselPrevious,
 } from '@/components/ui/carousel'
 import { UseGetNews } from '@/app/homepage/hooks'
-import { CardNewsItem } from '@/components/thema-v2/component/common/cardNews'
 import { TitleUnderline } from '@/components/thema-v2/component/common/titleUnderLine'
 import { domAnimation, LazyMotion } from 'framer-motion'
 import { format } from 'date-fns'
 import { FaCalendarAlt } from 'react-icons/fa'
+import Autoplay from 'embla-carousel-autoplay'
+import { cn } from '@/lib/utils'
 
 export const TopNewsLanding = () => {
-  const { news, loading } = UseGetNews({ page: '1', limit: '12' })
+  const { news, loading } = UseGetNews({ page: '1', limit: '10' })
 
   if (loading) return <TopNewsSkeleton />
 
@@ -29,7 +30,15 @@ export const TopNewsLanding = () => {
         <div className="container flex flex-col gap-5 py-5">
           <TitleUnderline text="Berita Program Studi" className="text-center" />
 
-          <Carousel className="block md:hidden">
+          <Carousel
+            className="block md:hidden"
+            opts={{
+              slidesToScroll: 3,
+              align: 'start',
+              loop: true,
+            }}
+            plugins={[Autoplay({ delay: 3000 })]}
+          >
             <CarouselContent>
               {news?.map((row, i) => (
                 <CarouselItem key={i} className="basis-5/6">
@@ -41,13 +50,15 @@ export const TopNewsLanding = () => {
                       height={240}
                       width={330}
                     />
-                    <div className={'min-h-[240px] relative'}>
-                      <div className="p-4 space-y-2.5">
+                    <div className={'min-h-[240px] relative bg-white'}>
+                      <div className="p-4 space-y-2.5 bg-white">
                         <div className="flex items-center gap-2 flex-wrap">
                           <p
-                            className={
-                              'border p-1.5 px-3 rounded-full w-fit bg-primary/10 text-primary text-sm font-semibold flex items-center gap-1.5 whitespace-nowrap'
-                            }
+                            className={cn(
+                              'border p-1.5 px-3 rounded-full w-fit bg-primary/10',
+                              'font-semibold flex items-center gap-1.5 whitespace-nowrap',
+                              'text-primary text-sm'
+                            )}
                           >
                             <FaCalendarAlt />
                             {row?.tanggal_berita ? format(row?.tanggal_berita, 'dd-MM-yyyy') : '-'}
@@ -60,22 +71,15 @@ export const TopNewsLanding = () => {
                             {row?.nama_kategori_berita}
                           </p>
                         </div>
-
                         <p className="text-lg font-semibold line-clamp-2">{row?.judul ?? ''}</p>
-                        <div
-                          dangerouslySetInnerHTML={{ __html: row?.isi_berita }}
-                          className="line-clamp-3 text-sm"
-                        />
+                        {/*<div*/}
+                        {/*  dangerouslySetInnerHTML={{ __html: row?.isi_berita }}*/}
+                        {/*  className="line-clamp-3 text-sm"*/}
+                        {/*/>*/}
                         <button className={'text-sm absolute bottom-4'}>Baca Lebih Lanjut</button>
                       </div>
                     </div>
                   </div>
-                  {/*<CardNewsItem*/}
-                  {/*  gambar={row?.gambar}*/}
-                  {/*  judul={row?.judul}*/}
-                  {/*  isi_berita={row?.isi_berita}*/}
-                  {/*  published_at={row?.published_at ?? ''}*/}
-                  {/*/>*/}
                 </CarouselItem>
               ))}
             </CarouselContent>
