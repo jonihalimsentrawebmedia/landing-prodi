@@ -15,7 +15,7 @@ const FooterLayoutV5 = () => {
 
   return (
     <>
-      <div className="bg-footer p-5 w-full max-w-[1920px] mx-auto pb-32 lg:pb-0">
+      <div className="bg-footer lg:p-5 py-4 w-full max-w-[1920px] mx-auto ">
         <div className="container-sm">
           <div className="flex flex-col lg:flex-row items-start gap-5">
             <div className={'lg:w-1/2'}>
@@ -77,7 +77,7 @@ const FooterLayoutV5 = () => {
 
             <div>
               <p className="text-yellow-500 lg:text-2xl lg:whitespace-nowrap">Program Studi</p>
-              <ul className={'mt-4 space-y-4 text-white grid grid-cols-2 gap-y-0 gap-x-2'}>
+              <ul className={'mt-4 space-y-4 text-white grid lg:grid-cols-2 gap-y-0 gap-x-2'}>
                 {prodi?.map((row, k) => (
                   <Link
                     target={'_blank'}

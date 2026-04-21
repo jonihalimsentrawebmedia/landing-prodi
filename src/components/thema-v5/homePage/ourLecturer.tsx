@@ -12,7 +12,7 @@ const LecturerList = () => {
   return (
     <>
       {lecturer.length > 0 && (
-        <div className="w-full max-w-[1920px] p-5 py-10 bg-primary">
+        <div className="w-full max-w-[1920px] lg:p-5 py-5 lg:py-10 bg-primary">
           <div className="container-sm space-y-5">
             <h1
               className={clsx(
