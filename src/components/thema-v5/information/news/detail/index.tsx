@@ -10,6 +10,8 @@ import { format } from 'date-fns'
 import Link from 'next/link'
 import { MdDateRange } from 'react-icons/md'
 import { Folder, QuilWrite } from '@/components/thema-v5/information/component/incon'
+import { FaRegCalendarAlt } from 'react-icons/fa'
+import { ShareContent } from '@/components/thema-v2/component/common/shareContent'
 
 const DetailNewsPageV5 = () => {
   const { slug } = useParams()
@@ -75,10 +77,16 @@ const DetailNewsPageV5 = () => {
               className={'flex flex-col gap-1.5 html-class'}
               dangerouslySetInnerHTML={{ __html: newsDetail?.isi_berita ?? '' }}
             />
+
+            <div className="">
+              <ShareContent title={newsDetail?.judul ?? ''} text={'Bagikan'} />
+            </div>
           </div>
 
           <div className="lg:w-1/3 space-y-4 w-full">
-            <p className="text-2xl font-normal text-white bg-footer px-3 py-1.5 w-fit">Baca Juga</p>
+            <p className="text-2xl font-normal text-white bg-footer px-3 py-1.5 w-fit">
+              Berita Terbaru
+            </p>
 
             {news?.map((row, k) => (
               <Link
@@ -93,11 +101,17 @@ const DetailNewsPageV5 = () => {
                   height={92}
                   className={'w-[125px] min-w-[125px] h-[92px] rounded-md object-cover'}
                 />
-                <div>
-                  <p className="text-sm text-primary font-semibold">
-                    {row?.tanggal_berita ? format(row?.tanggal_berita, 'dd-MM-yyyy') : ''}
-                  </p>
+                <div className={'space-y-2.5'}>
                   <p className={'line-clamp-2'}>{row?.judul}</p>
+                  <div className="flex items-center gap-2">
+                    <p className="text-xs py-1.5 px-3 rounded-full font-semibold bg-footer/10 text-footer flex items-center gap-1">
+                      <FaRegCalendarAlt />
+                      {row?.tanggal_berita ? format(row?.tanggal_berita, 'dd-MM- yyyy') : ''}
+                    </p>
+                    <p className="text-xs py-1.5 px-3 rounded-full font-semibold bg-footer/10 text-footer flex items-center gap-1">
+                      {row?.nama_kategori_berita}
+                    </p>
+                  </div>
                 </div>
               </Link>
             ))}

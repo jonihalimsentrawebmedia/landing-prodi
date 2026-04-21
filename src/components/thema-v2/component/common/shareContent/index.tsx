@@ -64,11 +64,11 @@ export const ShareContent = (props: Props) => {
 
   return (
     <>
-      <p className={'text-primary dark:text-white'}>{text}</p>
+      <p className={'text-gray-700 dark:text-white'}>{text}</p>
       <div className="mt-1 flex flex-wrap items-center gap-2">
         <button
           onClick={handleCopy}
-          className={`text-sm text-primary border-primary border p-1 px-2 rounded-full flex items-center gap-1.5
+          className={`text-sm text-gray-700 border-gray-500 border p-1 px-2 rounded-full flex items-center gap-1.5
           dark:text-white dark:border-white
           `}
         >
@@ -79,7 +79,7 @@ export const ShareContent = (props: Props) => {
         {canShare && (
           <button
             onClick={handleNativeShare}
-            className="share-btn bg-primary p-1 rounded text-white"
+            className="share-btn bg-footer px-2 p-1 rounded text-white"
           >
             📤 Share
           </button>

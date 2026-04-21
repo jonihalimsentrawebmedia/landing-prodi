@@ -12,6 +12,7 @@ import { MdDateRange } from 'react-icons/md'
 import { format } from 'date-fns'
 import Link from 'next/link'
 import Image from 'next/image'
+import { ShareContent } from '@/components/thema-v2/component/common/shareContent'
 
 const DetailAnnouncementPageV5 = () => {
   const { slug } = useParams()
@@ -62,6 +63,9 @@ const DetailAnnouncementPageV5 = () => {
               className="html-class flex flex-col gap-5 text-justify"
               dangerouslySetInnerHTML={{ __html: detail?.isi_pengumuman ?? '' }}
             />
+            <div className="">
+              <ShareContent title={detail?.judul_pengumuman ?? ''} text={'bagikan'} />
+            </div>
           </div>
           <div className="w-full lg:min-w-[480px]">
             <BasicSelect
@@ -86,7 +90,7 @@ const DetailAnnouncementPageV5 = () => {
 
         <div className="space-y-5 pt-5">
           <p className="text-2xl font-semibold text-white bg-footer px-3 py-1.5 w-fit">
-            Baca Juga
+            Pengumuman Terbaru
           </p>
           <div className="grid lg:grid-cols-4 gap-6 mt-5">
             {announcement?.map((row, k) => (

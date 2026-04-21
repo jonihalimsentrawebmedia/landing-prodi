@@ -77,7 +77,7 @@ const FooterLayoutV5 = () => {
             </div>
           </div>
           <Separator className={'my-5 border-white hidden lg:block'} />
-          <ul className={'pb-4 text-white justify-center items-center gap-5 hidden lg:flex'}>
+          <ul className={'text-white justify-center items-center gap-5 hidden lg:flex'}>
             <li className={'flex items-center gap-2'}>
               <FaFacebook className={'size-5'} />
               Facebook
@@ -97,10 +97,10 @@ const FooterLayoutV5 = () => {
           </ul>
         </div>
       </div>
-      <div className="bg-[#444444] text-white text-center p-4 text-xs lg:text-base z-50 bottom-0 w-full">
+      <Separator className={'border-white'}/>
+      <div className="bg-footer text-white text-center p-4 text-xs lg:text-base z-50 bottom-0 w-full">
         {profile?.SatuanOrganisasi?.kode_jenjang}-{profile?.SatuanOrganisasi?.nama} ©{' '}
         {new Date().getFullYear()}, All Rights Reserved.
-        {/*<NavigationFooter profile={profile} />*/}
       </div>
     </>
   )

@@ -10,6 +10,7 @@ import { MdDateRange } from 'react-icons/md'
 import { QuilWrite } from '@/components/thema-v5/information/component/incon'
 import { UseGetPromotionDetail } from '@/app/information/promotion/hooks'
 import { UseGetPromotion } from '@/app/information/hooks'
+import { ShareContent } from '@/components/thema-v2/component/common/shareContent'
 
 const DetailPromotionV5 = () => {
   const { slug } = useParams()
@@ -17,7 +18,7 @@ const DetailPromotionV5 = () => {
   const { promotion } = UseGetPromotion({
     no_include_id: detail?.id_promosi,
     page: '1',
-    limit: '4',
+    limit: '10',
   })
 
   const temp = [detail?.gambar]
@@ -70,6 +71,10 @@ const DetailPromotionV5 = () => {
               className={'flex flex-col gap-1.5 html-class'}
               dangerouslySetInnerHTML={{ __html: detail?.isi_promosi ?? '' }}
             />
+
+            <div className="">
+              <ShareContent title={detail?.judul ?? ''} text={'Bagikan'} />
+            </div>
           </div>
 
           <div className="w-full lg:w-1/4 space-y-4">

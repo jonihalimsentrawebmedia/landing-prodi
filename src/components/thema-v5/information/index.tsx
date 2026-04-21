@@ -50,46 +50,9 @@ const InformationPageSectionV5 = () => {
 
         <div className="lg:p-5 bg-primary dark:bg-gray-800">
           <div className="container-sm py-5 lg:space-y-10">
-            {agenda?.length > 0 && (
-              <>
-                <div className="flex flex-col lg:flex-row items-start lg:items-center justify-between gap-4 lg:gap-0">
-                  <p className="lg:text-2xl font-semibold text-footer underline underline-offset-8 decoration-yellow-500">
-                    Agenda Program Studi
-                  </p>
-                  <Link href={'/information/agenda'}>
-                    <Button className={'bg-footer text-primary hover:bg-footer'}>
-                      Semua Agenda
-                      <ChevronRight className={'size-4'} />
-                    </Button>
-                  </Link>
-                </div>
-                <div className="grid lg:grid-cols-3 gap-5 mt-5 lg:mt-0">
-                  {agenda?.map((row, k) => (
-                    <Link
-                      href={`/information/agenda/${row?.slug}`}
-                      className={'flex items-center gap-4 p-4 border rounded-lg'}
-                      key={k}
-                    >
-                      <div className={'min-w-[30px]'}>
-                        <p className={'text-footer text-lg'}>
-                          {row?.waktu_mulai ? format(row?.waktu_mulai, 'dd') : ''}
-                        </p>
-                        <p className={'text-red-500'}>
-                          {row?.waktu_mulai ? format(row?.waktu_mulai, 'MMM') : ''}
-                        </p>
-                      </div>
-                      <div className={'border-l-2 border-l-gray-500 pl-4'}>
-                        <p className="text-lg line-clamp-2">{row?.judul}</p>
-                      </div>
-                    </Link>
-                  ))}
-                </div>
-              </>
-            )}
-
             {news?.length > 0 && (
               <>
-                <div className="flex flex-col lg:flex-row items-start lg:items-center justify-between mt-12 gap-4 lg:gap-0">
+                <div className="flex flex-col lg:flex-row items-start lg:items-center justify-between gap-4 lg:gap-0">
                   <p className="lg:text-2xl font-semibold text-footer underline underline-offset-8 decoration-yellow-500">
                     Berita Program Studi
                   </p>
@@ -165,29 +128,32 @@ const InformationPageSectionV5 = () => {
                     </div>
                   )}
                 </div>
+
                 <div className="lg:block hidden space-y-4">
                   <div className="flex items-start gap-5">
-                    <div className="w-1/2 space-y-4">
-                      <Image
-                        src={FirstNews?.gambar ?? '/img/noimg.png'}
-                        alt={'gambar'}
-                        className={'w-full h-[470px]'}
-                        width={650}
-                        height={475}
-                      />
-                      <div className="flex items-center gap-2">
-                        <p className="text-sm py-1.5 px-3 rounded-full font-semibold bg-footer/10 text-footer flex items-center gap-1">
-                          <FaRegCalendarAlt />
-                          {FirstNews?.tanggal_berita
-                            ? format(FirstNews?.tanggal_berita, 'dd-MM- yyyy')
-                            : ''}
-                        </p>
-                        <p className="text-sm py-1.5 px-3 rounded-full font-semibold bg-footer/10 text-footer flex items-center gap-1">
-                          {FirstNews?.nama_kategori_berita}
-                        </p>
+                    <Link href={`/information/news/${FirstNews?.slug}`} className={'w-1/2'}>
+                      <div className="w-full space-y-4">
+                        <Image
+                          src={FirstNews?.gambar ?? '/img/noimg.png'}
+                          alt={'gambar'}
+                          className={'w-full h-[470px] rounded-lg'}
+                          width={650}
+                          height={475}
+                        />
+                        <div className="flex items-center gap-2">
+                          <p className="text-sm py-1.5 px-3 rounded-full font-semibold bg-footer/10 text-footer flex items-center gap-1">
+                            <FaRegCalendarAlt />
+                            {FirstNews?.tanggal_berita
+                              ? format(FirstNews?.tanggal_berita, 'dd-MM- yyyy')
+                              : ''}
+                          </p>
+                          <p className="text-sm py-1.5 px-3 rounded-full font-semibold bg-footer/10 text-footer flex items-center gap-1">
+                            {FirstNews?.nama_kategori_berita}
+                          </p>
+                        </div>
+                        <p className={'text-2xl font-semibold text-footer'}>{FirstNews?.judul}</p>
                       </div>
-                      <p className={'text-2xl font-semibold text-footer'}>{FirstNews?.judul}</p>
-                    </div>
+                    </Link>
 
                     <div className="w-1/2 flex flex-col gap-4">
                       {SecondNews?.map((row, index) => (
@@ -280,7 +246,7 @@ const InformationPageSectionV5 = () => {
               <div className="bg-white p-4 border rounded-lg space-y-4 border-footer mt-5 lg:mt-0">
                 <div className="flex flex-col lg:flex-row lg:items-center justify-between gap-4 lg:gap-0">
                   <h2 className="lg:text-2xl font-semibold text-footer underline-offset-8 decoration-yellow-500 underline">
-                    Pengumuman Prgoram Studi
+                    Pengumuman Program Studi
                   </h2>
                   <Link href={'/information/announcements'}>
                     <Button className={'bg-footer text-white hover:bg-footer'}>
@@ -307,6 +273,43 @@ const InformationPageSectionV5 = () => {
                   ))}
                 </div>
               </div>
+            )}
+
+            {agenda?.length > 0 && (
+              <>
+                <div className="flex flex-col lg:flex-row items-start lg:items-center justify-between gap-4 lg:gap-0">
+                  <p className="lg:text-2xl font-semibold text-footer underline underline-offset-8 decoration-yellow-500">
+                    Agenda Program Studi
+                  </p>
+                  <Link href={'/information/agenda'}>
+                    <Button className={'bg-footer text-primary hover:bg-footer'}>
+                      Semua Agenda
+                      <ChevronRight className={'size-4'} />
+                    </Button>
+                  </Link>
+                </div>
+                <div className="grid lg:grid-cols-3 gap-5 mt-5 lg:mt-0">
+                  {agenda?.map((row, k) => (
+                    <Link
+                      href={`/information/agenda/${row?.slug}`}
+                      className={'flex items-center gap-4 p-4 border rounded-lg'}
+                      key={k}
+                    >
+                      <div className={'min-w-[30px]'}>
+                        <p className={'text-footer text-lg'}>
+                          {row?.waktu_mulai ? format(row?.waktu_mulai, 'dd') : ''}
+                        </p>
+                        <p className={'text-red-500'}>
+                          {row?.waktu_mulai ? format(row?.waktu_mulai, 'MMM') : ''}
+                        </p>
+                      </div>
+                      <div className={'border-l-2 border-l-gray-500 pl-4'}>
+                        <p className="text-lg line-clamp-2">{row?.judul}</p>
+                      </div>
+                    </Link>
+                  ))}
+                </div>
+              </>
             )}
 
             {promotion?.length > 0 && (

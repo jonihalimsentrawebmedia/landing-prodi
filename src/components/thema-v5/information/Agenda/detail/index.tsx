@@ -10,6 +10,7 @@ import { format } from 'date-fns'
 import Image from 'next/image'
 import Link from 'next/link'
 import { BreadcrumbBasic } from '@/components/common/breadcrumb'
+import { ShareContent } from '@/components/thema-v2/component/common/shareContent'
 
 const DetailAgendaPgeV5 = () => {
   const { slug } = useParams()
@@ -55,6 +56,10 @@ const DetailAgendaPgeV5 = () => {
               className={'flex flex-col gap-1.5 html-class'}
               dangerouslySetInnerHTML={{ __html: detail?.isi_agenda ?? '' }}
             />
+
+            <div>
+              <ShareContent title={detail?.judul ?? ''} text={'Bagikan'} />
+            </div>
           </div>
           <div className={'lg:w-1/2 flex items-start justify-start'}>
             {detail?.gambar && (
@@ -71,7 +76,9 @@ const DetailAgendaPgeV5 = () => {
       </div>
 
       <div className="pb-5 container-sm space-y-4">
-        <p className="text-2xl font-semibold text-white bg-footer px-3 py-1.5 w-fit">Baca Juga</p>
+        <p className="text-2xl font-semibold text-white bg-footer px-3 py-1.5 w-fit">
+          Agenda Terbaru
+        </p>
 
         <div className="grid lg:grid-cols-4 gap-5">
           {agenda?.map((row, k) => (
