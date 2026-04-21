@@ -5,6 +5,7 @@ import { LayoutTheme3 } from '@/components/thema-v3/component/layout'
 import LayoutBaseTheme4 from '@/components/theme-v4/component/layout'
 import { LandingLayout } from '@/components/layout/index'
 import LayoutBaseTheme5 from '@/components/thema-v5/component/layout'
+import LayoutBaseTheme6 from '@/components/thema-V6/component/layout'
 
 interface props {
   children: ReactNode
@@ -33,6 +34,9 @@ const LayoutBase = async (props: props) => {
     }
     case 'THEMA_PRODI_LIMA': {
       return <LayoutBaseTheme5>{children}</LayoutBaseTheme5>
+    }
+    case 'THEMA_PRODI_ENAM': {
+      return <LayoutBaseTheme6>{children}</LayoutBaseTheme6>
     }
   }
 }

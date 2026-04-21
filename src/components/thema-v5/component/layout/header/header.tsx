@@ -17,7 +17,6 @@ import ServiceDropdownMenu from '@/components/thema-v5/component/layout/header/d
 const HeaderLayoutTheme5 = () => {
   const { profile: profiles, loading } = UseGetProfile()
 
-  // const pathname = usePathname()
   const [{ profile }, Dispatch] = useStateContext()
   const organization = profile?.SatuanOrganisasi
 
@@ -50,7 +49,7 @@ const HeaderLayoutTheme5 = () => {
   return (
     <>
       <header className="sticky top-0 z-50 bg-[#FFFCF5]/90 backdrop-blur-md border-b-2 border-[#CDA327]">
-        <div className="w-full bg-footer p-4">
+        <div className="w-full bg-footer py-2">
           <div className="container-sm">
             <div className="flex items-center w-full gap-x-2">
               <ServiceDropdownMenu />
