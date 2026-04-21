@@ -223,10 +223,10 @@ export const AnnouncementAgenda = () => {
                 <motion.div key={k} variants={item} className="flex items-center gap-2">
                   <div className="border p-3 px-4 rounded text-center">
                     <p className="text-white text-2xl font-semibold">
-                      {row?.published_at ? format(row?.published_at, 'dd') : '-'}
+                      {row?.waktu_mulai ? format(row?.waktu_mulai, 'dd') : '-'}
                     </p>
                     <p className="text-white text-2xl font-semibold">
-                      {row?.published_at ? format(row?.published_at, 'MMM') : '-'}
+                      {row?.waktu_mulai ? format(row?.waktu_mulai, 'MMM') : '-'}
                     </p>
                   </div>
                   <Link href={`/information/agenda/${row?.slug}`}>

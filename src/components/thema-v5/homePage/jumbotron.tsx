@@ -61,6 +61,7 @@ export const JumbotronSlider5 = () => {
                   width={1920}
                   height={720}
                   className={'w-full object-cover h-[360px] lg:h-[720px]'}
+                  loading={'eager'}
                 />
               </CarouselItem>
             ))}

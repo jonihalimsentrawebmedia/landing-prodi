@@ -6,17 +6,19 @@ import { FaFacebook, FaInstagram, FaTwitter, FaYoutube } from 'react-icons/fa'
 import { Separator } from '@/components/ui/separator'
 import Link from 'next/link'
 import { NavMenuList } from '@/components/layout/header/menuList'
-import { NavigationFooter } from '@/components/thema-v5/component/layout/navigationFooter'
+import { UseGetProdiFaculty } from '@/components/common/hook/ref'
 
 const FooterLayoutV5 = () => {
   const [{ profile }] = useStateContext()
+  const { prodi } = UseGetProdiFaculty()
+  console.log(prodi)
 
   return (
     <>
       <div className="bg-footer p-5 w-full max-w-[1920px] mx-auto pb-32 lg:pb-0">
         <div className="container-sm">
           <div className="flex flex-col lg:flex-row items-start gap-5">
-            <div className={''}>
+            <div className={'lg:w-1/2'}>
               <Image
                 src={profile?.SatuanOrganisasi?.logo ?? '/img/noimg.png'}
                 alt={'image'}
@@ -35,7 +37,7 @@ const FooterLayoutV5 = () => {
               </p>
             </div>
             <div>
-              <p className="text-yellow-500 text-2xl">Kontak</p>
+              <p className="text-yellow-500 lg:text-2xl">Kontak</p>
               <ul className={'mt-4 space-y-4'}>
                 <li className={'space-y-2'}>
                   <p className="text-xs text-primary">Email</p>
@@ -52,7 +54,7 @@ const FooterLayoutV5 = () => {
               </ul>
             </div>
             <div>
-              <p className="text-yellow-500 text-2xl lg:whitespace-nowrap">Sosial Media</p>
+              <p className="text-yellow-500 lg:text-2xl lg:whitespace-nowrap">Sosial Media</p>
               <ul className={'mt-4 space-y-4 text-white'}>
                 <li className={'flex items-center gap-2'}>
                   <FaFacebook className={'size-5'} />
@@ -70,6 +72,17 @@ const FooterLayoutV5 = () => {
                   <FaYoutube className={'size-5'} />
                   Youtube
                 </li>
+              </ul>
+            </div>
+
+            <div>
+              <p className="text-yellow-500 lg:text-2xl lg:whitespace-nowrap">Program Studi</p>
+              <ul className={'mt-4 space-y-4 text-white'}>
+                {prodi?.map((row, k) => (
+                  <Link href={'https://' + row?.domain} key={k} className={'hover:text-yellow-500'}>
+                    <li className={'text-base'}>{row?.nama}</li>
+                  </Link>
+                ))}
               </ul>
             </div>
           </div>

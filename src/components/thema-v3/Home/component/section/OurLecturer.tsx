@@ -1,6 +1,6 @@
 'use client'
 
-import { UseGetSliderLanding } from '@/app/homepage/hooks'
+import { UseGetLecturer, UseGetSliderLanding } from '@/app/homepage/hooks'
 import {
   Carousel,
   CarouselContent,
@@ -16,6 +16,10 @@ import Link from 'next/link'
 
 export const OurLecturer = () => {
   const { sliderLanding } = UseGetSliderLanding()
+  const { lecturer } = UseGetLecturer({
+    page: '1',
+    limit: '10',
+  })
 
   const slider = sliderLanding?.filter((row) => row?.is_bawah)
 
@@ -49,18 +53,20 @@ export const OurLecturer = () => {
           />
           <Carousel className={'mt-8'}>
             <CarouselContent>
-              {Array.from({ length: 10 }, (_, k) => (
+              {lecturer?.map((row, k) => (
                 <CarouselItem key={k} className={'lg:basis-1/5'}>
                   <div className="border border-white overflow-hidden rounded-lg">
                     <Image
-                      src={'/img/dump2.jpg'}
+                      src={row?.gambar_url ?? '/img/noimg.png'}
                       alt={'slider'}
                       width={243}
                       height={280}
                       className={'w-full h-[280px] object-cover'}
                     />
                     <div className="bg-white p-2.5">
-                      <p className={'font-semibold dark:text-primary'}>Dr. Ir. Ahmad Ramadhan, M.Sc.</p>
+                      <p className={'font-semibold dark:text-primary'}>
+                        Dr. Ir. Ahmad Ramadhan, M.Sc.
+                      </p>
                     </div>
                   </div>
                 </CarouselItem>
@@ -70,7 +76,7 @@ export const OurLecturer = () => {
             <CarouselPrevious className={'z-10 left-0 !bg-primary'} />
           </Carousel>
 
-          <Link href={'#'} className={'flex justify-center'}>
+          <Link href={'/lecturer'} className={'flex justify-center'}>
             <Button className={'bg-white mt-6 rounded-full text-primary hover:bg-gray-200'}>
               Lihat Semuanya
               <ArrowRight className={'size-4'} />

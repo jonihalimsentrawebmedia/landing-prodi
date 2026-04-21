@@ -1,6 +1,6 @@
 'use client'
 
-import { UseGetSliderLanding } from '@/app/homepage/hooks'
+import { UseGetLecturer, UseGetSliderLanding } from '@/app/homepage/hooks'
 import {
   Carousel,
   CarouselContent,
@@ -16,6 +16,10 @@ import { Button } from '@/components/ui/button'
 import { OurLecturerSkeleton } from './skeleton'
 
 export const OurLecturer = () => {
+  const { lecturer } = UseGetLecturer({
+    page: '1',
+    limit: '10',
+  })
   const { loading, sliderLanding } = UseGetSliderLanding()
   const bg = sliderLanding?.filter((row) => row.is_bawah)
 
@@ -33,11 +37,11 @@ export const OurLecturer = () => {
 
           <Carousel className={'mt-8'}>
             <CarouselContent>
-              {Array.from({ length: 10 }, (_, k) => k + 1).map((row, k) => (
+              {lecturer?.map((row, k) => (
                 <CarouselItem key={k} className={'basis-5/6 lg:basis-1/5'}>
                   <div className={'bg-white p-1 w-fit rounded-lg relative'}>
                     <Image
-                      src={'/img/dumpLecture.jpg'}
+                      src={row?.gambar_url ?? '/img/noimg.png'}
                       alt={'image'}
                       width={245}
                       height={360}
@@ -48,7 +52,7 @@ export const OurLecturer = () => {
                         'absolute w-[calc(100%-8px)] rounded-b-lg p-2.5 z-10 bg-white/90 bottom-0 dark:text-primary'
                       }
                     >
-                      Dr. Ir. Ahmad Ramadhan, M.Sc.
+                      {row?.nama}
                     </div>
                   </div>
                 </CarouselItem>
@@ -61,7 +65,9 @@ export const OurLecturer = () => {
           <Link href={'/lecturer'} className={'flex items-center justify-center mt-5'}>
             <Button
               variant={'outline'}
-              className={'rounded-full border-primary text-primary px-5 hover:text-primary dark:text-white'}
+              className={
+                'rounded-full border-primary text-primary px-5 hover:text-primary dark:text-white'
+              }
             >
               Lihat Semua Dosen
             </Button>

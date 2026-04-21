@@ -1,6 +1,11 @@
+'use client'
+
 import { SearchInput } from '@/components/common/filter/search'
 import Image from 'next/image'
 import { MdInfo } from 'react-icons/md'
+import { UseGetLecturer } from '@/app/homepage/hooks'
+import { useRouter, useSearchParams } from 'next/navigation'
+import { PaginationCustom } from '@/components/common/pagination'
 
 export const ListLecturerTheme3 = () => {
   const dump = [
@@ -11,17 +16,27 @@ export const ListLecturerTheme3 = () => {
     'Vocabulary Building',
     'Speaking II',
   ]
+
+  const { lecturer, meta } = UseGetLecturer({
+    page: '1',
+    limit: '9',
+  })
+
+  const router = useRouter()
+  const searchParams = useSearchParams()
+  const page = searchParams.get('page') ?? '1'
+
   return (
     <>
       <div className={'container py-5'}>
         <SearchInput className={'w-full'} placeholder={'Cari Dosen'} />
 
-        <div className="mt-5 grid lg:grid-cols-3 gap-5">
-          {Array.from({ length: 10 }).map((_, k) => (
+        <div className="mt-5 grid lg:grid-cols-3 gap-5 mb-5">
+          {lecturer.map((row, k) => (
             <div className="border" key={k}>
               <div className="flex items-center gap-2 border-b p-2">
                 <Image
-                  src={'/img/lectemp.jpg'}
+                  src={row?.gambar_url ?? '/img/noimg.png'}
                   alt={'dosen palsu'}
                   className={'size-12 w-12 rounded-full object-cover'}
                   width={60}
@@ -58,6 +73,18 @@ export const ListLecturerTheme3 = () => {
             </div>
           ))}
         </div>
+
+        {meta && (
+          <PaginationCustom
+            meta={meta}
+            page={Number(page)}
+            onPageChange={(e) => {
+              const ParamSearch = new URLSearchParams(searchParams)
+              ParamSearch.set('page', e.toString())
+              router.push('?' + ParamSearch.toString())
+            }}
+          />
+        )}
       </div>
     </>
   )

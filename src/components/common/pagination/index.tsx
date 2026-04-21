@@ -3,11 +3,11 @@
 import {
   Pagination,
   PaginationContent,
+  PaginationEllipsis,
   PaginationItem,
   PaginationLink,
   PaginationNext,
   PaginationPrevious,
-  PaginationEllipsis,
 } from '@/components/ui/pagination'
 import { Meta } from '@/contexts/types'
 import { clsx } from 'clsx'
@@ -17,6 +17,7 @@ interface PaginationProps {
   page: number
   //eslint-disable-next-line
   onPageChange: (page: number) => void
+  className?: string
 }
 
 export function PaginationCustom({ meta, page, onPageChange }: PaginationProps) {
@@ -61,7 +62,7 @@ export function PaginationCustom({ meta, page, onPageChange }: PaginationProps) 
         {getPages().map((item, index) => (
           <PaginationItem
             key={index}
-            className={`cursor-pointer dark:bg-gray-900 rounded-md ${page !== item ? 'text-white' : ''}`}
+            className={`cursor-pointer dark:bg-gray-900 rounded-md ${page !== item ? 'text-primary!' : ''}`}
           >
             {item === 'ellipsis' ? (
               <PaginationEllipsis />

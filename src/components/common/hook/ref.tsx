@@ -1,0 +1,45 @@
+// public-prodi/ref/program-studi-fakultas
+
+import { useEffect, useState } from 'react'
+import { BasicProps, Meta } from '@/contexts/types'
+import { useQuery } from '@tanstack/react-query'
+import AxiosClient from '@/provider/axios'
+
+interface shortProdi {
+  id_satuan_organisasi: string
+  nama: string
+  kelompok: string
+  domain: string
+  nama_jenjang_pendidikan: string
+  kode_jenjang: string
+}
+
+export const UseGetProdiFaculty = (props?: BasicProps) => {
+  const { page, search, limit } = props ?? {}
+
+  const [prodi, setProdi] = useState<shortProdi[]>([])
+  const [meta, setMeta] = useState<Meta>()
+
+  const Params = new URLSearchParams()
+  if (page) Params.append('page', page ?? '1')
+  if (limit) Params.append('limit', limit ?? '10')
+  if (search) Params.append('search', search ?? '')
+
+  const { data, isLoading, isFetching } = useQuery({
+    queryKey: ['prodi-faculty', Params.toString()],
+    refetchOnWindowFocus: false,
+    queryFn: () =>
+      AxiosClient.get(`/public-prodi/ref/program-studi-fakultas?${Params}`).then((res) => res.data),
+  })
+
+  const loading = isLoading || isFetching
+
+  useEffect(() => {
+    if (data) {
+      setProdi(data?.data)
+      setMeta(data?.meta)
+    }
+  }, [data])
+
+  return { prodi, meta, loading }
+}

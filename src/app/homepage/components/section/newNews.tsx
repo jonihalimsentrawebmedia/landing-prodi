@@ -89,7 +89,7 @@ export const NewNewsSection = () => {
                       </p>
 
                       <p className="text-xs text-white/90 mt-1">
-                        {item?.published_at ? format(item?.published_at, 'dd MMMM yyyy') : '-'}
+                        {item?.tanggal_berita ? format(item?.tanggal_berita, 'dd MMMM yyyy') : '-'}
                       </p>
                     </div>
 
