@@ -51,7 +51,7 @@ const HeaderLayoutTheme5 = () => {
     <>
       <header className="sticky top-0 z-50 bg-[#FFFCF5]/90 backdrop-blur-md border-b-2 border-[#CDA327]">
         <div className="w-full bg-footer p-4">
-          <div className="container">
+          <div className="container-sm">
             <div className="flex items-center w-full gap-x-2">
               <ServiceDropdownMenu />
               <div className="w-full overflow-hidden">
