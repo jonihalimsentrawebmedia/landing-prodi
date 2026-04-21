@@ -5,19 +5,32 @@ import { BasicProps, Meta } from '@/contexts/types'
 import { useQuery } from '@tanstack/react-query'
 import AxiosClient from '@/provider/axios'
 
-interface shortProdi {
+export interface IProdi {
   id_satuan_organisasi: string
   nama: string
-  kelompok: string
+  kelompok: 'PRODI' | string
   domain: string
-  nama_jenjang_pendidikan: string
-  kode_jenjang: string
+
+  nama_jenjang_pendidikan: string | null
+  kode_jenjang: string | null
+}
+
+export interface IFakultas {
+  id_satuan_organisasi: string
+  nama: string
+  kelompok: 'FAKULTAS' | string
+  domain: string
+
+  nama_jenjang_pendidikan: string | null
+  kode_jenjang: string | null
+
+  prodi: IProdi[]
 }
 
 export const UseGetProdiFaculty = (props?: BasicProps) => {
   const { page, search, limit } = props ?? {}
 
-  const [prodi, setProdi] = useState<shortProdi[]>([])
+  const [prodi, setProdi] = useState<IFakultas[]>([])
   const [meta, setMeta] = useState<Meta>()
 
   const Params = new URLSearchParams()

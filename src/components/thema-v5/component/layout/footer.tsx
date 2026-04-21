@@ -4,14 +4,10 @@ import { useStateContext } from '@/contexts'
 import Image from 'next/image'
 import { FaFacebook, FaInstagram, FaTwitter, FaYoutube } from 'react-icons/fa'
 import { Separator } from '@/components/ui/separator'
-import Link from 'next/link'
-import { UseGetProdiFaculty } from '@/components/common/hook/ref'
-import { GoDotFill } from 'react-icons/go'
+import ProdiTree from '@/components/thema-v5/component/layout/prodiTree'
 
 const FooterLayoutV5 = () => {
   const [{ profile }] = useStateContext()
-  const { prodi } = UseGetProdiFaculty()
-  console.log(prodi)
 
   return (
     <>
@@ -77,21 +73,7 @@ const FooterLayoutV5 = () => {
 
             <div>
               <p className="text-yellow-500 lg:text-2xl lg:whitespace-nowrap">Program Studi</p>
-              <ul className={'mt-4 space-y-4 text-white grid lg:grid-cols-2 gap-y-0 gap-x-2'}>
-                {prodi?.map((row, k) => (
-                  <Link
-                    target={'_blank'}
-                    href={'https://' + row?.domain}
-                    key={k}
-                    className={'hover:text-yellow-500'}
-                  >
-                    <li className={'flex items-center gap-1.5 text-xs whitespace-pre-line'}>
-                      <GoDotFill className={'size-4 text-yellow-500'} />
-                      {row?.nama} ({row?.kode_jenjang})
-                    </li>
-                  </Link>
-                ))}
-              </ul>
+              <ProdiTree />
             </div>
           </div>
           <Separator className={'my-5 border-white hidden lg:block'} />

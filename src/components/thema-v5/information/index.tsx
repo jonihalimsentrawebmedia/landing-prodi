@@ -22,7 +22,7 @@ const InformationPageSectionV5 = () => {
 
   const { news } = UseGetNews({
     page: '1',
-    limit: '5',
+    limit: '7',
   })
 
   const { announcement } = UseGetAnnouncement({
@@ -36,8 +36,8 @@ const InformationPageSectionV5 = () => {
   })
 
   const FirstNews = news?.[0]
-  const SecondNews = news?.slice(1, 3)
-  const MoresNews = news?.slice(3, 5)
+  const SecondNews = news?.slice(1, 4)
+  const MoresNews = news?.slice(4, 7)
 
   return (
     <>
@@ -104,7 +104,9 @@ const InformationPageSectionV5 = () => {
                     </p>
                     <p className={'text-white line-clamp-2 font-semibold'}>{FirstNews?.judul}</p>
                     <p className={'text-white text-sm'}>
-                      {FirstNews?.tanggal_berita ? format(FirstNews?.tanggal_berita, 'dd-MM-yyyy') : ''}
+                      {FirstNews?.tanggal_berita
+                        ? format(FirstNews?.tanggal_berita, 'dd-MM-yyyy')
+                        : ''}
                     </p>
                   </div>
                   <Image
@@ -134,7 +136,9 @@ const InformationPageSectionV5 = () => {
                     <Link
                       href={`/information/news/${row?.slug}`}
                       key={index}
-                      className={'flex flex-col gap-2 border rounded-lg overflow-hidden w-full min-w-[250px]'}
+                      className={
+                        'flex flex-col gap-2 border rounded-lg overflow-hidden w-full min-w-[250px]'
+                      }
                     >
                       <Image
                         src={row?.gambar ?? '/img/noimg.png'}
@@ -155,7 +159,62 @@ const InformationPageSectionV5 = () => {
               )}
             </div>
 
-            <div className="lg:block hidden">
+            <div className="lg:block hidden space-y-4">
+              <div className="flex items-start gap-5">
+                <div className="w-1/2 space-y-4">
+                  <Image
+                    src={FirstNews?.gambar ?? '/img/noimg.png'}
+                    alt={'gambar'}
+                    className={'w-full h-[470px]'}
+                    width={650}
+                    height={475}
+                  />
+                  <div className="flex items-center gap-2">
+                    <p className="text-sm py-1.5 px-3 rounded-full font-semibold bg-footer/10 text-footer flex items-center gap-1">
+                      <FaRegCalendarAlt />
+                      {FirstNews?.tanggal_berita
+                        ? format(FirstNews?.tanggal_berita, 'dd-MM- yyyy')
+                        : ''}
+                    </p>
+                    <p className="text-sm py-1.5 px-3 rounded-full font-semibold bg-footer/10 text-footer flex items-center gap-1">
+                      {FirstNews?.nama_kategori_berita}
+                    </p>
+                  </div>
+                  <p className={'text-2xl font-semibold text-footer'}>{FirstNews?.judul}</p>
+                </div>
+
+                <div className="w-1/2 flex flex-col gap-4">
+                  {SecondNews?.map((row, index) => (
+                    <Link href={`/information/news/${row?.slug}`} key={index}>
+                      <div className={'flex items-start gap-x-4'}>
+                        <Image
+                          src={row?.gambar}
+                          alt={'gambar'}
+                          width={300}
+                          height={220}
+                          className={'w-[250px] lg:min-w-[250px] h-[180px] rounded-lg object-cover'}
+                        />
+                        <div className={'space-y-4'}>
+                          <div className="flex items-center gap-2">
+                            <p className="text-sm py-1.5 px-3 rounded-full font-semibold bg-footer/10 text-footer flex items-center gap-1">
+                              <FaRegCalendarAlt />
+                              {FirstNews?.tanggal_berita
+                                ? format(FirstNews?.tanggal_berita, 'dd-MM- yyyy')
+                                : ''}
+                            </p>
+                            <p className="text-sm py-1.5 px-3 rounded-full font-semibold bg-footer/10 text-footer flex items-center gap-1">
+                              {FirstNews?.nama_kategori_berita}
+                            </p>
+                          </div>
+                          <p className={'text-xl line-clamp-2 font-semibold text-footer'}>
+                            {FirstNews?.judul}
+                          </p>
+                        </div>
+                      </div>
+                    </Link>
+                  ))}
+                </div>
+              </div>
               <Carousel
                 opts={{
                   loop: true,
@@ -164,7 +223,7 @@ const InformationPageSectionV5 = () => {
                 plugins={[Autoplay({ delay: 3000 })]}
               >
                 <CarouselContent className={'flex items-stretch'}>
-                  {news?.map((row, index) => (
+                  {MoresNews?.map((row, index) => (
                     <CarouselItem key={index} className={'basis-1/3'}>
                       <Link href={`/information/news/${row?.slug}`}>
                         <div className={'shadow rounded-lg border h-full group'}>
