@@ -5,8 +5,8 @@ import Image from 'next/image'
 import { FaFacebook, FaInstagram, FaTwitter, FaYoutube } from 'react-icons/fa'
 import { Separator } from '@/components/ui/separator'
 import Link from 'next/link'
-import { NavMenuList } from '@/components/layout/header/menuList'
 import { UseGetProdiFaculty } from '@/components/common/hook/ref'
+import { GoDotFill } from 'react-icons/go'
 
 const FooterLayoutV5 = () => {
   const [{ profile }] = useStateContext()
@@ -53,7 +53,7 @@ const FooterLayoutV5 = () => {
                 </li>
               </ul>
             </div>
-            <div>
+            <div className={'block lg:hidden'}>
               <p className="text-yellow-500 lg:text-2xl lg:whitespace-nowrap">Sosial Media</p>
               <ul className={'mt-4 space-y-4 text-white'}>
                 <li className={'flex items-center gap-2'}>
@@ -85,19 +85,33 @@ const FooterLayoutV5 = () => {
                     key={k}
                     className={'hover:text-yellow-500'}
                   >
-                    <li className={'text-base'}>{row?.nama}</li>
+                    <li className={'text-base flex items-center gap-1.5'}>
+                      <GoDotFill className={'size-4 text-yellow-500'} />
+                      {row?.nama}
+                    </li>
                   </Link>
                 ))}
               </ul>
             </div>
           </div>
           <Separator className={'my-5 border-white hidden lg:block'} />
-          <ul className={'w-fit mx-auto items-center gap-5 text-white hidden lg:flex'}>
-            {NavMenuList?.map((row, k) => (
-              <Link href={row?.link} key={k} className={'hover:text-yellow-500'}>
-                <li>{row?.name}</li>
-              </Link>
-            ))}
+          <ul className={'pb-4 text-white justify-center items-center gap-5 hidden lg:flex'}>
+            <li className={'flex items-center gap-2'}>
+              <FaFacebook className={'size-5'} />
+              Facebook
+            </li>
+            <li className={'flex items-center gap-2'}>
+              <FaTwitter className={'size-5'} />
+              Twitter
+            </li>
+            <li className={'flex items-center gap-2'}>
+              <FaInstagram className={'size-5'} />
+              Instagram
+            </li>
+            <li className={'flex items-center gap-2'}>
+              <FaYoutube className={'size-5'} />
+              Youtube
+            </li>
           </ul>
         </div>
       </div>

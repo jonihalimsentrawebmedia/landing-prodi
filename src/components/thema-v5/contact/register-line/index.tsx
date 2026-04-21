@@ -11,6 +11,7 @@ const RegisterLineSectionV5 = () => {
 
   useEffect(() => {
     if (registration) {
+      // eslint-disable-next-line react-hooks/set-state-in-effect
       setCategory(registration?.[0]?.slug)
     }
   }, [registration])

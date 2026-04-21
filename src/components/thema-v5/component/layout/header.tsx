@@ -51,14 +51,20 @@ const HeaderLayoutTheme5 = () => {
         <div className="w-full bg-footer p-4"></div>
         <div className="container-sm mx-auto lg:px-8 lg:py-2.5 flex items-center justify-between p-2">
           <Link href={'/'} className="flex items-center gap-2">
-            <div className="w-14 h-14 bg-white rounded-full flex items-center justify-center relative">
-              <Image src={organization?.logo ?? '/img/noimg.png'} fill alt="Logo" />
+            <div className="rounded-full flex items-center justify-center relative">
+              <Image
+                src={organization?.logo ?? '/img/noimg.png'}
+                width={50}
+                height={50}
+                className={'w-14 size-14 object-contain'}
+                alt="Logo"
+              />
             </div>
             <div className={'space-y-1.5'}>
-              <h1 className="text-[#278374] text-sm lg:text-xl font-semibold leading-none">
+              <h1 className="text-footer text-xs lg:text-xl font-semibold leading-none whitespace-pre-line">
                 {organization?.nama}
               </h1>
-              <p className="text-[#CDA327] text-xs lg:text-lg font-medium">
+              <p className="text-[#CDA327] text-[8px] lg:text-lg font-medium">
                 {organization?.singkatan_universitas}
               </p>
             </div>

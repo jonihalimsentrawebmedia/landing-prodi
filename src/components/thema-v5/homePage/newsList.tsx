@@ -27,36 +27,46 @@ const NewsListSectionV5 = () => {
         </p>
 
         <div className={'block lg:hidden space-y-4'}>
-          <div className="relative w-full h-fit">
-            <div className="absolute space-y-2.5 p-2.5 top-0 left-0 w-full h-full bg-linear-to-b from-footer to-transparent">
-              <p className="text-xs bg-white w-fit rounded-full px-3 py-1.5 text-footer">
-                {FirstNews?.nama_kategori_berita}
-              </p>
-              <p className={'text-white line-clamp-2 font-semibold'}>{FirstNews?.judul}</p>
-              <p className={'text-white text-sm'}>
-                {FirstNews?.tanggal_berita ? format(FirstNews?.tanggal_berita, 'dd-MM-yyyy') : ''}
-              </p>
+          <Link href={`/information/news/${FirstNews?.slug}`}>
+            <div className="relative w-full h-full">
+              <div className="absolute space-y-2.5 p-2.5 top-0 left-0 w-full h-full bg-linear-to-b from-footer to-transparent">
+                <p className="text-xs bg-white w-fit rounded-full px-3 py-1.5 text-footer">
+                  {FirstNews?.nama_kategori_berita}
+                </p>
+                <p className={'text-white line-clamp-2 font-semibold'}>{FirstNews?.judul}</p>
+                <p className={'text-white text-sm'}>
+                  {FirstNews?.tanggal_berita ? format(FirstNews?.tanggal_berita, 'dd-MM-yyyy') : ''}
+                </p>
+              </div>
+              <Image
+                src={FirstNews?.gambar ?? '/img/noimg.png'}
+                alt={'gamabr'}
+                className={'w-full h-[310px] object-cover'}
+                width={500}
+                height={310}
+              />
             </div>
-            <Image
-              src={FirstNews?.gambar ?? '/img/noimg.png'}
-              alt={'gamabr'}
-              className={'w-full h-[310px] object-cover'}
-              width={500}
-              height={310}
-            />
+          </Link>
+          <div className="mt-4 flex flex-col gap-4">
+            {SecondNews?.map((row, index) => (
+              <Link href={`/information/news/${row?.slug}`} key={index}>
+                <div className={'border bg-white dark:bg-gray-800 p-4 rounded'}>
+                  <p className={'text-footer text-xs'}>
+                    {row?.tanggal_berita ? format(row?.tanggal_berita, 'dd-MM-yyyy') : ''}
+                  </p>
+                  <p className={'text-footer line-clamp-2 font-semibold'}>{row?.judul}</p>
+                </div>
+              </Link>
+            ))}
           </div>
-          {SecondNews?.map((row, index) => (
-            <div key={index} className={'border bg-white dark:bg-gray-800 p-4 rounded'}>
-              <p className={'text-footer text-xs'}>
-                {row?.tanggal_berita ? format(row?.tanggal_berita, 'dd-MM-yyyy') : ''}
-              </p>
-              <p className={'text-footer line-clamp-2 font-semibold'}>{row?.judul}</p>
-            </div>
-          ))}
           {MoresNews?.length > 0 && (
             <div className={'flex gap-4 flex-nowrap items-start overflow-x-scroll'}>
               {MoresNews?.map((row, index) => (
-                <div key={index} className={'flex flex-col gap-2'}>
+                <Link
+                  href={`/information/news/${row?.slug}`}
+                  key={index}
+                  className={'flex flex-col gap-2 border rounded-lg overflow-hidden w-full min-w-[250px]'}
+                >
                   <Image
                     src={row?.gambar ?? '/img/noimg.png'}
                     alt={'gamabr'}
@@ -70,7 +80,7 @@ const NewsListSectionV5 = () => {
                       {row?.tanggal_berita ? format(row?.tanggal_berita, 'dd-MM-yyyy') : ''}
                     </p>
                   </div>
-                </div>
+                </Link>
               ))}
             </div>
           )}

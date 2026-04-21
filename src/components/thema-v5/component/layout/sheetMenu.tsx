@@ -16,6 +16,7 @@ import Link from 'next/link'
 import { IProfileResponse } from '@/contexts/types'
 import { RiGlobalFill } from 'react-icons/ri'
 import { NavMenuList } from '@/components/layout/header/menuList'
+import DarkModeToggle from '@/components/thema-v5/component/common/darkmode'
 
 interface props {
   profile?: IProfileResponse | null
@@ -61,10 +62,10 @@ export const SheetMenu = (props: props) => {
             </div>
           </SheetTrigger>
 
-          <SheetContent className={'w-full z-[52] gap-0 bg-footer'}>
+          <SheetContent className={'w-80 z-[52] gap-0 bg-footer'} showCloseButton={false}>
             <SheetHeader className={'p-2'}>
               <SheetTitle>
-                <div className={'flex items-center gap-1.5'}>
+                <div className={'flex items-center gap-2'}>
                   <Image
                     src={profile?.SatuanOrganisasi?.logo ?? '/img/noimg.png'}
                     alt={'logo'}
@@ -73,7 +74,7 @@ export const SheetMenu = (props: props) => {
                     className={'rounded-full object-cover size-16'}
                   />
                   <div>
-                    <p className="lg:text-2xl font-semibold text-white">
+                    <p className="lg:text-2xl text-sm font-semibold text-white whitespace-pre-line">
                       {profile?.SatuanOrganisasi?.nama}
                     </p>
                     <p className={'text-xs text-white'}>
@@ -84,6 +85,9 @@ export const SheetMenu = (props: props) => {
               </SheetTitle>
               <SheetDescription asChild>
                 <div className={'w-full flex flex-col gap-2'}>
+                  <div className="bg-white px-3 p-1.5 w-fit my-2 rounded ml-auto">
+                    <DarkModeToggle setOpen={setOpen} />
+                  </div>
                   <Link
                     target={profile?.domain ?? '_blank'}
                     href={profile?.domain ? 'https://' + profile?.domain : ''}

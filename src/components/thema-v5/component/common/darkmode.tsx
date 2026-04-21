@@ -1,10 +1,16 @@
 'use client'
 
-import { useEffect, useState } from 'react'
+import { Dispatch, SetStateAction, useEffect, useState } from 'react'
 import { IoSunny } from 'react-icons/io5'
 import { FaMoon } from 'react-icons/fa'
 
-export default function DarkModeToggle() {
+interface Props {
+  setOpen?: Dispatch<SetStateAction<boolean>>
+}
+
+export default function DarkModeToggle(props: Props) {
+  const { setOpen } = props
+
   const [mounted, setMounted] = useState(false)
   const [darkMode, setDarkMode] = useState(false)
 
@@ -23,6 +29,7 @@ export default function DarkModeToggle() {
   const toggleDarkMode = () => {
     const newMode = !darkMode
     setDarkMode(newMode)
+    setOpen && setOpen(false)
     document.documentElement.classList.toggle('dark', newMode)
     localStorage.setItem('theme', newMode ? 'dark' : 'light')
   }

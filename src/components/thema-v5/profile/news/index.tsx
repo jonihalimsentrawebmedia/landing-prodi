@@ -6,11 +6,15 @@ import ProfileLayout from '@/components/thema-v5/profile/layout'
 import { UseGetNews } from '@/app/homepage/hooks'
 import Image from 'next/image'
 import { format } from 'date-fns'
+import { FaRegCalendarAlt } from 'react-icons/fa'
+import { FaCircleChevronRight } from 'react-icons/fa6'
+import Link from 'next/link'
+import { ArrowRight } from 'lucide-react'
 
 const NewsProfileSectionV5 = () => {
   const { news, loading } = UseGetNews({
     page: '1',
-    limit: '3',
+    limit: '4',
   })
 
   if (loading) return <></>
@@ -32,30 +36,52 @@ const NewsProfileSectionV5 = () => {
                   Berita
                 </p>
 
-                {news?.map((row, k) => (
-                  <div className={'flex flex-col lg:flex-row gap-2.5 lg:gap-5'} key={k}>
-                    <Image
-                      src={row?.gambar}
-                      alt={'gambar'}
-                      width={300}
-                      height={250}
-                      className={'lg:w-[295px] w-full h-[210px] object-cover rounded-md'}
-                    />
-                    <div className={'space-y-4'}>
-                      <p className="text-sm font-semibold text-footer">
-                        {row?.nama_kategori_berita}
-                      </p>
-                      <p className={'text-2xl'}>{row?.judul}</p>
-                      <p className="text-sm text-footer">
-                        {row?.tanggal_berita ? format(row?.tanggal_berita, 'dd-MM-yyyy') : ''}
-                      </p>
-                      <div
-                        className={'html-class flex flex-col gap-1.5 line-clamp-3!'}
-                        dangerouslySetInnerHTML={{ __html: row?.isi_berita ?? '' }}
-                      />
-                    </div>
-                  </div>
-                ))}
+                <div className="grid grid-cols-2 gap-5">
+                  {news?.map((row, k) => (
+                    <Link key={k} href={`/information/news/${row?.slug}`}>
+                      <div className={'shadow rounded-lg border h-full group'}>
+                        <div className="w-full h-[310px] overflow-hidden rounded-t-lg">
+                          <Image
+                            src={row?.gambar}
+                            alt={row?.judul}
+                            className={
+                              'w-full h-[310px] object-cover rounded-t-lg group-hover:scale-110 transition-all duration-300'
+                            }
+                            width={500}
+                            height={310}
+                          />
+                        </div>
+                        <div className={'p-4 space-y-2.5 relative'}>
+                          <div className="flex items-center gap-x-2">
+                            <p className="text-sm py-1.5 px-3 rounded-full font-semibold bg-footer/10 text-footer flex items-center gap-1">
+                              <FaRegCalendarAlt />
+                              {row?.tanggal_berita
+                                ? format(row?.tanggal_berita, 'dd-MM- yyyy')
+                                : ''}
+                            </p>
+                            <p className="text-sm py-1.5 px-3 rounded-full font-semibold bg-footer/10 text-footer flex items-center gap-1">
+                              {row?.nama_kategori_berita}
+                            </p>
+                          </div>
+                          <p className="font-semibold group-hover:text-footer line-clamp-2">
+                            {row?.judul}
+                          </p>
+                          <button className={'text-footer flex items-center gap-1 text-sm'}>
+                            <FaCircleChevronRight className={'size-4'} />
+                            Baca Lebih Lanjut
+                          </button>
+                        </div>
+                      </div>
+                    </Link>
+                  ))}
+                </div>
+
+                <div className={'flex justify-end'}>
+                  <Link href={'/information/news'} className={'flex items-center gap-1'}>
+                    Lihat Berita Lainnya
+                    <ArrowRight className={'size-4'} />
+                  </Link>
+                </div>
               </div>
             </div>
           </div>

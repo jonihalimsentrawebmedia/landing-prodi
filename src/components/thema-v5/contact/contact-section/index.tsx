@@ -10,6 +10,7 @@ import { Tabs, TabsContent, TabsList, TabsTrigger } from '@/components/ui/tabs'
 import { useEffect, useState } from 'react'
 import { clsx } from 'clsx'
 import { FaqListData } from '@/components/thema-v5/contact/contact-section/faqSection'
+import { TitleLine } from '@/components/thema-v5/component/common/titleLine'
 
 const ContactSectionV5 = () => {
   const { contactUse, loading: load2 } = UseGetContactUsProfile()
@@ -19,6 +20,7 @@ const ContactSectionV5 = () => {
 
   useEffect(() => {
     if (faqCategory) {
+      // eslint-disable-next-line react-hooks/set-state-in-effect
       setCategory(faqCategory?.[0]?.slug)
     }
   }, [faqCategory])
@@ -29,7 +31,14 @@ const ContactSectionV5 = () => {
   return (
     <>
       <div className="flex flex-col lg:flex-row items-start w-full gap-8 mt-5">
-        <div className="w-full lg:w-1/2">
+        <div className="w-full lg:w-1/2 space-y-4">
+          <p className="text-2xl font-semibold text-footer underline underline-offset-8 decoration-yellow-500">
+            Butuh Bantuan ?
+          </p>
+          <p>
+            Jangan ragu untuk menghubungi kami melalui form berikut. Tuliskan pertanyaan atau
+            kendala Anda, dan tim kami akan membantu secepatnya
+          </p>
           <FormContactTheme5 />
         </div>
         <div className={'w-full lg:w-1/2 space-y-4'}>
@@ -84,12 +93,20 @@ const ContactSectionV5 = () => {
         </div>
       </div>
 
+      <div className="mt-8">
+        <TitleLine text={'FAQ (Frequently Asked Questions)'} className={'text-footer!'} />
+      </div>
+
       <Tabs
         className={'bg-primary w-full mt-5 flex flex-col lg:flex-row items-start'}
         value={category}
         onValueChange={setCategory}
       >
-        <TabsList className={'w-full flex flex-row lg:flex-col h-full max-w-[200px] text-start bg-white gap-2'}>
+        <TabsList
+          className={
+            'w-full flex flex-row lg:flex-col h-full max-w-[200px] text-start bg-white gap-2'
+          }
+        >
           {faqCategory?.map((item, k) => (
             <TabsTrigger
               key={k}
@@ -105,6 +122,9 @@ const ContactSectionV5 = () => {
         </TabsList>
         {faqCategory?.map((item, k) => (
           <TabsContent key={k} value={item?.slug}>
+            <p className="text-footer font-semibold mb-4">
+              {faqCategory?.find((row) => row.slug === category)?.nama_kategori_faq}
+            </p>
             <FaqListData slug={item?.slug} />
           </TabsContent>
         ))}
