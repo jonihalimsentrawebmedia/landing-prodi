@@ -88,14 +88,18 @@ const NewsListSectionV5 = () => {
               {news?.map((row, index) => (
                 <CarouselItem key={index} className={'basis-1/3'}>
                   <Link href={`/information/news/${row?.slug}`}>
-                    <div className={'shadow rounded-lg border h-full'}>
-                      <Image
-                        src={row?.gambar}
-                        alt={row?.judul}
-                        className={'w-full h-[310px] object-cover rounded-t-lg'}
-                        width={500}
-                        height={310}
-                      />
+                    <div className={'shadow rounded-lg border h-full group'}>
+                      <div className="w-full h-[310px] overflow-hidden rounded-t-lg">
+                        <Image
+                          src={row?.gambar}
+                          alt={row?.judul}
+                          className={
+                            'w-full h-[310px] object-cover rounded-t-lg group-hover:scale-110 transition-all duration-300'
+                          }
+                          width={500}
+                          height={310}
+                        />
+                      </div>
                       <div className={'p-4 space-y-2.5 relative'}>
                         <div className="flex items-center gap-x-2">
                           <p className="text-sm py-1.5 px-3 rounded-full font-semibold bg-footer/10 text-footer flex items-center gap-1">
@@ -106,7 +110,9 @@ const NewsListSectionV5 = () => {
                             {row?.nama_kategori_berita}
                           </p>
                         </div>
-                        <p className="font-semibold line-clamp-2">{row?.judul}</p>
+                        <p className="font-semibold group-hover:text-footer line-clamp-2">
+                          {row?.judul}
+                        </p>
                         <button className={'text-footer flex items-center gap-1 text-sm'}>
                           <FaCircleChevronRight className={'size-4'} />
                           Baca Lebih Lanjut
@@ -122,7 +128,7 @@ const NewsListSectionV5 = () => {
 
         <div className="flex justify-center">
           <Link href={'/information/news'}>
-            <Button className={'bg-footer text-white mx-auto'}>
+            <Button className={'bg-footer hover:bg-footer text-white mx-auto'}>
               Lihat Berita
               <ChevronRight className={'size-4'} />
             </Button>

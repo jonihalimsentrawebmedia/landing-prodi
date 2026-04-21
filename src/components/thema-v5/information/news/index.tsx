@@ -10,6 +10,8 @@ import { SearchInput } from '@/components/common/filter/search'
 import Image from 'next/image'
 import { format } from 'date-fns'
 import Link from 'next/link'
+import { FaRegCalendarAlt } from 'react-icons/fa'
+import { FaCircleChevronRight } from 'react-icons/fa6'
 
 const NewsInformationV5 = () => {
   const { newsCategory, loading: load3 } = UseGetNewsCategory()
@@ -57,25 +59,38 @@ const NewsInformationV5 = () => {
 
             <div className="grid lg:grid-cols-3 gap-5">
               {news?.map((row, k) => (
-                <Link
-                  href={`/information/news/${row?.slug}`}
-                  className="w-full space-y-1.5"
-                  key={k}
-                >
-                  <Image
-                    src={row?.gambar ?? '/img/noimg.png'}
-                    alt={'gamabr'}
-                    width={650}
-                    height={315}
-                    className={'w-full h-[315px] object-cover rounded-md'}
-                  />
-                  <p className="text-footer text-sm">{row?.nama_kategori_berita}</p>
-                  <p className={'line-clamp-2 text-2xl font-semibold'}>{row?.judul}</p>
-                  <p>{row?.tanggal_berita ? format(row?.tanggal_berita, 'dd-MM-yyyy') : ''}</p>
-                  <div
-                    className={'html-class flex flex-col ap1 gap-1.5 line-clamp-3!'}
-                    dangerouslySetInnerHTML={{ __html: row?.isi_berita ?? '' }}
-                  />
+                <Link href={`/information/news/${row?.slug}`} key={k}>
+                  <div className={'shadow rounded-lg border h-full group'}>
+                    <div className="w-full h-[310px] overflow-hidden rounded-t-lg">
+                      <Image
+                        src={row?.gambar}
+                        alt={row?.judul}
+                        className={
+                          'w-full h-[310px] object-cover rounded-t-lg group-hover:scale-110 transition-all duration-300'
+                        }
+                        width={500}
+                        height={310}
+                      />
+                    </div>
+                    <div className={'p-4 space-y-2.5 relative'}>
+                      <div className="flex items-center gap-x-2">
+                        <p className="text-sm py-1.5 px-3 rounded-full font-semibold bg-footer/10 text-footer flex items-center gap-1">
+                          <FaRegCalendarAlt />
+                          {row?.tanggal_berita ? format(row?.tanggal_berita, 'dd-MM- yyyy') : ''}
+                        </p>
+                        <p className="text-sm py-1.5 px-3 rounded-full font-semibold bg-footer/10 text-footer flex items-center gap-1">
+                          {row?.nama_kategori_berita}
+                        </p>
+                      </div>
+                      <p className="font-semibold group-hover:text-footer line-clamp-2">
+                        {row?.judul}
+                      </p>
+                      <button className={'text-footer flex items-center gap-1 text-sm'}>
+                        <FaCircleChevronRight className={'size-4'} />
+                        Baca Lebih Lanjut
+                      </button>
+                    </div>
+                  </div>
                 </Link>
               ))}
             </div>
