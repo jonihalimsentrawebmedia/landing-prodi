@@ -77,7 +77,7 @@ const FooterLayoutV5 = () => {
 
             <div>
               <p className="text-yellow-500 lg:text-2xl lg:whitespace-nowrap">Program Studi</p>
-              <ul className={'mt-4 space-y-4 text-white'}>
+              <ul className={'mt-4 space-y-4 text-white grid grid-cols-2 gap-2'}>
                 {prodi?.map((row, k) => (
                   <Link
                     target={'_blank'}
