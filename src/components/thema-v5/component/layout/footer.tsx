@@ -11,7 +11,7 @@ const FooterLayoutV5 = () => {
 
   return (
     <>
-      <div className="bg-footer lg:p-5 py-4 w-full max-w-[1920px] mx-auto ">
+      <div className="bg-footer lg:p-5 py-4 w-full mx-auto ">
         <div className="container-sm">
           <div className="flex flex-col lg:flex-row items-start gap-5">
             <div className={'lg:w-1/2'}>
@@ -31,8 +31,22 @@ const FooterLayoutV5 = () => {
               <p className={'text-primary text-xs lg:text-base'}>
                 {profile?.SatuanOrganisasi?.alamat}
               </p>
+              <ul className={'mt-4 space-y-4 hidden lg:block'}>
+                <li className={'space-y-2'}>
+                  <p className="text-xs text-primary">Email</p>
+                  <p className={'text-white'}>{profile?.SatuanOrganisasi.email}</p>
+                </li>
+                <li className={'space-y-2'}>
+                  <p className="text-xs text-primary">Telepon</p>
+                  <p className={'text-white'}>{profile?.SatuanOrganisasi.telepon}</p>
+                </li>
+                <li className={'space-y-2'}>
+                  <p className="text-xs text-primary">Fax</p>
+                  <p className={'text-white'}>{profile?.SatuanOrganisasi.fax}</p>
+                </li>
+              </ul>
             </div>
-            <div>
+            <div className={'block lg:hidden'}>
               <p className="text-yellow-500 lg:text-2xl">Kontak</p>
               <ul className={'mt-4 space-y-4'}>
                 <li className={'space-y-2'}>
@@ -97,7 +111,7 @@ const FooterLayoutV5 = () => {
           </ul>
         </div>
       </div>
-      <Separator className={'border-white'}/>
+      <Separator className={'border-white'} />
       <div className="bg-footer text-white text-center p-4 text-xs lg:text-base z-50 bottom-0 w-full">
         {profile?.SatuanOrganisasi?.kode_jenjang}-{profile?.SatuanOrganisasi?.nama} ©{' '}
         {new Date().getFullYear()}, All Rights Reserved.

@@ -19,7 +19,7 @@ export const FooterLayout = () => {
 
   return (
     <>
-      <div className={'w-full bg-footer py-2 lg:py-5 lg:p-5 max-w-[1920px] mx-auto'}>
+      <div className={'w-full bg-footer py-2 lg:py-5 lg:p-5 mx-auto'}>
         <div className="container items-start justify-between flex flex-col lg:flex-row gap-5">
           <div className={'flex items-center lg:items-start lg:flex-col gap-2'}>
             {detail?.logo && (

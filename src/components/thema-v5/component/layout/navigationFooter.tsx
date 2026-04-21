@@ -3,7 +3,7 @@ import { IoLocationSharp } from 'react-icons/io5'
 
 import Link from 'next/link'
 import { IProfileResponse } from '@/contexts/types'
-import { SheetMenu } from '@/components/thema-v5/component/layout/sheetMenu'
+import { SheetMenu } from '@/components/thema-v5/component/layout/header/sheetMenu'
 
 interface props {
   profile?: IProfileResponse | null

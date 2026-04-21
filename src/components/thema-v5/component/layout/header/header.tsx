@@ -10,7 +10,9 @@ import Image from 'next/image'
 import { NavMenuList } from '@/components/layout/header/menuList'
 import Link from 'next/link'
 import DarkModeToggle from '@/components/thema-v5/component/common/darkmode'
-import { SheetMenu } from '@/components/thema-v5/component/layout/sheetMenu'
+import { SheetMenu } from '@/components/thema-v5/component/layout/header/sheetMenu'
+import NewsQueueSection from '@/components/thema-v5/component/layout/header/newsQueue'
+import ServiceDropdownMenu from '@/components/thema-v5/component/layout/header/dropdownMenu'
 
 const HeaderLayoutTheme5 = () => {
   const { profile: profiles, loading } = UseGetProfile()
@@ -48,7 +50,16 @@ const HeaderLayoutTheme5 = () => {
   return (
     <>
       <header className="sticky top-0 z-50 bg-[#FFFCF5]/90 backdrop-blur-md border-b-2 border-[#CDA327]">
-        <div className="w-full bg-footer p-4"></div>
+        <div className="w-full bg-footer p-4">
+          <div className="container">
+            <div className="flex items-center w-full gap-x-2">
+              <ServiceDropdownMenu />
+              <div className="w-full overflow-hidden">
+                <NewsQueueSection />
+              </div>
+            </div>
+          </div>
+        </div>
         <div className="container-sm mx-auto lg:px-8 lg:py-4 flex items-center justify-between p-2">
           <Link href={'/'} className="flex items-center gap-2">
             <div className="rounded-full flex items-center justify-center relative">

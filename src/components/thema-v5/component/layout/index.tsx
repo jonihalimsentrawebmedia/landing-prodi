@@ -1,5 +1,5 @@
 import { ReactNode } from 'react'
-import HeaderLayoutTheme5 from '@/components/thema-v5/component/layout/header'
+import HeaderLayoutTheme5 from '@/components/thema-v5/component/layout/header/header'
 import FooterLayoutV5 from '@/components/thema-v5/component/layout/footer'
 
 interface Props {

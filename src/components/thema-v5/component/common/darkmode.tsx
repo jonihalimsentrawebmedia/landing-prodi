@@ -29,6 +29,7 @@ export default function DarkModeToggle(props: Props) {
   const toggleDarkMode = () => {
     const newMode = !darkMode
     setDarkMode(newMode)
+    // eslint-disable-next-line @typescript-eslint/no-unused-expressions
     setOpen && setOpen(false)
     document.documentElement.classList.toggle('dark', newMode)
     localStorage.setItem('theme', newMode ? 'dark' : 'light')
@@ -41,7 +42,7 @@ export default function DarkModeToggle(props: Props) {
   return (
     <div onClick={toggleDarkMode} className="flex items-center gap-2 cursor-pointer transition-all">
       <IoSunny
-        className={`size-4 lg:size-5 transition-colors ${darkMode ? 'text-[#278374]' : 'text-gray-400'}`}
+        className={`size-4 lg:size-5 transition-colors ${darkMode ? 'text-gray-400' : 'text-yellow-500'}`}
       />
 
       <div className="w-9 h-5 bg-[#278374] dark:bg-gray-800 rounded-full relative cursor-pointer">
@@ -53,7 +54,7 @@ export default function DarkModeToggle(props: Props) {
       </div>
 
       <FaMoon
-        className={`size-4 lg:size-5 transition-colors ${darkMode ? 'text-[#278374]' : 'text-gray-400'}`}
+        className={`size-4 lg:size-5 transition-colors ${darkMode ? 'text-black' : 'text-gray-400'}`}
       />
     </div>
   )
