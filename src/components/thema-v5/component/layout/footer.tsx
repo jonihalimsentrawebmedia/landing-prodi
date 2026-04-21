@@ -77,7 +77,7 @@ const FooterLayoutV5 = () => {
 
             <div>
               <p className="text-yellow-500 lg:text-2xl lg:whitespace-nowrap">Program Studi</p>
-              <ul className={'mt-4 space-y-4 text-white grid grid-cols-2 gap-2'}>
+              <ul className={'mt-4 space-y-4 text-white grid grid-cols-2 gap-y-0 gap-x-2'}>
                 {prodi?.map((row, k) => (
                   <Link
                     target={'_blank'}
@@ -85,9 +85,9 @@ const FooterLayoutV5 = () => {
                     key={k}
                     className={'hover:text-yellow-500'}
                   >
-                    <li className={'text-base flex items-center gap-1.5'}>
+                    <li className={'flex items-center gap-1.5 text-xs whitespace-nowrap'}>
                       <GoDotFill className={'size-4 text-yellow-500'} />
-                      {row?.nama}   ({row?.kode_jenjang})
+                      {row?.nama} ({row?.kode_jenjang})
                     </li>
                   </Link>
                 ))}
