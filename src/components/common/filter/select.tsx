@@ -36,7 +36,7 @@ export const FilterSelect = (props: Props) => {
     if (e === '') {
       Params.delete(name)
     }
-    router.push(`?${Params.toString()}`)
+    router.push(`?${Params.toString()}`, { scroll: false })
   }
 
   return (

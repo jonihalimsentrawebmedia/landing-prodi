@@ -6,6 +6,7 @@ import LayoutBaseTheme4 from '@/components/theme-v4/component/layout'
 import { LandingLayout } from '@/components/layout/index'
 import LayoutBaseTheme5 from '@/components/thema-v5/component/layout'
 import LayoutBaseTheme6 from '@/components/thema-V6/component/layout'
+import LayoutBaseTheme7 from '@/components/thema-V7/component/layout'
 
 interface props {
   children: ReactNode
@@ -38,6 +39,9 @@ const LayoutBase = async (props: props) => {
     }
     case 'THEMA_PRODI_ENAM': {
       return <LayoutBaseTheme6>{children}</LayoutBaseTheme6>
+    }
+    case 'THEMA_PRODI_TUJUH': {
+      return <LayoutBaseTheme7>{children}</LayoutBaseTheme7>
     }
   }
 }

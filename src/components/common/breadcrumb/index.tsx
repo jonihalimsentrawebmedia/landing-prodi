@@ -7,16 +7,18 @@ import {
 } from '@/components/ui/breadcrumb'
 import { Fragment } from 'react'
 import Link from 'next/link'
+import { cn } from '@/lib/utils'
 
 interface Props {
   data: {
     name: string
     link?: string
   }[]
+  className?: string
 }
 
 export const BreadcrumbBasic = (props: Props) => {
-  const { data } = props
+  const { data, className } = props
 
   return (
     <Breadcrumb className="w-full overflow-hidden">
@@ -28,11 +30,16 @@ export const BreadcrumbBasic = (props: Props) => {
             <Fragment key={index}>
               <BreadcrumbItem className="flex-shrink-0 whitespace-nowrap">
                 {item.link ? (
-                  <Link href={item.link} className="hover:bg-footer transition-colors text-primary">
+                  <Link
+                    href={item.link}
+                    className={cn('hover:bg-footer transition-colors text-primary', className)}
+                  >
                     {item.name}
                   </Link>
                 ) : (
-                  <BreadcrumbPage className="text-yellow-500 font-medium">{item.name}</BreadcrumbPage>
+                  <BreadcrumbPage className="text-yellow-500 font-medium">
+                    {item.name}
+                  </BreadcrumbPage>
                 )}
               </BreadcrumbItem>
 

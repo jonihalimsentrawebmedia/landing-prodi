@@ -11,10 +11,10 @@ import { NavMenuList } from '@/components/layout/header/menuList'
 import Link from 'next/link'
 import DarkModeToggle from '@/components/thema-v5/component/common/darkmode'
 import { SheetMenu } from '@/components/thema-v5/component/layout/header/sheetMenu'
-import NewsQueueSection from '@/components/thema-v5/component/layout/header/newsQueue'
-import ServiceDropdownMenu from '@/components/thema-v5/component/layout/header/dropdownMenu'
+import ServiceDropdownMenuV7 from '@/components/thema-V7/component/layout/dropdownService'
+import NewsQueueSectionV7 from '@/components/thema-V7/component/layout/newQueue'
 
-const HeaderLayoutThemaV6 = () => {
+const HeaderLayoutThemaV7 = () => {
   const { profile: profiles, loading } = UseGetProfile()
 
   const [{ profile }, Dispatch] = useStateContext()
@@ -48,13 +48,13 @@ const HeaderLayoutThemaV6 = () => {
 
   return (
     <>
-      <header className="sticky top-0 z-50 bg-primary/20 backdrop-blur-md border-b-2 border-[#CDA327]">
+      <header className="sticky top-0 z-50 bg-primary backdrop-blur-md border-b-2 border-[#CDA327]">
         <div className="w-full bg-footer py-2">
           <div className="container-sm ">
             <div className="flex items-center w-full gap-x-2">
-              <ServiceDropdownMenu />
+              <ServiceDropdownMenuV7 />
               <div className="w-full overflow-hidden">
-                <NewsQueueSection />
+                <NewsQueueSectionV7 />
               </div>
             </div>
           </div>
@@ -62,7 +62,7 @@ const HeaderLayoutThemaV6 = () => {
         <div className="container-sm mx-auto lg:px-8 lg:py-4 flex items-center justify-between p-2">
           <Link href={'/'} className="flex items-center gap-2">
             <div className="rounded-full flex items-center justify-center relative">
-              <div className="relative w-15 h-15 min-w-14">
+              <div className="relative w-15 h-15 min-w-14 bg-white rounded-full">
                 <Image
                   src={organization?.logo ?? '/img/noimg.png'}
                   fill
@@ -72,7 +72,7 @@ const HeaderLayoutThemaV6 = () => {
               </div>
             </div>
             <div className={'space-y-1.5'}>
-              <h1 className="text-footer text-xs lg:text-xl font-semibold leading-none whitespace-pre-line">
+              <h1 className="text-white text-xs lg:text-xl font-semibold leading-none whitespace-pre-line">
                 {organization?.nama}
               </h1>
               <p className="text-[#CDA327] text-[8px] lg:text-lg font-medium">
@@ -82,7 +82,7 @@ const HeaderLayoutThemaV6 = () => {
           </Link>
 
           <div className="flex items-center gap-3">
-            <nav className="hidden md:flex items-center gap-4 text-[#278374]">
+            <nav className="hidden md:flex items-center gap-4 text-white">
               {NavMenuList?.map((row, k) => (
                 <Link
                   href={row?.link}
@@ -105,4 +105,4 @@ const HeaderLayoutThemaV6 = () => {
     </>
   )
 }
-export default HeaderLayoutThemaV6
+export default HeaderLayoutThemaV7
