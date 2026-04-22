@@ -28,6 +28,9 @@ const DetailAgendaPage = async () => {
     case 'THEMA_PRODI_LIMA': {
       return <DetailAgendaPgeV5 />
     }
+    case 'THEMA_PRODI_ENAM': {
+      return <DetailAgendaPgeV5 />
+    }
   }
 }
 

@@ -15,6 +15,7 @@ const LayoutBase = async (props: props) => {
   const { children } = props
   const theme = await FetchResAPI('/public-prodi/public')
   const themes = theme?.data?.thema ?? {}
+  console.log(themes)
 
   switch (themes) {
     default: {

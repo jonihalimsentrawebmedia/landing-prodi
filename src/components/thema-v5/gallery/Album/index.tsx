@@ -55,13 +55,13 @@ const GalleryAlbumV5 = () => {
       ) : (
         <>
           <div className="lg:container mt-2">
-            <div className={'lg:grid lg:grid-cols-3 gap-5 bg-white dark:bg-primary flex flex-col'}>
+            <div className={'lg:grid lg:grid-cols-3 gap-5 bg-transparent dark:bg-primary flex flex-col'}>
               <div
                 className={'text-xs lg:text-xl font-semibold flex items-center gap-2 col-span-3'}
               >
                 <button
                   onClick={() => PassingSlug('')}
-                  className={'rounded-full border border-primary bg-white p-1.5'}
+                  className={'rounded-full border border-primary bg-transparent p-1.5'}
                 >
                   <ArrowLeft className={'size-4 text-footer'} />
                 </button>

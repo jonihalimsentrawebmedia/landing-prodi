@@ -78,7 +78,9 @@ const DetailPromotionV5 = () => {
           </div>
 
           <div className="w-full lg:w-1/4 space-y-4">
-            <p className="text-2xl font-normal text-white bg-footer px-3 py-1.5 w-fit">Baca Juga</p>
+            <p className="text-2xl font-normal text-white bg-footer px-3 py-1.5 w-fit">
+              Promosi Terbaru
+            </p>
 
             {promotion?.map((row, k) => (
               <Link

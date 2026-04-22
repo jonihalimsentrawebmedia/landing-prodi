@@ -11,9 +11,9 @@ interface IProps {
 }
 
 interface Props {
-  tahun: string
-  slug: string
-  type: string
+  tahun?: string
+  slug?: string
+  type?: string
 }
 
 export const UseGetCurriculum = (props?: IProps) => {
@@ -105,5 +105,5 @@ export const UseGetCurriculumSubject = (props?: Props) => {
     }
   }, [data])
 
-  return { subject, loading }
+  return { subject, loading, data }
 }

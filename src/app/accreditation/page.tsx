@@ -4,6 +4,7 @@ import { FetchResAPI } from '@/provider/server'
 import { AccreditationTheme3 } from '@/components/thema-v3/accreditation'
 import { AccreditationTheme4 } from '@/components/theme-v4/accreditation'
 import AccreditationPageV5 from '@/components/thema-v5/Accrreditation'
+import AccreditationPageV6 from '@/components/thema-V6/Accreditation'
 
 const AccreditationPage = async () => {
   const themes = await FetchResAPI('/public-prodi/public')
@@ -27,6 +28,9 @@ const AccreditationPage = async () => {
     }
     case 'THEMA_PRODI_LIMA': {
       return <AccreditationPageV5 />
+    }
+    case 'THEMA_PRODI_ENAM': {
+      return <AccreditationPageV6 />
     }
   }
 }

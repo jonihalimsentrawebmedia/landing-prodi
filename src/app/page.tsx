@@ -4,6 +4,7 @@ import { FetchResAPI } from '@/provider/server'
 import { HomePageTheme3 } from '@/components/thema-v3/Home'
 import HomeTheme4 from '@/components/theme-v4/home'
 import HomeTheme5 from '@/components/thema-v5/homePage'
+import HomeTheme6 from '@/components/thema-V6/homepage'
 
 export default async function Home() {
   const themes = await FetchResAPI('/public-prodi/public')
@@ -27,6 +28,9 @@ export default async function Home() {
     }
     case 'THEMA_PRODI_LIMA': {
       return <HomeTheme5 />
+    }
+    case 'THEMA_PRODI_ENAM': {
+      return <HomeTheme6/>
     }
   }
 }

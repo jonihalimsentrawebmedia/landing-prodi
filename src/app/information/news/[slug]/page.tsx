@@ -28,6 +28,9 @@ const DetailNewsPage = async () => {
     case 'THEMA_PRODI_LIMA': {
       return <DetailNewsPageV5 />
     }
+    case 'THEMA_PRODI_ENAM': {
+      return <DetailNewsPageV5 />
+    }
   }
 }
 

@@ -55,14 +55,15 @@ export const JumbotronSlider5 = () => {
           <CarouselContent>
             {items?.map((row, k) => (
               <CarouselItem key={k}>
-                <Image
-                  src={row?.gambar_url}
-                  alt={'slider'}
-                  width={1920}
-                  height={720}
-                  className={'w-full object-cover h-[360px] lg:h-[720px]'}
-                  loading={'eager'}
-                />
+                <div className="w-full h-[360px] lg:h-[720px] relative">
+                  <Image
+                    src={row?.gambar_url}
+                    alt={'slider'}
+                    fill
+                    className={'w-full object-cover h-[360px] lg:h-[720px]'}
+                    loading={'eager'}
+                  />
+                </div>
               </CarouselItem>
             ))}
           </CarouselContent>

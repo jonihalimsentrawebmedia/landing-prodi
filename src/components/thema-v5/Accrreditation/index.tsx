@@ -5,7 +5,6 @@ import ProfileLayout from '@/components/thema-v5/profile/layout'
 import { UseGetAccreditation } from '@/app/accreditation/hooks'
 import { TitleLineTextCenter } from '@/components/thema-v5/component/common/titleLine'
 import Image from 'next/image'
-import { useStateContext } from '@/contexts'
 import { format } from 'date-fns'
 import { Button } from '@/components/ui/button'
 import { MdDownload } from 'react-icons/md'
@@ -15,7 +14,6 @@ import { Card, CardContent } from '@/components/ui/card'
 const AccreditationPageV5 = () => {
   const { accreditation, loading } = UseGetAccreditation()
   const LastData = accreditation?.[0]
-  const [{ profile }] = useStateContext()
 
   if (loading) return <></>
 

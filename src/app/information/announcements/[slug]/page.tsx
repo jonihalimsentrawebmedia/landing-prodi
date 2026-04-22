@@ -28,6 +28,9 @@ const DetailAnnouncementPage = async () => {
     case 'THEMA_PRODI_LIMA': {
       return <DetailAnnouncementPageV5 />
     }
+    case 'THEMA_PRODI_ENAM': {
+      return <DetailAnnouncementPageV5 />
+    }
   }
 }
 

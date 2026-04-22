@@ -48,6 +48,7 @@ const CurriculumPageV5 = (props: Props) => {
     })
 
     return temp
+    // eslint-disable-next-line react-hooks/preserve-manual-memoization
   }, [detail])
 
   // Set default curriculum & year hanya sekali

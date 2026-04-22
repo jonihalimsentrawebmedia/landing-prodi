@@ -4,6 +4,7 @@ import { CurriculumTHeme2 } from '@/components/thema-v2/curriculum'
 import { CurriculumTheme3 } from '@/components/thema-v3/curriculum'
 import { CurriculumTheme4 } from '@/components/theme-v4/curriculum'
 import CurriculumPageV5 from '@/components/thema-v5/Curriculum'
+import CurriculumPageV6 from '@/components/thema-V6/Curriculum'
 
 const CurriculumPage = async () => {
   const data = await FetchResAPI('/public-prodi/kurikulum?page=0&limit=0')
@@ -29,6 +30,9 @@ const CurriculumPage = async () => {
     }
     case 'THEMA_PRODI_LIMA': {
       return <CurriculumPageV5 data={data?.data} />
+    }
+    case 'THEMA_PRODI_ENAM': {
+      return <CurriculumPageV6 data={data?.data} />
     }
   }
 }

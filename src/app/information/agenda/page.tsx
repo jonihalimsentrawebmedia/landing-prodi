@@ -4,6 +4,7 @@ import { FetchResAPI } from '@/provider/server'
 import { InformationAgendaTheme3 } from '@/components/thema-v3/information/agenda'
 import { InformationAgendaTheme4 } from '@/components/theme-v4/information/agenda'
 import AgendaInformationPageV5 from '@/components/thema-v5/information/Agenda'
+import AgendaInformationPageV6 from '@/components/thema-V6/information/agenda'
 
 const AgendaPage = async () => {
   const themes = await FetchResAPI('/public-prodi/public')
@@ -27,6 +28,9 @@ const AgendaPage = async () => {
     }
     case 'THEMA_PRODI_LIMA': {
       return <AgendaInformationPageV5 />
+    }
+    case 'THEMA_PRODI_ENAM': {
+      return <AgendaInformationPageV6 />
     }
   }
 }
