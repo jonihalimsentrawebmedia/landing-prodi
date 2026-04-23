@@ -73,17 +73,17 @@ export default function CurriculumAccordion({ data }: Props) {
                 value={sem.name}
                 className="border border-gray-200 rounded-xl overflow-hidden"
               >
-                <AccordionTrigger className="bg-emerald-700 hover:bg-emerald-800 text-white px-6 py-4">
-                  <div className="flex-1 text-left font-semibold text-lg">{sem.name}</div>
-                  <div className="flex items-center gap-3 text-sm">
+                <AccordionTrigger className="bg-emerald-700 hover:bg-emerald-800 text-white px-2 lg:px-6 py-2 lg:py-4 flex items-center justify-between">
+                  <div className="flex-1 text-left font-semibold lg:text-lg">{sem.name}</div>
+                  <div className="flex items-center justify-between gap-3 text-sm">
                     <span className="opacity-90">Total SKS</span>
-                    <span className="bg-white text-emerald-700 font-bold px-4 py-1 rounded-full">
+                    <span className="bg-white text-emerald-700 font-bold px-4 py-1 rounded-full text-xs lg:text-sm">
                       {sem.totalSKS} SKS
                     </span>
                   </div>
                 </AccordionTrigger>
 
-                <AccordionContent className="bg-white px-6 py-4">
+                <AccordionContent className="bg-white lg:px-6 lg:py-4 p-2">
                   <div className="divide-y divide-gray-100">
                     {sem.items.map((mk) => (
                       <div

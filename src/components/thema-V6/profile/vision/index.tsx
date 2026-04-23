@@ -23,9 +23,9 @@ const ProfileVisionV6 = () => {
   const { visionMission, loading } = UseGetProfileVisionMission()
 
   const router = useRouter()
-  const tabsListRef = useRef<HTMLDivElement>(null)
-
   const pathname = usePathname()
+
+  const tabsListRef = useRef<HTMLDivElement>(null)
 
   useEffect(() => {
     const scrollToActiveTab = () => {

@@ -46,13 +46,14 @@ const ProfileSectionPage7 = () => {
         <div className="container-sm pb-5">
           <Tabs
             value={pathName}
-            className={'flex-row! items-start gap-4'}
+            className={'lg:flex-row! items-start gap-4 p-0'}
             onValueChange={(e) => router.push(e)}
           >
             <TabsList
               className={cn(
-                'w-full h-full! max-w-[230px] bg-footer relative px-4',
-                'flex justify-start items-start flex-col '
+                'w-full h-full! lg:max-w-[230px] bg-footer relative lg:px-4',
+                'flex justify-start items-start lg:flex-col',
+                'flex-row! flex-nowrap overflow-x-auto lg:overflow-x-visible p-0 rounded-none'
               )}
             >
               <div className="absolute z-10 w-[2px] h-full left-0 bg-linear-to-b from-primary to-footer hidden lg:block" />

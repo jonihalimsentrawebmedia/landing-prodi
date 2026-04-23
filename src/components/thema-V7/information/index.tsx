@@ -10,7 +10,7 @@ const InformationSectionV7 = () => {
   return (
     <>
       <JumbotronTitleV7 title={'Informasi'} context={'INFORMASI'} />
-      <div className={'bg-primary w-full max-w-[1920px] mx-auto p-4'}>
+      <div className={'bg-primary w-full max-w-[1920px] mx-auto lg:p-4 py-2'}>
         <div className="container-sm">
           <BreadcrumbBasic
             className={'text-white! hover:bg-primary!'}
@@ -19,7 +19,7 @@ const InformationSectionV7 = () => {
         </div>
       </div>
       <div className="bg-footer dark:bg-gray-800">
-        <div className="container-sm lg:py-8 space-y-5">
+        <div className="container-sm lg:py-8 py-5 space-y-5">
           <InformationNewsV7 />
         </div>
         <AgendaAnnouncementV7 />

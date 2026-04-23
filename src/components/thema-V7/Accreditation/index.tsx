@@ -33,9 +33,12 @@ const AccreditationPageV7 = () => {
   return (
     <>
       <JumbotronTitleV7 title={'Akreditas'} context={'AKREDITASI'} />
-      <div className={'bg-primary w-full max-w-[1920px] mx-auto p-4'}>
+      <div className={'bg-primary w-full max-w-[1920px] mx-auto lg:p-4 py-2'}>
         <div className="container-sm">
-          <BreadcrumbBasic data={[{ name: 'Beranda', link: '/' }, { name: 'Akreditasi' }]} />
+          <BreadcrumbBasic
+            className={'text-white! hover:bg-primary'}
+            data={[{ name: 'Beranda', link: '/' }, { name: 'Akreditasi' }]}
+          />
         </div>
       </div>
 
@@ -105,13 +108,13 @@ const AccreditationPageV7 = () => {
 
           <div className="mt-8">
             <TitleLineTextCenter text={'Semua Akreditasi'} className={'text-primary!'} />
-            <div className="flex items-end w-full gap-x-4">
+            <div className="flex flex-col lg:flex-row lg:items-end w-full gap-4">
               <FilterSelect
                 name={'limit'}
                 label={'Jumlah Data'}
                 placeholder={'Jumlah Data'}
                 className={'whitespace-nowrap'}
-                innerClassname={'bg-white text-primary w-full max-w-[200px]'}
+                innerClassname={'bg-white text-primary w-full lg:max-w-[200px]'}
                 data={[
                   { label: '10', value: '10' },
                   { label: '25', value: '25' },
@@ -122,17 +125,21 @@ const AccreditationPageV7 = () => {
               <SearchInput placeholder={'Cari Akreditasi'} className={'w-full bg-white rounded'} />
             </div>
 
-            <div className="grid grid-cols-2 gap-5 mt-5">
+            <div className="grid lg:grid-cols-2 gap-5 mt-5">
               {AllData?.map((row, k) => (
                 <div key={k}>
                   <Card className={'bg-transparent rounded-md shadow-none'}>
-                    <CardContent className={'flex items-start gap-5'}>
-                      <div className={'w-[246px] h-[174px] relative rounded-md overflow-hidden'}>
+                    <CardContent className={'flex flex-col lg:flex-row items-start gap-5'}>
+                      <div
+                        className={
+                          'w-full lg:w-[246px] h-[174px] relative rounded-md overflow-hidden'
+                        }
+                      >
                         <Image
                           src={row?.gambar}
                           alt={'certificate'}
                           fill
-                          className={'object-cover'}
+                          className={'lg:object-cover object-contain'}
                         />
                       </div>
                       <div className={'flex items-start flex-col gap-1.5 justify-between'}>

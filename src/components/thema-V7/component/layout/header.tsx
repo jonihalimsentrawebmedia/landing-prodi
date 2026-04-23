@@ -10,9 +10,9 @@ import Image from 'next/image'
 import { NavMenuList } from '@/components/layout/header/menuList'
 import Link from 'next/link'
 import DarkModeToggle from '@/components/thema-v5/component/common/darkmode'
-import { SheetMenu } from '@/components/thema-v5/component/layout/header/sheetMenu'
 import ServiceDropdownMenuV7 from '@/components/thema-V7/component/layout/dropdownService'
 import NewsQueueSectionV7 from '@/components/thema-V7/component/layout/newQueue'
+import { SheetMenuV7 } from '@/components/thema-V7/component/layout/sheetMenut'
 
 const HeaderLayoutThemaV7 = () => {
   const { profile: profiles, loading } = UseGetProfile()
@@ -97,7 +97,7 @@ const HeaderLayoutThemaV7 = () => {
               <DarkModeToggle />
             </div>
             <div className="block lg:hidden">
-              <SheetMenu profile={profile} />
+              <SheetMenuV7 profile={profile} />
             </div>
           </div>
         </div>

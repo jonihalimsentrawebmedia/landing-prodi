@@ -85,12 +85,12 @@ const DetailPromotionV7 = () => {
         </div>
       </div>
 
-      <div className="container-sm">
+      <div className="container-sm py-5">
         <div className={'w-full border-b-2 border-b-primary'}>
-          <p className="text-xl w-fit font-semibold bg-primary px-3 py-1.5 text-white">Baca Juga</p>
+          <p className="text-sm lg:text-xl w-fit font-semibold bg-primary px-3 py-1.5 text-white">Baca Juga</p>
         </div>
 
-        <div className="mt-5 grid grid-cols-4 gap-4">
+        <div className="mt-5 grid lg:grid-cols-4 gap-4">
           {promotion?.map((row, k) => (
             <Link
               href={`/information/promotion/${row?.slug}`}

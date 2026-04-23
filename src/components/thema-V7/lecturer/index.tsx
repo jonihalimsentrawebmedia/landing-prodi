@@ -22,7 +22,7 @@ const LecturerListPageV7 = () => {
       <JumbotronTitleV7 title={'Akreditas'} context={'AKREDITASI'} />
       <div className={'bg-primary w-full max-w-[1920px] mx-auto p-4'}>
         <div className="container-sm">
-          <BreadcrumbBasic data={[{ name: 'Beranda', link: '/' }, { name: 'Dosen' }]} />
+          <BreadcrumbBasic data={[{ name: 'Beranda', link: '/' }, { name: 'Dosen' }]} className={'text-white! hover:bg-primary!'} />
         </div>
       </div>
 
@@ -30,7 +30,7 @@ const LecturerListPageV7 = () => {
         <div className="container-sm">
           <SearchInput placeholder={'Cari Dosen'} className={'w-full bg-white rounded'} />
 
-          <div className="grid grid-cols-4 gap-4 mt-5">
+          <div className="grid lg:grid-cols-4 gap-4 mt-5">
             {lecturer?.map((row, k) => (
               <div key={k} className={'bg-primary p-4 rounded-lg space-y-2'}>
                 <div className={'w-full h-[254px] relative'}>

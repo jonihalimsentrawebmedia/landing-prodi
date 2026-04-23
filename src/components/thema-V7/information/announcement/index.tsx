@@ -42,7 +42,7 @@ const AnnouncementInformationPage7 = () => {
   return (
     <>
       <JumbotronTitleV7 title={'Informasi'} context={'INFORMASI'} />
-      <div className={'bg-primary w-full max-w-[1920px] mx-auto p-4'}>
+      <div className={'bg-primary w-full max-w-[1920px] mx-auto lg:p-4 py-2'}>
         <div className="container-sm">
           <BreadcrumbBasic
             className={'text-white! hover:bg-primary!'}
@@ -70,20 +70,20 @@ const AnnouncementInformationPage7 = () => {
           />
         </div>
 
-        <div className="flex flex-col gap-5 container-sm">
+        <div className="flex flex-col gap-5 container-sm pb-4">
           {announcement?.map((row, k) => (
             <Link
               href={`/information/announcements/${row?.slug}`}
               key={k}
               className={'flex flex-col lg:flex-row items-start gap-5'}
             >
-              <div className="lg:w-[200px] w-[200px] lg:min-w-[200px] h-[200px] lg:h-[200px] relative">
+              <div className="lg:w-[200px] w-[200px] lg:min-w-[200px] h-[200px] lg:h-[200px] relative mx-auto">
                 <Image
                   src={profile?.SatuanOrganisasi?.logo ?? '/img/noimg.png'}
                   sizes="100vw"
                   alt={'gambar'}
                   fill
-                  className={'object-cover object-center w-full h-[200px] rounded-lg'}
+                  className={'object-cover object-center'}
                 />
               </div>
               <div className={'space-y-2'}>

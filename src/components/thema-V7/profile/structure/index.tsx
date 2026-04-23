@@ -9,6 +9,7 @@ import { cn } from '@/lib/utils'
 import { TitleLine } from '@/components/thema-v5/component/common/titleLine'
 import Image from 'next/image'
 import { UseGetStructureOrganization } from '@/app/profile/structure-organization/hooks'
+import { useEffect, useRef } from 'react'
 
 const ProfileStructureV7 = () => {
   const TabsData = [
@@ -25,6 +26,38 @@ const ProfileStructureV7 = () => {
   const pathName = usePathname()
   const router = useRouter()
   const { organization, loading } = UseGetStructureOrganization()
+
+  const tabsListRef = useRef<HTMLDivElement>(null)
+
+  useEffect(() => {
+    const scrollToActiveTab = () => {
+      const container = tabsListRef.current
+      if (!container) return
+
+      const activeTab = container.querySelector('[data-state="active"]') as HTMLElement
+      if (!activeTab) return
+
+      const containerWidth = container.offsetWidth
+      const tabLeft = activeTab.offsetLeft
+      const tabWidth = activeTab.offsetWidth
+
+      const scrollPosition = tabLeft - containerWidth / 2 + tabWidth / 2
+
+      container.scrollTo({
+        left: scrollPosition,
+        behavior: 'smooth',
+      })
+    }
+
+    const attempts = [0, 50, 150, 300, 500]
+
+    attempts.forEach((delay) => {
+      setTimeout(scrollToActiveTab, delay)
+    })
+    const backupTimer = setTimeout(scrollToActiveTab, 1000)
+
+    return () => clearTimeout(backupTimer)
+  }, [pathName])
 
   if (loading) return <></>
 
@@ -45,13 +78,15 @@ const ProfileStructureV7 = () => {
         <div className="container-sm pb-5">
           <Tabs
             value={pathName}
-            className={'flex-row! items-start gap-4'}
+            className={'lg:flex-row! items-start gap-4 p-0'}
             onValueChange={(e) => router.push(e)}
           >
             <TabsList
+              ref={tabsListRef}
               className={cn(
-                'w-full h-full! max-w-[230px] bg-footer relative px-4',
-                'flex justify-start items-start flex-col '
+                'w-full h-full! lg:max-w-[230px] bg-footer relative lg:px-4',
+                'flex justify-start items-start lg:flex-col',
+                'flex-row! flex-nowrap overflow-x-auto lg:overflow-x-visible p-0 rounded-none'
               )}
             >
               <div className="absolute z-10 w-[2px] h-full left-0 bg-linear-to-b from-primary to-footer hidden lg:block" />

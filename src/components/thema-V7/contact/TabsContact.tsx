@@ -46,9 +46,9 @@ const ContactSectionV7 = () => {
             Kontak & Alamat
           </p>
 
-          <ul className={'mt-4 grid grid-cols-2 gap-4'}>
+          <ul className={'mt-4 grid lg:grid-cols-2 gap-4'}>
             <li
-              className={'flex items-center gap-3 border-gray-500 rounded-md border p-4 col-span-2'}
+              className={'flex items-center gap-3 border-gray-500 rounded-md border p-4 lg:col-span-2'}
             >
               <div className="p-2 bg-primary text-white rounded-md w-fit">
                 <IoLocationSharp className={'size-5'} />

@@ -36,7 +36,7 @@ const AnnouncementDetailPageV7 = () => {
 
   return (
     <>
-      <div className={'bg-primary w-full max-w-[1920px] mx-auto p-4'}>
+      <div className={'bg-primary w-full max-w-[1920px] mx-auto lg:p-4 py-2'}>
         <div className="container-sm">
           <BreadcrumbBasic
             className={'text-white! hover:bg-primary!'}
@@ -51,9 +51,9 @@ const AnnouncementDetailPageV7 = () => {
       </div>
 
       <div className="container-sm py-4 lg:py-8">
-        <div className="flex flex-col lg:flex-row items-start gap-x-5">
-          <div className="flex flex-col gap-y-4">
-            <p className={'text-2xl font-semibold dark:text-primary'}>{detail?.judul_pengumuman}</p>
+        <div className="flex flex-col lg:flex-row items-start gap-5">
+          <div className="flex flex-col gap-4">
+            <p className={'lg:text-2xl font-semibold dark:text-primary'}>{detail?.judul_pengumuman}</p>
             <p className="flex items-center gap-1.5">
               <QuilWrite className={'stroke-primary'} /> {detail?.penulis ?? 'TIM HUMAS'}
             </p>
@@ -92,7 +92,7 @@ const AnnouncementDetailPageV7 = () => {
 
         <div className="space-y-5 pt-5">
           <div className={'w-full border-b-2 border-b-primary'}>
-            <p className="text-xl w-fit font-semibold bg-primary px-3 py-1.5 text-white">
+            <p className="text-sm lg:text-xl w-fit font-semibold bg-primary px-3 py-1.5 text-white">
               Pengumuman Terbaru
             </p>
           </div>
@@ -108,9 +108,9 @@ const AnnouncementDetailPageV7 = () => {
                   alt={'image'}
                   width={300}
                   height={300}
-                  className={'w-[200px] h-[200px] size-[200px] object-cover rounded-full mx-auto'}
+                  className={'lg:w-[200px] lg:h-[200px] lg:size-[200px] size-[100px] object-cover rounded-full mx-auto'}
                 />
-                <p className="line-clamp-2 text-2xl font-semibold">{row?.judul_pengumuman}</p>
+                <p className="line-clamp-2 lg:text-2xl font-semibold">{row?.judul_pengumuman}</p>
                 <p>{row?.published_at ? format(row?.published_at, 'dd-MM-yyyy') : ''}</p>
               </Link>
             ))}

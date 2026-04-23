@@ -34,7 +34,7 @@ const AgendaAnnouncementV7 = () => {
 
         <div className="container-sm py-8 lg:py-16 relative z-10 flex flex-col items-start gap-5">
           <div className="w-full">
-            <div className="flex items-center justify-between">
+            <div className="flex flex-col lg:flex-row  lg:items-center justify-between gap-4">
               <p className="lg:text-2xl font-semibold text-primary">Pengumuman Program Studi</p>
               <Link href={'/information/announcements'}>
                 <Button className={'text-white'}>
@@ -76,7 +76,7 @@ const AgendaAnnouncementV7 = () => {
           </div>
 
           <div className="w-full">
-            <div className="flex items-center justify-between">
+            <div className="flex flex-col lg:flex-row  lg:items-center justify-between gap-4">
               <p className="lg:text-2xl font-semibold text-primary">Agenda Program Studi</p>
               <Link href={'/information/agenda'}>
                 <Button className={'text-white'}>

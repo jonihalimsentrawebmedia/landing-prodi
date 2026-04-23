@@ -47,9 +47,9 @@ const DetailNewsPageV7 = () => {
         </div>
       </div>
 
-      <div className="bg-footer">
+      <div className="bg-footer py-5">
         <div className="container-sm lg:py-10 space-y-4">
-          <p className="text-3xl font-semibold">{newsDetail?.judul}</p>
+          <p className="lg:text-3xl font-semibold">{newsDetail?.judul}</p>
           <div className="flex flex-col items-start gap-2.5">
             <p className="flex items-center gap-1.5">
               <QuilWrite className={'stroke-primary'} /> {newsDetail?.penulis ?? 'TIM HUMAS'}
@@ -73,7 +73,7 @@ const DetailNewsPageV7 = () => {
                     alt={'gambar'}
                     width={1920}
                     height={640}
-                    className={'w-full h-[640px] object-cover'}
+                    className={'w-full h-[300px] lg:h-[640px] object-cover'}
                   />
                 </CarouselItem>
               ))}
@@ -103,7 +103,7 @@ const DetailNewsPageV7 = () => {
             </p>
           </div>
 
-          <div className="mt-5 grid grid-cols-4 gap-4">
+          <div className="mt-5 grid lg:grid-cols-4 gap-4">
             {news?.map((row, k) => (
               <Link
                 href={`/information/news/${row?.slug}`}

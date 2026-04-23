@@ -39,7 +39,7 @@ const AgendaInformationPageV7 = () => {
   return (
     <>
       <JumbotronTitleV7 title={'Informasi'} context={'INFORMASI'} />
-      <div className={'bg-primary w-full max-w-[1920px] mx-auto p-4'}>
+      <div className={'bg-primary w-full max-w-[1920px] mx-auto py-2 lg:p-4'}>
         <div className="container-sm">
           <BreadcrumbBasic
             className={'text-white! hover:bg-primary!'}
@@ -66,14 +66,14 @@ const AgendaInformationPageV7 = () => {
           />
         </div>
 
-        <div className="flex flex-col gap-5 container-sm">
+        <div className="flex flex-col gap-5 container-sm pb-5">
           {agenda?.map((row, k) => (
             <Link
               href={`/information/agenda/${row?.slug}`}
               key={k}
-              className={'flex flex-col justify-start lg:flex-row lg:items-stretch gap-5'}
+              className={'flex flex-col justify-start lg:flex-row flex-wrap lg:items-stretch gap-5'}
             >
-              <div className="lg:w-[147px] w-[200px] lg:min-w-[147px] h-[200px] lg:h-[110px] relative">
+              <div className="lg:w-[147px] w-full lg:min-w-[147px] h-[200px] lg:h-[110px] relative">
                 <Image
                   src={row?.gambar ?? '/img/noimg.png'}
                   alt={'gambar'}
@@ -81,7 +81,14 @@ const AgendaInformationPageV7 = () => {
                   className={'object-cover object-center w-full h-[200px] rounded-lg'}
                 />
               </div>
-              <div className={'border p-4 rounded-lg border-primary h-[110px] flex flex-col justify-center'}>
+              <p className="block lg:hidden">
+                {row?.waktu_mulai ? format(row?.waktu_mulai, 'dd-MM-yyyy') : ''}
+              </p>
+              <div
+                className={
+                  'hidden border p-4 rounded-lg border-primary h-[110px] lg:flex flex-col justify-center'
+                }
+              >
                 <p className="text-2xl font-semibold text-primary">
                   {row?.waktu_mulai ? format(row?.waktu_mulai, 'dd') : ''}
                 </p>

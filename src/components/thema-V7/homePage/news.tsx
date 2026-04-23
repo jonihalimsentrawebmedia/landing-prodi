@@ -28,8 +28,8 @@ const NewsHomeSectionV7 = () => {
           <div className={'block lg:hidden space-y-4 mt-5'}>
             <Link href={`/information/news/${FirstNews?.slug}`}>
               <div className="relative w-full h-full">
-                <div className="absolute space-y-2.5 p-2.5 top-0 left-0 w-full h-full bg-linear-to-b from-footer to-transparent">
-                  <p className="text-xs bg-white w-fit rounded-full px-3 py-1.5 text-footer">
+                <div className="absolute space-y-2.5 p-2.5 top-0 left-0 w-full h-full bg-linear-to-b from-primary to-transparent">
+                  <p className="text-xs bg-white w-fit rounded-full px-3 py-1.5 text-primary">
                     {FirstNews?.nama_kategori_berita}
                   </p>
                   <p className={'text-white line-clamp-2 font-semibold'}>{FirstNews?.judul}</p>
@@ -52,10 +52,10 @@ const NewsHomeSectionV7 = () => {
               {SecondNews?.map((row, index) => (
                 <Link href={`/information/news/${row?.slug}`} key={index}>
                   <div className={'border bg-white dark:bg-gray-800 p-4 rounded'}>
-                    <p className={'text-footer text-xs'}>
+                    <p className={'text-primary text-xs'}>
                       {row?.tanggal_berita ? format(row?.tanggal_berita, 'dd-MM-yyyy') : ''}
                     </p>
-                    <p className={'text-footer line-clamp-2 font-semibold'}>{row?.judul}</p>
+                    <p className={'text-primary line-clamp-2 font-semibold'}>{row?.judul}</p>
                   </div>
                 </Link>
               ))}

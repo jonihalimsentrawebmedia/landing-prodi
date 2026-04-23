@@ -23,7 +23,7 @@ const AgendaDetailPageV7 = () => {
 
   return (
     <>
-      <div className={'bg-primary w-full max-w-[1920px] mx-auto p-4'}>
+      <div className={'bg-primary w-full max-w-[1920px] mx-auto py-2 lg:p-4'}>
         <div className="container-sm">
           <BreadcrumbBasic
             className={'text-white! hover:bg-primary!'}
@@ -40,7 +40,7 @@ const AgendaDetailPageV7 = () => {
       <div className="container-sm pb-5">
         <div className="flex flex-col lg:flex-row items-start gap-8 mt-5">
           <div className="w-full lg:w-1/2 space-y-2">
-            <p className="text-2xl font-semibold">{detail?.judul}</p>
+            <p className="lg:text-2xl font-semibold">{detail?.judul}</p>
             <p className="flex items-center gap-1.5">
               <QuilWrite className={'stroke-primary'} /> {detail?.penulis ?? 'TIM HUMAS'}
             </p>
@@ -79,7 +79,7 @@ const AgendaDetailPageV7 = () => {
 
       <div className="pb-5 container-sm space-y-4">
         <div className={'w-full border-b-2 border-b-primary'}>
-          <p className="text-xl w-fit font-semibold bg-primary px-3 py-1.5 text-white">
+          <p className="text-sm lg:text-xl w-fit font-semibold bg-primary px-3 py-1.5 text-white">
             Agenda Terbaru
           </p>
         </div>

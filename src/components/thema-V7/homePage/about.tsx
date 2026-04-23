@@ -34,9 +34,9 @@ const AboutSectionV7 = () => {
 
   return (
     <>
-      <div className="w-full h-[485px] relative z-10">
-        <div className="container z-10 -mt-[150px] shadow drop-shadow-xl bg-white rounded-lg h-[424px]">
-          <div className="py-[60px] px-[80px] flex items-start gap-6">
+      <div className="w-full lg:h-[485px] relative z-10">
+        <div className="container z-10 lg:-mt-[150px] shadow drop-shadow-xl bg-white rounded-lg lg:h-[424px]">
+          <div className="lg:py-[60px] lg:px-[80px] flex flex-col lg:flex-row items-start gap-6 py-5">
             <Carousel setApi={setApi} className={'lg:max-w-[304px] w-full lg:h-[304px]'}>
               <CarouselContent className={'ml-0'}>
                 {aboutProdi?.gambar?.map((row, k) => (
@@ -66,11 +66,10 @@ const AboutSectionV7 = () => {
                 ))}
               </div>
             </Carousel>
-
             <div className={'space-y-4'}>
               <h2 className="lg:text-3xl font-semibold text-primary">Tentang Program Studi</h2>
               <div
-                className="flex flex-col gap-2 html-class"
+                className="flex flex-col gap-2 html-class line-clamp-8! lg:line-clamp-none"
                 dangerouslySetInnerHTML={{ __html: aboutProdi?.isi_konten ?? '' }}
               />
               <Link href={'/profile'}>

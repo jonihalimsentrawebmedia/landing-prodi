@@ -7,7 +7,7 @@ import { Tabs, TabsContent, TabsList, TabsTrigger } from '@/components/ui/tabs'
 import { usePathname, useRouter } from 'next/navigation'
 import { cn } from '@/lib/utils'
 import { TitleLine } from '@/components/thema-v5/component/common/titleLine'
-import { useState } from 'react'
+import { useEffect, useRef, useState } from 'react'
 import GalleryVideo from '@/components/thema-v5/gallery/video'
 import GalleryAlbumV7 from '@/components/thema-V7/profile/gallery/album'
 
@@ -41,6 +41,38 @@ const ProfileGallerySectionV7 = () => {
     },
   ]
 
+  const tabsListRef = useRef<HTMLDivElement>(null)
+
+  useEffect(() => {
+    const scrollToActiveTab = () => {
+      const container = tabsListRef.current
+      if (!container) return
+
+      const activeTab = container.querySelector('[data-state="active"]') as HTMLElement
+      if (!activeTab) return
+
+      const containerWidth = container.offsetWidth
+      const tabLeft = activeTab.offsetLeft
+      const tabWidth = activeTab.offsetWidth
+
+      const scrollPosition = tabLeft - containerWidth / 2 + tabWidth / 2
+
+      container.scrollTo({
+        left: scrollPosition,
+        behavior: 'smooth',
+      })
+    }
+
+    const attempts = [0, 50, 150, 300, 500]
+
+    attempts.forEach((delay) => {
+      setTimeout(scrollToActiveTab, delay)
+    })
+    const backupTimer = setTimeout(scrollToActiveTab, 1000)
+
+    return () => clearTimeout(backupTimer)
+  }, [pathName])
+
   return (
     <>
       <JumbotronTitleV7 title={'Profil'} context={'PROFIL'} />
@@ -58,13 +90,15 @@ const ProfileGallerySectionV7 = () => {
         <div className="container-sm pb-5">
           <Tabs
             value={pathName}
-            className={'flex-row! items-start gap-4'}
+            className={'lg:flex-row! items-start gap-4 p-0'}
             onValueChange={(e) => router.push(e)}
           >
             <TabsList
+              ref={tabsListRef}
               className={cn(
-                'w-full h-full! max-w-[230px] bg-footer relative px-4',
-                'flex justify-start items-start flex-col '
+                'w-full h-full! lg:max-w-[230px] bg-footer relative lg:px-4',
+                'flex justify-start items-start lg:flex-col',
+                'flex-row! flex-nowrap overflow-x-auto lg:overflow-x-visible p-0 rounded-none'
               )}
             >
               <div className="absolute z-10 w-[2px] h-full left-0 bg-linear-to-b from-primary to-footer hidden lg:block" />

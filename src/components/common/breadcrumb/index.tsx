@@ -22,7 +22,7 @@ export const BreadcrumbBasic = (props: Props) => {
 
   return (
     <Breadcrumb className="w-full overflow-hidden">
-      <BreadcrumbList className="flex items-center gap-1.5 flex-nowrap overflow-x-auto pb-2 scrollbar-hide">
+      <BreadcrumbList className="flex items-center gap-1.5 flex-nowrap overflow-x-auto scrollbar-hide">
         {data.map((item, index) => {
           const isLast = index === data.length - 1
 
