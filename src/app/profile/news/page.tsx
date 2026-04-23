@@ -4,7 +4,8 @@ import { FetchResAPI } from '@/provider/server'
 import { ProfileNewsTheme3 } from '@/components/thema-v3/profile/news'
 import { ProfileNewsTheme4 } from '@/components/theme-v4/profile/news'
 import NewsProfileSectionV5 from '@/components/thema-v5/profile/news'
-import ProfileLecturerV6 from '@/components/thema-V6/profile/news'
+import ProfileNewsV6 from '@/components/thema-V6/profile/news'
+import ProfileNewsV7 from '@/components/thema-V7/profile/news'
 
 const NewsProfilePage = async () => {
   const themes = await FetchResAPI('/public-prodi/public')
@@ -30,7 +31,10 @@ const NewsProfilePage = async () => {
       return <NewsProfileSectionV5 />
     }
     case 'THEMA_PRODI_ENAM': {
-      return <ProfileLecturerV6 />
+      return <ProfileNewsV6 />
+    }
+    case 'THEMA_PRODI_TUJUH': {
+      return <ProfileNewsV7 />
     }
   }
 }

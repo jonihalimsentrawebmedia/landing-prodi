@@ -34,7 +34,6 @@ const GalleryAlbumV5 = () => {
     <>
       {!slug ? (
         <div className={'lg:container mt-2'}>
-          {/*<SearchInput className={'w-full rounded'} placeholder={'Cari Album'} />*/}
           <div className="grid lg:grid-cols-3 gap-5 mt-4">
             {galleryAlbum?.map((item, k) => (
               <div key={k} className={'cursor-pointer'} onClick={() => PassingSlug(item?.slug)}>

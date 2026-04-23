@@ -5,7 +5,7 @@ import { ProfileAboutTheme3 } from '@/components/thema-v3/profile'
 import { ProfileAboutTheme4 } from '@/components/theme-v4/profile'
 import ProfilePageV5 from '@/components/thema-v5/profile'
 import ProfileSectionV6 from '@/components/thema-V6/profile'
-import ProfileSectionPage7 from '@/components/thema-V7/component/profile'
+import ProfileSectionPage7 from '@/components/thema-V7/profile'
 
 const PageProfileProdi = async () => {
   const themes = await FetchResAPI('/public-prodi/public')

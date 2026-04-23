@@ -16,9 +16,20 @@ import { DataTable } from '@/components/common/table'
 import ColumnsAccreditations from '@/components/thema-V6/Accreditation/columns'
 
 const AccreditationPageV6 = () => {
-  const { accreditation, loading } = UseGetAccreditation()
+  const { accreditation, loading: load1 } = UseGetAccreditation({
+    page: '1',
+    limit: '1',
+  })
   const LastData = accreditation?.[0]
   const columns = ColumnsAccreditations()
+
+  const { accreditation: AllData, loading: load2 } = UseGetAccreditation({
+    page: '1',
+    limit: '10',
+    no_include_id: LastData?.id_akreditas,
+  })
+
+  const loading = load1 || load2
 
   if (loading) return <></>
 
@@ -117,7 +128,7 @@ const AccreditationPageV6 = () => {
                 />
               </div>
 
-              <DataTable data={accreditation} columns={columns} className={'mt-5'} />
+              <DataTable data={AllData} columns={columns} className={'mt-5'} />
             </div>
           </div>
         </div>

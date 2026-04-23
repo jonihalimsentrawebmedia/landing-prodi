@@ -10,8 +10,14 @@ import AxiosClient from '@/provider/axios'
 import { Button } from '@/components/ui/button'
 import { useState } from 'react'
 import { toast } from 'react-toastify'
+import { cn } from '@/lib/utils'
 
-const FormContactTheme6 = () => {
+interface IProps {
+  btnClassname?: string
+}
+
+const FormContactTheme6 = (props: IProps) => {
+  const { btnClassname } = props
   const [loading, setLoading] = useState(false)
   const form = useForm<IContactResolver>({
     resolver: zodResolver(ContactResolver),
@@ -111,7 +117,10 @@ const FormContactTheme6 = () => {
           </div>
 
           <div className="flex justify-center col-span-2">
-            <Button disabled={loading} className={'w-full bg-footer rounded hover:bg-footer text-primary'}>
+            <Button
+              disabled={loading}
+              className={cn('w-full bg-footer rounded hover:bg-footer text-primary', btnClassname)}
+            >
               Kirim Pesan
             </Button>
           </div>

@@ -5,6 +5,7 @@ import { ProfileStaffTheme3 } from '@/components/thema-v3/profile/staff'
 import { ProfileStaffTheme4 } from '@/components/theme-v4/profile/staff'
 import StaffProdiListV5 from '@/components/thema-v5/profile/staff'
 import ProfileStaffV6 from '@/components/thema-V6/profile/staff'
+import ProfileStaffV7 from '@/components/thema-V7/profile/staff'
 
 const StaffProfilePage = async () => {
   const themes = await FetchResAPI('/public-prodi/public')
@@ -31,6 +32,9 @@ const StaffProfilePage = async () => {
     }
     case 'THEMA_PRODI_ENAM': {
       return <ProfileStaffV6 />
+    }
+    case 'THEMA_PRODI_TUJUH': {
+      return <ProfileStaffV7 />
     }
   }
 }

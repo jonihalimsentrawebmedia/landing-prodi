@@ -56,7 +56,7 @@ const ContentAboutV7 = () => {
                     key={index}
                     onClick={() => api?.scrollTo(index)}
                     className={`h-2.5 w-2.5 rounded-full transition-all ${
-                      index === current - 1 ? 'bg-footer shadow w-8' : 'bg-gray-50 shadow'
+                      index === current - 1 ? 'bg-primary shadow w-8' : 'bg-white shadow'
                     }`}
                   />
                 ))}

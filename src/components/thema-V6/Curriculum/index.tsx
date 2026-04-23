@@ -31,6 +31,7 @@ const CurriculumPageV6 = (props: Props) => {
       Params.append('slug', data?.[0]?.slug)
       router.push(`?${Params.toString()}`)
     }
+    //eslint-disable-next-line react-hooks/exhaustive-deps
   }, [curriculum, subject])
 
   return (

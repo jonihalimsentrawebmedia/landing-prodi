@@ -29,6 +29,7 @@ const DetailAnnouncementPageV5 = () => {
 
   useEffect(() => {
     if (detail) {
+      // eslint-disable-next-line react-hooks/set-state-in-effect
       setDocument(detail?.dokumens[0].url_dokumen ?? '')
     }
   }, [detail])

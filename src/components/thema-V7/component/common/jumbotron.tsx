@@ -39,7 +39,7 @@ const JumbotronTitleV7 = (props: Props) => {
         </div>
         <Carousel
           opts={{
-            duration: 300,
+            duration: 200,
           }}
           plugins={[
             Autoplay({

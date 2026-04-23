@@ -12,7 +12,7 @@ import { format } from 'date-fns'
 import Link from 'next/link'
 import { useEffect, useRef } from 'react'
 
-const ProfileLecturerV6 = () => {
+const ProfileNewsV6 = () => {
   const TabsData = [
     { name: 'Unit Pengelola', link: '/profile' },
     { name: 'Visi, Misi dan Tujuan', link: '/profile/vision' },
@@ -145,4 +145,4 @@ const ProfileLecturerV6 = () => {
   )
 }
 
-export default ProfileLecturerV6
+export default ProfileNewsV6

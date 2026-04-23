@@ -1,0 +1,57 @@
+'use client'
+
+import { Accordion } from '@/components/ui/accordion'
+
+import Link from 'next/link'
+import { MdDownload } from 'react-icons/md'
+import { UseGetFaq } from '@/app/contact/hooks'
+import { AccordionWithCategoryV7 } from '@/components/thema-V7/contact/accordion'
+
+export const FaqListDataV7 = ({ slug }: { slug: string }) => {
+  const { faq, loading } = UseGetFaq({
+    slug: slug,
+    page: '0',
+    limit: '0',
+  })
+
+  if (loading) return <></>
+
+  return (
+    <>
+      <div className={'w-full mb-5'}>
+        <Accordion type={'multiple'} className={'flex flex-col gap-5'}>
+          {faq?.map((row, k) => (
+            <AccordionWithCategoryV7
+              key={k}
+              name={`data-${k + 1}`}
+              title={`${k + 1}. ${row?.pertanyaan}`}
+              category={row?.nama_kategori_faq}
+            >
+              <div className={'flex flex-col gap-4'}>
+                <div
+                  className={'html-class flex flex-col gap-1.5'}
+                  dangerouslySetInnerHTML={{ __html: row?.jawaban ?? '' }}
+                />
+
+                <ul className={'flex flex-col gap-1.5'}>
+                  {row?.dokumens?.map((row, j) => (
+                    <Link href={row} target={'_blank'} key={j}>
+                      <li
+                        className={
+                          'p-2 border text-primary border-primary w-fit rounded flex items-center gap-1.5'
+                        }
+                      >
+                        Dokumen {j + 1}
+                        <MdDownload />
+                      </li>
+                    </Link>
+                  ))}
+                </ul>
+              </div>
+            </AccordionWithCategoryV7>
+          ))}
+        </Accordion>
+      </div>
+    </>
+  )
+}

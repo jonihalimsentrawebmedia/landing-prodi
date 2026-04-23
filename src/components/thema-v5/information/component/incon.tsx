@@ -1,3 +1,5 @@
+import { cn } from '@/lib/utils'
+
 export const IconWhite = () => {
   return (
     <svg width="36" height="36" viewBox="0 0 36 36" fill="none" xmlns="http://www.w3.org/2000/svg">
@@ -70,12 +72,12 @@ export const IconTitle = ({ fill = 'fill-[#008744]' }: { fill: string }) => {
   )
 }
 
-export const QuilWrite = () => (
+export const QuilWrite = ({ className }: { className?: string }) => (
   <svg width="22" height="22" viewBox="0 0 22 22" fill="none" xmlns="http://www.w3.org/2000/svg">
     <path
       d="M9.3 1.74991C5.448 1.75691 3.43 1.85191 2.141 3.13991C0.75 4.53291 0.75 6.77191 0.75 11.2499C0.75 15.7279 0.75 17.9669 2.141 19.3589C3.533 20.7499 5.771 20.7499 10.251 20.7499C14.729 20.7499 16.968 20.7499 18.359 19.3589C19.649 18.0689 19.743 16.0519 19.75 12.1989"
       // stroke="#1E8853"
-      className={'stroke-footer'}
+      className={cn('stroke-footer', className)}
       strokeWidth="1.5"
       strokeLinecap="round"
       strokeLinejoin="round"
@@ -83,7 +85,7 @@ export const QuilWrite = () => (
     <path
       d="M9.80578 11.7499C9.08178 2.6159 15.5518 0.0259044 20.7298 0.913904C20.9388 3.9409 19.4568 5.0739 16.6368 5.5979C17.1818 6.1679 18.1438 6.8839 18.0398 7.7779C17.9658 8.4159 17.5338 8.7279 16.6678 9.3539C14.7718 10.7239 12.5758 11.5879 9.80578 11.7499Z"
       // stroke="#1E8853"
-      className={'stroke-footer'}
+      className={cn('stroke-footer', className)}
       strokeWidth="1.5"
       strokeLinecap="round"
       strokeLinejoin="round"
@@ -91,7 +93,7 @@ export const QuilWrite = () => (
     <path
       d="M7.75 15.7499C9.75 10.2499 11.71 8.38591 13.75 6.74991"
       // stroke="#1E8853"
-      className={'stroke-footer'}
+      className={cn('stroke-footer', className)}
       strokeWidth="1.5"
       strokeLinecap="round"
       strokeLinejoin="round"
@@ -99,18 +101,18 @@ export const QuilWrite = () => (
   </svg>
 )
 
-export const Folder = () => (
+export const Folder = ({ className }: { className?: string }) => (
   <svg width="22" height="20" viewBox="0 0 22 20" fill="none" xmlns="http://www.w3.org/2000/svg">
     <path
       d="M1.1103 12.929C0.735297 11.046 0.547297 10.104 1.0803 9.466C1.11656 9.42342 1.15459 9.38239 1.1943 9.343C1.7873 8.75 2.8373 8.75 4.9363 8.75H16.5643C18.6643 8.75 19.7143 8.75 20.3063 9.343C20.3463 9.383 20.384 9.424 20.4193 9.466C20.9533 10.104 20.7653 11.046 20.3893 12.929C19.8493 15.637 19.5793 16.99 18.5613 17.822C18.492 17.8787 18.4203 17.933 18.3463 17.985C17.2663 18.75 15.7563 18.75 12.7383 18.75H8.7623C5.7433 18.75 4.2343 18.75 3.1543 17.985C3.08082 17.9331 3.00911 17.8787 2.9393 17.822C1.9213 16.99 1.6513 15.637 1.1113 12.929H1.1103Z"
       // stroke="#1E8853"
-      className={'stroke-footer'}
+      className={cn('stroke-footer', className)}
       strokeWidth="1.5"
     />
     <path
       d="M2.75049 8.75V3.25C2.75049 2.58696 3.01388 1.95107 3.48272 1.48223C3.95156 1.01339 4.58745 0.75 5.25049 0.75H7.68049C8.00967 0.749951 8.33378 0.831156 8.62405 0.98641C8.91433 1.14166 9.16179 1.36617 9.34449 1.64L10.7505 3.75M10.7505 3.75H7.25049M10.7505 3.75H16.2505C16.9135 3.75 17.5494 4.01339 18.0183 4.48223C18.4871 4.95107 18.7505 5.58696 18.7505 6.25V8.75"
       // stroke="#1E8853"
-      className={'stroke-footer'}
+      className={cn('stroke-footer', className)}
       strokeWidth="1.5"
       strokeLinecap="round"
       strokeLinejoin="round"

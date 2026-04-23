@@ -4,6 +4,7 @@ import { FetchResAPI } from '@/provider/server'
 import { InformationAnnouncementSlugTheme3 } from '@/components/thema-v3/information/announcement/slug'
 import { InformationAnnouncementSlugTheme4 } from '@/components/theme-v4/information/announcement/slug'
 import DetailAnnouncementPageV5 from '@/components/thema-v5/information/announcement/detail'
+import AnnouncementDetailPageV7 from '@/components/thema-V7/information/announcement/detail'
 
 const DetailAnnouncementPage = async () => {
   const themes = await FetchResAPI('/public-prodi/public')
@@ -30,6 +31,9 @@ const DetailAnnouncementPage = async () => {
     }
     case 'THEMA_PRODI_ENAM': {
       return <DetailAnnouncementPageV5 />
+    }
+    case 'THEMA_PRODI_TUJUH': {
+      return <AnnouncementDetailPageV7 />
     }
   }
 }

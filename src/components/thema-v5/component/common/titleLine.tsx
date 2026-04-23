@@ -21,12 +21,14 @@ export const TitleLine = (props: props) => {
 }
 
 export const TitleLineTextCenter = (props: props) => {
-  const { text } = props
+  const { text, className } = props
   return (
     <>
       <div className="flex items-center whitespace-nowrap gap-1 justify-center">
         <div className="w-full mt-1 h-[1px] bg-yellow-500" />
-        <p className="lg:text-2xl text-footer whitespace-nowrap font-semibold">{text}</p>
+        <p className={cn('lg:text-2xl text-footer whitespace-nowrap font-semibold', className)}>
+          {text}
+        </p>
         <div className="w-full mt-1 h-[1px] bg-yellow-500" />
       </div>
     </>

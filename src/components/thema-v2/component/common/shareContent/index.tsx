@@ -6,14 +6,16 @@ import { FaXTwitter } from 'react-icons/fa6'
 import { FaWhatsapp } from 'react-icons/fa'
 import { FiFacebook } from 'react-icons/fi'
 import { toast } from 'react-toastify'
+import { cn } from '@/lib/utils'
 
 interface Props {
   title: string
   text: string
+  classNameShare?: string
 }
 
 export const ShareContent = (props: Props) => {
-  const { title, text } = props
+  const { title, text, classNameShare } = props
   const [url, setUrl] = useState('')
   const [canShare, setCanShare] = useState(false)
 
@@ -79,7 +81,7 @@ export const ShareContent = (props: Props) => {
         {canShare && (
           <button
             onClick={handleNativeShare}
-            className="share-btn bg-footer px-2 p-1 rounded text-white"
+            className={cn(classNameShare, 'share-btn bg-footer px-2 p-1 rounded text-white')}
           >
             📤 Share
           </button>

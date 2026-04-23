@@ -102,6 +102,7 @@ export const UseGetAgenda = (props?: AgendaProps) => {
   const { page, limit, search, year, no_includes_id } = props ?? {}
 
   const [agenda, setAgenda] = useState<IAgenda[]>([])
+  const [meta, setMeta] = useState<Meta>()
 
   const paramsSearch = new URLSearchParams()
   if (page) paramsSearch.append('page', page)
@@ -113,19 +114,19 @@ export const UseGetAgenda = (props?: AgendaProps) => {
   const { data, isLoading, isFetching } = useQuery({
     queryKey: ['agenda', paramsSearch.toString()],
     refetchOnWindowFocus: false,
-    queryFn: () =>
-      AxiosClient.get(`/public-prodi/agenda?${paramsSearch}`).then((res) => res?.data?.data),
+    queryFn: () => AxiosClient.get(`/public-prodi/agenda?${paramsSearch}`).then((res) => res?.data),
   })
 
   const loading = isLoading || isFetching
 
   useEffect(() => {
     if (data) {
-      setAgenda(data)
+      setAgenda(data?.data)
+      setMeta(data?.meta)
     }
   }, [data])
 
-  return { agenda, loading }
+  return { agenda, loading, meta }
 }
 
 export const UseGetAboutProdi = () => {

@@ -5,6 +5,7 @@ import { ProfileGalleryTheme3 } from '@/components/thema-v3/profile/gallery'
 import { ProfileGalleryTheme4 } from '@/components/theme-v4/profile/gallery'
 import ProfileGalleryV5 from '@/components/thema-v5/profile/gallery'
 import ProfileGallerySectionV6 from '@/components/thema-V6/profile/Gallery'
+import ProfileGallerySectionV7 from '@/components/thema-V7/profile/gallery'
 
 const GalleryProfilePage = async () => {
   const themes = await FetchResAPI('/public-prodi/public')
@@ -31,6 +32,9 @@ const GalleryProfilePage = async () => {
     }
     case 'THEMA_PRODI_ENAM': {
       return <ProfileGallerySectionV6 />
+    }
+    case 'THEMA_PRODI_TUJUH': {
+      return <ProfileGallerySectionV7 />
     }
   }
 }

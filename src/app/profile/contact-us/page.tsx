@@ -5,6 +5,7 @@ import { ProfileContactTheme3 } from '@/components/thema-v3/profile/contact'
 import { ProfileContactTheme4 } from '@/components/theme-v4/profile/contact'
 import ContactUsProfileV5 from '@/components/thema-v5/profile/contact-us'
 import ProfileContactV6 from '@/components/thema-V6/profile/contact'
+import ProfileContactV7 from '@/components/thema-V7/profile/contact'
 
 const ProfileContactUsPage = async () => {
   const themes = await FetchResAPI('/public-prodi/public')
@@ -31,6 +32,9 @@ const ProfileContactUsPage = async () => {
     }
     case 'THEMA_PRODI_ENAM': {
       return <ProfileContactV6 />
+    }
+    case 'THEMA_PRODI_TUJUH': {
+      return <ProfileContactV7 />
     }
   }
 }

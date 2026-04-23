@@ -5,6 +5,7 @@ import { ProfileVisionTheme3 } from '@/components/thema-v3/profile/vission'
 import ProfileVisionTheme4 from '@/components/theme-v4/profile/vision'
 import VisionMissionGoalsV5 from '@/components/thema-v5/profile/vision'
 import ProfileVisionV6 from '@/components/thema-V6/profile/vision'
+import ProfileVisionV7 from '@/components/thema-V7/profile/vision'
 
 const VisionProfilePage = async () => {
   const themes = await FetchResAPI('/public-prodi/public')
@@ -32,6 +33,9 @@ const VisionProfilePage = async () => {
     }
     case 'THEMA_PRODI_ENAM': {
       return <ProfileVisionV6 />
+    }
+    case 'THEMA_PRODI_TUJUH': {
+      return <ProfileVisionV7 />
     }
   }
 }
