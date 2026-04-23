@@ -6,6 +6,7 @@ import { GalleryTheme4 } from '@/components/theme-v4/Gallery'
 import GalleryPageV5 from '@/components/thema-v5/gallery'
 import GalleryPageV6 from '@/components/thema-V6/gallery'
 import GalleryPageV7 from '@/components/thema-V7/gallery'
+import GalleryPageV8 from '@/components/thema-v8/Gallery'
 
 const GalleryPage = async () => {
   const themes = await FetchResAPI('/public-prodi/public')
@@ -35,6 +36,9 @@ const GalleryPage = async () => {
     }
     case 'THEMA_PRODI_TUJUH': {
       return <GalleryPageV7 />
+    }
+    case 'THEMA_PRODI_DELAPAN': {
+      return <GalleryPageV8 />
     }
   }
 }

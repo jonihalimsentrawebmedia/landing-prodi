@@ -35,7 +35,7 @@ const AboutSectionV7 = () => {
   return (
     <>
       <div className="w-full lg:h-[485px] relative z-10">
-        <div className="container z-10 lg:-mt-[150px] shadow drop-shadow-xl bg-white rounded-lg lg:h-[424px]">
+        <div className="container-sm z-10 lg:-mt-[150px] shadow drop-shadow-xl bg-white rounded-lg lg:h-[424px]">
           <div className="lg:py-[60px] lg:px-[80px] flex flex-col lg:flex-row items-start gap-6 py-5">
             <Carousel setApi={setApi} className={'lg:max-w-[304px] w-full lg:h-[304px]'}>
               <CarouselContent className={'ml-0'}>

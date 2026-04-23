@@ -39,7 +39,7 @@ const ContactSectionV7 = () => {
             Jangan ragu untuk menghubungi kami melalui form berikut. Tuliskan pertanyaan atau
             kendala Anda, dan tim kami akan membantu secepatnya
           </p>
-          <FormContactTheme6 btnClassname={'bg-primary text-white'} />
+          <FormContactTheme6 btnClassname={'bg-primary hover:bg-primary text-white'} />
         </div>
         <div className={'w-full lg:w-1/2 space-y-4'}>
           <p className="text-2xl font-semibold text-primary underline underline-offset-8 decoration-yellow-500">
@@ -48,7 +48,9 @@ const ContactSectionV7 = () => {
 
           <ul className={'mt-4 grid lg:grid-cols-2 gap-4'}>
             <li
-              className={'flex items-center gap-3 border-gray-500 rounded-md border p-4 lg:col-span-2'}
+              className={
+                'flex items-center gap-3 border-gray-500 rounded-md border p-4 lg:col-span-2'
+              }
             >
               <div className="p-2 bg-primary text-white rounded-md w-fit">
                 <IoLocationSharp className={'size-5'} />

@@ -6,6 +6,7 @@ import ProfileOrganizationTheme4 from '@/components/theme-v4/profile/structure-o
 import StructureOrganizationV5 from '@/components/thema-v5/profile/structure'
 import ProfileStructureV6 from '@/components/thema-V6/profile/structure'
 import ProfileStructureV7 from '@/components/thema-V7/profile/structure'
+import ProfileStructureV8 from '@/components/thema-v8/profile/structure'
 
 const StructureOrganizationPage = async () => {
   const themes = await FetchResAPI('/public-prodi/public')
@@ -35,6 +36,9 @@ const StructureOrganizationPage = async () => {
     }
     case 'THEMA_PRODI_TUJUH': {
       return <ProfileStructureV7 />
+    }
+    case 'THEMA_PRODI_DELAPAN': {
+      return <ProfileStructureV8 />
     }
   }
 }

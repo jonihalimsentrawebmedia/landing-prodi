@@ -45,9 +45,9 @@ export default function DarkModeToggle(props: Props) {
         className={`size-4 lg:size-5 transition-colors ${darkMode ? 'text-gray-400' : 'text-yellow-500'}`}
       />
 
-      <div className="w-9 h-5 bg-[#278374] dark:bg-gray-800 rounded-full relative cursor-pointer">
+      <div className="w-9 h-5 bg-gray-500 dark:bg-white rounded-full relative cursor-pointer">
         <div
-          className={`w-4 h-4 bg-white rounded-full absolute top-0.5 transition-all duration-300 ${
+          className={`w-4 h-4 bg-white dark:bg-gray-800 rounded-full absolute top-0.5 transition-all duration-300 ${
             !darkMode ? 'left-0.5' : 'right-0.5'
           }`}
         />

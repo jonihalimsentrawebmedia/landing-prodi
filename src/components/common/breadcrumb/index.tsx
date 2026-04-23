@@ -43,7 +43,7 @@ export const BreadcrumbBasic = (props: Props) => {
                 )}
               </BreadcrumbItem>
 
-              {!isLast && <BreadcrumbSeparator className="flex-shrink-0 text-white" />}
+              {!isLast && <BreadcrumbSeparator className="flex-shrink-0 text-black" />}
             </Fragment>
           )
         })}

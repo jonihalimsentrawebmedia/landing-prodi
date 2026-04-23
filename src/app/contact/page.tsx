@@ -6,6 +6,7 @@ import { ContactTheme4 } from '@/components/theme-v4/contact'
 import ContactRegisteredV5 from '@/components/thema-v5/contact'
 import ContactRegisteredV6 from '@/components/thema-V6/contact'
 import ContactUsePageV7 from '@/components/thema-V7/contact'
+import ContactUsePageV8 from '@/components/thema-v8/contact'
 
 const ContactProdiPage = async () => {
   const themes = await FetchResAPI('/public-prodi/public')
@@ -35,6 +36,9 @@ const ContactProdiPage = async () => {
     }
     case 'THEMA_PRODI_TUJUH': {
       return <ContactUsePageV7 />
+    }
+    case 'THEMA_PRODI_DELAPAN': {
+      return <ContactUsePageV8 />
     }
   }
 }

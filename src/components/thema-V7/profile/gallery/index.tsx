@@ -94,11 +94,9 @@ const ProfileGallerySectionV7 = () => {
             onValueChange={(e) => router.push(e)}
           >
             <TabsList
-              ref={tabsListRef}
               className={cn(
-                'w-full h-full! lg:max-w-[230px] bg-footer relative lg:px-4',
-                'flex justify-start items-start lg:flex-col',
-                'flex-row! flex-nowrap overflow-x-auto lg:overflow-x-visible p-0 rounded-none'
+                'lg:flex-col! overflow-x-scroll justify-start lg:overflow-x-visible',
+                'w-full h-full lg:max-w-[200px] bg-transparent relative lg:px-4! px-0!'
               )}
             >
               <div className="absolute z-10 w-[2px] h-full left-0 bg-linear-to-b from-primary to-footer hidden lg:block" />

@@ -6,6 +6,7 @@ import { AccreditationTheme4 } from '@/components/theme-v4/accreditation'
 import AccreditationPageV5 from '@/components/thema-v5/Accrreditation'
 import AccreditationPageV6 from '@/components/thema-V6/Accreditation'
 import AccreditationPageV7 from '@/components/thema-V7/Accreditation'
+import AccreditationPageV8 from '@/components/thema-v8/Accreditation'
 
 const AccreditationPage = async () => {
   const themes = await FetchResAPI('/public-prodi/public')
@@ -35,6 +36,9 @@ const AccreditationPage = async () => {
     }
     case 'THEMA_PRODI_TUJUH': {
       return <AccreditationPageV7 />
+    }
+    case 'THEMA_PRODI_DELAPAN': {
+      return <AccreditationPageV8 />
     }
   }
 }
