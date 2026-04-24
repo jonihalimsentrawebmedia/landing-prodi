@@ -5,6 +5,7 @@ import { InformationPromotionSlugTheme3 } from '@/components/thema-v3/informatio
 import { InformationPromotionSlugTheme4 } from '@/components/theme-v4/information/promotion/slug'
 import DetailPromotionV5 from '@/components/thema-v5/information/promotion/detail'
 import DetailPromotionV7 from '@/components/thema-V7/information/promotion/detail'
+import DetailPromotionV8 from '@/components/thema-v8/information/promotion/detail'
 
 const DetailPromotionPage = async () => {
   const themes = await FetchResAPI('/public-prodi/public')
@@ -34,6 +35,9 @@ const DetailPromotionPage = async () => {
     }
     case 'THEMA_PRODI_TUJUH': {
       return <DetailPromotionV7 />
+    }
+    case 'THEMA_PRODI_DELAPAN': {
+      return <DetailPromotionV8 />
     }
   }
 }

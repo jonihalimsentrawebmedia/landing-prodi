@@ -1,9 +1,10 @@
 'use client'
 
-import { BreadcrumbBasic } from '@/components/common/breadcrumb'
 import { useParams } from 'next/navigation'
 import { UseGetNewsDetail } from '@/app/information/news/hooks'
 import { UseGetNews } from '@/app/homepage/hooks'
+import JumbotronTitleV8 from '@/components/thema-v8/component/common/jumbotronTitle'
+import { BreadcrumbBasic } from '@/components/common/breadcrumb'
 import { Folder, QuilWrite } from '@/components/thema-v5/information/component/incon'
 import { MdDateRange } from 'react-icons/md'
 import { format } from 'date-fns'
@@ -19,7 +20,7 @@ import { ShareContent } from '@/components/thema-v2/component/common/shareConten
 import Link from 'next/link'
 import { FaRegCalendarAlt } from 'react-icons/fa'
 
-const DetailNewsPageV7 = () => {
+const DetailNewsPageV8 = () => {
   const { slug } = useParams()
   const { newsDetail } = UseGetNewsDetail((slug as string) ?? '')
   const { news } = UseGetNews({
@@ -33,22 +34,25 @@ const DetailNewsPageV7 = () => {
 
   return (
     <>
-      <div className={'bg-primary w-full max-w-[1920px] mx-auto p-4'}>
-        <div className="container-sm">
-          <BreadcrumbBasic
-            className={'text-white! hover:bg-primary!'}
-            data={[
-              { name: 'Beranda', link: '/' },
-              { name: 'Informasi', link: '/information' },
-              { name: 'Berita', link: '/information/news' },
-              { name: newsDetail?.judul ?? '' },
-            ]}
-          />
+      <JumbotronTitleV8 title={'Profil'} context={'PROFIL'} />
+      <div className="bg-footer">
+        <div className="container-sm py-5">
+          <div className="bg-blue-50 p-1.5 px-2 rounded">
+            <BreadcrumbBasic
+              className={'text-primary hover:bg-transparent!'}
+              data={[
+                { name: 'Beranda', link: '/' },
+                { name: 'Informasi', link: '/information' },
+                { name: 'Berita', link: '/information/news' },
+                { name: newsDetail?.judul ?? '' },
+              ]}
+            />
+          </div>
         </div>
       </div>
 
       <div className="bg-footer py-5">
-        <div className="container-sm lg:py-10 space-y-4">
+        <div className="container-sm space-y-4">
           <p className="lg:text-3xl font-semibold">{newsDetail?.judul}</p>
           <div className="flex flex-col items-start gap-2.5">
             <p className="flex items-center gap-1.5">
@@ -148,4 +152,4 @@ const DetailNewsPageV7 = () => {
   )
 }
 
-export default DetailNewsPageV7
+export default DetailNewsPageV8

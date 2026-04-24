@@ -5,6 +5,7 @@ import { InformationAgendaSlugTheme3 } from '@/components/thema-v3/information/a
 import { InformationAgendaSlugTheme4 } from '@/components/theme-v4/information/agenda/slug'
 import DetailAgendaPgeV5 from '@/components/thema-v5/information/Agenda/detail'
 import AgendaDetailPageV7 from '@/components/thema-V7/information/agenda/detail'
+import AgendaDetailPageV8 from '@/components/thema-v8/information/agenda/detail'
 
 const DetailAgendaPage = async () => {
   const themes = await FetchResAPI('/public-prodi/public')
@@ -34,6 +35,9 @@ const DetailAgendaPage = async () => {
     }
     case 'THEMA_PRODI_TUJUH': {
       return <AgendaDetailPageV7 />
+    }
+    case 'THEMA_PRODI_DELAPAN': {
+      return <AgendaDetailPageV8 />
     }
   }
 }
