@@ -1,5 +1,4 @@
 import { UseGetProdiFaculty } from '@/components/common/hook/ref'
-import { FaCaretUp } from 'react-icons/fa'
 import {
   Accordion,
   AccordionContent,
@@ -31,7 +30,6 @@ const ProdiTree = () => {
               className={'text-white p-0 border-none! hover:no-underline flex items-center w-fit'}
             >
               {row?.nama}
-              <FaCaretUp />
             </AccordionTrigger>
             <AccordionContent className={'py-2'}>
               <ul className={'flex flex-col text-white pl-2'}>
