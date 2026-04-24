@@ -19,7 +19,7 @@ const NewsHomeSectionV8 = () => {
 
   return (
     <>
-      <div className="py-5 bg-white dark:bg-gray-800">
+      <div className="py-5 bg-primary/10 dark:bg-gray-800">
         <div className="container-sm py-5">
           <h2 className="lg:text-3xl font-semibold text-primary text-center">
             Berita Program Studi

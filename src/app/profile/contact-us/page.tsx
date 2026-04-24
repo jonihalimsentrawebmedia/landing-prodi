@@ -7,6 +7,7 @@ import ContactUsProfileV5 from '@/components/thema-v5/profile/contact-us'
 import ProfileContactV6 from '@/components/thema-V6/profile/contact'
 import ProfileContactV7 from '@/components/thema-V7/profile/contact'
 import ProfileContactV8 from '@/components/thema-v8/profile/contact'
+import ProfileContactV9 from '@/components/thema-v9/profile/contact'
 
 const ProfileContactUsPage = async () => {
   const themes = await FetchResAPI('/public-prodi/public')
@@ -39,6 +40,9 @@ const ProfileContactUsPage = async () => {
     }
     case 'THEMA_PRODI_DELAPAN': {
       return <ProfileContactV8 />
+    }
+    case 'THEMA_PRODI_SEMBILAN': {
+      return <ProfileContactV9 />
     }
   }
 }

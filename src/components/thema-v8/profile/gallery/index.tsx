@@ -97,6 +97,7 @@ const ProfileGallerySectionV8 = () => {
             onValueChange={(e) => router.push(e)}
           >
             <TabsList
+              ref={tabsListRef}
               className={cn(
                 'lg:flex-col! overflow-x-scroll justify-start lg:overflow-x-visible',
                 'w-full h-full lg:max-w-[200px] bg-transparent relative lg:px-4! px-0!'

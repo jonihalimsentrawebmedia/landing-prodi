@@ -7,6 +7,7 @@ import InformationPageSectionV5 from '@/components/thema-v5/information'
 import InformationSectionV6 from '@/components/thema-V6/information'
 import InformationSectionV7 from '@/components/thema-V7/information'
 import InformationSectionV8 from '@/components/thema-v8/information'
+import InformationSectionV9 from '@/components/thema-v9/information'
 
 const InformationPage = async () => {
   const themes = await FetchResAPI('/public-prodi/public')
@@ -39,6 +40,9 @@ const InformationPage = async () => {
     }
     case 'THEMA_PRODI_DELAPAN': {
       return <InformationSectionV8 />
+    }
+    case 'THEMA_PRODI_SEMBILAN': {
+      return <InformationSectionV9 />
     }
   }
 }

@@ -7,6 +7,7 @@ import LecturerListPageV5 from '@/components/thema-v5/Lecturer'
 import LecturerListPageV6 from '@/components/thema-V6/lecturer'
 import LecturerListPageV7 from '@/components/thema-V7/lecturer'
 import LecturerListPageV8 from '@/components/thema-v8/lecturer'
+import LecturerListPageV9 from '@/components/thema-v9/lecturer'
 
 const LecturerPage = async () => {
   const themes = await FetchResAPI('/public-prodi/public')
@@ -39,6 +40,9 @@ const LecturerPage = async () => {
     }
     case 'THEMA_PRODI_DELAPAN': {
       return <LecturerListPageV8 />
+    }
+    case 'THEMA_PRODI_SEMBILAN': {
+      return <LecturerListPageV9 />
     }
   }
 }

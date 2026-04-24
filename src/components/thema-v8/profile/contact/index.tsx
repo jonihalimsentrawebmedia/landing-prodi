@@ -87,6 +87,7 @@ const ProfileContactV8 = () => {
             onValueChange={(e) => router.push(e)}
           >
             <TabsList
+              ref={tabsListRef}
               className={cn(
                 'lg:flex-col! overflow-x-scroll justify-start lg:overflow-x-visible',
                 'w-full h-full lg:max-w-[200px] bg-transparent relative lg:px-4! px-0!'
@@ -109,7 +110,7 @@ const ProfileContactV8 = () => {
             </TabsList>
             <TabsContent value={pathName}>
               <div className={'w-full space-y-4 py-4 lg:py-0'}>
-                <TitleLine text={'Unit Pengelolah'} />
+                <TitleLine text={'Tentang Program Studi'} />
 
                 <ul className={'mt-4 space-y-4 py-5 lg:py-0'}>
                   <li className={'flex items-center gap-3 border-l-2 border-l-yellow-500 pl-2'}>
