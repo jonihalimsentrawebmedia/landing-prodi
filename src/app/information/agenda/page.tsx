@@ -9,6 +9,7 @@ import AgendaInformationPageV7 from '@/components/thema-V7/information/agenda'
 import AgendaInformationPageV8 from '@/components/thema-v8/information/agenda'
 import AgendaInformationPageV9 from '@/components/thema-v9/information/agenda'
 import AgendaInformationPageV10 from '@/components/thema-v10/information/agenda'
+import AgendaInformationPageV11 from '@/components/thema-v11/information/agenda'
 
 const AgendaPage = async () => {
   const themes = await FetchResAPI('/public-prodi/public')
@@ -47,6 +48,9 @@ const AgendaPage = async () => {
     }
     case 'THEMA_PRODI_SEPULUH': {
       return <AgendaInformationPageV10 />
+    }
+    case 'THEMA_PRODI_SEBELAS': {
+      return <AgendaInformationPageV11 />
     }
   }
 }

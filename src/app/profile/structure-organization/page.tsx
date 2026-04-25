@@ -9,6 +9,7 @@ import ProfileStructureV7 from '@/components/thema-V7/profile/structure'
 import ProfileStructureV8 from '@/components/thema-v8/profile/structure'
 import ProfileStructureV9 from '@/components/thema-v9/profile/structure'
 import ProfileStructureV10 from '@/components/thema-v10/profile/structure'
+import ProfileStructureV11 from '@/components/thema-v11/profile/structure'
 
 const StructureOrganizationPage = async () => {
   const themes = await FetchResAPI('/public-prodi/public')
@@ -47,6 +48,9 @@ const StructureOrganizationPage = async () => {
     }
     case 'THEMA_PRODI_SEPULUH': {
       return <ProfileStructureV10 />
+    }
+    case 'THEMA_PRODI_SEBELAS': {
+      return <ProfileStructureV11 />
     }
   }
 }

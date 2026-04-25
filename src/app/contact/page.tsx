@@ -9,6 +9,7 @@ import ContactUsePageV7 from '@/components/thema-V7/contact'
 import ContactUsePageV8 from '@/components/thema-v8/contact'
 import ContactUsePageV9 from '@/components/thema-v9/contact'
 import ContactUsePageV10 from '@/components/thema-v10/contact'
+import ContactUsePageV11 from '@/components/thema-v11/contact'
 
 const ContactProdiPage = async () => {
   const themes = await FetchResAPI('/public-prodi/public')
@@ -47,6 +48,9 @@ const ContactProdiPage = async () => {
     }
     case 'THEMA_PRODI_SEPULUH': {
       return <ContactUsePageV10 />
+    }
+    case 'THEMA_PRODI_SEBELAS': {
+      return <ContactUsePageV11 />
     }
   }
 }

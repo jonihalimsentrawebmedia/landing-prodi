@@ -8,6 +8,7 @@ import AnnouncementDetailPageV7 from '@/components/thema-V7/information/announce
 import AnnouncementDetailPageV8 from '@/components/thema-v8/information/announcement/detail'
 import AnnouncementDetailPageV9 from '@/components/thema-v9/information/announcement/detail'
 import AnnouncementDetailPageV10 from '@/components/thema-v10/information/announcement/detail'
+import AnnouncementDetailPageV11 from '@/components/thema-v11/information/announcement/detail'
 
 const DetailAnnouncementPage = async () => {
   const themes = await FetchResAPI('/public-prodi/public')
@@ -46,6 +47,9 @@ const DetailAnnouncementPage = async () => {
     }
     case 'THEMA_PRODI_SEPULUH': {
       return <AnnouncementDetailPageV10 />
+    }
+    case 'THEMA_PRODI_SEBELAS': {
+      return <AnnouncementDetailPageV11 />
     }
   }
 }

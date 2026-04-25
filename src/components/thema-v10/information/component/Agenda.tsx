@@ -79,7 +79,7 @@ const InformationAgendaAnnouncementV10 = () => {
                 <Link
                   key={k}
                   href={`/information/announcements/${row.slug}`}
-                  className="bg-white rounded lg:rounded-[30px] p-2 lg:p-5 hover:shadow-xl transition group"
+                  className="bg-white rounded lg:rounded-[30px] p-2 lg:p-5 hover:shadow-xl transition group border"
                 >
                   <div className="flex gap-4">
                     <div className="lg:w-[107px] lg:h-[107px] w-[60px] h-[60px] flex-shrink-0 lg:rounded-2xl overflow-hidden">

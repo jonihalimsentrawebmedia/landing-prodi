@@ -9,6 +9,7 @@ import InformationPromotionV7 from '@/components/thema-V7/information/promotion'
 import InformationPromotionV8 from '@/components/thema-v8/information/promotion'
 import InformationPromotionV9 from '@/components/thema-v9/information/promotion'
 import InformationPromotionV10 from '@/components/thema-v10/information/promotion'
+import InformationPromotionV11 from '@/components/thema-v11/information/promotion'
 
 const PromotionPage = async () => {
   const themes = await FetchResAPI('/public-prodi/public')
@@ -47,6 +48,9 @@ const PromotionPage = async () => {
     }
     case 'THEMA_PRODI_SEPULUH': {
       return <InformationPromotionV10 />
+    }
+    case 'THEMA_PRODI_SEBELAS': {
+      return <InformationPromotionV11 />
     }
   }
 }

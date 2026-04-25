@@ -9,6 +9,7 @@ import ProfileGallerySectionV7 from '@/components/thema-V7/profile/gallery'
 import ProfileGallerySectionV8 from '@/components/thema-v8/profile/gallery'
 import ProfileGallerySectionV9 from '@/components/thema-v9/profile/gallery'
 import ProfileGallerySectionV10 from '@/components/thema-v10/profile/gallery'
+import ProfileGallerySectionV11 from '@/components/thema-v11/profile/gallery'
 
 const GalleryProfilePage = async () => {
   const themes = await FetchResAPI('/public-prodi/public')
@@ -47,6 +48,9 @@ const GalleryProfilePage = async () => {
     }
     case 'THEMA_PRODI_SEPULUH': {
       return <ProfileGallerySectionV10 />
+    }
+    case 'THEMA_PRODI_SEBELAS': {
+      return <ProfileGallerySectionV11 />
     }
   }
 }

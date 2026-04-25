@@ -9,6 +9,7 @@ import ProfileSectionPage7 from '@/components/thema-V7/profile'
 import ProfilePageV8 from '@/components/thema-v8/profile'
 import ProfilePageV9 from '@/components/thema-v9/profile'
 import ProfilePageV10 from '@/components/thema-v10/profile'
+import ProfilePageV11 from '@/components/thema-v11/profile'
 
 const PageProfileProdi = async () => {
   const themes = await FetchResAPI('/public-prodi/public')
@@ -48,6 +49,9 @@ const PageProfileProdi = async () => {
     }
     case 'THEMA_PRODI_SEPULUH': {
       return <ProfilePageV10 />
+    }
+    case 'THEMA_PRODI_SEBELAS': {
+      return <ProfilePageV11 />
     }
   }
 }

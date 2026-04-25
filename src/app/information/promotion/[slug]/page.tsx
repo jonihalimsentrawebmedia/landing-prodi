@@ -8,6 +8,7 @@ import DetailPromotionV7 from '@/components/thema-V7/information/promotion/detai
 import DetailPromotionV8 from '@/components/thema-v8/information/promotion/detail'
 import DetailPromotionV9 from '@/components/thema-v9/information/promotion/detail'
 import DetailPromotionV10 from '@/components/thema-v10/information/promotion/detail'
+import DetailPromotionPageV11 from '@/components/thema-v11/information/promotion/detail'
 
 const DetailPromotionPage = async () => {
   const themes = await FetchResAPI('/public-prodi/public')
@@ -46,6 +47,9 @@ const DetailPromotionPage = async () => {
     }
     case 'THEMA_PRODI_SEPULUH': {
       return <DetailPromotionV10 />
+    }
+    case 'THEMA_PRODI_SEBELAS': {
+      return <DetailPromotionPageV11 />
     }
   }
 }

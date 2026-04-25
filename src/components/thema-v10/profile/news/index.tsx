@@ -88,7 +88,7 @@ const ProfileNewsV10 = () => {
             className={cn(
               'bg-white rounded-none! w-full h-full',
               'border-b-2 border-yellow-500 p-0',
-              'overflow-x-scroll justify-start'
+              'overflow-x-scroll justify-start lg:overflow-x-visible'
             )}
           >
             {TabsData?.map((row, k) => (

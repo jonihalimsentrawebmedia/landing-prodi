@@ -25,13 +25,13 @@ const LecturerListPageV10 = () => {
 
   return (
     <>
-      <JumbotronTitleV10 title={'Akreditasi'} context={'AKREDITASI'} />
+      <JumbotronTitleV10 title={'Dosen'} context={'DOSEN'} />
       <div className="bg-primary/10">
         <div className="container-sm py-5">
           <div className="bg-blue-50 p-1.5 px-2 rounded">
             <BreadcrumbBasic
               className={'text-primary hover:bg-transparent!'}
-              data={[{ name: 'Beranda', link: '/' }, { name: 'Akreditasi' }]}
+              data={[{ name: 'Beranda', link: '/' }, { name: 'Dosen' }]}
             />
           </div>
         </div>

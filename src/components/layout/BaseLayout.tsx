@@ -10,6 +10,7 @@ import LayoutBaseTheme7 from '@/components/thema-V7/component/layout'
 import LayoutBaseTheme8 from '@/components/thema-v8/component/layout'
 import LayoutBaseTheme9 from '@/components/thema-v9/component/layout'
 import LayoutBaseTheme10 from '@/components/thema-v10/component/layout'
+import LayoutBaseTheme11 from '@/components/thema-v11/component/layout'
 
 interface props {
   children: ReactNode
@@ -23,7 +24,7 @@ const LayoutBase = async (props: props) => {
 
   switch (themes) {
     default: {
-      return <LandingLayout>{children}</LandingLayout>
+      return <LayoutBaseTheme5>{children}</LayoutBaseTheme5>
     }
     case 'THEMA_PRODI_SATU': {
       return <LandingLayout>{children}</LandingLayout>
@@ -54,6 +55,9 @@ const LayoutBase = async (props: props) => {
     }
     case 'THEMA_PRODI_SEPULUH': {
       return <LayoutBaseTheme10>{children}</LayoutBaseTheme10>
+    }
+    case 'THEMA_PRODI_SEBELAS': {
+      return <LayoutBaseTheme11>{children}</LayoutBaseTheme11>
     }
   }
 }
