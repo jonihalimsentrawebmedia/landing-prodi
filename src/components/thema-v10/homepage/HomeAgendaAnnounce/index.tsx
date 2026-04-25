@@ -21,15 +21,15 @@ const AgendaAnnouncementV10 = () => {
 
   return (
     <div
-      className="relative py-12 lg:py-20 bg-cover bg-center"
+      className="relative py-12 lg:py-20 bg-cover bg-center px-4"
       style={{ backgroundImage: "url('/img/agenda.jpg')" }}
     >
       <div className="absolute inset-0 bg-linear-to-r from-white/50 to-transparent" />
 
       <div className="container-sm bg-primary/50 rounded-3xl h-fit relative">
         <div className="w-full h-fit relative flex items-center justify-center rounded-3xl">
-          <div className={'relative p-10 z-20 flex flex-col items-center'}>
-            <h2 className="text-3xl font-semibold border-b-4 w-fit border-[#CDA327] text-white pb-4 inline-block text-center">
+          <div className={'relative py-4 lg:p-10 z-20 flex flex-col items-center'}>
+            <h2 className="lg:text-3xl font-semibold border-b-4 w-fit border-[#CDA327] text-white pb-4 inline-block text-center">
               Pengumuman Program Studi
             </h2>
             <div className="grid grid-cols-1 md:grid-cols-3 gap-6 mt-6">
@@ -37,10 +37,10 @@ const AgendaAnnouncementV10 = () => {
                 <Link
                   key={k}
                   href={`/information/announcements/${row.slug}`}
-                  className="bg-white rounded-[30px] p-5 hover:shadow-xl transition group"
+                  className="bg-white rounded lg:rounded-[30px] p-2 lg:p-5 hover:shadow-xl transition group"
                 >
                   <div className="flex gap-4">
-                    <div className="w-[107px] h-[107px] flex-shrink-0 rounded-2xl overflow-hidden">
+                    <div className="lg:w-[107px] lg:h-[107px] w-[60px] h-[60px] flex-shrink-0 rounded-2xl overflow-hidden">
                       <Image
                         src={profile?.SatuanOrganisasi?.logo ?? '/img/noimg.png'}
                         alt={row.judul_pengumuman}
@@ -51,7 +51,7 @@ const AgendaAnnouncementV10 = () => {
                     </div>
 
                     <div className="flex-1">
-                      <p className="text-[#1E3A8A] font-semibold text-lg leading-tight line-clamp-2 group-hover:text-[#0F6D5B]">
+                      <p className="text-[#1E3A8A] font-semibold text-sm lg:text-lg leading-tight line-clamp-2 group-hover:text-[#0F6D5B]">
                         {row.judul_pengumuman}
                       </p>
                       <p className="text-[#444444] text-sm mt-3 flex items-center gap-2">
@@ -73,10 +73,10 @@ const AgendaAnnouncementV10 = () => {
         </div>
       </div>
 
-      <div className="container-sm bg-primary/50 rounded-3xl h-fit relative mt-12">
+      <div className="container-sm bg-primary/50 rounded-3xl h-fit relative mt-5 lg:mt-12">
         <div className="w-full h-fit relative flex items-center justify-center rounded-3xl">
-          <div className={'relative p-10 z-20 flex flex-col items-center'}>
-            <h2 className="text-3xl font-semibold border-b-4 w-fit border-[#CDA327] text-white pb-4 inline-block text-center">
+          <div className={'relative py-4 lg:p-10 z-20 flex flex-col items-center'}>
+            <h2 className="lg:text-3xl font-semibold border-b-4 w-fit border-[#CDA327] text-white pb-4 inline-block text-center">
               Agenda Program Studi
             </h2>
             <div className="grid grid-cols-1 md:grid-cols-3 gap-6 mt-6">
@@ -84,10 +84,10 @@ const AgendaAnnouncementV10 = () => {
                 <Link
                   key={k}
                   href={`/information/announcements/${row.slug}`}
-                  className="bg-white rounded-[30px] p-5 hover:shadow-xl transition group"
+                  className="bg-white rounded lg:rounded-[30px] p-2 lg:p-5 hover:shadow-xl transition group"
                 >
                   <div className="flex gap-4">
-                    <div className="w-[107px] h-[107px] flex-shrink-0 rounded-2xl overflow-hidden">
+                    <div className="lg:w-[107px] lg:h-[107px] w-[60px] h-[60px] flex-shrink-0 lg:rounded-2xl overflow-hidden">
                       <Image
                         src={row?.gambar ?? '/img/noimg.png'}
                         alt={row.judul}
@@ -98,7 +98,7 @@ const AgendaAnnouncementV10 = () => {
                     </div>
 
                     <div className="flex-1">
-                      <p className="text-[#1E3A8A] font-semibold text-lg leading-tight line-clamp-2 group-hover:text-[#0F6D5B]">
+                      <p className="text-[#1E3A8A] font-semibold text-sm lg:text-lg leading-tight line-clamp-2 group-hover:text-[#0F6D5B]">
                         {row.judul}
                       </p>
                       <p className="text-[#444444] text-sm mt-3 flex items-center gap-2">

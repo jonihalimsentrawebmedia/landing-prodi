@@ -129,7 +129,7 @@ const CurriculumPageV9 = (props: Props) => {
               className={clsx(
                 'w-full h-full lg:max-w-[200px] lg:flex-col!',
                 'gap-2 bg-transparent',
-                'flex-row justify-start overflow-x-scroll'
+                'flex-row justify-start overflow-x-scroll lg:overflow-x-visible'
               )}
             >
               {elements?.map((row, k) => (
@@ -188,7 +188,7 @@ const CurriculumPageV9 = (props: Props) => {
                       >
                         <div className="flex items-center justify-between w-full">
                           <p>Semester {row?.value}</p>
-                          <p>{TotalSKS(subject?.ganjil)}</p>
+                          <p>{TotalSKS(subject?.genap)}</p>
                         </div>
                       </AccordionTrigger>
                       <AccordionContent className={'px-4 border-2 bg-white'}>

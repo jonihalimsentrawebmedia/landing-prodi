@@ -8,6 +8,7 @@ import NewsInformationPageV6 from '@/components/thema-V6/information/news'
 import NewsInformationPageV7 from '@/components/thema-V7/information/news'
 import NewsInformationPageV8 from '@/components/thema-v8/information/news'
 import NewsInformationPageV9 from '@/components/thema-v9/information/news'
+import NewsInformationPageV10 from '@/components/thema-v10/information/news'
 
 const NewsPage = async () => {
   const themes = await FetchResAPI('/public-prodi/public')
@@ -15,7 +16,7 @@ const NewsPage = async () => {
 
   switch (theme) {
     default: {
-      return <InformationNewsTheme1 />
+      return <NewsInformationV5 />
     }
     case 'THEMA_PRODI_SATU': {
       return <InformationNewsTheme1 />
@@ -43,6 +44,9 @@ const NewsPage = async () => {
     }
     case 'THEMA_PRODI_SEMBILAN': {
       return <NewsInformationPageV9 />
+    }
+    case 'THEMA_PRODI_SEPULUH': {
+      return <NewsInformationPageV10 />
     }
   }
 }

@@ -181,7 +181,7 @@ const CurriculumPageV8 = (props: Props) => {
                       >
                         <div className="flex items-center justify-between w-full">
                           <p>Semester {row?.value}</p>
-                          <p>{TotalSKS(subject?.ganjil)}</p>
+                          <p>{TotalSKS(subject?.genap)}</p>
                         </div>
                       </AccordionTrigger>
                       <AccordionContent className={'px-4 border-2'}>

@@ -8,6 +8,7 @@ import GalleryPageV6 from '@/components/thema-V6/gallery'
 import GalleryPageV7 from '@/components/thema-V7/gallery'
 import GalleryPageV8 from '@/components/thema-v8/Gallery'
 import GalleryPageV9 from '@/components/thema-v9/Gallery'
+import GalleryPageV10 from '@/components/thema-v10/gallery'
 
 const GalleryPage = async () => {
   const themes = await FetchResAPI('/public-prodi/public')
@@ -15,7 +16,7 @@ const GalleryPage = async () => {
 
   switch (theme) {
     default: {
-      return <GalleryTheme1 />
+      return <GalleryPageV5 />
     }
     case 'THEMA_PRODI_SATU': {
       return <GalleryTheme1 />
@@ -43,6 +44,9 @@ const GalleryPage = async () => {
     }
     case 'THEMA_PRODI_SEMBILAN': {
       return <GalleryPageV9 />
+    }
+    case 'THEMA_PRODI_SEPULUH': {
+      return <GalleryPageV10 />
     }
   }
 }

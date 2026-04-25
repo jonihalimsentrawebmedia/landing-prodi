@@ -7,6 +7,7 @@ import DetailAgendaPgeV5 from '@/components/thema-v5/information/Agenda/detail'
 import AgendaDetailPageV7 from '@/components/thema-V7/information/agenda/detail'
 import AgendaDetailPageV8 from '@/components/thema-v8/information/agenda/detail'
 import AgendaDetailPageV9 from '@/components/thema-v9/information/agenda/detail'
+import AgendaDetailPageV10 from '@/components/thema-v10/information/agenda/detail'
 
 const DetailAgendaPage = async () => {
   const themes = await FetchResAPI('/public-prodi/public')
@@ -42,6 +43,9 @@ const DetailAgendaPage = async () => {
     }
     case 'THEMA_PRODI_SEMBILAN': {
       return <AgendaDetailPageV9 />
+    }
+    case 'THEMA_PRODI_SEPULUH': {
+      return <AgendaDetailPageV10 />
     }
   }
 }

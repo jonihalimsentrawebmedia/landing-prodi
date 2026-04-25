@@ -17,7 +17,7 @@ const PageProfileProdi = async () => {
 
   switch (theme) {
     default: {
-      return <ProfileAboutPageTheme1 />
+      return <ProfilePageV5 />
     }
     case 'THEMA_PRODI_SATU': {
       return <ProfileAboutPageTheme1 />

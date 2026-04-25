@@ -8,6 +8,7 @@ import ProfileVisionV6 from '@/components/thema-V6/profile/vision'
 import ProfileVisionV7 from '@/components/thema-V7/profile/vision'
 import ProfileVisionV8 from '@/components/thema-v8/profile/vision'
 import ProfileVisionV9 from '@/components/thema-v9/profile/vision'
+import ProfileVisionV10 from '@/components/thema-v10/profile/vision'
 
 const VisionProfilePage = async () => {
   const themes = await FetchResAPI('/public-prodi/public')
@@ -15,7 +16,7 @@ const VisionProfilePage = async () => {
 
   switch (theme) {
     default: {
-      return <VisionTheme1Page />
+      return <VisionMissionGoalsV5 />
     }
 
     case 'THEMA_PRODI_SATU': {
@@ -44,6 +45,9 @@ const VisionProfilePage = async () => {
     }
     case 'THEMA_PRODI_SEMBILAN': {
       return <ProfileVisionV9 />
+    }
+    case 'THEMA_PRODI_SEPULUH': {
+      return <ProfileVisionV10 />
     }
   }
 }

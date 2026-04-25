@@ -8,6 +8,7 @@ import ProfileStaffV6 from '@/components/thema-V6/profile/staff'
 import ProfileStaffV7 from '@/components/thema-V7/profile/staff'
 import ProfileStaffV8 from '@/components/thema-v8/profile/staff'
 import ProfileStaffV9 from '@/components/thema-v9/profile/staff'
+import ProfileStaffV10 from '@/components/thema-v10/profile/staff'
 
 const StaffProfilePage = async () => {
   const themes = await FetchResAPI('/public-prodi/public')
@@ -15,7 +16,7 @@ const StaffProfilePage = async () => {
 
   switch (theme) {
     default: {
-      return <StaffProfileTheme1 />
+      return <StaffProdiListV5 />
     }
     case 'THEMA_PRODI_SATU': {
       return <StaffProfileTheme1 />
@@ -43,6 +44,9 @@ const StaffProfilePage = async () => {
     }
     case 'THEMA_PRODI_SEMBILAN': {
       return <ProfileStaffV9 />
+    }
+    case 'THEMA_PRODI_SEPULUH': {
+      return <ProfileStaffV10 />
     }
   }
 }

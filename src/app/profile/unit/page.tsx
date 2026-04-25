@@ -11,9 +11,8 @@ const ProfileUnitPage = async () => {
 
   switch (theme) {
     default: {
-      return <UnitPageTheme1 />
+      return <UnitManagementV5 />
     }
-
     case 'THEMA_PRODI_SATU': {
       return <UnitPageTheme1 />
     }

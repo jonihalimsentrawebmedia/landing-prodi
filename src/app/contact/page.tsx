@@ -8,6 +8,7 @@ import ContactRegisteredV6 from '@/components/thema-V6/contact'
 import ContactUsePageV7 from '@/components/thema-V7/contact'
 import ContactUsePageV8 from '@/components/thema-v8/contact'
 import ContactUsePageV9 from '@/components/thema-v9/contact'
+import ContactUsePageV10 from '@/components/thema-v10/contact'
 
 const ContactProdiPage = async () => {
   const themes = await FetchResAPI('/public-prodi/public')
@@ -15,7 +16,7 @@ const ContactProdiPage = async () => {
 
   switch (theme) {
     default: {
-      return <ContactTheme1 />
+      return <ContactRegisteredV5 />
     }
     case 'THEMA_PRODI_SATU': {
       return <ContactTheme1 />
@@ -43,6 +44,9 @@ const ContactProdiPage = async () => {
     }
     case 'THEMA_PRODI_SEMBILAN': {
       return <ContactUsePageV9 />
+    }
+    case 'THEMA_PRODI_SEPULUH': {
+      return <ContactUsePageV10 />
     }
   }
 }

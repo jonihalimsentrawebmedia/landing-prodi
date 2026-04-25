@@ -16,7 +16,7 @@ export default async function Home() {
 
   switch (theme) {
     default: {
-      return <PageThemaOneHome />
+      return <HomeTheme5 />
     }
     case 'THEMA_PRODI_SATU': {
       return <PageThemaOneHome />

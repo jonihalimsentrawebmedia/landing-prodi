@@ -8,6 +8,7 @@ import LecturerListPageV6 from '@/components/thema-V6/lecturer'
 import LecturerListPageV7 from '@/components/thema-V7/lecturer'
 import LecturerListPageV8 from '@/components/thema-v8/lecturer'
 import LecturerListPageV9 from '@/components/thema-v9/lecturer'
+import LecturerListPageV10 from '@/components/thema-v10/lecturer'
 
 const LecturerPage = async () => {
   const themes = await FetchResAPI('/public-prodi/public')
@@ -15,7 +16,7 @@ const LecturerPage = async () => {
 
   switch (theme) {
     default: {
-      return <LecturerTheme1 />
+      return <LecturerListPageV5 />
     }
     case 'THEMA_PRODI_SATU': {
       return <LecturerTheme1 />
@@ -43,6 +44,9 @@ const LecturerPage = async () => {
     }
     case 'THEMA_PRODI_SEMBILAN': {
       return <LecturerListPageV9 />
+    }
+    case 'THEMA_PRODI_SEPULUH': {
+      return <LecturerListPageV10 />
     }
   }
 }

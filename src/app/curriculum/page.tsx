@@ -8,6 +8,7 @@ import CurriculumPageV6 from '@/components/thema-V6/Curriculum'
 import CurriculumPageV7 from '@/components/thema-V7/curriculum'
 import CurriculumPageV8 from '@/components/thema-v8/Curriculum'
 import CurriculumPageV9 from '@/components/thema-v9/Curriculum'
+import CurriculumPageV10 from '@/components/thema-v10/Curriculum'
 
 const CurriculumPage = async () => {
   const data = await FetchResAPI('/public-prodi/kurikulum?page=0&limit=0')
@@ -17,7 +18,7 @@ const CurriculumPage = async () => {
 
   switch (theme) {
     default: {
-      return <CurriculumTheme1 data={data?.data} />
+      return <CurriculumPageV5 data={data?.data} />
     }
     case 'THEMA_PRODI_SATU': {
       return <CurriculumTheme1 data={data?.data} />
@@ -45,6 +46,9 @@ const CurriculumPage = async () => {
     }
     case 'THEMA_PRODI_SEMBILAN': {
       return <CurriculumPageV9 data={data?.data} />
+    }
+    case 'THEMA_PRODI_SEPULUH': {
+      return <CurriculumPageV10 data={data?.data} />
     }
   }
 }

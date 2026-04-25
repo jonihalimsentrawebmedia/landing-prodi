@@ -8,6 +8,7 @@ import AccreditationPageV6 from '@/components/thema-V6/Accreditation'
 import AccreditationPageV7 from '@/components/thema-V7/Accreditation'
 import AccreditationPageV8 from '@/components/thema-v8/Accreditation'
 import AccreditationPageV9 from '@/components/thema-v9/Accreditation'
+import AccreditationPageV10 from '@/components/thema-v10/Accreditation'
 
 const AccreditationPage = async () => {
   const themes = await FetchResAPI('/public-prodi/public')
@@ -15,7 +16,7 @@ const AccreditationPage = async () => {
 
   switch (theme) {
     default: {
-      return <AccreditationTheme1 />
+      return <AccreditationPageV5 />
     }
     case 'THEMA_PRODI_SATU': {
       return <AccreditationTheme1 />
@@ -43,6 +44,9 @@ const AccreditationPage = async () => {
     }
     case 'THEMA_PRODI_SEMBILAN': {
       return <AccreditationPageV9 />
+    }
+    case 'THEMA_PRODI_SEPULUH': {
+      return <AccreditationPageV10 />
     }
   }
 }
