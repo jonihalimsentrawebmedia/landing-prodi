@@ -52,6 +52,9 @@ const GalleryProfilePage = async () => {
     case 'THEMA_PRODI_SEBELAS': {
       return <ProfileGallerySectionV11 />
     }
+    case 'THEMA_PRODI_DUA_BELAS': {
+      return <ProfileGallerySectionV11 />
+    }
   }
 }
 

@@ -52,6 +52,9 @@ const StructureOrganizationPage = async () => {
     case 'THEMA_PRODI_SEBELAS': {
       return <ProfileStructureV11 />
     }
+    case 'THEMA_PRODI_DUA_BELAS': {
+      return <ProfileStructureV11 />
+    }
   }
 }
 

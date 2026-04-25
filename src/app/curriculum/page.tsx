@@ -54,6 +54,9 @@ const CurriculumPage = async () => {
     case 'THEMA_PRODI_SEBELAS': {
       return <CurriculumPageV11 data={data?.data} />
     }
+    case 'THEMA_PRODI_DUA_BELAS': {
+      return <CurriculumPageV11 data={data?.data} />
+    }
   }
 }
 

@@ -52,6 +52,9 @@ const ContactProdiPage = async () => {
     case 'THEMA_PRODI_SEBELAS': {
       return <ContactUsePageV11 />
     }
+    case 'THEMA_PRODI_DUA_BELAS': {
+      return <ContactUsePageV11 />
+    }
   }
 }
 

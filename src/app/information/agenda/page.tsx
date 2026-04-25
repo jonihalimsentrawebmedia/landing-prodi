@@ -52,6 +52,9 @@ const AgendaPage = async () => {
     case 'THEMA_PRODI_SEBELAS': {
       return <AgendaInformationPageV11 />
     }
+    case 'THEMA_PRODI_DUA_BELAS': {
+      return <AgendaInformationPageV11 />
+    }
   }
 }
 

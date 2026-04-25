@@ -52,6 +52,9 @@ const PromotionPage = async () => {
     case 'THEMA_PRODI_SEBELAS': {
       return <InformationPromotionV11 />
     }
+    case 'THEMA_PRODI_DUA_BELAS': {
+      return <InformationPromotionV11 />
+    }
   }
 }
 

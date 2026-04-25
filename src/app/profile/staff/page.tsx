@@ -52,6 +52,9 @@ const StaffProfilePage = async () => {
     case 'THEMA_PRODI_SEBELAS': {
       return <ProfileStaffV11 />
     }
+    case 'THEMA_PRODI_DUA_BELAS': {
+      return <ProfileStaffV11 />
+    }
   }
 }
 

@@ -53,6 +53,9 @@ const VisionProfilePage = async () => {
     case 'THEMA_PRODI_SEBELAS': {
       return <ProfileVisionV11 />
     }
+    case 'THEMA_PRODI_DUA_BELAS': {
+      return <ProfileVisionV11 />
+    }
   }
 }
 

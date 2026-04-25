@@ -53,6 +53,9 @@ const PageProfileProdi = async () => {
     case 'THEMA_PRODI_SEBELAS': {
       return <ProfilePageV11 />
     }
+    case 'THEMA_PRODI_DUA_BELAS': {
+      return <ProfilePageV11 />
+    }
   }
 }
 

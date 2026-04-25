@@ -52,6 +52,9 @@ const AccreditationPage = async () => {
     case 'THEMA_PRODI_SEBELAS': {
       return <AccreditationPageV11 />
     }
+    case 'THEMA_PRODI_DUA_BELAS': {
+      return <AccreditationPageV11 />
+    }
   }
 }
 

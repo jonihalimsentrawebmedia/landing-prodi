@@ -28,9 +28,10 @@ const OurLecturerSectionV10 = () => {
         <div className="w-full max-w-[1920px] mx-auto mt-8  ">
           <Carousel
             opts={{
+              slidesToScroll: 3,
               align: 'center',
               loop: true,
-              duration: 300,
+              duration: 100,
             }}
             plugins={[
               Autoplay({
@@ -56,8 +57,8 @@ const OurLecturerSectionV10 = () => {
               ))}
             </CarouselContent>
 
-            <CarouselNext className="right-0 h-full w-[150px] hover:bg-gradient-to-r hover:from-transparent rounded-none border-none shadow-none bg-gradient-to-r from-transparent to-[#1E3A8A] text-white hover:to-[#162e6b]" />
-            <CarouselPrevious className="right-0 h-full w-[150px] hover:bg-gradient-to-l hover:from-transparent rounded-none border-none shadow-none bg-gradient-to-l from-transparent to-[#1E3A8A] text-white hover:to-[#162e6b]" />
+            <CarouselNext className="right-0 h-full w-[150px] hover:bg-gradient-to-r hover:from-transparent rounded-none border-none shadow-none bg-gradient-to-r from-transparent to-primary text-white hover:to-primary" />
+            <CarouselPrevious className="right-0 h-full w-[150px] hover:bg-gradient-to-l hover:from-transparent rounded-none border-none shadow-none bg-gradient-to-l from-transparent to-primary text-white hover:to-primary" />
           </Carousel>
         </div>
       </div>

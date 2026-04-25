@@ -52,6 +52,9 @@ const GalleryPage = async () => {
     case 'THEMA_PRODI_SEBELAS': {
       return <GalleryPageV11 />
     }
+    case 'THEMA_PRODI_DUA_BELAS': {
+      return <GalleryPageV11 />
+    }
   }
 }
 

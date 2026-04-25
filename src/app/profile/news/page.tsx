@@ -52,6 +52,9 @@ const NewsProfilePage = async () => {
     case 'THEMA_PRODI_SEBELAS': {
       return <ProfileNewsV11 />
     }
+    case 'THEMA_PRODI_DUA_BELAS': {
+      return <ProfileNewsV11 />
+    }
   }
 }
 

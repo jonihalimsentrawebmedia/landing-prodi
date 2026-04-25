@@ -52,6 +52,9 @@ const LecturerPage = async () => {
     case 'THEMA_PRODI_SEBELAS': {
       return <LecturerListPageV11 />
     }
+    case 'THEMA_PRODI_DUA_BELAS': {
+      return <LecturerListPageV11 />
+    }
   }
 }
 
