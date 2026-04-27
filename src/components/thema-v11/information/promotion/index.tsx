@@ -9,17 +9,22 @@ import Image from 'next/image'
 import { FaRegCalendarAlt } from 'react-icons/fa'
 import { format } from 'date-fns'
 import JumbotronTitleV11 from '@/components/thema-v11/component/common/jumbotronTitle'
+import { UseGetPromotionYear } from '@/app/information/promotion/hooks'
+import { FilterChip } from '@/components/thema-v5/component/common/filterChip'
 
 const InformationPromotionV11 = () => {
   const searchPrams = useSearchParams()
   const page = searchPrams.get('page') || '1'
   const limit = searchPrams.get('limit') || '8'
   const search = searchPrams.get('search') || ''
+  const tahun = searchPrams.get('year') || ''
 
+  const { year } = UseGetPromotionYear()
   const { promotion, loading } = UseGetPromotion({
     page: page,
     limit: limit,
     search: search,
+    year: tahun,
   })
 
   if (loading) return <></>
@@ -43,7 +48,16 @@ const InformationPromotionV11 = () => {
       <div className="py-5 bg-white dark:bg-gray-800">
         <div className="container-sm space-y-4">
           <SearchInput placeholder={'Cari Promosi'} className={'w-full bg-white rounded'} />
-          <div className="w-full flex flex-col gap-5 mt-10 relative z-10">
+          <FilterChip
+            name={'year'}
+            data={
+              year?.map((row) => ({
+                label: row?.toString(),
+                value: row?.toString(),
+              })) ?? []
+            }
+          />
+          <div className="w-full flex flex-col gap-5 mt-5 relative z-10">
             {promotion?.map((row, k) => (
               <Link
                 href={`/information/promotion/${row?.slug}`}
@@ -51,7 +65,9 @@ const InformationPromotionV11 = () => {
                 className={'flex flex-col lg:flex-row gap-5 p-6 bg-white rounded-lg border'}
               >
                 <div
-                  className={'w-full lg:max-w-[216px] h-[162px] relative overflow-hidden rounded-lg'}
+                  className={
+                    'w-full lg:max-w-[216px] h-[162px] relative overflow-hidden rounded-lg'
+                  }
                 >
                   <Image
                     src={row?.gambar}

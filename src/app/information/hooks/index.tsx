@@ -9,10 +9,11 @@ interface Props {
   limit?: string
   search?: string
   no_include_id?: string
+  year?: string
 }
 
 export const UseGetPromotion = (props?: Props) => {
-  const { page, limit, search, no_include_id } = props ?? {}
+  const { year, page, limit, search, no_include_id } = props ?? {}
   const [promotion, setPromotion] = useState<IPromotion[]>([])
   const [meta, setMeta] = useState<Meta>()
 
@@ -21,6 +22,7 @@ export const UseGetPromotion = (props?: Props) => {
   if (limit) ParamsSearch.append('limit', limit)
   if (search) ParamsSearch.append('search', search)
   if (no_include_id) ParamsSearch.append('no-include-id', no_include_id)
+  if (year) ParamsSearch.append('tahun', year)
 
   const { data, isFetching, isLoading } = useQuery({
     queryKey: ['promotion', ParamsSearch.toString()],

@@ -112,50 +112,64 @@ const ProfileContactV8 = () => {
               <div className={'w-full space-y-4 py-4 lg:py-0'}>
                 <TitleLine text={'Tentang Program Studi'} />
 
-                <ul className={'mt-4 space-y-4 py-5 lg:py-0'}>
-                  <li className={'flex items-center gap-3 border-l-2 border-l-yellow-500 pl-2'}>
-                    <div className="p-2 bg-primary text-white rounded-md w-fit">
-                      <IoLocationSharp className={'size-5'} />
-                    </div>
-                    <div>
-                      <p className="text-sm text-primary">Alamat</p>
-                      <p className={'text-sm'}>{contactUse?.alamat}</p>
-                    </div>
-                  </li>
-                  <li className={'flex items-center gap-3 border-l-2 border-l-yellow-500 pl-2'}>
-                    <div className="p-2 bg-primary text-white rounded-md w-fit">
-                      <BsFillTelephoneFill className={'size-5'} />
-                    </div>
-                    <div>
-                      <p className="text-sm text-primary">Telepon</p>
-                      <p className={'text-sm'}>{contactUse?.no_telepon}</p>
-                    </div>
-                  </li>
-                  <li className={'flex items-center gap-3 border-l-2 border-l-yellow-500 pl-2'}>
-                    <div className="p-2 bg-primary text-white rounded-md w-fit">
-                      <IoMailSharp className={'size-5'} />
-                    </div>
-                    <div>
-                      <p className="text-sm text-primary">Email</p>
-                      <p className={'text-sm'}>{contactUse?.email}</p>
-                    </div>
-                  </li>
-                </ul>
+                <div className="flex flex-col lg:flex-row w-full items-start justify-between gap-5">
+                  <div className="flex flex-col gap-4">
+                    <ul className={'mt-4 space-y-4 py-5 lg:py-0'}>
+                      <li className={'flex items-center gap-3 border-l-2 border-l-yellow-500 pl-2'}>
+                        <div className="p-2 bg-primary text-white rounded-md w-fit">
+                          <IoLocationSharp className={'size-5'} />
+                        </div>
+                        <div>
+                          <p className="text-sm text-primary">Alamat</p>
+                          <p className={'text-sm'}>{contactUse?.alamat}</p>
+                        </div>
+                      </li>
+                      <li className={'flex items-center gap-3 border-l-2 border-l-yellow-500 pl-2'}>
+                        <div className="p-2 bg-primary text-white rounded-md w-fit">
+                          <BsFillTelephoneFill className={'size-5'} />
+                        </div>
+                        <div>
+                          <p className="text-sm text-primary">Telepon</p>
+                          <p className={'text-sm'}>{contactUse?.no_telepon}</p>
+                        </div>
+                      </li>
+                      <li className={'flex items-center gap-3 border-l-2 border-l-yellow-500 pl-2'}>
+                        <div className="p-2 bg-primary text-white rounded-md w-fit">
+                          <IoMailSharp className={'size-5'} />
+                        </div>
+                        <div>
+                          <p className="text-sm text-primary">Email</p>
+                          <p className={'text-sm'}>{contactUse?.email}</p>
+                        </div>
+                      </li>
+                    </ul>
+                    <ul className={'flex gap-3 mt-5'}>
+                      <li className={'p-2 bg-primary text-white w-fit rounded'}>
+                        <FaFacebook className={'size-6'} />
+                      </li>
+                      <li className={'p-2 bg-primary text-white w-fit rounded'}>
+                        <FaYoutube className={'size-6'} />
+                      </li>
+                      <li className={'p-2 bg-primary text-white w-fit rounded'}>
+                        <FaInstagram className={'size-6'} />
+                      </li>
+                      <li className={'p-2 bg-primary text-white w-fit rounded'}>
+                        <FaTwitter className={'size-6'} />
+                      </li>
+                    </ul>
+                  </div>
 
-                <ul className={'flex gap-3 mt-5'}>
-                  <li className={'p-2 bg-primary text-white w-fit rounded'}>
-                    <FaFacebook className={'size-6'} />
-                  </li>
-                  <li className={'p-2 bg-primary text-white w-fit rounded'}>
-                    <FaYoutube className={'size-6'} />
-                  </li>
-                  <li className={'p-2 bg-primary text-white w-fit rounded'}>
-                    <FaInstagram className={'size-6'} />
-                  </li>
-                  <li className={'p-2 bg-primary text-white w-fit rounded'}>
-                    <FaTwitter className={'size-6'} />
-                  </li>
-                </ul>
+                  <div className="w-full lg:w-fit h-full overflow-hidden rounded-xl relative">
+                    <div
+                      dangerouslySetInnerHTML={{
+                        __html: (contactUse?.iframe ?? '').replace(
+                          /<iframe([^>]*?)>/i,
+                          `<iframe class="w-full lg:w-[372px] h-[400px] rounded-xl" $1`
+                        ),
+                      }}
+                    />
+                  </div>
+                </div>
               </div>
             </TabsContent>
           </Tabs>

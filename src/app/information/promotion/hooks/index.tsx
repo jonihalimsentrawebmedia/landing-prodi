@@ -22,3 +22,23 @@ export const UseGetPromotionDetail = (slug: string) => {
 
   return { detailPromotion, loading }
 }
+
+export const UseGetPromotionYear = () => {
+  const [year, setYear] = useState<number[]>([])
+
+  const { data, isLoading, isFetching } = useQuery({
+    queryKey: ['promotion-year'],
+    refetchOnWindowFocus: false,
+    queryFn: () => AxiosClient.get('public-prodi/promosi-tahun').then((res) => res?.data?.data),
+  })
+
+  const loading = isLoading || isFetching
+
+  useEffect(() => {
+    if (data) {
+      setYear(data)
+    }
+  }, [data])
+
+  return { year, loading }
+}

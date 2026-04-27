@@ -103,67 +103,83 @@ const ProfileContactV10 = () => {
 
           {TabsData?.map((row, k) => (
             <TabsContent key={k} value={row?.link}>
-              <div className={'w-full space-y-4 py-4 lg:py-0'}>
+              <div className={'w-full space-y-4 py-4 lg:py-5'}>
                 <TitleLine text={'Hubungi Kami'} />
 
-                <ul className={'mt-4 space-y-4 py-5 lg:py-0 w-full'}>
-                  <li
-                    className={cn(
-                      'flex items-center gap-3 p-5 bg-white shadow drop-shadow-lg rounded-lg'
-                    )}
-                  >
-                    <div className="p-2 bg-primary text-white rounded-md w-fit">
-                      <IoLocationSharp className={'size-5'} />
-                    </div>
-                    <div>
-                      <p className="text-sm text-primary">Alamat</p>
-                      <p className={'text-sm'}>{contactUse?.alamat}</p>
-                    </div>
-                  </li>
-                  <li
-                    className={cn(
-                      'flex items-center gap-3 p-5 bg-white shadow drop-shadow-lg rounded-lg'
-                    )}
-                  >
-                    <div className="p-2 bg-primary text-white rounded-md w-fit">
-                      <BsFillTelephoneFill className={'size-5'} />
-                    </div>
-                    <div>
-                      <p className="text-sm text-primary">Telepon</p>
-                      <p className={'text-sm'}>{contactUse?.no_telepon}</p>
-                    </div>
-                  </li>
-                  <li
-                    className={cn(
-                      'flex items-center gap-3 p-5 bg-white shadow drop-shadow-lg rounded-lg'
-                    )}
-                  >
-                    <div className="p-2 bg-primary text-white rounded-md w-fit">
-                      <IoMailSharp className={'size-5'} />
-                    </div>
-                    <div>
-                      <p className="text-sm text-primary">Email</p>
-                      <p className={'text-sm'}>{contactUse?.email}</p>
-                    </div>
-                  </li>
-                </ul>
+                <div className="flex flex-col items-start lg:flex-row justify-between gap-5">
 
-                <div className="p-5 shadow drop-shadow-xl rounded-lg bg-white">
-                  <p className="text-primary">Sosial Media</p>
-                  <ul className={'flex gap-3 mt-1.5'}>
-                    <li className={'p-2 bg-primary text-white w-fit rounded-full'}>
-                      <FaFacebook className={'size-6'} />
-                    </li>
-                    <li className={'p-2 bg-primary text-white w-fit rounded-full'}>
-                      <FaYoutube className={'size-6'} />
-                    </li>
-                    <li className={'p-2 bg-primary text-white w-fit rounded-full'}>
-                      <FaInstagram className={'size-6'} />
-                    </li>
-                    <li className={'p-2 bg-primary text-white w-fit rounded-full'}>
-                      <FaTwitter className={'size-6'} />
-                    </li>
-                  </ul>
+                  <div className="flex flex-col gap-5 w-full">
+                    <ul className={'space-y-4 py-5 lg:py-0 w-full'}>
+                      <li
+                        className={cn(
+                          'flex items-center gap-3 p-5 bg-white shadow drop-shadow-lg rounded-lg'
+                        )}
+                      >
+                        <div className="p-2 bg-primary text-white rounded-md w-fit">
+                          <IoLocationSharp className={'size-5'} />
+                        </div>
+                        <div>
+                          <p className="text-sm text-primary">Alamat</p>
+                          <p className={'text-sm'}>{contactUse?.alamat}</p>
+                        </div>
+                      </li>
+                      <li
+                        className={cn(
+                          'flex items-center gap-3 p-5 bg-white shadow drop-shadow-lg rounded-lg'
+                        )}
+                      >
+                        <div className="p-2 bg-primary text-white rounded-md w-fit">
+                          <BsFillTelephoneFill className={'size-5'} />
+                        </div>
+                        <div>
+                          <p className="text-sm text-primary">Telepon</p>
+                          <p className={'text-sm'}>{contactUse?.no_telepon}</p>
+                        </div>
+                      </li>
+                      <li
+                        className={cn(
+                          'flex items-center gap-3 p-5 bg-white shadow drop-shadow-lg rounded-lg'
+                        )}
+                      >
+                        <div className="p-2 bg-primary text-white rounded-md w-fit">
+                          <IoMailSharp className={'size-5'} />
+                        </div>
+                        <div>
+                          <p className="text-sm text-primary">Email</p>
+                          <p className={'text-sm'}>{contactUse?.email}</p>
+                        </div>
+                      </li>
+                    </ul>
+                    <div className="p-5 shadow drop-shadow-xl rounded-lg bg-white">
+                      <p className="text-primary">Sosial Media</p>
+                      <ul className={'flex gap-3 mt-1.5'}>
+                        <li className={'p-2 bg-primary text-white w-fit rounded-full'}>
+                          <FaFacebook className={'size-6'} />
+                        </li>
+                        <li className={'p-2 bg-primary text-white w-fit rounded-full'}>
+                          <FaYoutube className={'size-6'} />
+                        </li>
+                        <li className={'p-2 bg-primary text-white w-fit rounded-full'}>
+                          <FaInstagram className={'size-6'} />
+                        </li>
+                        <li className={'p-2 bg-primary text-white w-fit rounded-full'}>
+                          <FaTwitter className={'size-6'} />
+                        </li>
+                      </ul>
+                    </div>
+                  </div>
+
+                  <div className="w-full lg:w-fit h-full overflow-hidden rounded-xl relative">
+                    <div
+                      dangerouslySetInnerHTML={{
+                        __html: (contactUse?.iframe ?? '').replace(
+                          /<iframe([^>]*?)>/i,
+                          `<iframe class="w-full lg:w-[372px] h-[400px] rounded-xl" $1`
+                        ),
+                      }}
+                    />
+                  </div>
+
                 </div>
               </div>
             </TabsContent>

@@ -9,17 +9,22 @@ import Image from 'next/image'
 import { FaRegCalendarAlt } from 'react-icons/fa'
 import { format } from 'date-fns'
 import JumbotronTitleV10 from '@/components/thema-v10/component/common/jumbotronTitle'
+import { UseGetPromotionYear } from '@/app/information/promotion/hooks'
+import { FilterChip } from '@/components/thema-v5/component/common/filterChip'
 
 const InformationPromotionV10 = () => {
   const searchPrams = useSearchParams()
   const page = searchPrams.get('page') || '1'
   const limit = searchPrams.get('limit') || '8'
   const search = searchPrams.get('search') || ''
+  const tahun = searchPrams.get('year') || ''
 
+  const { year } = UseGetPromotionYear()
   const { promotion, loading } = UseGetPromotion({
     page: page,
     limit: limit,
     search: search,
+    year: tahun,
   })
 
   if (loading) return <></>
@@ -43,6 +48,15 @@ const InformationPromotionV10 = () => {
       <div className="py-5 bg-white dark:bg-gray-800">
         <div className="container-sm space-y-4">
           <SearchInput placeholder={'Cari Promosi'} className={'w-full bg-white rounded'} />
+          <FilterChip
+            name={'year'}
+            data={
+              year?.map((row) => ({
+                label: row?.toString(),
+                value: row?.toString(),
+              })) ?? []
+            }
+          />
           <div className="grid lg:grid-cols-3 gap-5 mt-5">
             {promotion?.map((row, k) => (
               <Link
