@@ -9,6 +9,7 @@ import AnnouncementDetailPageV8 from '@/components/thema-v8/information/announce
 import AnnouncementDetailPageV9 from '@/components/thema-v9/information/announcement/detail'
 import AnnouncementDetailPageV10 from '@/components/thema-v10/information/announcement/detail'
 import AnnouncementDetailPageV11 from '@/components/thema-v11/information/announcement/detail'
+import AnnouncementDetailPageV13 from '@/components/thema-v13/information/announcement/detail'
 
 const DetailAnnouncementPage = async () => {
   const themes = await FetchResAPI('/public-prodi/public')
@@ -50,6 +51,12 @@ const DetailAnnouncementPage = async () => {
     }
     case 'THEMA_PRODI_SEBELAS': {
       return <AnnouncementDetailPageV11 />
+    }
+    case 'THEMA_PRODI_DUA_BELAS': {
+      return <AnnouncementDetailPageV11 />
+    }
+    case 'THEMA_PRODI_TIGA_BELAS': {
+      return <AnnouncementDetailPageV13 />
     }
   }
 }

@@ -4,6 +4,7 @@ export interface IContactUs {
   alamat: string
   email: string
   no_telepon: string
+  iframe: string
   link_google_map: string
   created_at: string
   created_user: string

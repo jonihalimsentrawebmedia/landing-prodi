@@ -17,7 +17,7 @@ const ServiceDropdownMenu = () => {
     <>
       <DropdownMenu>
         <DropdownMenuTrigger className={'bg-white p-1.5 rounded-full'}>
-          <MdDashboard className={'text-footer'} />
+          <MdDashboard className={'text-primary'} />
         </DropdownMenuTrigger>
         <DropdownMenuContent align="start" className={'rounded p-3'}>
           <DropdownMenuGroup>
@@ -25,13 +25,13 @@ const ServiceDropdownMenu = () => {
             {services.map((service, k) => (
               <DropdownMenuItem
                 className={cn(
-                  'border px-3 my-2  hover:bg-footer! hover:text-primary!',
-                  'rounded p-1.5 border-footer text-footer'
+                  'border px-3 my-2  hover:bg-primary! hover:text-white group',
+                  'rounded p-1.5 border-primary'
                 )}
                 key={k}
               >
-                <Link href={service?.url_layanan} target={'_blank'}>
-                {service?.nama_layanan}
+                <Link href={service?.url_layanan} target={'_blank'} className={'group-hover:text-white'}>
+                  {service?.nama_layanan}
                 </Link>
               </DropdownMenuItem>
             ))}

@@ -46,7 +46,7 @@ const AgendaAnnouncementInfoV9 = () => {
                     </div>
 
                     <div className="flex-1 min-w-0">
-                      <p className="text-[#0F6D5B] font-semibold text-lg lg:text-[25px] leading-tight line-clamp-2 group-hover:text-primary transition">
+                      <p className="text-primary font-semibold text-lg lg:text-[25px] leading-tight line-clamp-2 group-hover:text-primary transition">
                         {row.judul_pengumuman}
                       </p>
                       <p className="text-[#444444] text-sm mt-3 flex items-center gap-2">
@@ -60,7 +60,7 @@ const AgendaAnnouncementInfoV9 = () => {
 
               <div className="mt-4 lg:mt-5">
                 <Link href="/information/announcements" className="block">
-                  <Button className="w-full bg-[#0F6D5B] hover:bg-[#0a5a4a] text-white text-base rounded">
+                  <Button className="w-full hovetext-primary text-white text-base rounded">
                     Lihat Semua Pengumuman
                     <ChevronRight className="ml-2" />
                   </Button>
@@ -94,7 +94,7 @@ const AgendaAnnouncementInfoV9 = () => {
                     </div>
 
                     <div className="flex-1 min-w-0">
-                      <p className="text-[#0F6D5B] font-semibold text-lg lg:text-[25px] leading-tight line-clamp-2 group-hover:text-primary transition">
+                      <p className="text-primary font-semibold text-lg lg:text-[25px] leading-tight line-clamp-2 group-hover:text-primary transition">
                         {row.judul}
                       </p>
                       <p className="text-[#444444] text-sm mt-3 flex items-center gap-2">
@@ -108,7 +108,7 @@ const AgendaAnnouncementInfoV9 = () => {
 
               <div className="mt-4 lg:mt-5">
                 <Link href="/information/agenda" className="block">
-                  <Button className="w-full bg-[#0F6D5B] hover:bg-[#0a5a4a] text-white text-base rounded">
+                  <Button className="w-full bg-primary hover:bg-primary text-white text-base rounded">
                     Lihat Semua Agenda
                     <ChevronRight className="ml-2" />
                   </Button>

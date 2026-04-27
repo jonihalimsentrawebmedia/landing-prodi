@@ -1,6 +1,5 @@
 'use client'
 
-import JumbotronTitleV10 from '@/components/thema-v10/component/common/jumbotronTitle'
 import { BreadcrumbBasic } from '@/components/common/breadcrumb'
 import ContentAboutV10 from '@/components/thema-v10/profile/contentAbout'
 import { usePathname, useRouter } from 'next/navigation'

@@ -10,6 +10,7 @@ import LecturerListPageV8 from '@/components/thema-v8/lecturer'
 import LecturerListPageV9 from '@/components/thema-v9/lecturer'
 import LecturerListPageV10 from '@/components/thema-v10/lecturer'
 import LecturerListPageV11 from '@/components/thema-v11/lecturer'
+import LecturerListPageV13 from '@/components/thema-v13/lecturer'
 
 const LecturerPage = async () => {
   const themes = await FetchResAPI('/public-prodi/public')
@@ -54,6 +55,9 @@ const LecturerPage = async () => {
     }
     case 'THEMA_PRODI_DUA_BELAS': {
       return <LecturerListPageV11 />
+    }
+    case 'THEMA_PRODI_TIGA_BELAS': {
+      return <LecturerListPageV13 />
     }
   }
 }

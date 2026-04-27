@@ -66,7 +66,7 @@ const AgendaAnnouncementV12 = () => {
 
               <div className="mt-4 lg:mt-5">
                 <Link href="/information/announcements" className="block">
-                  <Button className="w-full bg-[#0F6D5B] hover:bg-[#0a5a4a] text-white text-base rounded">
+                  <Button className="w-full bg-primary hover:bg-primary text-white text-base rounded">
                     Lihat Semua Pengumuman
                     <ChevronRight className="ml-2" />
                   </Button>
@@ -114,7 +114,7 @@ const AgendaAnnouncementV12 = () => {
 
               <div className="mt-4 lg:mt-5">
                 <Link href="/information/agenda" className="block">
-                  <Button className="w-full bg-[#0F6D5B] hover:bg-[#0a5a4a] text-white text-base rounded">
+                  <Button className="w-full bg-primary hover:bg-primary text-white text-base rounded">
                     Lihat Semua Agenda
                     <ChevronRight className="ml-2" />
                   </Button>
