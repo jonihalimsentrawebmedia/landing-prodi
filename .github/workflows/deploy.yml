@@ -113,10 +113,10 @@ jobs:
           cd "$APP_DIR/current"
 
           if pm2 describe "$PM2_NAME" >/dev/null 2>&1; then
-            pm2 restart "$PM2_NAME" --update-env
-          else
-            pm2 start server.js --name "$PM2_NAME" --cwd "$APP_DIR/current" --interpreter node
+            pm2 delete "$PM2_NAME"
           fi
+
+          pm2 start server.js             --name "$PM2_NAME"             --cwd "$APP_DIR/current"             --interpreter node             --update-env
 
           pm2 save
           EOF
