@@ -8,7 +8,7 @@ on:
 env:
   APP_DIR: /home/syamil/apps/web_publick_stain_prodi
   PM2_NAME: usi-prodi
-  PORT: 3105
+  PORT: '3105'
 
 jobs:
   deploy:
@@ -17,6 +17,34 @@ jobs:
     steps:
       - name: Checkout repo
         uses: actions/checkout@v4
+
+      - name: Setup pnpm
+        uses: pnpm/action-setup@v4
+        with:
+          version: 10.33.0
+
+      - name: Setup Node.js
+        uses: actions/setup-node@v4
+        with:
+          node-version: 20
+          cache: pnpm
+
+      - name: Install dependencies
+        run: pnpm install --frozen-lockfile
+
+      - name: Build standalone bundle
+        run: |
+          pnpm build
+          rm -rf deploy
+          mkdir -p deploy/.next
+          cp -R .next/standalone/. deploy/
+          cp -R .next/static deploy/.next/static
+          if [ -d public ]; then
+            cp -R public deploy/public
+          fi
+        env:
+          NEXT_PUBLIC_API_URL: ${{ secrets.SIMALUNGUN_NEXT_PUBLIC_API_URL }}
+          API_URL: ${{ secrets.SIMALUNGUN_API_URL }}
 
       - name: Setup SSH
         uses: webfactory/ssh-agent@v0.9.0
@@ -28,41 +56,22 @@ jobs:
           mkdir -p ~/.ssh
           ssh-keyscan -H ${{ secrets.SIMALUNGUN_VPS_HOST }} >> ~/.ssh/known_hosts
 
-      - name: Sync source code
+      - name: Upload standalone bundle
         run: |
-          rsync -avz --delete \
-            --exclude=node_modules \
-            --exclude=.git \
-            --exclude=.idea \
-            --exclude=.next \
-            --exclude=.env* \
-            ./ \
-            ${{ secrets.SIMALUNGUN_VPS_USER }}@${{ secrets.SIMALUNGUN_VPS_HOST }}:${{ env.APP_DIR }}
+          ssh ${{ secrets.SIMALUNGUN_VPS_USER }}@${{ secrets.SIMALUNGUN_VPS_HOST }} "mkdir -p ${{ env.APP_DIR }}/current"
+          rsync -avz --delete             deploy/             ${{ secrets.SIMALUNGUN_VPS_USER }}@${{ secrets.SIMALUNGUN_VPS_HOST }}:${{ env.APP_DIR }}/current/
 
-      - name: Build & Restart PM2
+      - name: Restart PM2
         run: |
-          ssh ${{ secrets.SIMALUNGUN_VPS_USER }}@${{ secrets.SIMALUNGUN_VPS_HOST }} "APP_DIR='${APP_DIR}' PM2_NAME='${PM2_NAME}' PORT='${PORT}' bash -s" << 'EOF'
+          ssh ${{ secrets.SIMALUNGUN_VPS_USER }}@${{ secrets.SIMALUNGUN_VPS_HOST }}             "APP_DIR='${{ env.APP_DIR }}' PM2_NAME='${{ env.PM2_NAME }}' PORT='${{ env.PORT }}' API_URL='${{ secrets.SIMALUNGUN_API_URL }}' NEXT_PUBLIC_API_URL='${{ secrets.SIMALUNGUN_NEXT_PUBLIC_API_URL }}' HOSTNAME='127.0.0.1' bash -s" << 'EOF'
           set -euo pipefail
-          export PNPM_HOME="$HOME/.local/share/pnpm"
-          export PATH="$PNPM_HOME:$PATH"
-          corepack enable >/dev/null 2>&1 || true
-          corepack prepare pnpm@10.33.0 --activate >/dev/null 2>&1 || true
 
-          mkdir -p "${APP_DIR}"
-          cd "${APP_DIR}"
+          cd "$APP_DIR/current"
 
-          cat > .env.production <<'ENVEOF'
-          NEXT_PUBLIC_API_URL=${{ secrets.SIMALUNGUN_NEXT_PUBLIC_API_URL }}
-          API_URL=${{ secrets.SIMALUNGUN_API_URL }}
-          ENVEOF
-
-          pnpm install --frozen-lockfile
-          pnpm build
-
-          if pm2 describe "${PM2_NAME}" >/dev/null 2>&1; then
-            pm2 restart "${PM2_NAME}" --update-env
+          if pm2 describe "$PM2_NAME" >/dev/null 2>&1; then
+            pm2 restart "$PM2_NAME" --update-env
           else
-            pm2 start pnpm --name "${PM2_NAME}" --cwd "${APP_DIR}" -- start -- --hostname 127.0.0.1 --port "${PORT}"
+            pm2 start server.js --name "$PM2_NAME" --cwd "$APP_DIR/current" --interpreter node
           fi
 
           pm2 save
