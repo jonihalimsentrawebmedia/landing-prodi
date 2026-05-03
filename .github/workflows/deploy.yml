@@ -1,9 +1,14 @@
-name: Deploy Next.js (no pm2 config)
+name: Deploy web_publick_stain_prodi to VPS
 
 on:
   push:
     branches:
       - master
+
+env:
+  APP_DIR: /home/syamil/prodi.stain-madina.ac.id
+  PM2_NAME: prodi.stain-madina.ac.id
+  PORT: '3000'
 
 jobs:
   deploy:
@@ -13,42 +18,61 @@ jobs:
       - name: Checkout repo
         uses: actions/checkout@v4
 
+      - name: Setup pnpm
+        uses: pnpm/action-setup@v4
+        with:
+          version: 10.33.0
+
+      - name: Setup Node.js
+        uses: actions/setup-node@v4
+        with:
+          node-version: 20
+          cache: pnpm
+
+      - name: Install dependencies
+        run: pnpm install --frozen-lockfile
+
+      - name: Build standalone bundle
+        run: |
+          pnpm build
+          rm -rf deploy
+          mkdir -p deploy/.next
+          cp -R .next/standalone/. deploy/
+          cp -R .next/static deploy/.next/static
+          if [ -d public ]; then
+            cp -R public deploy/public
+          fi
+        env:
+          NEXT_PUBLIC_API_URL: ${{ secrets.NEXT_PUBLIC_API_URL }}
+          API_URL: ${{ secrets.API_URL }}
+
       - name: Setup SSH
         uses: webfactory/ssh-agent@v0.9.0
         with:
           ssh-private-key: ${{ secrets.VPS_SSH_KEY }}
 
-      - name: Sync source code
+      - name: Add VPS to known_hosts
         run: |
-          rsync -avz --delete \
-            --exclude=node_modules \
-            --exclude=.git \
-            --exclude=.idea \
-            --exclude=.next \
-            --exclude=.env* \
-            -e "ssh -p 22 -o StrictHostKeyChecking=no" \
-            ./ \
-            ${{ secrets.VPS_USER }}@${{ secrets.VPS_HOST }}:/home/syamil/prodi.stain-madina.ac.id
+          mkdir -p ~/.ssh
+          ssh-keyscan -H ${{ secrets.VPS_HOST }} >> ~/.ssh/known_hosts
 
-      - name: Build & Restart PM2
+      - name: Upload standalone bundle
         run: |
-          ssh -p 22 \
-            ${{ secrets.VPS_USER }}@${{ secrets.VPS_HOST }} << 'EOF'
-            set -e
+          ssh ${{ secrets.VPS_USER }}@${{ secrets.VPS_HOST }} "mkdir -p ${{ env.APP_DIR }}/current"
+          rsync -avz --delete             deploy/             ${{ secrets.VPS_USER }}@${{ secrets.VPS_HOST }}:${{ env.APP_DIR }}/current/
 
-            export NVM_DIR="$HOME/.nvm"
-            [ -s "$NVM_DIR/nvm.sh" ] && . "$NVM_DIR/nvm.sh"
+      - name: Restart PM2
+        run: |
+          ssh ${{ secrets.VPS_USER }}@${{ secrets.VPS_HOST }}             "APP_DIR='${{ env.APP_DIR }}' PM2_NAME='${{ env.PM2_NAME }}' PORT='${{ env.PORT }}' API_URL='${{ secrets.API_URL }}' NEXT_PUBLIC_API_URL='${{ secrets.NEXT_PUBLIC_API_URL }}' HOSTNAME='127.0.0.1' bash -s" << 'EOF'
+          set -euo pipefail
 
-            # load pnpm global bin
-            export PNPM_HOME="$HOME/.local/share/pnpm"
-            export PATH="$PNPM_HOME:$PATH"
+          cd "$APP_DIR/current"
 
-            echo "Node:" $(node -v)
-            echo "PNPM:" $(pnpm -v)
-            echo "PM2:" $(pm2 -v)
+          if pm2 describe "$PM2_NAME" >/dev/null 2>&1; then
+            pm2 restart "$PM2_NAME" --update-env
+          else
+            pm2 start server.js --name "$PM2_NAME" --cwd "$APP_DIR/current" --interpreter node
+          fi
 
-            cd /home/syamil/prodi.stain-madina.ac.id
-            pnpm install
-            pnpm run build
-            pm2 restart prodi.stain-madina.ac.id
+          pm2 save
           EOF
