@@ -11,6 +11,7 @@ import InformationPromotionV9 from '@/components/thema-v9/information/promotion'
 import InformationPromotionV10 from '@/components/thema-v10/information/promotion'
 import InformationPromotionV11 from '@/components/thema-v11/information/promotion'
 import InformationPromotionV13 from '@/components/thema-v13/information/promotion'
+import InformationPromotionV14 from '@/components/thema-v14/information/promotion'
 
 const PromotionPage = async () => {
   const themes = await FetchResAPI('/public-prodi/public')
@@ -58,6 +59,9 @@ const PromotionPage = async () => {
     }
     case 'THEMA_PRODI_TIGA_BELAS': {
       return <InformationPromotionV13 />
+    }
+    case 'THEMA_PRODI_EMPAT_BELAS': {
+      return <InformationPromotionV14 />
     }
   }
 }

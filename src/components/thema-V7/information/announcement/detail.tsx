@@ -53,9 +53,11 @@ const AnnouncementDetailPageV7 = () => {
       <div className="container-sm py-4 lg:py-8">
         <div className="flex flex-col lg:flex-row items-start gap-5">
           <div className="flex flex-col gap-4">
-            <p className={'lg:text-2xl font-semibold dark:text-primary'}>{detail?.judul_pengumuman}</p>
+            <p className={'lg:text-2xl font-semibold dark:text-primary'}>
+              {detail?.judul_pengumuman}
+            </p>
             <p className="flex items-center gap-1.5">
-              <QuilWrite className={'stroke-primary'} /> {detail?.penulis ?? 'TIM HUMAS'}
+              <QuilWrite /> {detail?.penulis ?? 'TIM HUMAS'}
             </p>
             <p className="flex items-center gap-1.5">
               <MdDateRange className={'size-6 text-primary'} />
@@ -66,7 +68,11 @@ const AnnouncementDetailPageV7 = () => {
               dangerouslySetInnerHTML={{ __html: detail?.isi_pengumuman ?? '' }}
             />
             <div className="">
-              <ShareContent classNameShare={'bg-primary! px-2!'} title={detail?.judul_pengumuman ?? ''} text={'bagikan'} />
+              <ShareContent
+                classNameShare={'bg-primary! px-2!'}
+                title={detail?.judul_pengumuman ?? ''}
+                text={'bagikan'}
+              />
             </div>
           </div>
           <div className="w-full lg:min-w-[480px]">
@@ -108,7 +114,9 @@ const AnnouncementDetailPageV7 = () => {
                   alt={'image'}
                   width={300}
                   height={300}
-                  className={'lg:w-[200px] lg:h-[200px] lg:size-[200px] size-[100px] object-cover rounded-full mx-auto'}
+                  className={
+                    'lg:w-[200px] lg:h-[200px] lg:size-[200px] size-[100px] object-cover rounded-full mx-auto'
+                  }
                 />
                 <p className="line-clamp-2 lg:text-2xl font-semibold">{row?.judul_pengumuman}</p>
                 <p>{row?.published_at ? format(row?.published_at, 'dd-MM-yyyy') : ''}</p>

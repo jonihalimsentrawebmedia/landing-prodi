@@ -1,7 +1,6 @@
 'use client'
 
 import { BreadcrumbBasic } from '@/components/common/breadcrumb'
-import ContentAboutV10 from '@/components/thema-v10/profile/contentAbout'
 import { usePathname, useRouter } from 'next/navigation'
 import { UseGetProfileUnit } from '@/app/profile/unit/hooks'
 import { Tabs, TabsContent, TabsList, TabsTrigger } from '@/components/ui/tabs'

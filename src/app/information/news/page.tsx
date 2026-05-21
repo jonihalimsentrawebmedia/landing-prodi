@@ -11,6 +11,7 @@ import NewsInformationPageV9 from '@/components/thema-v9/information/news'
 import NewsInformationPageV10 from '@/components/thema-v10/information/news'
 import NewsInformationPageV11 from '@/components/thema-v11/information/news'
 import NewsInformationPageV13 from '@/components/thema-v13/information/news'
+import NewsInformationPageV14 from '@/components/thema-v14/information/news'
 
 const NewsPage = async () => {
   const themes = await FetchResAPI('/public-prodi/public')
@@ -58,6 +59,9 @@ const NewsPage = async () => {
     }
     case 'THEMA_PRODI_TIGA_BELAS': {
       return <NewsInformationPageV13 />
+    }
+    case 'THEMA_PRODI_EMPAT_BELAS': {
+      return <NewsInformationPageV14 />
     }
   }
 }

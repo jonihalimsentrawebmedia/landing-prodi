@@ -73,11 +73,11 @@ export default function CurriculumAccordion({ data }: Props) {
                 value={sem.name}
                 className="border border-gray-200 rounded-xl overflow-hidden"
               >
-                <AccordionTrigger className="bg-emerald-700 hover:bg-emerald-800 text-white px-2 lg:px-6 py-2 lg:py-4 flex items-center justify-between">
+                <AccordionTrigger className="bg-primary hover:bg-footer text-white px-2 lg:px-6 py-2 lg:py-4 flex items-center justify-between">
                   <div className="flex-1 text-left font-semibold lg:text-lg">{sem.name}</div>
                   <div className="flex items-center justify-between gap-3 text-sm">
                     <span className="opacity-90">Total SKS</span>
-                    <span className="bg-white text-emerald-700 font-bold px-4 py-1 rounded-full text-xs lg:text-sm">
+                    <span className="bg-white text-primary font-bold px-4 py-1 rounded-full text-xs lg:text-sm">
                       {sem.totalSKS} SKS
                     </span>
                   </div>

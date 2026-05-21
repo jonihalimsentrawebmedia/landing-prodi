@@ -11,6 +11,7 @@ import ProfilePageV9 from '@/components/thema-v9/profile'
 import ProfilePageV10 from '@/components/thema-v10/profile'
 import ProfilePageV11 from '@/components/thema-v11/profile'
 import ProfilePageV13 from '@/components/thema-v13/profile'
+import ProfilePageV14 from '@/components/thema-v14/profile'
 
 const PageProfileProdi = async () => {
   const themes = await FetchResAPI('/public-prodi/public')
@@ -59,6 +60,9 @@ const PageProfileProdi = async () => {
     }
     case 'THEMA_PRODI_TIGA_BELAS': {
       return <ProfilePageV13 />
+    }
+    case 'THEMA_PRODI_EMPAT_BELAS': {
+      return <ProfilePageV14 />
     }
   }
 }

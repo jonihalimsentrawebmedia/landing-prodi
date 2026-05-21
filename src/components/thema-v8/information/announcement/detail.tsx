@@ -61,7 +61,7 @@ const AnnouncementDetailPageV8 = () => {
               {detail?.judul_pengumuman}
             </p>
             <p className="flex items-center gap-1.5">
-              <QuilWrite className={'stroke-primary'} /> {detail?.penulis ?? 'TIM HUMAS'}
+              <QuilWrite /> {detail?.penulis ?? 'TIM HUMAS'}
             </p>
             <p className="flex items-center gap-1.5">
               <MdDateRange className={'size-6 text-primary'} />

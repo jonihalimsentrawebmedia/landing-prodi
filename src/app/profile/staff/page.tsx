@@ -11,6 +11,7 @@ import ProfileStaffV9 from '@/components/thema-v9/profile/staff'
 import ProfileStaffV10 from '@/components/thema-v10/profile/staff'
 import ProfileStaffV11 from '@/components/thema-v11/profile/staff'
 import ProfileStaffV13 from '@/components/thema-v13/profile/staff'
+import ProfileStaffV14 from '@/components/thema-v14/profile/staff'
 
 const StaffProfilePage = async () => {
   const themes = await FetchResAPI('/public-prodi/public')
@@ -58,6 +59,9 @@ const StaffProfilePage = async () => {
     }
     case 'THEMA_PRODI_TIGA_BELAS': {
       return <ProfileStaffV13 />
+    }
+    case 'THEMA_PRODI_EMPAT_BELAS': {
+      return <ProfileStaffV14 />
     }
   }
 }

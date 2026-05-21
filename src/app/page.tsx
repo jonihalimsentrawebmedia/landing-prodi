@@ -12,6 +12,7 @@ import HomeTheme10 from '@/components/thema-v10/homepage'
 import HomeTheme11 from '@/components/thema-v11/homepage'
 import HomeTheme12 from '@/components/thema-v12/homepage'
 import HomeTheme13 from '@/components/thema-v13/homepage'
+import HomeTheme14 from '@/components/thema-v14/homepage'
 
 export default async function Home() {
   const themes = await FetchResAPI('/public-prodi/public')
@@ -59,6 +60,9 @@ export default async function Home() {
     }
     case 'THEMA_PRODI_TIGA_BELAS': {
       return <HomeTheme13 />
+    }
+    case 'THEMA_PRODI_EMPAT_BELAS': {
+      return <HomeTheme14 />
     }
   }
 }

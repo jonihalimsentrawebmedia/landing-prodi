@@ -46,7 +46,7 @@ const DetailPromotionV10 = () => {
           <div className="space-y-4 w-full">
             <p className="lg:text-2xl font-semibold">{detail?.judul}</p>
             <p className="flex items-center gap-1.5">
-              <QuilWrite className={'stroke-primary'} /> {detail?.penulis ?? 'TIM HUMAS'}
+              <QuilWrite /> {detail?.penulis ?? 'TIM HUMAS'}
             </p>
             <p className="flex items-center gap-1.5">
               <MdDateRange className={'size-6 text-primary'} />

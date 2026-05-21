@@ -11,6 +11,7 @@ import ProfileContactV9 from '@/components/thema-v9/profile/contact'
 import ProfileContactV10 from '@/components/thema-v10/profile/contact'
 import ProfileContactV11 from '@/components/thema-v11/profile/contact'
 import ProfileContactV13 from '@/components/thema-v13/profile/contact'
+import ProfileContactV14 from '@/components/thema-v14/profile/contact'
 
 const ProfileContactUsPage = async () => {
   const themes = await FetchResAPI('/public-prodi/public')
@@ -58,6 +59,9 @@ const ProfileContactUsPage = async () => {
     }
     case 'THEMA_PRODI_TIGA_BELAS': {
       return <ProfileContactV13 />
+    }
+    case 'THEMA_PRODI_EMPAT_BELAS': {
+      return <ProfileContactV14 />
     }
   }
 }

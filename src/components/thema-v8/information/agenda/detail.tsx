@@ -47,7 +47,7 @@ const AgendaDetailPageV8 = () => {
             <div className="w-full lg:w-1/2 space-y-2">
               <p className="lg:text-2xl font-semibold">{detail?.judul}</p>
               <p className="flex items-center gap-1.5">
-                <QuilWrite className={'stroke-primary'} /> {detail?.penulis ?? 'TIM HUMAS'}
+                <QuilWrite/> {detail?.penulis ?? 'TIM HUMAS'}
               </p>
               <p className="flex items-center gap-1.5">
                 <MdDateRange className={'size-6 text-primary'} />

@@ -52,15 +52,14 @@ const DetailNewsPageV10 = () => {
           <p className="lg:text-3xl font-semibold">{newsDetail?.judul}</p>
           <div className="flex flex-col items-start gap-2.5">
             <p className="flex items-center gap-1.5">
-              <QuilWrite className={'stroke-primary'} /> {newsDetail?.penulis ?? 'TIM HUMAS'}
+              <QuilWrite /> {newsDetail?.penulis ?? 'TIM HUMAS'}
             </p>
             <p className="flex items-center gap-1.5">
               <MdDateRange className={'size-6 text-primary'} />
               {newsDetail?.tanggal_berita ? format(newsDetail.tanggal_berita, 'dd-MM-yyyy') : ''}
             </p>
             <p className="flex items-center gap-1.5">
-              <Folder className={'stroke-primary'} />{' '}
-              {newsDetail?.nama_kategori_berita ?? 'TIM HUMAS'}
+              <Folder /> {newsDetail?.nama_kategori_berita ?? 'TIM HUMAS'}
             </p>
           </div>
 

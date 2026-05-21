@@ -11,6 +11,7 @@ import ProfileStructureV9 from '@/components/thema-v9/profile/structure'
 import ProfileStructureV10 from '@/components/thema-v10/profile/structure'
 import ProfileStructureV11 from '@/components/thema-v11/profile/structure'
 import ProfileStructureV13 from '@/components/thema-v13/profile/structure'
+import ProfileStructureV14 from '@/components/thema-v14/profile/structure'
 
 const StructureOrganizationPage = async () => {
   const themes = await FetchResAPI('/public-prodi/public')
@@ -58,6 +59,9 @@ const StructureOrganizationPage = async () => {
     }
     case 'THEMA_PRODI_TIGA_BELAS': {
       return <ProfileStructureV13 />
+    }
+    case 'THEMA_PRODI_EMPAT_BELAS': {
+      return <ProfileStructureV14 />
     }
   }
 }

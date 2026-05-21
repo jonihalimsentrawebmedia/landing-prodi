@@ -16,6 +16,7 @@ const poppins = Poppins({
   display: 'swap', // Prevents layout shift
   variable: '--font-poppins', // Recommended for global use
 })
+
 export async function generateMetadata(): Promise<Metadata> {
   const data = await FetchResAPI('/public-prodi/profil')
   const profile: IProfileResponse = data?.data

@@ -11,6 +11,7 @@ import LecturerProfilePageV9 from '@/components/thema-v9/profile/lecturer'
 import LecturerProfilePageV10 from '@/components/thema-v10/profile/lecturer'
 import LecturerProfilePageV11 from '@/components/thema-v11/profile/lecturer'
 import LecturerProfilePageV13 from '@/components/thema-v13/profile/lecturer'
+import LecturerProfilePageV14 from '@/components/thema-v14/profile/lecturer'
 
 const LecturerProfilePage = async () => {
   const themes = await FetchResAPI('/public-prodi/public')
@@ -58,6 +59,9 @@ const LecturerProfilePage = async () => {
     }
     case 'THEMA_PRODI_TIGA_BELAS': {
       return <LecturerProfilePageV13 />
+    }
+    case 'THEMA_PRODI_EMPAT_BELAS': {
+      return <LecturerProfilePageV14 />
     }
   }
 }
