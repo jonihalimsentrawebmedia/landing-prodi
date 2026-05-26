@@ -20,10 +20,11 @@ import DarkModeToggle from '@/components/thema-v5/component/common/darkmode'
 
 interface props {
   profile?: IProfileResponse | null
+  className?: string
 }
 
 export const SheetMenu = (props: props) => {
-  const { profile } = props
+  const { profile, className } = props
 
   const [open, setOpen] = useState(false)
   const [client, setClient] = useState(false)
@@ -62,7 +63,10 @@ export const SheetMenu = (props: props) => {
             </div>
           </SheetTrigger>
 
-          <SheetContent className={'w-80 z-[52] gap-0 bg-footer'} showCloseButton={false}>
+          <SheetContent
+            className={`w-80 z-[52] gap-0 bg-footer ${className ?? ''}`}
+            showCloseButton={false}
+          >
             <SheetHeader className={'p-2'}>
               <SheetTitle>
                 <div className={'flex items-center gap-2'}>

@@ -17,16 +17,16 @@ const JumbotronSliderV14 = () => {
   const fist = accreditation?.[0]
 
   return (
-    <div className={'w-full lg:h-[720px] relative'}>
-      <div className="absolute container-sm bottom-5 mb-4 left-1/2 z-20 transform -translate-x-1/2">
-        <div className="bg-white p-4 border-l-4 border-yellow-500 w-fit space-y-2">
+    <div className={'w-full h-[360px] lg:h-[720px] relative'}>
+      <div className="absolute container-sm bottom-5 lg:mb-4 left-1/2 z-20 transform -translate-x-1/2">
+        <div className="bg-white p-4 border-l-4 border-yellow-500 w-full lg:w-fit space-y-2">
           <div className={'p-1.5 px-3 rounded-full border-primary border-2 w-fit'}>
-            <p className="font-semibold text-primary">
+            <p className="font-semibold text-primary lg:text-base text-xs">
               {fist?.nilai_akreditas.split('_').join(' ')}
             </p>
           </div>
-          <p className="text-yellow-500 font-semibold text-xl">Selamat datang di Website Resmi</p>
-          <p className={'text-4xl font-semibold'}>
+          <p className="text-yellow-500 font-semibold text-sm lg:text-xl">Selamat datang di Website Resmi</p>
+          <p className={'lg:text-4xl font-semibold'}>
             {profile?.SatuanOrganisasi?.kode_jenjang} - {profile?.SatuanOrganisasi?.nama}
           </p>
           <div className="flex items-center gap-2.5">
@@ -61,7 +61,7 @@ const JumbotronSliderV14 = () => {
               <Image
                 src={row?.gambar_url}
                 alt={'carousel'}
-                className={'w-full h-[720px] object-cover'}
+                className={'w-full h-[360px] lg:h-[720px] object-cover'}
                 width={1920}
                 height={720}
               />

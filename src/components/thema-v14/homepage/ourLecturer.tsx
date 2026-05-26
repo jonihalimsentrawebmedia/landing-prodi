@@ -15,7 +15,7 @@ const OurLecturerHomeV14 = () => {
         <h2 className="lg:text-3xl font-semibold text-primary mx-auto border-b-[3px] border-yellow-500 pb-2.5 w-fit">
           Dosen Kami
         </h2>
-        <div className="grid grid-cols-4 gap-4 mt-8">
+        <div className="grid lg:grid-cols-4 gap-4 mt-8">
           {lecturer?.map((row, k) => (
             <div className={'border p-4 rounded-md hover:shadow-lg'} key={k}>
               <Image

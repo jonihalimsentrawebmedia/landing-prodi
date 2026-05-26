@@ -20,7 +20,7 @@ const AgendaAnnouncementHomeV14 = () => {
   return (
     <>
       <div
-        className="relative py-12 lg:py-20 bg-cover bg-center"
+        className="relative py-10 lg:py-20 bg-cover bg-center"
         style={{ backgroundImage: "url('/img/agenda.jpg')" }}
       >
         <div className="absolute inset-0 bg-linear-to-r from-white to-transparent" />
@@ -29,10 +29,10 @@ const AgendaAnnouncementHomeV14 = () => {
           <div>
             <Card className={'px-4 bg-footer border-none'}>
               <CardContent className={'bg-footer px-4 py-4'}>
-                <div className={'flex items-center justify-between'}>
+                <div className={'flex flex-col lg:flex-row gap-4 lg:items-center justify-between'}>
                   <p
                     className={
-                      'text-3xl border-l-4 border-l-yellow-500 pl-4 font-semibold text-white'
+                      'lg:text-3xl border-l-4 border-l-yellow-500 pl-4 font-semibold text-white'
                     }
                   >
                     Pengumuman Program Studi
@@ -49,7 +49,7 @@ const AgendaAnnouncementHomeV14 = () => {
                   {announcement?.map((row, k) => (
                     <div
                       key={k}
-                      className={'border-b px-4 border-gray-500 py-4 flex items-center gap-4'}
+                      className={'border-b px-4 border-gray-500 py-4 flex flex-col lg:flex-row items-center gap-4'}
                     >
                       <Image
                         src={profile?.SatuanOrganisasi?.logo ?? '/img/noimg.png'}
@@ -59,7 +59,7 @@ const AgendaAnnouncementHomeV14 = () => {
                         className={'size-[100px] w-[100px] h-[100px]'}
                       />
                       <div>
-                        <p className="text-2xl">{row?.judul_pengumuman}</p>
+                        <p className="lg:text-2xl line-clamp-2 lg:line-clamp-none">{row?.judul_pengumuman}</p>
                         <p>{row?.published_at ? format(row?.published_at, 'dd-MM-yyyy') : ''}</p>
                       </div>
                     </div>
@@ -71,10 +71,10 @@ const AgendaAnnouncementHomeV14 = () => {
           <div className={'mt-8'}>
             <Card className={'px-4 bg-footer border-none'}>
               <CardContent className={'bg-footer px-4 py-4'}>
-                <div className={'flex items-center justify-between'}>
+                <div className={'flex flex-col lg:flex-row gap-4 lg:items-center justify-between'}>
                   <p
                     className={
-                      'text-3xl border-l-4 border-l-yellow-500 pl-4 font-semibold text-white'
+                      'lg:text-3xl border-l-4 border-l-yellow-500 pl-4 font-semibold text-white'
                     }
                   >
                     Agenda Program Studi
@@ -91,7 +91,7 @@ const AgendaAnnouncementHomeV14 = () => {
                   {agenda?.map((row, k) => (
                     <div
                       key={k}
-                      className={'border-b px-4 border-gray-500 py-4 flex items-center gap-4'}
+                      className={'border-b px-4 border-gray-500 py-4 flex flex-col lg:flex-row items-center gap-4'}
                     >
                       <Image
                         src={profile?.SatuanOrganisasi?.logo ?? '/img/noimg.png'}
@@ -101,7 +101,7 @@ const AgendaAnnouncementHomeV14 = () => {
                         className={'size-[100px] w-[100px] h-[100px]'}
                       />
                       <div>
-                        <p className="text-2xl">{row?.judul}</p>
+                        <p className="lg:text-2xl line-clamp-2 lg:line-clamp-none">{row?.judul}</p>
                         <p>{row?.published_at ? format(row?.published_at, 'dd-MM-yyyy') : ''}</p>
                       </div>
                     </div>

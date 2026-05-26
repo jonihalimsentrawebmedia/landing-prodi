@@ -23,10 +23,10 @@ export const JumbotronTitleV14 = (props: Props) => {
       <div className={'w-full lg:h-[360px] relative'}>
         <div className="absolute container-sm bottom-5 mb-4 left-1/2 z-20 transform -translate-x-1/2">
           <div className="bg-white p-4 border-l-4 border-yellow-500 w-fit space-y-2">
-            <p className="text-yellow-500 font-semibold text-3xl">
+            <p className="text-yellow-500 font-semibold lg:text-3xl">
               {profile?.SatuanOrganisasi?.kode_jenjang} - {profile?.SatuanOrganisasi?.nama}
             </p>
-            <p className={'text-4xl font-semibold'}>{title}</p>
+            <p className={'text-lg lg:text-4xl font-semibold'}>{title}</p>
           </div>
         </div>
 

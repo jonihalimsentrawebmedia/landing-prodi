@@ -97,7 +97,7 @@ const HeaderLayoutThemaV14 = () => {
               <DarkModeToggle />
             </div>
             <div className="block lg:hidden">
-              <SheetMenu profile={profile} />
+              <SheetMenu className={'text-white!'} profile={profile} />
             </div>
           </div>
         </div>

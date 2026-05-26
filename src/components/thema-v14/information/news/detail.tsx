@@ -51,7 +51,7 @@ const DetailNewsPageV14 = () => {
       <div className="bg-white py-5">
         <div className="container-sm space-y-4">
           <p className="lg:text-3xl font-semibold">{newsDetail?.judul}</p>
-          <div className="flex flex-row items-start gap-4">
+          <div className="flex lg:flex-row flex-col items-start gap-4">
             <div className="flex items-center gap-1.5">
               <div className={'p-2.5 rounded-full bg-primary'}>
                 <QuilWrite color={'white'} />
