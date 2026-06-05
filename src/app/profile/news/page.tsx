@@ -12,6 +12,7 @@ import ProfileNewsV10 from '@/components/thema-v10/profile/news'
 import ProfileNewsV11 from '@/components/thema-v11/profile/news'
 import ProfileNewsV13 from '@/components/thema-v13/profile/news'
 import ProfileNewsV14 from '@/components/thema-v14/profile/news'
+import ProfileNewsV15 from '@/components/thema-v15/profile/news'
 
 const NewsProfilePage = async () => {
   const themes = await FetchResAPI('/public-prodi/public')
@@ -62,6 +63,9 @@ const NewsProfilePage = async () => {
     }
     case 'THEMA_PRODI_EMPAT_BELAS': {
       return <ProfileNewsV14 />
+    }
+    case 'THEMA_PRODI_LIMA_BELAS': {
+      return <ProfileNewsV15 />
     }
   }
 }

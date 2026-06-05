@@ -12,6 +12,7 @@ import ProfileVisionV10 from '@/components/thema-v10/profile/vision'
 import ProfileVisionV11 from '@/components/thema-v11/profile/vision'
 import ProfileVisionV13 from '@/components/thema-v13/profile/vision'
 import ProfileVisionV14 from '@/components/thema-v14/profile/vision'
+import ProfileVisionV15 from '@/components/thema-v15/profile/vision'
 
 const VisionProfilePage = async () => {
   const themes = await FetchResAPI('/public-prodi/public')
@@ -63,6 +64,9 @@ const VisionProfilePage = async () => {
     }
     case 'THEMA_PRODI_EMPAT_BELAS': {
       return <ProfileVisionV14 />
+    }
+    case 'THEMA_PRODI_LIMA_BELAS': {
+      return <ProfileVisionV15 />
     }
   }
 }

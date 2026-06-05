@@ -8,16 +8,18 @@ interface props {
   page?: string
   limit?: string
   no_include_id?: string
+  search?: string
 }
 
 export const UseGetAccreditation = (props?: props) => {
-  const { page, limit, no_include_id } = props ?? {}
+  const { page, limit, no_include_id, search } = props ?? {}
   const [accreditation, setAccreditation] = useState<IAccreditation[]>([])
   const [meta, setMeta] = useState<Meta>()
 
   const ParamsSearch = new URLSearchParams()
   if (page) ParamsSearch.append('page', page)
   if (limit) ParamsSearch.append('limit', limit)
+  if (search) ParamsSearch.append('search', search)
   if (no_include_id) ParamsSearch.append('no-include-id', no_include_id)
 
   const { data, isFetching, isLoading } = useQuery({

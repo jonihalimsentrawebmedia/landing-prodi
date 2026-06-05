@@ -71,6 +71,9 @@ const LayoutBase = async (props: props) => {
     case 'THEMA_PRODI_EMPAT_BELAS': {
       return <LayoutBaseTheme14>{children}</LayoutBaseTheme14>
     }
+    case 'THEMA_PRODI_LIMA_BELAS': {
+      return <LayoutBaseTheme12>{children}</LayoutBaseTheme12>
+    }
   }
 }
 

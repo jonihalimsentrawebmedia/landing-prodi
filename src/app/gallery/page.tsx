@@ -12,6 +12,7 @@ import GalleryPageV10 from '@/components/thema-v10/gallery'
 import GalleryPageV11 from '@/components/thema-v11/gallery'
 import GalleryPageV13 from '@/components/thema-v13/gallery'
 import GalleryPageV14 from '@/components/thema-v14/gallery'
+import GalleryPageV15 from '@/components/thema-v15/gallery'
 
 const GalleryPage = async () => {
   const themes = await FetchResAPI('/public-prodi/public')
@@ -62,6 +63,9 @@ const GalleryPage = async () => {
     }
     case 'THEMA_PRODI_EMPAT_BELAS': {
       return <GalleryPageV14 />
+    }
+    case 'THEMA_PRODI_LIMA_BELAS': {
+      return <GalleryPageV15 />
     }
   }
 }
