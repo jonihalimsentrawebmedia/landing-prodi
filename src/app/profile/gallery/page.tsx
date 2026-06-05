@@ -13,6 +13,7 @@ import ProfileGallerySectionV11 from '@/components/thema-v11/profile/gallery'
 import ProfileGallerySectionV13 from '@/components/thema-v13/profile/gallery'
 import ProfileGallerySectionV14 from '@/components/thema-v14/profile/gallery'
 import ProfileGalleryV15 from '@/components/thema-v15/profile/gallery'
+import ProfileGalleryV16 from '@/components/thema-v16/profile/gallery'
 
 const GalleryProfilePage = async () => {
   const themes = await FetchResAPI('/public-prodi/public')
@@ -66,6 +67,9 @@ const GalleryProfilePage = async () => {
     }
     case 'THEMA_PRODI_LIMA_BELAS': {
       return <ProfileGalleryV15 />
+    }
+    case 'THEMA_PRODI_ENAM_BELAS': {
+      return <ProfileGalleryV16 />
     }
   }
 }

@@ -13,6 +13,7 @@ import CurriculumPageV11 from '@/components/thema-v11/Curriculum'
 import CurriculumPageV13 from '@/components/thema-v13/Curriculum'
 import CurriculumPageV14 from '@/components/thema-v14/curriculum'
 import CurriculumPageV15 from '@/components/thema-v15/curriculum'
+import CurriculumPageV16 from '@/components/thema-v16/curriculum'
 
 const CurriculumPage = async () => {
   const data = await FetchResAPI('/public-prodi/kurikulum?page=0&limit=0')
@@ -68,6 +69,9 @@ const CurriculumPage = async () => {
     }
     case 'THEMA_PRODI_LIMA_BELAS': {
       return <CurriculumPageV15 data={data?.data} />
+    }
+    case 'THEMA_PRODI_ENAM_BELAS': {
+      return <CurriculumPageV16 data={data?.data} />
     }
   }
 }

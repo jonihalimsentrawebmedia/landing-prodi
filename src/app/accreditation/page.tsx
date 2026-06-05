@@ -13,6 +13,7 @@ import AccreditationPageV11 from '@/components/thema-v11/Accreditation'
 import AccreditationPageV13 from '@/components/thema-v13/Accreditation'
 import AccreditationPageV14 from '@/components/thema-v14/accreditation'
 import AccreditationPageV15 from '@/components/thema-v15/accreditation'
+import AccreditationPageV16 from '@/components/thema-v16/accreditation'
 
 const AccreditationPage = async () => {
   const themes = await FetchResAPI('/public-prodi/public')
@@ -66,6 +67,9 @@ const AccreditationPage = async () => {
     }
     case 'THEMA_PRODI_LIMA_BELAS': {
       return <AccreditationPageV15 />
+    }
+    case 'THEMA_PRODI_ENAM_BELAS': {
+      return <AccreditationPageV16 />
     }
   }
 }

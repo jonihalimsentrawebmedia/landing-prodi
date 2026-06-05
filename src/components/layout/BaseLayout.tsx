@@ -14,6 +14,7 @@ import LayoutBaseTheme11 from '@/components/thema-v11/component/layout'
 import LayoutBaseTheme12 from '@/components/thema-v12/component/layout'
 import LayoutBaseTheme13 from '@/components/thema-v13/component'
 import LayoutBaseTheme14 from '@/components/thema-v14/component'
+import LayoutBaseTheme16 from '@/components/thema-v16/component/layout'
 
 interface props {
   children: ReactNode
@@ -73,6 +74,9 @@ const LayoutBase = async (props: props) => {
     }
     case 'THEMA_PRODI_LIMA_BELAS': {
       return <LayoutBaseTheme12>{children}</LayoutBaseTheme12>
+    }
+    case 'THEMA_PRODI_ENAM_BELAS': {
+      return <LayoutBaseTheme16>{children}</LayoutBaseTheme16>
     }
   }
 }
