@@ -19,7 +19,7 @@ const NewsHomeSectionV12 = () => {
 
   return (
     <>
-      <div className="py-5 bg-primary/10 dark:bg-gray-800">
+      <div className="py-5 bg-transparent dark:bg-gray-800">
         <div className="container-sm py-5">
           <h2 className="lg:text-3xl font-semibold text-primary mx-auto border-b-[3px] border-yellow-500 pb-2.5 w-fit">
             Berita Program Studi
@@ -63,7 +63,10 @@ const NewsHomeSectionV12 = () => {
           </div>
 
           <div className="hidden lg:flex items-start gap-6 lg:gap-8 mt-8">
-            <div className="w-1/2 flex flex-col gap-3">
+            <Link
+              href={`/information/news/${FirstNews?.slug}`}
+              className="w-1/2 flex flex-col gap-3"
+            >
               <Image
                 src={FirstNews?.gambar ?? '/img/noimg.png'}
                 alt={'image'}
@@ -88,11 +91,15 @@ const NewsHomeSectionV12 = () => {
                 className={'flex items-center gap-2 html-class line-clamp-3! html-class'}
                 dangerouslySetInnerHTML={{ __html: FirstNews?.isi_berita ?? '' }}
               />
-            </div>
+            </Link>
 
             <div className="w-1/2 flex flex-col gap-6">
               {SecondNews?.map((row, index) => (
-                <div key={index} className={'flex items-stretch gap-4'}>
+                <Link
+                  href={`/information/news/${row?.slug}`}
+                  key={index}
+                  className={'flex items-stretch gap-4'}
+                >
                   <Image
                     src={row?.gambar}
                     alt={'gambr'}
@@ -119,7 +126,7 @@ const NewsHomeSectionV12 = () => {
                       dangerouslySetInnerHTML={{ __html: FirstNews?.isi_berita ?? '' }}
                     />
                   </div>
-                </div>
+                </Link>
               ))}
             </div>
           </div>

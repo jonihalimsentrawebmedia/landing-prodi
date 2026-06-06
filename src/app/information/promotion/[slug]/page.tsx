@@ -11,6 +11,8 @@ import DetailPromotionV10 from '@/components/thema-v10/information/promotion/det
 import DetailPromotionPageV11 from '@/components/thema-v11/information/promotion/detail'
 import DetailPromotionPageV13 from '@/components/thema-v13/information/promotion/detail'
 import DetailPromotionPageV14 from '@/components/thema-v14/information/promotion/detail'
+import DetailPromotionV15 from '@/components/thema-v15/information/promotion/detail'
+import DetailPromotionV16 from '@/components/thema-v16/information/promotion/detail'
 
 const DetailPromotionPage = async () => {
   const themes = await FetchResAPI('/public-prodi/public')
@@ -61,6 +63,12 @@ const DetailPromotionPage = async () => {
     }
     case 'THEMA_PRODI_EMPAT_BELAS': {
       return <DetailPromotionPageV14 />
+    }
+    case 'THEMA_PRODI_LIMA_BELAS': {
+      return <DetailPromotionV15 />
+    }
+    case 'THEMA_PRODI_ENAM_BELAS': {
+      return <DetailPromotionV16 />
     }
   }
 }

@@ -13,6 +13,7 @@ import InformationPromotionV11 from '@/components/thema-v11/information/promotio
 import InformationPromotionV13 from '@/components/thema-v13/information/promotion'
 import InformationPromotionV14 from '@/components/thema-v14/information/promotion'
 import InformationPromotionV15 from '@/components/thema-v15/information/promotion'
+import InformationPromotionV16 from '@/components/thema-v16/information/promotion'
 
 const PromotionPage = async () => {
   const themes = await FetchResAPI('/public-prodi/public')
@@ -66,6 +67,9 @@ const PromotionPage = async () => {
     }
     case 'THEMA_PRODI_LIMA_BELAS': {
       return <InformationPromotionV15 />
+    }
+    case 'THEMA_PRODI_ENAM_BELAS': {
+      return <InformationPromotionV16 />
     }
   }
 }

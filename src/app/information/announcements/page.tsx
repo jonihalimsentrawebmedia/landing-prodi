@@ -13,6 +13,7 @@ import AnnouncementInformationV11 from '@/components/thema-v11/information/annou
 import AnnouncementInformationV13 from '@/components/thema-v13/information/announcement'
 import AnnouncementInformationV14 from '@/components/thema-v14/information/announcement'
 import AnnouncementInformationV15 from '@/components/thema-v15/information/announcement'
+import AnnouncementInformationV16 from '@/components/thema-v16/information/announcement'
 
 const InfoAnnouncementsPage = async () => {
   const themes = await FetchResAPI('/public-prodi/public')
@@ -66,6 +67,9 @@ const InfoAnnouncementsPage = async () => {
     }
     case 'THEMA_PRODI_LIMA_BELAS': {
       return <AnnouncementInformationV15 />
+    }
+    case 'THEMA_PRODI_ENAM_BELAS': {
+      return <AnnouncementInformationV16 />
     }
   }
 }

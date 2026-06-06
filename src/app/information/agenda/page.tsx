@@ -13,6 +13,7 @@ import AgendaInformationPageV11 from '@/components/thema-v11/information/agenda'
 import AgendaInformationPageV13 from '@/components/thema-v13/information/agenda'
 import AgendaInformationPageV14 from '@/components/thema-v14/information/agenda'
 import AgendaInformationPageV15 from '@/components/thema-v15/information/agenda'
+import AgendaInformationPageV16 from '@/components/thema-v16/information/agenda'
 
 const AgendaPage = async () => {
   const themes = await FetchResAPI('/public-prodi/public')
@@ -66,6 +67,9 @@ const AgendaPage = async () => {
     }
     case 'THEMA_PRODI_LIMA_BELAS': {
       return <AgendaInformationPageV15 />
+    }
+    case 'THEMA_PRODI_ENAM_BELAS': {
+      return <AgendaInformationPageV16 />
     }
   }
 }
